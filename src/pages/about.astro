@@ -1,0 +1,53 @@
+---
+import Footer from '../components/Footer.astro';
+import Nav from '../components/Nav.astro';
+import Head from '../components/Head.astro';
+
+let title = 'about'
+
+const SKULL_COLORS = ['#ff0000', '#ffff00', '#0040ff','#ff00ff', '#00ff00'];
+const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.length)];
+---
+
+<html lang="en-us">
+  <head>
+    <Head title={title} color={colorOfTheDay} />
+  </head>
+
+  <body>
+    <Nav />
+
+    <div class="wrapper">
+      <div itemScope itemType="http://schema.org/Person">
+        <img alt="Drew" height="1000" itemProp="photo" src="/assets/drewpowers.jpg" width="2000"/>
+        <p>
+          My name is
+          <span itemProp="name">Drew Powers</span>.
+          I’ve been building websites and spending way too much time online for over a decade. I’m passionate about using technology as an
+          equalizer, both in my work and sharing what I know on this blog.
+        </p>
+        <p>
+          Some things I believe (in no particular order):
+        </p>
+        <ol>
+          <li>good ideas should be put into practice, even if they’re old, <a href="https://www.discovermagazine.com/the-sciences/physics-proves-it-everyone-should-shoot-granny-style" target="_blank">even if they’re unpopular</a></li>
+          <li>intent doesn’t matter; impact does</li>
+          <li>clear intentions make lasting relationships</li>
+          <li>i can always change my mind with new information</li>
+          <li>always be kind</li>
+        </ol>
+        <p>
+          Have a question, or a suggestion for something you’d like me to write about? Shoot me an
+          <a href="mailto:drew@pow.rs?subject=Hi-di-ho,%20neighbor!">email</a>
+          or
+          <a href="https://twitter.com/drwpow" rel="noopener noreferrer" target="_blank">tweet</a>.
+        </p>
+        <p>
+          Take a tour through the Drewseum, won’t you?<br />
+          <a href="https://2010.pow.rs">2010</a> / <a href="https://2011.pow.rs">2011</a> / <a href="https://2013.pow.rs">2013</a> / <a href="https://2016.pow.rs">2016</a> / <a href="https://2017.pow.rs">2017</a>
+        </p>
+      </div>
+    </div>
+    <Footer />
+  </body>
+</html>

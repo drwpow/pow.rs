@@ -1,0 +1,71 @@
+<style lang="scss">
+  .stack-wrapper {
+    position: relative;
+    height: 6rem;
+    margin-bottom: 1.5rem;
+
+    > .layer {
+      background-color: orangered;
+      > .layer {
+        background-color: rebeccapurple;
+        > .layer {
+          background-color: coral;
+          > .layer {
+            background-color: turquoise;
+            > .layer {
+              background-color: blueviolet;
+              > .layer {
+                background-color: tomato;
+                > .layer {
+                  background-color: royalblue;
+                  > .layer {
+                    background-color: orange;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .layer {
+    animation: sway 8s cubic-bezier(0.5, 0, 0.5, 1) infinite, shift 11s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    background-color: orange;
+    bottom: 0;
+    height: 0.55rem;
+    left: 50%;
+    margin-left: -1.5rem;
+    position: absolute;
+    transform-origin: 50% 100%;
+    transform: translateX(-0.25rem) translateY(calc(-100% - 4px)) rotate(-6deg);
+    width: 3rem;
+  }
+
+  @keyframes sway {
+    50% {
+      transform: translateX(0.25rem) translateY(calc(-100% - 4px)) rotate(6deg);
+    }
+  }
+</style>
+
+<div class="stack-wrapper">
+  <div class="layer">
+    <div class="layer">
+      <div class="layer">
+        <div class="layer">
+          <div class="layer">
+            <div class="layer">
+              <div class="layer">
+                <div class="layer"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<slot />

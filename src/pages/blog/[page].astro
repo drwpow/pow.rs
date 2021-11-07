@@ -1,0 +1,42 @@
+---
+import BlogPost from '../../components/BlogPost.astro';
+import Head from '../../components/Head.astro';
+import Footer from '../../components/Footer.astro';
+import Nav from '../../components/Nav.astro';
+
+const { page } = Astro.props;
+
+export async function getStaticPaths({ paginate, rss }) {
+  const allPosts = Astro.fetchContent('./**/*.md');
+  const sortedPosts = allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  rss({
+    title: 'drew powers',
+    description: 'personal blog',
+    items: sortedPosts.map((item) => ({
+      title: item.title,
+      description: item.description,
+      link: item.url,
+      pubDate: item.date,
+    })),
+    dest: "/blog.xml",
+  });
+  return paginate(sortedPosts, { pageSize: 10 });
+}
+---
+<html lang="en-us">
+  <head>
+    <Head title="blog" />
+  </head>
+
+  <body>
+    <Nav />
+
+    <div class="wrapper" itemscope itemtype="https://schema.org/Blog">
+      {page.data.map((blogPost) => (
+        <BlogPost post={blogPost} />
+      ))}
+    </div>
+
+    <Footer />
+  </body>
+</html>

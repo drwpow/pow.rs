@@ -1,0 +1,60 @@
+<style lang="scss">
+  .letters {
+    height: 8rem;
+    position: relative;
+  }
+
+  .letter {
+    animation: glide 5s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    color: rgba(240, 0, 255, 0.1);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    height: 1em;
+    left: 50%;
+    margin-top: -1.5em;
+    -webkit-text-stroke-width: 0.375px;
+    -webkit-text-stroke-color: magenta;
+    text-stroke-width: 0.375px;
+    text-stroke-color: magenta;
+    position: absolute;
+    transform: scale(0.75);
+    top: 50%;
+
+    &:nth-child(2) {
+      animation-delay: 0.3s;
+      animation-duration: 3s;
+    }
+    &:nth-child(3) {
+      animation-delay: 0.6s;
+      animation-duration: 7s;
+    }
+    &:nth-child(4) {
+      animation-delay: 0.9s;
+      animation-duration: 11s;
+    }
+    &:nth-child(5) {
+      animation-delay: 1.2s;
+      animation-duration: 13s;
+    }
+    &:nth-child(6) {
+      animation-delay: 1.5s;
+      animation-duration: 17s;
+    }
+  }
+
+  @keyframes glide {
+    50% {
+      transform: scale(3);
+    }
+  }
+</style>
+
+<div class="letters">
+  <div class="letter">A</div>
+  <div class="letter">A</div>
+  <div class="letter">A</div>
+  <div class="letter">A</div>
+</div>
+
+<slot />

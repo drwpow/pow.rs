@@ -1,0 +1,59 @@
+<style lang="scss">
+  .cursors {
+    position: relative;
+    margin: 5rem auto;
+    padding: 2rem auto;
+    width: 128px;
+    height: 32px;
+  }
+
+  .cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 32px;
+    mix-blend-mode: multiply;
+    animation: slide 3s infinite cubic-bezier(0.5, 0, 0.5, 1);
+  }
+
+  :global(.theme--dark .cursor) {
+    mix-blend-mode: screen;
+  }
+
+  .cursor:nth-child(1) {background: limegreen; animation-delay: 0.1s;}
+  .cursor:nth-child(2) {background: orange; animation-delay: 0.2s;}
+  .cursor:nth-child(3) {background: violet; animation-delay: 0.3s;}
+  .cursor:nth-child(4) {background: red; animation-delay: 0.4s;}
+  .cursor:nth-child(5) {background: cyan; animation-delay: 0.5s;}
+
+  .cursor::before,
+  .cursor::after {
+    background: inherit;
+    content: "";
+    width: 16px;
+    height: 2px;
+    display: block;
+    position: absolute;
+    left: -7px;
+  }
+
+  .cursor::before { top: 0; }
+  .cursor::after { bottom: 0; }
+
+  @keyframes slide {
+    50% {
+      transform: translateX(128px);
+    }
+  }
+</style>
+
+<div class="cursors">
+  <div class="cursor"></div>
+  <div class="cursor"></div>
+  <div class="cursor"></div>
+  <div class="cursor"></div>
+  <div class="cursor"></div>
+</div>
+
+<slot />

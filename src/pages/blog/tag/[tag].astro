@@ -1,0 +1,40 @@
+---
+import BlogPost from '../../../components/BlogPost.astro';
+import Footer from '../../../components/Footer.astro';
+import Head from '../../../components/Head.astro';
+import Nav from '../../../components/Nav.astro';
+
+const { tag } = Astro.request.params;
+const { posts } = Astro.props;
+
+export async function getStaticPaths() {
+  const posts = Astro.fetchContent('../**/*.md');
+  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  const tags = new Set();
+  for (const post of posts) {
+    if (Array.isArray(post.tags)) {
+      for (const tag of post.tags) {
+        tags.add(tag);
+      }
+    }
+  }
+  return [...tags].map((tag) => ({
+    params: { tag },
+    props: { posts: posts.filter((post) => Array.isArray(post.tags) && post.tags.includes(tag)) },
+  }));
+}
+---
+<html lang="en-us">
+  <head>
+    <Head title={`Tagged: ${tag}`} />
+  </head>
+  <body>
+    <Nav />
+
+    <div class="wrapper">
+      {posts.map((post) => (<BlogPost post={post} />))}
+    </div>
+
+    <Footer />
+  </body>
+</html>

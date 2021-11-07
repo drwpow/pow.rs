@@ -1,0 +1,354 @@
+---
+import Footer from '../components/Footer.astro';
+import Head from '../components/Head.astro';
+import Nav from '../components/Nav.astro';
+
+
+const SKULL_COLORS = ['#ff0000', '#ffff00', '#0040ff','#ff00ff', '#00ff00'];
+const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.length)];
+---
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <Head title="Work" color={colorOfTheDay} />
+    <style lang="scss">
+    .portfolio {
+      margin-top: 4rem;
+    }
+
+    .portfolio-content {
+      position: relative;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      z-index: 10;
+
+      @media (min-width: 1100px) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    .portfolio-item {
+      counter-reset: image;
+      margin-bottom: 100px;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 100%;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      position: relative;
+      width: 1080px;
+      z-index: 10;
+    }
+
+    .portfolio-link {
+      color: var(--interactive);
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .portfolio-media {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 24px;
+      padding-top: 48.5%;
+      position: relative;
+      width: 100%;
+    }
+
+    .portfolio-media-img {
+      position: absolute;
+      animation: portfolioSlideOut 250ms ease-out;
+      animation-fill-mode: forwards;
+      background-color: var(--bg);
+      cursor: pointer;
+      height: 0;
+      right: 0;
+      top: 0;
+      padding-top: 16.2037%;
+      counter-increment: image;
+      overflow: hidden;
+      transform: translateZ(0);
+      transition: opacity 200ms;
+      width: 16.2037%;
+
+      &::after {
+        align-items: center;
+        box-shadow: 0 0 0 2px currentColor;
+        content: counter(image);
+        display: flex;
+        font-size: 14px;
+        height: 20px;
+        justify-content: center;
+        pointer-events: none;
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        width: 20px;
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &[data-selected] {
+        animation: portfolioSlideIn 250ms ease-in-out;
+        animation-fill-mode: forwards;
+        overflow: hidden;
+        position: absolute;
+        z-index: 20;
+      }
+
+      img {
+        height: 100%;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        max-width: none;
+        transform: translate(-50%, -50%);
+        width: auto;
+      }
+
+      &:nth-of-type(odd) {
+        right: 16.2037%;
+      }
+      &:nth-of-type(3),
+      &:nth-of-type(4) {
+        top: 33.33333%;
+      }
+      &:nth-of-type(5),
+      &:nth-of-type(6) {
+        top: 66.66666%;
+      }
+    }
+
+    .portfolio-role {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    .portfolio-text {
+      margin-bottom: 24px;
+      margin-top: 16px;
+
+      @media (min-width: 600px) {
+        display: grid;
+        grid-column-gap: 16px;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-top: 32px;
+      }
+
+      a {
+        color: var(--interactive);
+        text-decoration: none;
+      }
+
+      p {
+        font-size: var(--f-d2);
+        line-height: 1.5;
+        margin: 16px 0;
+
+        @media (min-width: 600px) {
+          margin: 0;
+        }
+      }
+    }
+
+    .portfolio-title {
+      font-size: var(--f-u4);
+      font-weight: 500;
+      margin: 0;
+    }
+
+    @keyframes portfolioSlideOut {
+      from {
+        padding-top: 48.6%;
+        right: 34%;
+        top: 0;
+        width: 66%;
+      }
+    }
+
+    @keyframes portfolioSlideIn {
+      to {
+        padding-top: 48.6%;
+        right: 34%;
+        top: 0;
+        width: 66%;
+      }
+    }
+    </style>
+  </head>
+  <body>
+    <Nav />
+
+    <div class="portfolio">
+      <h2 class="tac mt0 mb4">Selected Work</h2>
+      <section class="portfolio-item">
+        <div class="portfolio-media">
+          {['01.gif', '02.gif', '03.gif', '04.gif', '05.gif', '06.gif'].map((file) => (
+            <div class="portfolio-media-img"><img alt="Little Known Goods screenshot by Drew Powers" height="600" loading="lazy" src={`/assets/portfolio/little-known-goods-${file}`} width="800"/></div>
+          ))}
+        </div>
+        <div class="portfolio-content">
+          <h3 class="portfolio-title">Little Known Goods</h3>
+          <h3 class="portfolio-role">UX / Design / Dev</h3>
+          <div class="portfolio-text">
+            <p>Little Known Goods is a maps, art prints, and goods company and a joint venture between
+              <a href="https://hillerypowers.com" rel="noopener noreferrer" target="_blank">Hillery Powers</a>
+              and myself. Being mostly an ecommerce site, there are special attention to details in unnoticeable places that have huge payoffs. First, carousels can be a point of frustration,
+              especially if they lag or don’t behave as expected. And for the image previews on a print site, image quality is everything. The carousel progressively-loads larger images as
+              bandwidth allows, and being almost pure CSS, animates&nbsp;performantly&nbsp;[2].</p>
+            <p>Other little areas of delight over the site are added, from unexpected card shuffles [1/5] to a click-free zoom [6]. This was also a return to form (at least for me), with the
+              entire site being progressively-enhanced, framework-free, and works without JavaScript. Also, being my own client, I got to add a detail I’m rather proud of that few companies
+              allow: the hidden UX of privacy. When shopping on the site, we don’t load analytics, and we do everything possible to minimize third-party data collection. Aside from the ethical
+              part of it, tracking and analytics can really hinder UX with slow load&nbsp;times.</p>
+            <p>The site will be a work in progress for a while, but I’m still proud of its current state as a reminder you can never gloss over the basics. HTML and CSS are the backbone of the
+              web, and you can still build a darn good site in 2019 by betting&nbsp;on&nbsp;both.</p>
+          </div>
+          <a class="portfolio-link" href="https://littleknowngoods.com" target="_blank">Visit</a>
+        </div>
+      </section>
+      <section class="portfolio-item">
+        <div class="portfolio-media">
+          {['01.gif', '02.gif', '03.gif', '04.png', '05.gif', '06.gif'].map((file) => (
+            <div class="portfolio-media-img"><img alt="Manifold screenshot by Drew Powers" height="600" loading="lazy" src={`/assets/portfolio/manifold-${file}`} width="800"/></div>
+          ))}
+        </div>
+        <div class="portfolio-content">
+          <h1 class="portfolio-title">Manifold</h1>
+          <h3 class="portfolio-role">Design / Dev</h3>
+          <div class="portfolio-text">
+            <p>
+              Manifold is creating a SaaS marketplace with Dashboards, APIs, and integration tools for any platform to launch their own SaaS marketplace with little time and effort. In a startup
+              you wear many hats, and I had the privilege of leading the front-end engineering team, acted as Product Engineer, mentored, and was an Engineering People Manager for a stint.
+              <strong>Mostly, my hats were merely a disguise to sneak in animations wherever I can</strong>&nbsp;[1/2/6].
+            </p>
+            <p>
+              My journey started helping expand the Manifold Dashboard [4], building React interfaces for users to manage their services. As part of that, Nicole Tibaldi and I developed an
+              interactive invoice breakdown using React + D3.js [3] (that sadly never got shipped). Other big projects included releasing a provider management console (pivoted / currently
+              in-progress), various updates to marketing efforts, ongoing management / updates to Manifold’s web design system, and the biggest project I worked on: open-source, universal
+              <a href="https://github.com/manifoldco/ui" rel="noopener noreferrer" target="_blank">Web Component library</a>
+              (and&nbsp;<a href="https://ui.sandbox.manifold.co" rel="noopener noreferrer" target="_blank">docs</a>).&nbsp;[5]
+            </p>
+            <p>My open-source contributions grew here as well, where we open-sourced everything reasonable, like
+              <a href="https://github.com/manifoldco/swagger-to-ts" rel="noopener noreferrer" target="_blank">swagger-to-ts</a>,
+              <a href="https://github.com/manifoldco/graphql-gen" rel="noopener noreferrer" target="_blank">graphql-gen</a>, and
+              <a href="https://github.com/manifoldco/react-scroll-agent" rel="noopener noreferrer" target="_blank">react-scroll-agent</a>. Manifold is a dreamy engineering culture that cares about empathy and
+              <a href="https://blog.powertofly.com/culture-at-manifold-2638668225.html" rel="noopener noreferrer" target="_blank">diversity</a>, and I’m lucky to still be a part of&nbsp;it.</p>
+          </div>
+          <a class="portfolio-link" href="https://manifold.co" target="_blank">Visit</a>
+        </div>
+      </section>
+      <section class="portfolio-item">
+        <div class="portfolio-media">
+          {['01.jpg', '02.gif', '03.jpg', '04.jpg', '05.jpg', '06.jpg'].map((file) => (
+            <div class="portfolio-media-img"><img alt="Lineage Roasting screenshot by Drew Powers" height="600" loading="lazy" src={`/assets/portfolio/lineage-${file}`} width="800"/></div>
+          ))}
+        </div>
+        <div class="portfolio-content">
+          <h1 class="portfolio-title">Lineage Roasting</h1>
+          <h3 class="portfolio-role">UX / Design / Dev</h3>
+          <div class="portfolio-text">
+            <p>I can’t say enough about these lovely people that are changing the world with a roastery. The effort put into the quality, craft, and ethical practices to ensure every farmer
+              they source from makes a fair living wage is inspiring. And others have taken notice, too—Lineage has won national roasting competitions and usually becomes everyone’s favorite
+              roaster after discovering them. I met with Jarret &amp; Justine Johnson, the founders, and Ryan Wilcox, co-partner, to design and develop their new&nbsp;site.</p>
+            <p>They had a big year ahead of them—opening a new store, expanding operations—and needed to look more presentable to business partnerships with updating branding, new photography
+              done by the award-winning
+              <a href="https://dylonyork.com" rel="noopener noreferrer" target="_blank">Dylon York</a>
+              [4/5], and a new online presence. Their wholesale customers—the backbone of their business—also needed better information online. So we set out to keep the core shopping experience
+              but with a more on-brand look. That resulted in my editing a video for their homepage with footage they took from trips [1], and helping bring their new color system onto the site:
+              (green for dark, rich coffees; yellow for fruity coffees, pink for floral coffees, etc.)&nbsp;[2]</p>
+            <p>Also central to their pathos was having data for all their coffees, from elevation to origin to notes to sometime even the farmer’s name! [2] All of this is editable through
+              their Shopify Dashboard. The site leveraged the then-brand-new Shopify GraphQL API, and using React &amp; React Router it can navigate quickly and seamlessly after the initial
+              load. As far as client projects go, this is easily one of my all-time favorites. And I couldn’t have worked with nicer, more talented&nbsp;people.</p>
+          </div>
+          <a class="portfolio-link" href="https://lineageroasting.com" target="_blank">Visit</a>
+        </div>
+      </section>
+      <section class="portfolio-item">
+        <div class="portfolio-media">
+          {['01.jpg', '02.jpg', '03.gif', '04.gif', '05.gif', '06.jpg'].map((file) => (
+            <div class="portfolio-media-img"><img alt="Mama’s Sauce screenshot by Drew Powers" height="600" loading="lazy" src={`/assets/portfolio/mamas-sauce-${file}`} width="800"/></div>
+          ))}
+        </div>
+        <div class="portfolio-content">
+          <h1 class="portfolio-title">Mama’s Sauce</h1>
+          <h3 class="portfolio-role">UX / Design / Dev</h3>
+          <div class="portfolio-text">
+            <p>Who doesn’t love Mama? In 2015, Nick Sambrato contacted me with a better web vision for America’s favorite boutique spot printing company (according to an anecdotal poll). The
+              old WordPress blog wasn’t cutting it, especially for the sales team that arguably spent more time giving clients free letterpress masterclasses than they did actually booking jobs.
+              So after many, many conversations, we set out to build a better
+              <strike>mousetrap</strike>
+              quote form.
+              <strong>And I LOVE forms</strong>
+              (I’m not kidding).</p>
+            <p>Every part of Mama’s complex process was boiled down into a three-part funnel. First, force clients to browse printing to see what spot printing looks like. Second, see
+              estimated cost [3] (this weeded out a large number of non-clients). Third, ask serious clients very specific questions about their project in a detailed quote form [4] (I love
+              forms. They’re my favorite). This process was a great gut-check for clients to tell if they’re ready to submit. If not, they are pointed to the Design-wise™ section [5], an online
+              brain dump of pretty much everything their sales team had grown tired of repeating.</p>
+            <p>Visually, I pulled from early 20th century typographers and mid-century packaging to create a stripped-down, type-centric site that took a backseat to the vibrant photography
+              [2] while subtly hinting at Mama’s top-notch precision. The result is a website that “gets out of the way” while you’re swept up by beautiful printing. In less artsy news, the site
+              is a Ruby on Rails app with Vue.js front-end, custom CMS backend, and my family’s secret
+              <a href="https://medium.com/@drew_powers/optimizing-mamas-sauce-s-beautiful-images-2b1705b5b4" rel="noopener noreferrer" target="_blank">image optimization recipe</a>
+              for low data usage.</p>
+          </div>
+          <a class="portfolio-link" href="https://mamas-sauce.com" target="_blank">Visit</a>
+        </div>
+      </section>
+      <section class="portfolio-item">
+        <div class="portfolio-media">
+          {['01.gif', '02.gif', '03.gif', '04.jpg', '05.gif', '06.gif'].map((file) => (
+            <div class="portfolio-media-img"><img alt="Real Thread screenshot by Drew Powers" height="600" loading="lazy" src={`/assets/portfolio/real-thread-${file}`} width="800"/></div>
+          ))}
+        </div>
+        <div class="portfolio-content">
+          <h1 class="portfolio-title">Real Thread</h1>
+          <h3 class="portfolio-role">UX / Dev</h3>
+          <div class="portfolio-text">
+            <p>Real Thread reached out to Envy Labs in 2015 to alleviate some growing pains. When they approached us, their current quote form was nothing more than an email submit form that
+              piled into a sizeable stack of potential orders. Employees sometimes took days to reply with an estimate and mocked-up artwork, at which point many clients moved on to a quicker
+              printer. Assuming the client stuck around, the approval and revision process only exacerbated and dragged out each order, resulting in a slow and frustrating process on both ends.</p>
+            <p>After many in-person meetings (local clients are great for that), we examined the entire customer shopping experience of getting shirts printed, from different personas ranging
+              from novice “family gathering tee” client to professional designer client, making sure the psychology and priorites of their key demos were met. The result was a pretty slick
+              automated quote generator [3] powered by Salesforce. Drew Smith (freelancer) handled the major design and art direction for the project, while I provided UX consultation [4] and
+              lead front-end development on the project.</p>
+            <p>Customers could now not only get an instant quote—boosting Real Thread into a new online retail level—but thanks to integrating with Salesforce, customers could manage their
+              order through the whole process, and Real Thread’s backoffice had visibility into everything [5]. Thanks to Angular and front-end performance optimization, the new site performed
+              faster than their old one by a longshot.
+              <strong>The project, completed over 4 months, doubled Real Thread’s customer throughput with no work/staff changes on their part,</strong>
+              and dramatically improved customer&nbsp;satisfaction.</p>
+          </div>
+          <a class="portfolio-link" href="https://www.realthread.com" target="_blank">Visit</a>
+        </div>
+      </section>
+    </div>
+    <script>
+      const IMG_EL = ".portfolio-media-img";
+      const IS_SELECTED = "data-selected";
+      /* highlight 1st image */
+      const mediaBlock = document.querySelectorAll(".portfolio-media");
+      mediaBlock.forEach(block => {
+        block.querySelector(IMG_EL).setAttribute(IS_SELECTED, "");
+      });
+      /* handle click */
+      document.querySelectorAll(IMG_EL).forEach(img => {
+        img.addEventListener("click", el => {
+          const target = el.target.parentElement;
+          target
+            .parentElement
+            .querySelectorAll(IMG_EL)
+            .forEach(img => img.removeAttribute(IS_SELECTED));
+          target.setAttribute(IS_SELECTED, "");
+        });
+      });
+    </script>
+
+    <Footer />
+
+  </body>
+</html>

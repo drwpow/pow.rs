@@ -1,0 +1,21 @@
+---
+const { title, description, color } = Astro.props;
+---
+<title>
+  {title ? title + ' / 𝔇𝔯𝔢𝔴 𝔓𝔬𝔴𝔢𝔯𝔰' : '𝔇𝔯𝔢𝔴 𝔓𝔬𝔴𝔢𝔯𝔰'}
+</title>
+<meta charset="UTF-8"/>
+<meta content="The personal site of Drew Powers" name="description">
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" name="viewport">
+{description && <meta content={description} name="description">}
+<meta content="Drew Powers" name="author">
+<meta content={color} name="theme-color">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="IE=Edge" http-equiv="x-ua-compatible">
+<link href="/blog.xml" rel="alternate" title="RSS 2.0" type="application/rss+xml">
+<link href="/sitemap.xml" rel="sitemap">
+<link rel="icon" type="image/png" href="/dp-monogram-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/dp-monogram-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/dp-monogram-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="/dp-monogram-512.png" sizes="512x512">
+<link href={Astro.resolve('../styles/global.css')} rel="stylesheet" type="text/css">

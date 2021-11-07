@@ -1,0 +1,121 @@
+// --------------------------------------------------------
+//  General-purpose utilities
+//  Copy & paste from other libraries, or invent your own!
+// --------------------------------------------------------
+
+// Note: there’s no grid system here because that can get hairy/frustrating
+// trying to create a perfect solution for all components for all breakpoints.
+// Try handling that within your component first, and if there ends up being
+// some master grid to extract, then abstract it here.
+
+// --------------
+// (B)ack(g)round color
+// --------------
+.bg-blue { background-color: var(--blue); }
+.bg-fuschia { background-color: var(--fuschia); }
+.bg-green { background-color: var(--green); }
+
+// ----------
+//  (F)ont
+// ----------
+.f-base { font-family: var(--f-base); }
+.f-mono { font-family: var(--f-mono); }
+.f-heading { font-family: var(--f-heading); }
+
+@for $i from 1 through 18 {
+  .f-u#{$i} { font-size: var(--f-u#{$i}); }
+  .f-d#{$i} { font-size: var(--f-d#{$i}); }
+}
+
+// ----------
+//  (M)argin
+// ----------
+@for $i from 0 through 16 {
+  // absolute
+  .ma#{$i} { margin: #{$i * 0.5}rem; }
+  .my#{$i} { margin-top: #{$i * 0.5}rem; margin-bottom: #{$i * 0.5}rem; }
+  .mx#{$i} { margin-right: #{$i * 0.5}rem; margin-left: #{$i * 0.5}rem; }
+  .mt#{$i} { margin-top: #{$i * 0.5}rem; }
+  .mr#{$i} { margin-right: #{$i * 0.5}rem; }
+  .mb#{$i} { margin-bottom: #{$i * 0.5}rem; }
+  .ml#{$i} { margin-left: #{$i * 0.5}rem; }
+
+  // relative
+  .ma#{$i}r { margin: #{$i * 0.5}em; }
+  .my#{$i}r { margin-top: #{$i * 0.5}em; margin-bottom: #{$i * 0.5}em; }
+  .mx#{$i}r { margin-right: #{$i * 0.5}em; margin-left: #{$i * 0.5}em; }
+  .mt#{$i}r { margin-top: #{$i * 0.5}em; }
+  .mr#{$i}r { margin-right: #{$i * 0.5}em; }
+  .mb#{$i}r { margin-bottom: #{$i * 0.5}em; }
+  .ml#{$i}r { margin-left: #{$i * 0.5}em; }
+}
+
+// ----------
+//  (P)adding
+// ----------/
+@for $i from 0 through 16 {
+  // absolute
+  .pa#{$i} { padding: #{$i * 0.5}rem; }
+  .py#{$i} { padding-top: #{$i * 0.5}rem; padding-bottom: #{$i * 0.5}rem; }
+  .px#{$i} { padding-right: #{$i * 0.5}rem; padding-left: #{$i * 0.5}rem; }
+  .pt#{$i} { padding-top: #{$i * 0.5}rem; }
+  .pr#{$i} { padding-right: #{$i * 0.5}rem; }
+  .pb#{$i} { padding-bottom: #{$i * 0.5}rem; }
+  .pl#{$i} { padding-left: #{$i * 0.5}rem; }
+
+  // relative
+  .pa#{$i}r { padding: #{$i * 0.5}em; }
+  .py#{$i}r { padding-top: #{$i * 0.5}em; padding-bottom: #{$i * 0.5}em; }
+  .px#{$i}r { padding-right: #{$i * 0.5}em; padding-left: #{$i * 0.5}em; }
+  .pt#{$i}r { padding-top: #{$i * 0.5}em; }
+  .pr#{$i}r { padding-right: #{$i * 0.5}em; }
+  .pb#{$i}r { padding-bottom: #{$i * 0.5}em; }
+  .pl#{$i}r { padding-left: #{$i * 0.5}em; }
+}
+
+// ----------
+//  (T)ext
+// ----------
+.tac { text-align: center; }
+.tal { text-align: left; }
+.tar { text-align: right; }
+.tdn { text-decoration: none; }
+.tdu { text-decoration: underline; }
+
+.small-caps { letter-spacing: 0.0625em; text-transform: uppercase; }
+
+// --------------
+// (T)ext (C)olor
+// --------------
+.tc-blue { color: var(--blue); }
+.tc-fuschia { color: var(--fuschia); }
+.tc-green { color: var(--green); }
+
+// --------
+// Icon
+// --------
+.icon {
+  display: block;
+  width: 1em;
+  height: 1em;
+}
+
+// ---------
+// Wrapper
+// ---------
+.wrapper {
+  margin-inline-end: auto;
+  margin-inline-start: auto;
+  max-width: 45em;
+  padding-inline-end: 1.5rem;
+  padding-inline-start: 1.5rem;
+
+  @media (min-width: 600px) {
+    padding-inline-end: 2rem;
+    padding-inline-start: 2rem;
+  }
+
+  &--s {
+    max-width: 40rem;
+  }
+}

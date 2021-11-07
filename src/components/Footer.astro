@@ -1,0 +1,72 @@
+<style lang="scss">
+.footer {
+  font-size: var(--d1);
+  padding: 1.5rem;
+
+  @media (min-width: 600px) {
+    padding: 2rem;
+  }
+}
+
+.link {
+  align-items: center;
+  display: inline-flex;
+  text-decoration: none;
+}
+</style>
+
+<footer class="footer">
+  <a class="link" href="/blog.xml">
+    <svg aria-label="rss" class="icon mr1r" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <g clip-rule="evenodd" fill-rule="evenodd">
+        <path d="M3 11a1 1 0 011-1 10 10 0 0110 10 1 1 0 11-2 0 8 8 0 00-8-8 1 1 0 01-1-1z"></path>
+        <path d="M3 4a1 1 0 011-1 17 17 0 0117 17 1 1 0 11-2 0A15 15 0 004 5a1 1 0 01-1-1zM3 19a2 2 0 114 0 2 2 0 01-4 0z"></path>
+      </g>
+    </svg>
+    RSS
+  </a>
+  /
+  <a class="link" href="https://github.com/drwpow/pow.rs">
+    <svg aria-label="github" class="icon mr1r" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0)">
+        <path d="M16 23c-.6 0-1-.4-1-1v-3.9c0-.4 0-.7-.1-1.1-.1-.3-.3-.6-.5-.8-.3-.3-.4-.7-.2-1 .2-.3.5-.6.8-.7 2.9-.3 5.6-1.3 5.6-6 0-1.1-.4-2.2-1.2-3.1-.3-.3-.3-.7-.2-1 .3-.8.3-1.6.1-2.4-.5.1-1.3.4-2.6 1.3-.2.2-.5.2-.8.1-2.1-.6-4.4-.6-6.5 0-.4.1-.7.1-1-.1-1.2-.8-2.1-1.1-2.6-1.2-.2.7-.2 1.6.1 2.3.1.4.1.8-.2 1-.8.9-1.2 2-1.2 3.2 0 4.7 2.7 5.7 5.6 6 .4 0 .7.3.8.7.1.4 0 .8-.2 1-.2.2-.4.5-.5.8-.2.3-.2.7-.2 1V22c0 .6-.4 1-1 1s-1-.4-1-1v-1.7c-3 .5-4.3-1.2-5.2-2.3-.4-.5-.7-.9-1.1-1-.5-.1-.9-.7-.7-1.2.1-.5.7-.9 1.2-.7 1 .3 1.6 1 2.2 1.7.8 1.1 1.5 1.9 3.6 1.5v-.1c0-.5 0-1.2.3-1.7v-.1c-2.8-.6-5.8-2.4-5.8-7.7 0-1.5.5-2.9 1.4-4-.4-1.4-.3-2.8.3-4.1.1-.3.3-.5.6-.6.4 0 1.7-.2 4.4 1.4 2.2-.5 4.5-.5 6.6 0 2.6-1.7 4-1.5 4.4-1.4.3.1.5.3.6.6.5 1.3.6 2.6.3 3.9.9 1.1 1.4 2.5 1.4 4 0 5.7-3.4 7.2-5.8 7.8v.1c.3.6.3 1.2.3 1.8V22c0 .6-.4 1-1 1z"></path>
+      </g>
+      <defs><clipPath id="clip0"><path d="M0 0h24v24H0V0z"></path></clipPath></defs>
+    </svg>
+    GitHub
+  </a>
+  <br/>
+  this site is encrypted and uses <a href="https://www.cloudflare.com/web-analytics/" target="_blank">anonymous analytics</a>.
+  <br/>
+  built with <a href="https://github.com/snowpackjs/astro" rel="noopener noreferrer" target="_blank">Astro</a>, the best static site generator ever<br/>
+  if you’d like to support this site, tweet or share&nbsp;a&nbsp;link!
+  <script>
+    const toggle = document.getElementById('theme-switcher');
+
+    if (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)')) {
+      localStorage.setItem('theme', 'dark');
+    }
+
+    if (localStorage.getItem('theme') === 'dark') {
+      toggle.checked = true;
+    }
+    document.body.classList.add(
+      `theme--${localStorage.getItem('theme') === 'dark' ? 'dark' : 'light'}`
+    );
+
+    function darkTheme(dark) {
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+      document.body.classList.add('theme--' + (dark ? 'dark' : 'light'));
+      document.body.classList.add('theme-transition');
+      setTimeout(function () {
+        document.body.classList.remove('theme-transition');
+      }, 500);
+    }
+
+    toggle.addEventListener('change', function (evt) {
+      document.body.classList.remove('theme--dark');
+      document.body.classList.remove('theme--light');
+      darkTheme(evt.target.checked === true);
+    });
+  </script>
+</footer>

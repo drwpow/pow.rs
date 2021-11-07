@@ -1,0 +1,133 @@
+---
+import Art from '../components/Art.astro';
+import Footer from '../components/Footer.astro';
+import Head from '../components/Head.astro';
+import Nav from '../components/Nav.astro';
+import { format } from '../helpers/date.ts';
+
+const { content } = Astro.props;
+const slug = Astro.request.url.pathname.replace(/\/blog\//, '');
+
+const SKULL_COLORS = ['#ff0000', '#ffff00', '#0040ff','#ff00ff', '#00ff00'];
+const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.length)];
+---
+<html lang="en-us">
+  <head>
+    <Head title={content.title} color={colorOfTheDay} />
+
+    <style lang="scss">
+      .post-animation {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        pointer-events: none;
+
+        @media (min-width: 1200px) {
+          position: absolute;
+          top: 8rem;
+          left: 2rem;
+          width: 16rem;
+        }
+      }
+
+      .post-body {
+        @media (min-width: 600px) {
+          font-size: var(--u1);
+        }
+
+        :global(ul li) {
+          position: relative;
+          list-style: none;
+
+          &::before {
+            position: absolute;
+            top: 0.25em;
+            right: 100%;
+            margin-right: 0.75em;
+            font-size: var(--d2);
+            line-height: inherit;
+            content: "▶︎";
+            pointer-events: none;
+          }
+        }
+      }
+
+      .post-description {
+        max-width: 28em;
+        font-size: var(--u2);
+        font-style: italic;
+        line-height: 1.4;
+        margin-block-end: 0;
+        margin-block-start: 0;
+      }
+
+      .post-header {
+        box-sizing: border-box;
+      }
+
+      .post-meta {
+        display: grid;
+        grid-gap: 0.5rem 1rem;
+        grid-template-columns: min-content auto;
+        align-items: center;
+
+        &-value {
+          margin: 0;
+        }
+      }
+
+      .post-title {
+        margin-top: 0;
+      }
+
+      .post-yt {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-top: 56.25%;
+
+        iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      /* highlight.js */
+      .hljs-comment {
+        opacity: 0.625;
+      }
+    </style>
+  </head>
+
+  <body>
+    <Nav />
+
+    <div class="wrapper">
+      <article class="post-body" itemscope itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+          <div class="post-animation"><Art id={slug} /></div>
+          <h1 itemprop="headline">{content.title}</h1>
+          <dl class="post-meta">
+            <dt class="post-meta-key">published</dt>
+            <dd class="post-meta-value"><time datetime={content.date}>{format(content.date)}</time></dd>
+            {content.updated && <dt class="post-meta-key">updated</dt>}
+            {content.updated && <dd class="post-meta-value"><time datetime={content.updated}>{format(content.updated)}</time></dd>}
+            <dt class="post-meta-key">tagged</dt>
+            <dd class="post-meta-value">
+              {content.tags.map((tag) => (<a class="tag tag--dev" href={`/blog/tag/${tag}`}>{tag}</a>))}
+            </dd>
+          </dl>
+        </header>
+
+        <div itemprop="articleBody">
+          <slot />
+        </div>
+      </article>
+    </div>
+
+    <Footer />
+  </body>
+</html>
