@@ -16,6 +16,7 @@ const NOD_FRAMES = {
   24: 0,
 };
 const NOD_DURATION = 400;
+const THREEQRTR_POSE = -1.15 * Math.PI;
 
 function easeOutQuint(x) {
   return 1 - (1 - x) ** 5;
@@ -29,8 +30,8 @@ function init() {
   document.querySelector('#canvas').appendChild(renderer.domElement);
   const scene = new THREE.Scene();
   const loader = new STLLoader();
-  const camera = new THREE.OrthographicCamera(window.innerWidth / -2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / -2, 2, 5000);
-  camera.position.z = 1000;
+  const camera = new THREE.OrthographicCamera();
+  updateCamera();
   const textureLoader = new THREE.TextureLoader();
   let skull;
   loader.load('/skull_shades.stl', (geometry) => {
@@ -44,7 +45,7 @@ function init() {
     skull = new THREE.Mesh(geometry, material);
     skull.position.x = (window.innerWidth / 2) * 0.3333;
     skull.position.y = 100;
-    skull.rotation.y = -1.15 * Math.PI;
+    skull.rotation.y = THREEQRTR_POSE;
     skull.scale.set(35, 35, 35);
     scene.add(skull);
   });
@@ -56,6 +57,17 @@ function init() {
 
   const effect = new OutlineEffect(renderer, { defaultThickness: 0.005 });
 
+  function updateCamera() {
+    camera.left = window.innerWidth / -2;
+    camera.right = window.innerWidth / 2;
+    camera.top = window.innerHeight / 2;
+    camera.bottom = window.innerHeight / -2;
+    camera.near = 2;
+    camera.far = 5000;
+    camera.position.z = 1000;
+    camera.updateProjectionMatrix();
+  }
+
   function animate() {
     requestAnimationFrame(animate);
 
@@ -66,7 +78,7 @@ function init() {
       }
 
       let rotX = pos.y !== -1 ? (pos.y / window.innerHeight) * 0.5 - 0.2 : 0;
-      let rotY = pos.x !== -1 ? (pos.x / window.innerWidth) * 1.3 - window.innerWidth / 2.2 : -1.15 * Math.PI;
+      let rotY = pos.x !== -1 ? ((pos.x - window.innerWidth / 2) / window.innerWidth) * 0.25 * Math.PI + 0.9 * THREEQRTR_POSE : THREEQRTR_POSE;
 
       if (nodStart > 0) {
         const diff = performance.now() - nodStart;
@@ -128,8 +140,7 @@ function init() {
   window.addEventListener('resize', () => {
     clearTimeout(resizeDebounce);
     resizeDebounce = setTimeout(() => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
+      updateCamera();
       renderer.setSize(window.innerWidth, window.innerHeight);
     }, 20);
   });
