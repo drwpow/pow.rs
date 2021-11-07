@@ -6,6 +6,7 @@ let pos = { x: -1, y: -1 };
 let nodStart;
 let resizeDebounce;
 let isLoaded = false;
+let lastHover;
 
 const NOD_FRAMES = {
   5: -0.1,
@@ -95,18 +96,33 @@ function init() {
 
   animate();
 
-  window.addEventListener('mouseover', (evt) => {
-    if (!evt.target) return;
-    if (evt.target.classList.contains('jump-item') || (evt.target.parentNode && evt.target.parentNode.classList && evt.target.parentNode.classList.contains('jump-item'))) {
-      if (!nodStart) {
-        nodStart = performance.now();
-      }
-    }
+  document.querySelectorAll('.jump-item').forEach((el) => {
+    el.addEventListener(
+      'mouseover',
+      () => {
+        if (!nodStart && lastHover !== el.id) {
+          lastHover = el.id;
+          nodStart = performance.now();
+        }
+      },
+      { bubble: false }
+    );
+    el.addEventListener(
+      'mouseleave',
+      () => {
+        lastHover = undefined;
+      },
+      { bubble: false }
+    );
   });
 
   window.addEventListener('mousemove', (evt) => {
     pos.x = evt.pageX;
     pos.y = evt.pageY;
+  });
+
+  document.addEventListener('click', () => {
+    if (!nodStart) nodStart = performance.now();
   });
 
   window.addEventListener('resize', () => {

@@ -6,8 +6,8 @@ const SKULL_COLORS = ['#ff0000', '#ffff00', '#0040ff','#ff00ff', '#00ff00'];
 const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.length)];
 
 const TITLES = {
-  'Developer': [-0.03, -0.04, -0.07, -0.03, -0.02, -0.04, -0.02, -0.03],
-  'Designer': [-0.03, -0.03, -0.03, -0.03, -0.02, -0.05, -0.02],
+  'Developer': [-0.03, -0.04, -0.07, -0.03, -0.02, -0.04, -0.02, -0.04],
+  'Designer': [-0.03, -0.03, -0.03, -0.03, -0.02, -0.05, -0.04],
   'Doofus': [-0.02, -0.02, -0.04, -0.05, -0.04],
 };
 ---
@@ -112,7 +112,7 @@ const TITLES = {
     <div class="jump">
       <ul>
         {Object.entries(TITLES).map(([k, v]) => (
-          <li class="jump-item">{[...k].map((letter, i) => (<span style={v[i] ? `letter-spacing:${v[i]}em` : undefined}>{letter}</span>))}</li>
+          <li id={`title-${k}`} class="jump-item">{[...k].map((letter, i) => (<span style={v[i] ? `letter-spacing:${v[i]}em` : undefined}>{letter}</span>))}</li>
         ))}
       </ul>
     </div>
