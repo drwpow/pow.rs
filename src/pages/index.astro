@@ -1,6 +1,7 @@
 ---
 import Head from '../components/Head.astro';
 import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 
 const SKULL_COLORS = ['#ff0000', '#ffff00', '#0040ff','#ff00ff', '#00ff00'];
 const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.length)];
@@ -61,7 +62,10 @@ const TITLES = {
     }
 
     .overlay {
+      display: flex;
+      flex-direction: column;
       font-family: var(--heading);
+      min-height: 100vh;
       position: relative;
       z-index: 10;
     }
@@ -69,8 +73,9 @@ const TITLES = {
     .jump {
       font-size: 128px;
       font-weight: 700;
-      padding: 6rem;
       line-height: 0.9;
+      margin-bottom: auto;
+      padding: 6rem;
     }
 
     .jump ul {
@@ -116,6 +121,7 @@ const TITLES = {
         ))}
       </ul>
     </div>
+    <Footer />
   </div>
   <script type="module" src={Astro.resolve('../components/3d.js')}></script>
 </body>
