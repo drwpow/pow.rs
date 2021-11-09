@@ -7,6 +7,7 @@ let pos = { x: -1, y: -1 };
 let nodStart;
 let resizeDebounce;
 let isLoaded = false;
+let isRockingOut = false;
 let lastHover;
 
 const NOD_FRAMES = {
@@ -70,7 +71,7 @@ function init() {
     camera.updateProjectionMatrix();
   }
 
-  function animate() {
+  function animate(frame) {
     requestAnimationFrame(animate);
 
     if (skull) {
@@ -105,6 +106,12 @@ function init() {
       }
       skull.rotation.y = rotY;
     }
+
+    if (isRockingOut) {
+      directionalLight1.position.x = Math.sin((Math.PI * frame) / 1000) * 2500;
+      directionalLight1.position.z = Math.cos((Math.PI * frame) / 1000) * 2000;
+    }
+
     effect.render(scene, camera);
   }
 
@@ -145,6 +152,32 @@ function init() {
       updateCamera();
       renderer.setSize(window.innerWidth, window.innerHeight);
     }, 20);
+  });
+
+  let keyBuffer = [];
+  let bufferTimeout;
+  const success = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+  window.addEventListener('keyup', (evt) => {
+    clearTimeout(bufferTimeout);
+    bufferTimeout = setTimeout(() => {
+      keyBuffer = [];
+    }, 2000);
+
+    const next = keyBuffer.length;
+    if (evt.code === success[next]) {
+      keyBuffer.push(evt.code);
+
+      if (keyBuffer.length === success.length) {
+        isRockingOut = true;
+        const audioEl = document.createElement('audio');
+        audioEl.src = 'https://drewhost.s3.amazonaws.com/qotsa_ytiawadbiflam.mp3';
+        audioEl.autoplay = true;
+        document.body.appendChild(audioEl);
+        document.querySelector('#canvas').classList.add('is-rocking-out');
+      }
+    } else {
+      keyBuffer = [];
+    }
   });
 }
 init();
