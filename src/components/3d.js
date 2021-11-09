@@ -1,6 +1,7 @@
 import * as THREE from 'three';
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
+import { STLLoader } from 'three/examples/jsm/loaders/STLLoader';
 import { OutlineEffect } from 'three/examples/jsm/effects/OutlineEffect.js';
-import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
 
 let pos = { x: -1, y: -1 };
 let nodStart;
@@ -33,20 +34,21 @@ function init() {
   const camera = new THREE.OrthographicCamera();
   updateCamera();
   const textureLoader = new THREE.TextureLoader();
+  const twoTone = textureLoader.load('/gradientmap.png');
   let skull;
   loader.load('/skull_shades.stl', (geometry) => {
-    const twoTone = textureLoader.load('/gradientmap.png');
     twoTone.minFilter = THREE.NearestFilter;
     twoTone.magFilter = THREE.NearestFilter;
+    skull = new THREE.Mesh(geometry);
     const material = new THREE.MeshToonMaterial({
       color: 0xffffff,
       gradientMap: twoTone,
     });
-    skull = new THREE.Mesh(geometry, material);
+    skull.material = material;
     skull.position.x = (window.innerWidth / 2) * 0.3333;
     skull.position.y = 100;
     skull.rotation.y = THREEQRTR_POSE;
-    skull.scale.set(35, 35, 35);
+    skull.scale.set(25, 25, 25);
     scene.add(skull);
   });
 
