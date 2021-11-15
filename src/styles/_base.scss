@@ -119,17 +119,17 @@ strong {
 }
 
 blockquote {
-  margin: 0 -1.5rem;
-  padding: 1.5rem 3rem;
-  font-weight: 300;
-  font-style: italic;
-  background: var(--bg-accent);
   box-shadow: inset 2px 0 currentColor;
+  font-size: var(--u3);
+  font-style: italic;
+  font-weight: 300;
+  margin: 0 -1.5rem;
+  padding: 1rem 2.5rem;
 }
 
 p,
 li {
-  margin: 1em 0;
+  margin: 1.25em 0;
   line-height: 1.75;
 }
 

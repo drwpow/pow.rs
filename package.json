@@ -22,6 +22,7 @@
     "three": "^0.134.0"
   },
   "devDependencies": {
-    "astro": "^0.20.12"
+    "astro": "^0.20.12",
+    "prettier": "^2.4.1"
   }
 }
