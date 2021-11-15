@@ -70,6 +70,8 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
         grid-gap: 0.5rem 1rem;
         grid-template-columns: min-content auto;
         align-items: center;
+        margin-top: 0;
+        margin-bottom: 3rem;
 
         &-value {
           margin: 0;
@@ -77,10 +79,11 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
       }
 
       .post-title {
+        margin-bottom: 2rem;
         margin-top: 0;
       }
 
-      .post-yt {
+      :global(.post-yt) {
         position: relative;
         width: 100%;
         height: 0;
@@ -93,21 +96,6 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
           width: 100%;
           height: 100%;
         }
-      }
-
-      :global(.yt-embed) {
-        height: 0;
-        overflow: hidden;
-        padding-top: 56.25%;
-        position: relative;
-      }
-
-      :global(.yt-embed iframe) {
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
       }
 
       /* highlight.js */
@@ -124,17 +112,13 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
       <article class="post-body" itemscope itemtype="http://schema.org/BlogPosting">
         <header class="post-header">
           <div class="post-animation"><Art id={slug} /></div>
-          <h1 itemprop="headline">{content.title}</h1>
-          <dl class="post-meta">
-            <dt class="post-meta-key">published</dt>
-            <dd class="post-meta-value"><time datetime={content.date}>{format(content.date)}</time></dd>
-            {content.updated && <dt class="post-meta-key">updated</dt>}
-            {content.updated && <dd class="post-meta-value"><time datetime={content.updated}>{format(content.updated)}</time></dd>}
-            <dt class="post-meta-key">tagged</dt>
-            <dd class="post-meta-value">
+          <h1 class="post-title" itemprop="headline">{content.title}</h1>
+          <div class="post-meta">
+            <time datetime={content.date}>{format(content.date)}</time>
+            <div class="post-meta-value">
               {content.tags.map((tag) => (<a class="tag tag--dev" href={`/blog/tag/${tag}`}>{tag}</a>))}
-            </dd>
-          </dl>
+            </div>
+          </div>
         </header>
 
         <div itemprop="articleBody">

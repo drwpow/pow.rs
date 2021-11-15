@@ -6,18 +6,15 @@ const { post } = Astro.props;
 ---
 <style lang="scss">
 .preview {
-  display: grid;
-  grid-gap: 1rem;
-  margin: 3rem 0;
+  border-top: 1px solid var(--border);
   color: var(--fg);
+  display: block;
   font-weight: 300;
   line-height: 1;
+  margin: 1rem 0;
+  padding: 1rem;
+  position: relative;
   text-decoration: none;
-
-  @media (min-width: 600px) {
-    grid-template-columns: repeat(6, 1fr);
-    margin: 6rem 0;
-  }
 
   &:first-of-type {
     margin-top: 0;
@@ -25,17 +22,17 @@ const { post } = Astro.props;
 }
 
 .date {
+  display: block;
+
   @media (min-width: 600px) {
-    margin-top: 0.25em;
-    text-align: right;
+    margin: 1em 0;
   }
 }
 
 .summary {
-  line-height: 1.75;
+  line-height: 1.25;
 
   @media (min-width: 600px) {
-    grid-column: span 4;
     margin-top: -0.25rem;
   }
 }
@@ -49,17 +46,17 @@ const { post } = Astro.props;
 }
 
 .tag {
-  align-self: center;
-
-  @media (min-width: 600px) {
-    text-align: right;
-  }
+  position: absolute;
+  right: 100%;
+  top: -1px;
 }
 
 .title {
-  margin-top: 0;
+  display: block;
+  font-size: var(--u4);
+  font-weight: 700;
   margin-bottom: 0;
-  font-size: var(--u2);
+  margin-top: 0;
 
   @media (min-width: 600px) {
     grid-column: span 5;
@@ -69,10 +66,10 @@ const { post } = Astro.props;
 </style>
 
 <a class="preview" href={post.url} itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="tag">
-    {(post.tags || []).map((tag) => (<Tag tag={tag} />))}
-  </div>
   <span class="title" itemprop="headline">{post.title}</span>
   <time class="date" datetime={post.date} itemprop="datePublished">{format(post.date)}</time>
   <div class="summary" itemprop="description">{post.description}</div>
+  <div class="tag">
+    {(post.tags || []).map((tag) => (<Tag tag={tag} />))}
+  </div>
 </a>
