@@ -7,9 +7,9 @@ layout: ../../layouts/post.astro
 ---
 
 Making websites usually involves <em><span
-style="color:#f00">C</span>&nbsp;<span style="color:#f80">O</span>&nbsp;<span
-style="color:#ff0">L</span>&nbsp;<span style="color:#0f0">O</span>&nbsp;<span
-style="color:#0ff">R</span>&nbsp;<span style="color:#f0f">S</span></em> (they’re all
+style="color:#f00">C</span><span style="color:#f80">O</span><span
+style="color:#ff0">L</span><span style="color:#0f0">O</span><span
+style="color:#0ff">R</span><span style="color:#f0f">S</span></em> (they’re all
 the rage these days!).
 
 You’ll no doubt find [HSL] easier to work with as a developer, since it was
@@ -56,14 +56,14 @@ In case you’re tempted to store color values as RGB, then convert to HSL,
 there’s a better interface: the [CSS `color()` function][color]. Though it’s
 been teased for years, and is _still_ not available in 2021, when it finally is
 released will provide all the usefulness of HSL and then some. And it even lets
-you use <em><span style="color:#f00">A</span>&nbsp;<span
-style="color:#f80">L</span>&nbsp;<span
-style="color:#ff0">L</span>&nbsp;&nbsp;&nbsp;<span
-style="color:#8f0">T</span>&nbsp;<span style="color:#0f0">H</span>&nbsp;<span
-style="color:#0f8">E</span>&nbsp;&nbsp;&nbsp;<span
-style="color:#0ff">C</span>&nbsp;<span style="color:#08f">O</span>&nbsp;<span
-style="color:#00f">L</span>&nbsp;<span style="color:#80f">O</span>&nbsp;<span
-style="color:#f0f">R</span>&nbsp;<span style="color:#f08">S</span></em> of RGB.
+you use &nbsp;<em><span style="color:#f00">A</span><span
+style="color:#f80">L</span><span
+style="color:#ff0">L</span>&nbsp;&nbsp;<span
+style="color:#8f0">T</span><span style="color:#0f0">H</span><span
+style="color:#0f8">E</span>&nbsp;&nbsp;<span
+style="color:#0ff">C</span><span style="color:#08f">O</span><span
+style="color:#00f">L</span><span style="color:#80f">O</span><span
+style="color:#f0f">R</span><span style="color:#f08">S</span></em>&nbsp; of RGB.
 
 And until that’s released, please just use [Sass’ color function][sass] today.
 You can run all valid CSS through Sass, it only takes a few milliseconds, and it

@@ -137,21 +137,26 @@ function init() {
     );
   });
 
+  let lastMouseMove;
   window.addEventListener('mousemove', (evt) => {
-    pos.x = evt.pageX;
-    pos.y = evt.pageY;
+    if (lastMouseMove) cancelAnimationFrame(lastMouseMove);
+    lastMouseMove = requestAnimationFrame(() => {
+      pos.x = evt.pageX;
+      pos.y = evt.pageY;
+    });
   });
 
   document.addEventListener('click', () => {
     if (!nodStart) nodStart = performance.now();
   });
 
+  let lastResize;
   window.addEventListener('resize', () => {
-    clearTimeout(resizeDebounce);
-    resizeDebounce = setTimeout(() => {
+    if (lastResize) cancelAnimationFrame(lastResize);
+    lastResize = requestAnimationFrame(() => {
       updateCamera();
       renderer.setSize(window.innerWidth, window.innerHeight);
-    }, 20);
+    });
   });
 
   let keyBuffer = [];

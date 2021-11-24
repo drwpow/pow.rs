@@ -15,6 +15,10 @@ let currentPage = Astro.request.url.pathname;
     transition: color 150ms linear;
   }
 
+  .link[aria-current="page"] {
+    text-decoration: underline;
+  }
+
   .link + .link {
     margin-left: 2rem;
   }
