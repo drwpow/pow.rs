@@ -70,11 +70,11 @@ You can run all valid CSS through Sass, it only takes a few milliseconds, and it
 lets you perform more complex color manipulation without any of HSL’s
 limitations.
 
-I know that 16.7 million colors may not sound like a lot, but it’s still far
-more limited than the human eye can perceive (for goodness’ sake; we can’t even
-recreate [brown digitally][brown]!). So please don’t reduce the palette any
-further than necessary just because it makes a button hover effect easier to
-manage.
+I know that 16.7 million colors sounds like a lot, but it pales in comparison to
+the actual number of colors the human eye can perceive (for goodness’ sake; we
+can’t even recreate [brown digitally][brown]!). So please don’t reduce the
+palette any further than necessary just because it makes a button hover effect
+easier to manage.
 
 [brown]: https://youtube.com/v/wh4aWZRtTwU
 [color]: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color()

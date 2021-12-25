@@ -1,8 +1,8 @@
 ---
 import Art from '../components/Art.astro';
-import Footer from '../components/Footer.astro';
 import Head from '../components/Head.astro';
 import Nav from '../components/Nav.astro';
+import Tag from '../components/Tag.astro';
 import { format } from '../helpers/date.ts';
 
 const { content } = Astro.props;
@@ -31,6 +31,8 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
       }
 
       .post-body {
+        padding: 0 0.5rem 3rem;
+
         @media (min-width: 600px) {
           font-size: var(--u2);
         }
@@ -66,12 +68,17 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
       }
 
       .post-meta {
+        align-items: center;
         display: grid;
+        font-family: Arial;
         grid-gap: 0.5rem 1rem;
         grid-template-columns: min-content auto;
-        align-items: center;
+        margin-bottom: 1.5rem;
         margin-top: 0;
-        margin-bottom: 3rem;
+
+        @media (min-width: 650px) {
+          margin-bottom: 2rem;
+        }
 
         &-value {
           margin: 0;
@@ -79,7 +86,9 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
       }
 
       .post-title {
-        margin-bottom: 2rem;
+        font-weight: 400;
+        font-size: var(--u5);
+        margin-bottom: 1rem;
         margin-top: 0;
       }
 
@@ -114,9 +123,9 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
           <div class="post-animation"><Art id={slug} /></div>
           <h1 class="post-title" itemprop="headline">{content.title}</h1>
           <div class="post-meta">
-            <time datetime={content.date}>{format(content.date)}</time>
+            {content.date && <time datetime={content.date}>{format(content.date)}</time>}
             <div class="post-meta-value">
-              {content.tags.map((tag) => (<a class="tag tag--dev" href={`/blog/tag/${tag}`}>{tag}</a>))}
+              {content.tags.map((tag) => (<Tag tag={tag} />))}
             </div>
           </div>
         </header>
@@ -126,7 +135,5 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
         </div>
       </article>
     </div>
-
-    <Footer />
   </body>
 </html>

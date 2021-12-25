@@ -1,11 +1,9 @@
 import * as THREE from 'three';
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader';
 import { OutlineEffect } from 'three/examples/jsm/effects/OutlineEffect.js';
 
 let pos = { x: -1, y: -1 };
 let nodStart;
-let resizeDebounce;
 let isLoaded = false;
 let isRockingOut = false;
 let lastHover;
@@ -19,6 +17,8 @@ const NOD_FRAMES = {
 };
 const NOD_DURATION = 400;
 const THREEQRTR_POSE = -1.15 * Math.PI;
+
+let isTouchActive = false;
 
 function easeOutQuint(x) {
   return 1 - (1 - x) ** 5;
@@ -49,7 +49,8 @@ function init() {
     skull.position.x = (window.innerWidth / 2) * 0.3333;
     skull.position.y = 100;
     skull.rotation.y = THREEQRTR_POSE;
-    skull.scale.set(25, 25, 25);
+    let scale = Math.max(12, Math.min(window.innerWidth / 50, 25));
+    skull.scale.set(scale, scale, scale);
     scene.add(skull);
   });
 
@@ -139,10 +140,25 @@ function init() {
 
   let lastMouseMove;
   window.addEventListener('mousemove', (evt) => {
+    if (isTouchActive) return;
     if (lastMouseMove) cancelAnimationFrame(lastMouseMove);
     lastMouseMove = requestAnimationFrame(() => {
       pos.x = evt.pageX;
       pos.y = evt.pageY;
+    });
+  });
+  window.addEventListener('touchstart', () => {
+    isTouchActive = true;
+  });
+  window.addEventListener('touchend', () => {
+    isTouchActive = false;
+  });
+  let lastTouchMove;
+  window.addEventListener('touchmove', (evt) => {
+    if (lastTouchMove) cancelAnimationFrame(lastTouchMove);
+    lastTouchMove = requestAnimationFrame(() => {
+      pos.x = evt.touches[0].pageX;
+      pos.y = evt.touches[0].pageY;
     });
   });
 
@@ -156,6 +172,8 @@ function init() {
     lastResize = requestAnimationFrame(() => {
       updateCamera();
       renderer.setSize(window.innerWidth, window.innerHeight);
+      let scale = Math.max(12, Math.min(window.innerWidth / 50, 25));
+      skull.scale.set(scale, scale, scale);
     });
   });
 

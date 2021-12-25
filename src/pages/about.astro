@@ -1,5 +1,4 @@
 ---
-import Footer from '../components/Footer.astro';
 import Nav from '../components/Nav.astro';
 import Head from '../components/Head.astro';
 
@@ -18,7 +17,7 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
     <Nav />
 
     <div class="wrapper">
-      <div itemScope itemType="http://schema.org/Person">
+      <div itemScope itemType="http://schema.org/Person" class="pb8">
         <img alt="Drew" height="1000" itemProp="photo" src="/assets/drewpowers.jpg" width="2000"/>
         <p>
           My name is
@@ -30,11 +29,10 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
           Some things I believe (in no particular order):
         </p>
         <ol>
-          <li>good ideas should be put into practice, even if they’re old, <a href="https://www.discovermagazine.com/the-sciences/physics-proves-it-everyone-should-shoot-granny-style" target="_blank">even if they’re unpopular</a></li>
-          <li>intent doesn’t matter; impact does</li>
-          <li>clear intentions make lasting relationships</li>
-          <li>i can always change my mind with new information</li>
           <li>always be kind</li>
+          <li>intent doesn’t matter; impact does</li>
+          <li><a href="https://en.wikipedia.org/wiki/Tzedakah">justice</a> is a necessary component for equity and healing</li>
+          <li>ACAB</li>
         </ol>
         <p>
           Have a question, or a suggestion for something you’d like me to write about? Shoot me an
@@ -46,8 +44,11 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
           Take a tour through the Drewseum, won’t you?<br />
           <a href="https://2010.pow.rs">2010</a> / <a href="https://2011.pow.rs">2011</a> / <a href="https://2013.pow.rs">2013</a> / <a href="https://2016.pow.rs">2016</a> / <a href="https://2017.pow.rs">2017</a>
         </p>
+        <p>Or find me on other internet websites:<br />
+          <a class="link" href="https://github.com/drwpow/pow.rs" target="_blank">github</a> /
+          <a class="link" href="https://twitter.com/drwpow" target="_blank">twitter</a>
+        </p>
       </div>
     </div>
-    <Footer />
   </body>
 </html>

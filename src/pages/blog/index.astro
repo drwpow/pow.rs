@@ -1,11 +1,10 @@
 ---
 import BlogPost from '../../components/BlogPost.astro';
 import Head from '../../components/Head.astro';
-import Footer from '../../components/Footer.astro';
 import Nav from '../../components/Nav.astro';
 
 const allPosts = Astro.fetchContent('./**/*.md');
-const posts = allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+const posts = allPosts.filter((p) => !!p.date).sort((a, b) => new Date(b.date) - new Date(a.date));
 ---
 <html lang="en-us">
   <head>
@@ -20,7 +19,5 @@ const posts = allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
         <BlogPost post={blogPost} />
       ))}
     </div>
-
-    <Footer />
   </body>
 </html>

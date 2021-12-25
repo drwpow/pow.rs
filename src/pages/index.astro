@@ -1,7 +1,6 @@
 ---
 import Head from '../components/Head.astro';
 import Nav from '../components/Nav.astro';
-import Footer from '../components/Footer.astro';
 
 const SKULL_COLORS = ['#ff0000', '#ffff00', '#0040ff','#ff00ff', '#00ff00'];
 const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.length)];
@@ -15,7 +14,7 @@ const TITLES = {
 
 <head>
   <Head color={colorOfTheDay} />
-  <style>
+  <style lang="scss">
     .viz {
       height: 100%;
       left: 0;
@@ -92,20 +91,25 @@ const TITLES = {
     }
 
     .jump {
-      font-size: 128px;
+      font-size: 64px;
+      padding: 0 2rem;
       font-weight: 700;
       line-height: 0.9;
       margin-bottom: auto;
-      padding: 6rem;
-    }
 
-    .jump ul {
-      align-items: flex-start;
-      display: flex;
-      flex-direction: column;
-      list-style: none;
-      margin: 0;
-      padding: 0;
+      @media (min-width: 600px) {
+        font-size: 128px;
+        padding: 6rem;
+      }
+
+      ul {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
     }
 
     .jump-item {
@@ -114,10 +118,10 @@ const TITLES = {
       line-height: 0.9;
       margin: 0;
       transition: color 150ms linear;
-    }
 
-    .jump-item:hover {
-      color: var(--color-of-the-day);
+      &:hover {
+        color: var(--color-of-the-day);
+      }
     }
 
     @keyframes party {
@@ -167,7 +171,6 @@ const TITLES = {
         ))}
       </ul>
     </div>
-    <Footer />
   </div>
   <script type="module" src={Astro.resolve('../components/3d.js')}></script>
 </body>

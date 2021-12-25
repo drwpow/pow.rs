@@ -6,15 +6,18 @@ const { post } = Astro.props;
 ---
 <style lang="scss">
 .preview {
-  border-top: 1px solid var(--border);
   color: var(--fg);
   display: block;
   font-weight: 300;
   line-height: 1;
-  margin: 1rem 0;
-  padding: 1rem;
+  margin: 1rem 0 2.5rem;
+  padding: 0 0.5rem;
   position: relative;
   text-decoration: none;
+
+  @media (min-width: 600px) {
+    margin-bottom: 3.5rem;
+  }
 
   &:first-of-type {
     margin-top: 0;
@@ -22,7 +25,8 @@ const { post } = Astro.props;
 }
 
 .date {
-  display: block;
+  display: inline;
+  font-family: Arial;
 
   @media (min-width: 600px) {
     margin: 1em 0;
@@ -30,10 +34,13 @@ const { post } = Astro.props;
 }
 
 .summary {
+  font-size: var(--u1);
+  font-style: italic;
   line-height: 1.25;
+  margin-top: 0.25rem;
 
   @media (min-width: 600px) {
-    margin-top: -0.25rem;
+    margin-top: 0.5rem;
   }
 }
 
@@ -46,16 +53,15 @@ const { post } = Astro.props;
 }
 
 .tag {
-  position: absolute;
-  right: 100%;
-  top: -1px;
+  display: inline-block;
 }
 
 .title {
   display: block;
   font-size: var(--u4);
-  font-weight: 700;
-  margin-bottom: 0;
+  line-height: 0.9;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
   margin-top: 0;
 
   @media (min-width: 600px) {
@@ -68,8 +74,8 @@ const { post } = Astro.props;
 <a class="preview" href={post.url} itemscope itemtype="http://schema.org/BlogPosting">
   <span class="title" itemprop="headline">{post.title}</span>
   <time class="date" datetime={post.date} itemprop="datePublished">{format(post.date)}</time>
-  <div class="summary" itemprop="description">{post.description}</div>
   <div class="tag">
     {(post.tags || []).map((tag) => (<Tag tag={tag} />))}
   </div>
+  <div class="summary" itemprop="description">{post.description}</div>
 </a>

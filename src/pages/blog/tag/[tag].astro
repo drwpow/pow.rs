@@ -1,6 +1,5 @@
 ---
 import BlogPost from '../../../components/BlogPost.astro';
-import Footer from '../../../components/Footer.astro';
 import Head from '../../../components/Head.astro';
 import Nav from '../../../components/Nav.astro';
 
@@ -34,7 +33,5 @@ export async function getStaticPaths() {
     <div class="wrapper">
       {posts.map((post) => (<BlogPost post={post} />))}
     </div>
-
-    <Footer />
   </body>
 </html>
