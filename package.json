@@ -19,7 +19,7 @@
     "trailingComma": "es5"
   },
   "dependencies": {
-    "three": "^0.136.0"
+    "three": "^0.137.4"
   },
   "devDependencies": {
     "astro": "^0.22.1",
