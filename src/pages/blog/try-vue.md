@@ -207,7 +207,7 @@ If you save and load up that page in a web browser, you can see our name card sh
 close, and our last step is connecting our input field to what we’ve done. One last addition will
 complete it:
 
-```vue
+```html
 <input type="text" class="name-field" v-model="name" />
 ```
 
@@ -250,9 +250,8 @@ double curly brackets.
 There’s a little more going on in the UI here, but we really only went from one piece of data to
 two. Once again, we’re using `v-model` because we’re working with form fields. The inputs look like:
 
-```vue
-<input v-model="username" type="text" autocapitalize="off" />
-<input v-model="password" type="password" />
+```html
+<input v-model="username" type="text" autocapitalize="off" /> <input v-model="password" type="password" />
 ```
 
 _Protip: use _`_autocapitalize="off"_`_ to be kind to your mobile users and prevent accidental

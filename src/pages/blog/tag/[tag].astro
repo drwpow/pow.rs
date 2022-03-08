@@ -7,7 +7,7 @@ const { tag } = Astro.request.params;
 const { posts } = Astro.props;
 
 export async function getStaticPaths() {
-  const posts = Astro.fetchContent('../**/*.md');
+  const posts = (await Astro.fetchContent('../**/*.md')).filter((p) => !!p.date);
   posts.sort((a, b) => new Date(b.date) - new Date(a.date));
   const tags = new Set();
   for (const post of posts) {

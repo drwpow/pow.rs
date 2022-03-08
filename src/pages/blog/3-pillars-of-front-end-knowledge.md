@@ -3,7 +3,7 @@ title: the great(er) divide in front-end
 date: 2020-02-17
 updated: 2020-04-19
 description: |
-  A year of reflecting on Chris Coyier’s <em>The Great Divide</em> post. I think it holds up, but requires a little more nuance.
+  A year of reflecting on Chris Coyier’s “The Great Divide” post. I think it holds up, but requires a little more nuance.
 tags: ['dev']
 layout: ../../layouts/post.astro
 ---
@@ -242,17 +242,14 @@ unifying, not dividing. God knows we have too much division going on as it is.
 [apollo]: https://www.apollographql.com/
 [ast]: https://en.wikipedia.org/wiki/Abstract_syntax_tree
 [babel]: https://babeljs.io/
-[babel-plugin]:
-  https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md
+[babel-plugin]: https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md
 [browser-api]: https://developer.mozilla.org/en-US/docs/Web/API
 [browser-processes]: https://developers.google.com/web/updates/2018/09/inside-browser-part2
 [coercion]: https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion
-[css-animation]:
-  https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations
+[css-animation]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations
 [css-gd]: https://css-tricks.com/the-great-divide/
 [dom]: https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
-[ecma]:
-  https://developer.mozilla.org/en-US/docs/Archive/Web/JavaScript/ECMAScript_Next_support_in_Mozilla
+[ecma]: https://developer.mozilla.org/en-US/docs/Archive/Web/JavaScript/ECMAScript_Next_support_in_Mozilla
 [es-lexer]: https://github.com/guybedford/es-module-lexer
 [esm]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
 [fetch]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
@@ -260,8 +257,7 @@ unifying, not dividing. God knows we have too much division going on as it is.
 [history]: https://developer.mozilla.org/en-US/docs/Web/API/History_API
 [imageoptim]: http://imageoptim.com/
 [jest]: https://jestjs.io/
-[js-main-thread]:
-  https://developers.google.com/web/fundamentals/performance/rendering/optimize-javascript-execution
+[js-main-thread]: https://developers.google.com/web/fundamentals/performance/rendering/optimize-javascript-execution
 [js-profiling]: https://developers.google.com/web/tools/chrome-devtools/rendering-tools
 [js-this]: https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/objects-classes/ch1.md
 [jsx]: https://reactjs.org/docs/introducing-jsx.html
@@ -271,15 +267,12 @@ unifying, not dividing. God knows we have too much division going on as it is.
 [paint-api]: https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API
 [phd]: http://matt.might.net/articles/phd-school-in-pictures/
 [promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-[prototypes]:
-  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+[prototypes]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
 [puppeteer]: https://developers.google.com/web/tools/puppeteer/
 [react]: https://reactjs.org/docs/design-principles.html
-[resource-prioritization]:
-  https://developers.google.com/web/fundamentals/performance/resource-prioritization
+[resource-prioritization]: https://developers.google.com/web/fundamentals/performance/resource-prioritization
 [rxjs]: https://www.learnrxjs.io/
-[simplify-paint]:
-  https://developers.google.com/web/fundamentals/performance/rendering/simplify-paint-complexity-and-reduce-paint-areas
+[simplify-paint]: https://developers.google.com/web/fundamentals/performance/rendering/simplify-paint-complexity-and-reduce-paint-areas
 [smacss]: http://smacss.com/
 [surma-120fps]: https://dassur.ma/things/120fps/
 [tailwind]: https://tailwindcss.com

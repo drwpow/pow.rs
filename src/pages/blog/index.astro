@@ -3,7 +3,7 @@ import BlogPost from '../../components/BlogPost.astro';
 import Head from '../../components/Head.astro';
 import Nav from '../../components/Nav.astro';
 
-const allPosts = Astro.fetchContent('./**/*.md');
+const allPosts = await Astro.fetchContent('./**/*.md');
 const posts = allPosts.filter((p) => !!p.date).sort((a, b) => new Date(b.date) - new Date(a.date));
 ---
 <html lang="en-us">

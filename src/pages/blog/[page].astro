@@ -6,8 +6,8 @@ import Nav from '../../components/Nav.astro';
 const { page } = Astro.props;
 
 export async function getStaticPaths({ paginate, rss }) {
-  const allPosts = Astro.fetchContent('./**/*.md');
-  const sortedPosts = allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  const allPosts = await Astro.fetchContent('./**/*.md');
+  const sortedPosts = allPosts.filter((p) => !!p.date).sort((a, b) => new Date(b.date) - new Date(a.date));
   rss({
     title: 'drew powers',
     description: 'personal blog',

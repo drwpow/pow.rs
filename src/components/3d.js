@@ -180,6 +180,8 @@ function init() {
   let keyBuffer = [];
   let bufferTimeout;
   const success = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+  const playlist = ['bgm_qotsa_ytiawadbiflam', 'bgm_cob_cob', 'bgm_m_tm', 'bgm_m_tm', 'bgm_bg_wss', 'bgm_if_pm']; // weight bgm_m_tm a lil more!
+  let lastPlayed;
   window.addEventListener('keyup', (evt) => {
     clearTimeout(bufferTimeout);
     bufferTimeout = setTimeout(() => {
@@ -192,10 +194,26 @@ function init() {
 
       if (keyBuffer.length === success.length) {
         isRockingOut = true;
-        const audioEl = document.createElement('audio');
-        audioEl.src = 'https://drewhost.s3.amazonaws.com/qotsa_ytiawadbiflam.mp3';
-        audioEl.autoplay = true;
-        document.body.appendChild(audioEl);
+        function playNext(audioEl) {
+          let next = playlist[Math.floor(Math.random() * playlist.length)];
+          while (next === lastPlayed) next = playlist[Math.floor(Math.random() * playlist.length)]; // don’t dupe
+          audioEl.src = `https://drewhost.s3.amazonaws.com/${next}.mp3`;
+          audioEl.play();
+          lastPlayed = next;
+        }
+
+        let audioEl;
+        if (document.querySelector('audio')) {
+          audioEl = document.querySelector('audio');
+        } else {
+          audioEl = document.createElement('audio');
+          document.body.appendChild(audioEl);
+        }
+
+        playNext(audioEl);
+        audioEl.addEventListener('ended', () => {
+          playNext(audioEl);
+        });
         document.querySelector('#canvas').classList.add('is-rocking-out');
       }
     } else {
