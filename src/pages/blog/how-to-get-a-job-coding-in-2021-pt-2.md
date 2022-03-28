@@ -1,5 +1,5 @@
 ---
-title: how to get a job coding in 2021, part 2
+title: how to get a job coding in 2022, part 2
 date: 2021-10-03
 updated: 2021-10-03
 description: |
@@ -7,6 +7,8 @@ description: |
 tags: ['dev']
 layout: ../../layouts/post.astro
 ---
+
+_2022 update: this advice still applies in 2022. I’ll update anything if it gets outdated 🙂_
 
 Picking up from [part 1][pt-1], your starting point for coding comes from answering 2 questions:
 
@@ -22,33 +24,52 @@ separately.
 There are far too many backend languages to list here, but I’ll start with my personal
 recommendations for 2021, in order (with some languages I’d recommend avoiding at first):
 
-1. ✅ **[Go][go]**: A fantastic programming language that is rising quickly through the ranks.
-   Though it’s not the most popular backend language today, its rapid growth seems to suggest it may
-   be soon. Droves of companies are moving from older systems to use Go because it’s well-designed,
-   efficient, and has a ton of tools. But best of all, Go has an easy learning curve while still
-   teaching good habits!
-1. ✅ **[Elixir/Phoenix][phoenix]**: Technically Elixir is the programming language, and Phoenix is
-   a framework built on Elixir. But Phoenix is so powerful and fun to use, it might make sense to
-   start there! Phoenix is already in wide usage, and is growing in popularity.
+1. ✅ **[Elixir/Phoenix][phoenix]**: I’ve heard nothing but love and praise for developers of Elixir
+   (programming language), and Phoenix (the web framework built on Elixir). If you want to pick
+   something that’s fun to write and has a great job demand, you can’t go wrong with Elixir/Phoenix.
+   It gets my pick for highest recommendation for most people.
+1. ✅ **[Go][go]**: Go, a.k.a. “Golang” (which is more searchable), is a wonderful programming
+   language whose demand is on fire and only rising. Though it’s not the most popular backend
+   language today, its rapid growth seems to suggest it may be soon. Droves of companies are moving
+   from older systems to use Go because it’s well-designed, efficient, and has a ton of tools
+   that were designed to make programming for the modern web simple and fun. But best of all, Go has
+   an easy learning curve while still teaching good habits!
 1. ✅ **[Node.js][node]**: JavaScript for backend is called Node.js. If you are thinking about
    keeping the door to frontend open, this should probably be your choice. But if you are intent on
    purely staying backend, I think the other options are better.
-1. 🤷 **[Ruby on Rails][rails]**: Neutral recommendation: Ruby on Rails is still in demand, but less
-   today than previous years. Much of the Rails community has moved on to Elixir/Phoenix, and I
-   think that’s the better investment today.
-1. ❌ **[Java][java]**: Even though Java is in wide usage today, I’m seeing more companies move away
-   from Java to newer technologies like Elixir/Phoenix or Go. Java is still widely-used in Android
-   world, but for web, backend devs seem to be moving on.
-1. ❌ **[Python][python]**: Django was a great Python web framework that had its time, but I see
-   Python for backend becoming more and more obsolete. It’s a slow language that makes it hard to
-   build high-performance scalable architecture. It’s great for hobby projects and data analysis.
-   But for backend I think Python will fall by the wayside.
-1. ❌ **[PHP][php]**: avoid. This is a strong opinion here. Even though PHP is extremely popular,
-   and powers many websites, I recommend _not_ learning it as a first language. It is very easy to
-   fall into bad habits, and there are too many PHP tutorials to separate the good from the bad.
+1. 🤷 **[Ruby on Rails][rails]**: Neutral recommendation: Ruby on Rails is still in use and has
+   its dedicated community, but growth has stagnated and its future is unsure. Many companies are
+   migrating away from Rails in favor of Elixir/Phoenix, Go, or something else (with Phoenix
+   being made up of a large diaspora of former Rails devs). Soft recommendation to avoid unless you
+   have your sights set on a specific job that you know 100% is Rails.
+1. 🤷‍♂️ **[Rust][rust]**: Rust is my favorite programming language, hands down. I love writing it, I
+   think it is/will transform programming as we know it, and I am a huge believer in its future. I
+   also think it’s beginner-friendly, which only adds to its appeal. But while I think Rust as a
+   language is mature, in the industry at large it’s only being used today by experimental
+   companies and early adopters. Job demand now and the next few years is impossible to predict.
+   If you have an infinite timeline on getting into coding, Rust is definitely the long term
+   investment, but I wouldn’t recommend it to people trying to get a job today (in 2022).
+1. ❌ **[Java][java]**: Java is essential for Android devs, but for the web I’m seeing more
+   companies move away from it in favor of newer technologies. I’d recommend avoiding it unless
+   you want to possibly go into Android development.
+1. ❌ **[Python][python]**: Django was a great Python web framework that had its time, but Python
+   for backend is obsolete. Don’t get me wrong—Python is a wonderful language that has a bright
+   future ahead of it in data analysis and some niche areas of programming like fonts and
+   generative art. But since we’re talking only about the web, please do not learn Python for this purpose.
+1. ❌ **[PHP][php]**: avoid. Even though PHP is consistently top 5 most popular programming
+   languages and will remain for a while, I strongly recommend _not_ learning it as a first
+   language. It is very easy to fall into bad habits, and you’re also competing with jobs with
+   millions of other PHP developers, often with lower pay than other languages. Come back to it in
+   the future if you really want to (but I’ve personally not met anyone that does).
+1. ❌ **COBOL**: [no. Just, no.](https://builtin.com/software-engineering-perspectives/why-cobol-is-still-used)
 
-There are hundreds of other languages not listed here that you can look more into. But other
-languages may be more niche for web dev, and you’ll find it harder to start there.
+There are hundreds of other languages not listed here, of course. If it’s a popular language
+(C, C+, etc.) and not listed above, assume it’s not used for web (unfortunately there’s not a
+dual-purpose language used for both web and game development, unless Rust becomes both!).
+There are also some other niche languages which _are_ used for web (Erlang, Clojure, Elm, OCaml,
+etc.), but they are niche and I don’t recommend them for beginners because the path to landing
+a job will be very tricky. My recommendation is limit your starting point to one of above,
+and after getting some professional experience with one of those, then feel free to branch out.
 
 ### backend next steps
 
@@ -113,8 +134,7 @@ all, don’t get discouraged; [landing that first job takes time][applying]!
 I can’t say this enough: there is plenty of room for more coders, there’s never been a time to join,
 and you (yes, _you_!) matter, and would make the coding community better.
 
-[applying]:
-  https://www.freecodecamp.org/news/5-key-learnings-from-the-post-bootcamp-job-search-9a07468d2331/
+[applying]: https://www.freecodecamp.org/news/5-key-learnings-from-the-post-bootcamp-job-search-9a07468d2331/
 [backend]: https://www.google.com/search?q=backend+developer+jobs&ibp=htl;jobs
 [codewars]: https://www.codewars.com
 [css]: https://www.codecademy.com/learn/learn-css
@@ -124,8 +144,7 @@ and you (yes, _you_!) matter, and would make the coding community better.
 [heroku]: https://devcenter.heroku.com/articles/git
 [html]: https://www.codecademy.com/learn/learn-html
 [java]: https://www.google.com/search?q=learn+java+site%3Areddit.com
-[job-requirements]:
-  https://www.cnbc.com/2018/12/12/matching-half-of-a-jobs-requirements-might-still-get-you-an-interview.html
+[job-requirements]: https://www.cnbc.com/2018/12/12/matching-half-of-a-jobs-requirements-might-still-get-you-an-interview.html
 [js-frameworks]: https://2020.stateofjs.com/en-US/technologies/front-end-frameworks/
 [meetup]: https://meetup.com/
 [netlify]: https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/
@@ -137,4 +156,5 @@ and you (yes, _you_!) matter, and would make the coding community better.
 [pt-1]: /blog/how-to-get-a-job-coding-in-2021
 [rails]: https://www.google.com/search?q=learn+rails+site%3Areddit.com
 [rest]: https://swapi.dev/
+[rust]: https://www.google.com/search?q=learn+rust+site%3Areddit.com
 [vue]: https://vuejs.org/

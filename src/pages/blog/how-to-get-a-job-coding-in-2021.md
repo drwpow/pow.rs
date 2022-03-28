@@ -1,5 +1,5 @@
 ---
-title: how to get a job coding in 2021, part 1
+title: how to get a job coding in 2022, part 1
 date: 2021-09-18
 updated: 2021-10-03
 description: |
@@ -8,11 +8,13 @@ tags: ['dev']
 layout: ../../layouts/post.astro
 ---
 
+_2022 update: this advice still applies in 2022. I’ll update anything if it gets outdated_ 🙂
+
 I’ve been programming professionally for almost 15 years now, and I frequently get asked how to get
 started coding. But as I am an old geezer that got started in a different time (_we had to FTP
 uphill both ways and in the snow!_), so the story of how I got started is more trivia than advice
 in 2021. However, there’s never been a better time to learn coding than right now. [Job demand is on
-fire][job-security], and coding is something you cah teach yourself to do with only discipline and a
+fire][job-security], and coding is something you can teach yourself to do with only discipline and a
 few months of dedicated time.
 
 This blog post is an attempt to have an evergreen answer to “how do I get started coding?” rather
@@ -131,18 +133,14 @@ challenging. But not all creativity is visual, much like art vs music.
 So now that the _backend vs frontend_ question is planted in your mind, you’ll want to learn a bit
 more about what you’ll need to learn to apply to that first job. We’ll cover that in [part 2][pt-2]!
 
-[activision]:
-  https://www.polygon.com/22627759/activision-blizzard-lawsuit-games-worker-unions-labor-organizing
-[amazon]:
-  https://www.motherjones.com/politics/2021/09/my-wife-was-dying-of-brain-cancer-my-boss-at-amazon-told-me-to-perform-or-quit/
+[activision]: https://www.polygon.com/22627759/activision-blizzard-lawsuit-games-worker-unions-labor-organizing
+[amazon]: https://www.motherjones.com/politics/2021/09/my-wife-was-dying-of-brain-cancer-my-boss-at-amazon-told-me-to-perform-or-quit/
 [backend-jobs]: https://www.google.com/search?q=backend+developer+jobs&ibp=htl;jobs
 [data-analytics]: https://www.investopedia.com/terms/d/data-analytics.asp
 [diversity]: https://www.fastcompany.com/90665530/great-resignation-tech-diversity
 [frontend-jobs]: https://www.google.com/search?q=frontend+developer+jobs&ibp=htl;jobs
 [gamedev-burnout]: https://time.com/5603329/e3-video-game-creators-union/
-[job-security]:
-  https://blog.pragmaticengineer.com/advice-for-tech-workers-to-navigate-a-heated-job-market/
+[job-security]: https://blog.pragmaticengineer.com/advice-for-tech-workers-to-navigate-a-heated-job-market/
 [levels]: https://www.levels.fyi
 [pt-2]: /blog/how-to-get-a-job-coding-in-2021-pt-2
-[tech-company]:
-  https://www.forbes.com/sites/forbestechcouncil/2017/01/23/why-every-company-is-a-technology-company/
+[tech-company]: https://www.forbes.com/sites/forbestechcouncil/2017/01/23/why-every-company-is-a-technology-company/
