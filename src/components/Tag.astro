@@ -3,21 +3,23 @@ const { tag } = Astro.props;
 ---
 <style lang="scss">
 .tag {
-  color: var(--bg);
-  display: inline-flex;
   align-items: center;
-  font-size: var(--d1);
+  display: inline-flex;
   font-family: Arial;
+  font-size: var(--d1);
   text-decoration: none;
-  padding: 0.125em 0.25em;
-}
 
-.tag__dev {
-  background-color: var(--green);
-}
+  &__dev {
+    color: var(--green);
+  }
 
-.tag__design {
-  background-color: var(--fuschia);
+  &__design {
+    color: var(--fuschia);
+  }
+
+  &__strategy {
+    color: var(--yellow);
+  }
 }
 </style>
 

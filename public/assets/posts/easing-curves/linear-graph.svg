@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+	<rect x="-0.5" y="-0.5" width="1" height="1"/>
+	<rect x="-0.5" y="49.5" width="1" height="1"/>
+	<rect x="-0.5" y="99.5" width="1" height="1"/>
+	<rect x="-0.5" y="199.5" width="1" height="1"/>
+	<rect x="49.5" width="1" height="1"/>
+	<rect x="49.5" y="49.5" width="1" height="1"/>
+	<rect x="49.5" y="99.5" width="1" height="1"/>
+	<rect x="49.5" y="149.5" width="1" height="1"/>
+	<rect x="49.5" y="199.5" width="1" height="1"/>
+	<rect x="99.5" width="1" height="1"/>
+	<rect x="99.5" y="49.5" width="1" height="1"/>
+	<rect x="99.5" y="99.5" width="1" height="1"/>
+	<rect x="99.5" y="149.5" width="1" height="1"/>
+	<rect x="99.5" y="199.5" width="1" height="1"/>
+	<rect x="149.5" width="1" height="1"/>
+	<rect x="149.5" y="49.5" width="1" height="1"/>
+	<rect x="149.5" y="99.5" width="1" height="1"/>
+	<rect x="149.5" y="149.5" width="1" height="1"/>
+	<rect x="149.5" y="199.5" width="1" height="1"/>
+	<rect x="199.5" width="1" height="1"/>
+	<rect x="199.5" y="49.5" width="1" height="1"/>
+	<rect x="199.5" y="99.5" width="1" height="1"/>
+	<rect x="199.5" y="149.5" width="1" height="1"/>
+	<rect x="199.5" y="199.5" width="1" height="1"/>
+	<rect y="149.5" width="1" height="1"/>
+	<line stroke-width="2" x1="0" y1="200" x2="200" y2="1"/>
+</svg>

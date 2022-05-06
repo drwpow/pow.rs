@@ -3,7 +3,7 @@ title: did we fuck up the internet? part 1
 date: 2020-08-26
 updated: 2021-09-17
 description: |
-  Are the internet’s designers and maintainers holding the internet back from what it could be?
+  The principal designs of the internet were made a long time ago, for different uses than what we use it for today. Are keeping those old designs hurting the internet long-term?
 tags: ['dev']
 layout: ../../layouts/post.astro
 ---
@@ -131,13 +131,10 @@ part 2, we’ll do exactly that.
 [laurie-voss]: https://seldo.com/posts/you-will-never-be-a-full-stack-developer
 [page-weight]: https://twitter.com/scottjehl/status/1263492890979979264?s=20
 [plan-e]: https://www.youtube.com/embed/PPEbmbWuBx4?start=8&end=25&rel=0
-[microsoft-chromium]:
-  https://www.theverge.com/2019/5/6/18527550/microsoft-chromium-edge-google-history-collaboration
+[microsoft-chromium]: https://www.theverge.com/2019/5/6/18527550/microsoft-chromium-edge-google-history-collaboration
 [microsoft-v-us]: https://en.wikipedia.org/wiki/United_States_v._Microsoft_Corp.
-[mozilla-layoffs]:
-  https://www.theverge.com/2020/8/11/21363424/mozilla-layoffs-quarter-staff-250-people-new-revenue-focus
-[mozilla-rust]:
-  https://blog.rust-lang.org/2020/08/18/laying-the-foundation-for-rusts-future.html?ref=hvper.com
+[mozilla-layoffs]: https://www.theverge.com/2020/8/11/21363424/mozilla-layoffs-quarter-staff-250-people-new-revenue-focus
+[mozilla-rust]: https://blog.rust-lang.org/2020/08/18/laying-the-foundation-for-rusts-future.html?ref=hvper.com
 [second-guessing-modern-web]: https://macwright.com/2020/05/10/spa-fatigue.html
 [so-survey]: https://insights.stackoverflow.com/survey/2020
 [social-media]: https://www.apa.org/members/content/social-media-research

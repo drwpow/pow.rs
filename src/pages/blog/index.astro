@@ -9,12 +9,18 @@ const posts = allPosts.filter((p) => !!p.date).sort((a, b) => new Date(b.date) -
 <html lang="en-us">
   <head>
     <Head title="blog" />
+    <style lang="scss">
+      .blog-wrapper {
+        padding-left: 2.25rem;
+        padding-right: 2.25rem;
+      }
+    </style>
   </head>
 
   <body>
     <Nav />
 
-    <div class="wrapper" itemscope itemtype="https://schema.org/Blog">
+    <div class="blog-wrapper" itemscope itemtype="https://schema.org/Blog">
       {posts.map((blogPost) => (
         <BlogPost post={blogPost} />
       ))}

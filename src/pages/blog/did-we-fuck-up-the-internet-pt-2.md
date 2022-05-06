@@ -3,8 +3,7 @@ title: did we fuck up the internet? part 2
 date: 2020-10-17
 updated: 2021-10-30
 description: |
-  (cont’d) How could the internet be easier to contribute to? I explore 4 possible ways we could
-  relive some tech debt and get more voices online.
+  As the philosopher Thom Yorke once said, “where do we go from here?”
 tags: ['dev']
 layout: ../../layouts/post.astro
 ---
@@ -253,11 +252,9 @@ thing that will save our souls.
 
 [cost-of-js]: https://timkadlec.com/remembers/2020-04-21-the-cost-of-javascript-frameworks/
 [deno-ts]: https://github.com/denoland/deno/issues/5432
-[diversity]:
-  https://www.cnbc.com/2020/06/12/six-years-into-diversity-reports-big-tech-has-made-little-progress.html
+[diversity]: https://www.cnbc.com/2020/06/12/six-years-into-diversity-reports-big-tech-has-made-little-progress.html
 [esm]: /blog/the-state-of-es-modules-in-2020/
-[facebook]:
-  https://techcrunch.com/2019/09/26/voter-manipulation-on-social-media-now-a-global-problem-report-finds/
+[facebook]: https://techcrunch.com/2019/09/26/voter-manipulation-on-social-media-now-a-global-problem-report-finds/
 [html-proposals]: https://github.com/whatwg/html
 [html]: /blog/was-html-a-mistake/
 [gatsby]: https://twitter.com/tesseralis/status/1293649015020457984?s=20
@@ -267,16 +264,14 @@ thing that will save our souls.
 [jamstack-jamstack]: https://css-tricks.com/jamstack-vs-jamstack/
 [jamstack-vs-wp]: https://www.theregister.com/2020/10/13/wordpress_matt_vs_netlify_matt/
 [js-is-hard]: https://lea.verou.me/2020/05/todays-javascript-from-an-outsiders-perspective/
-[mozilla]:
-  https://www.enterprisetimes.co.uk/2020/08/13/will-mozilla-layoffs-affect-security-of-firefox-browser/
+[mozilla]: https://www.enterprisetimes.co.uk/2020/08/13/will-mozilla-layoffs-affect-security-of-firefox-browser/
 [nng-js]: https://www.nngroup.com/articles/the-need-for-speed/
 [no-js]: https://www.smashingmagazine.com/2018/05/using-the-web-with-javascript-turned-off/
 [other-road-ahead]: http://www.paulgraham.com/road.html
 [protectors]: https://www.wired.co.uk/article/google-chrome-browser-data
 [propaganda]: https://www.thesocialdilemma.com/
 [pt1]: /blog/did-we-fuck-up-the-internet-pt-1
-[rust]:
-  https://thenewstack.io/microsoft-rust-is-the-industrys-best-chance-at-safe-systems-programming/#
+[rust]: https://thenewstack.io/microsoft-rust-is-the-industrys-best-chance-at-safe-systems-programming/#
 [skypack]: https://www.skypack.dev
 [tm]: https://macwright.com/2020/08/22/clean-starts-for-the-web.html
 [wasm]: https://2ality.com/2020/10/js-plus-other-languages.html

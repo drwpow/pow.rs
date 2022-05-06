@@ -2,7 +2,7 @@
 title: how to handle responsive font sizes in css
 date: 2020-08-02
 description: |
-  Get perfect, easy-to-use font scaling with less than 1KB of CSS. Sound too good to be true? It’s not!
+  Get perfect, easy-to-use font scaling with &lt; 1kB of CSS. Sound too good to be true? It’s not!
 tags: ['design']
 layout: ../../layouts/post.astro
 ---
@@ -110,9 +110,7 @@ Then just sprinkle the utilities in whenever you need it:
 
 ```html
 <h1 class="font-u6">I’m an h1 so I’m 6 steps up from the base size</h1>
-<h2 class="font-u5">
-  I’m an h2 so I’m slightly smaller than h1, but still 5 steps up from the base size
-</h2>
+<h2 class="font-u5">I’m an h2 so I’m slightly smaller than h1, but still 5 steps up from the base size</h2>
 
 <small class="font-d1">I’m 1 step down from the base size</small>
 ```
