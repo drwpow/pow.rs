@@ -180,7 +180,7 @@ function init() {
   let keyBuffer = [];
   let bufferTimeout;
   const success = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
-  const playlist = ['bgm_qotsa_ytiawadbiflam', 'bgm_cob_cob', 'bgm_m_tm', 'bgm_m_tm', 'bgm_bg_wss', 'bgm_if_pm']; // weight bgm_m_tm a lil more!
+  const playlist = ['bgm_qotsa_ytiawadbiflam', 'bgm_cob_cob', 'bgm_m_tm', 'bgm_m_tm', 'bgm_bg_wss', 'bgm_if_pm', 'bgm_dgd_po']; // weight bgm_m_tm a lil more!
   let lastPlayed;
   window.addEventListener('keyup', (evt) => {
     clearTimeout(bufferTimeout);
