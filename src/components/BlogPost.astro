@@ -13,7 +13,7 @@ const { post } = Astro.props;
   grid-row-gap: 0.5rem;
   grid-template-areas: 'date' 'title' 'summary' 'tag';
   line-height: 1;
-  margin: 1rem 0 2.5rem;
+  margin: 1rem 0 1.5rem;
   max-width: 50em;
   position: relative;
   text-decoration: none;
@@ -22,6 +22,8 @@ const { post } = Astro.props;
     grid-template-areas: 'date title' 'date summary' 'date tag';
     grid-template-columns: 5rem auto;
     margin-bottom: 3.5rem;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
   }
 
   &:first-of-type {

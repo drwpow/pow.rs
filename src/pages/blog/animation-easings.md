@@ -113,7 +113,12 @@ layout: ../../layouts/post.astro
   .figure-group {
     background: var(--gray-15);
     display: flex;
-    padding: 2.5rem;
+    padding: 0;
+  }
+
+  .figure-group > * {
+    box-sizing: border-box;
+    flex: 1;
   }
 
   .spinner {
@@ -616,7 +621,7 @@ a {
 }
 ```
 
-A linear curve will always produce the most consistent blends of color because that’s how color is already optimized to work. Compare a linear transition (top) to an ease-out transition (middle) to an ease-in transition (bottom):
+Out of any standard easing curve, a linear one will produce the most even blend of color (that’s how color is already optimized to work!). Compare a linear transition (top) to an ease-out transition (middle) to an ease-in transition (bottom):
 
 <div class="gradient">
   {[...new Array(100)].map((_, n) => {
@@ -663,11 +668,11 @@ A linear curve will always produce the most consistent blends of color because t
   })}
 </div>
 
-Non-linear curves may be desirable with motion, with color it usually results in awkward transitions. You can see how a linear transition (top), for the most part\*, blends color A and color B evenly. But when using ease-out (middle), the midpoint gets shifted too far left, and ease-in (bottom) shifts the midpoint too far right. So in most cases, a **linear curve** is the best option. Sure, there may be a _super-specific_ usecase where you want to apply an easing curve to a color transition. But that will only ever work with a very specific curve and a very specific color transition—change one, and you must change the other (it will never be generally-applicable).
+While nonlinear curves may be desirable with motion, they produce uneven blending for colors. You can see how a linear transition (top), for the most part\*, blends color A and color B evenly. But when using ease-out (middle), the midpoint gets shifted too far left, and ease-in (bottom) shifts the midpoint too far right. So in most cases, a **linear curve** is the best option. Sure, there may be a _super-specific_ usecase where you want to apply an easing curve to a color transition. But that will only ever work with a very specific curve and a very specific color transition—change one, and you must change the other (it will never be generally-applicable).
 
 _\*If you think linear transitions don’t transition smoothly, congratulations! 🎉 You’ve [found a rabbit hole into color theory](https://observablehq.com/@sebastien/srgb-rgb-gamma). Good luck; have fun. But for your own sanity, just pretend that linear transitions are the smoothest among “dumb” non-color-aware easing curves. And pretend linear curves are good enough for animating (which, IMHO, they are)._
 
-The example above shows transitioning between 2 saturated colors, but the exact same thing happens with brightness and opacity, too (same as before—linear, ease-out, ease-in in that order):
+The example above shows transitioning between 2 saturated colors, but the exact same thing happens with brightness and opacity, too:
 
 <div class="gradient">
   {[...new Array(100)].map((_, n) => {
@@ -714,20 +719,20 @@ The example above shows transitioning between 2 saturated colors, but the exact 
   })}
 </div>
 
-So for transitions of light (color / brightness / opacity) use a **linear curve**.
+You’ll notice the same results—ease-out and ease-in are too light, or too dark, respectively. So for transitions of light (color / brightness / opacity) use a **linear curve**.
 
 ## 2. rotation
 
-Rotation is another good general application for a **linear curve**, though there will be more exceptions here than among light transitions.
+Rotation is another good general application for a **linear curve** (though there may be a few more exceptions here).
 
-The chief offender I see is “stuttering spinners” (left) that are far more common than they should be:
+The chief offender I see is “stuttering spinners” (left) that are more common than they should be:
 
 <div class="figure-group">
-  <figure style="align-items:center;display:flex;flex-direction:column;justify-content:center;width:50%">
+  <figure style="align-items:center;display:flex;flex-direction:column;justify-content:center;">
     <div class="spinner spinner--stutter"></div>
     <figcaption>Default <code>ease</code></figcaption>
   </figure>
-  <figure style="align-items:center;display:flex;flex-direction:column;justify-content:center;width:50%">
+  <figure style="align-items:center;display:flex;flex-direction:column;justify-content:center;">
     <div class="spinner spinner--linear"></div>
     <figcaption>Linear curve</figcaption>
   </figure>
@@ -754,14 +759,14 @@ Interactive elements is a broad category of animations, consisting of everything
 Humans think of an interaction as “instant” (i.e. _not slow_) if it happens within ~100ms ([source](https://www.nngroup.com/articles/response-times-3-important-limits/)). While [animation speed is important](https://material.io/design/motion/speed.html#controlling-speed), we’ll focus on the easing curve. Compare the two examples of hover, with one using **ease-in** and the other using **ease-out**. Which feels more “instant”?
 
 <div class="figure-group">
-  <figure style="align-items:center;display:flex;flex-direction:column;justify-content:center;width:50%">
+  <figure style="align-items:center;display:flex;flex-direction:column;justify-content:center;">
     <div class="hover hover--ease-in">
       Hover me
       <div class="hover-tooltip">Hovered!</div>
     </div>
     <figcaption>ease in</figcaption>
   </figure>
-  <figure style="align-items:center;display:flex;flex-direction:column;justify-content:center;width:50%">
+  <figure style="align-items:center;display:flex;flex-direction:column;justify-content:center;">
     <div class="hover hover--ease-out">
       Hover me
       <div class="hover-tooltip">Hovered!</div>
@@ -836,13 +841,13 @@ Using **ease-out** as a default easing will be best _most_ of the time, but when
 A switch is a common example of this. Think about any light switch or device switch you’ve ever pressed. Of the two, which feels like it “clicks” like a switch would?
 
 <div class="figure-group">
-  <figure style="align-items:center;display:flex;flex-direction:column;justify-content:flex-start;width:50%">
+  <figure style="align-items:center;display:flex;flex-direction:column;justify-content:flex-start;">
     <label for="switch-01" class="switch switch--easing">
       <input type="checkbox" class="switch-input" id="switch-01">
     </label>
     <figcaption>smooth ease-out curve</figcaption>
   </figure>
-  <figure style="align-items:center;display:flex;flex-direction:column;justify-content:flex-start;width:50%">
+  <figure style="align-items:center;display:flex;flex-direction:column;justify-content:flex-start;">
     <label for="switch-02" class="switch switch--quick">
       <input type="checkbox" class="switch-input" id="switch-02">
     </label>
@@ -855,19 +860,19 @@ The right behaves more like the real-world switch it represents—there’s a bi
 However, by adding resistance up-front (ease-in), we’re also fighting against one of our earlier principles—showing more movement up front so the interaction doesn’t feel “laggy” or delayed. So we’ll toy with the precise easing curve as well as timing to get that balance right between real-world metaphor vs responsive UI.
 
 <div class="figure-group">
-  <figure style="align-items:center;display:flex;flex-direction:column;justify-content:flex-start;text-align:center;width:33.3333%">
+  <figure style="align-items:center;display:flex;flex-direction:column;justify-content:flex-start;text-align:center;">
     <label for="switch-04" class="switch switch--resistance-none">
       <input type="checkbox" class="switch-input" id="switch-04">
     </label>
     <figcaption>no resistance<br/>(linear)</figcaption>
   </figure>
-  <figure style="align-items:center;display:flex;flex-direction:column;justify-content:flex-start;text-align:center;width:33.3333%">
+  <figure style="align-items:center;display:flex;flex-direction:column;justify-content:flex-start;text-align:center;">
     <label for="switch-05" class="switch switch--resistance-sm">
       <input type="checkbox" class="switch-input" id="switch-05">
     </label>
     <figcaption>some resistance<br/>(sharp ease-in)</figcaption>
   </figure>
-  <figure style="align-items:center;display:flex;flex-direction:column;justify-content:flex-start;text-align:center;width:33.3333%">
+  <figure style="align-items:center;display:flex;flex-direction:column;justify-content:flex-start;text-align:center;">
     <label for="switch-06" class="switch switch--resistance-lg">
       <input type="checkbox" class="switch-input" id="switch-06">
     </label>
