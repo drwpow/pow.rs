@@ -1,5 +1,5 @@
 ---
-title: anger can be a force for good
+title: Anger can be a force for good
 description: if expressed right—a huge, ginormous “if”
 date: 2017-10-28
 tags: ['other']

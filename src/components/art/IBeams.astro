@@ -1,23 +1,23 @@
-<style lang="scss">
+<style lang="scss" is:global>
   .cursors {
-    position: relative;
-    margin: 5rem auto;
-    padding: 2rem auto;
-    width: 128px;
     height: 32px;
+    margin: 5rem auto;
+    padding: 2rem 0;
+    position: relative;
+    width: 128px;
   }
 
   .cursor {
-    position: absolute;
+    animation: slide 3s infinite cubic-bezier(0.5, 0, 0.5, 1);
+    height: 32px;
     left: 0;
+    mix-blend-mode: multiply;
+    position: absolute;
     top: 0;
     width: 2px;
-    height: 32px;
-    mix-blend-mode: multiply;
-    animation: slide 3s infinite cubic-bezier(0.5, 0, 0.5, 1);
   }
 
-  :global(.theme--dark .cursor) {
+  .theme--dark .cursor {
     mix-blend-mode: screen;
   }
 
@@ -55,5 +55,3 @@
   <div class="cursor"></div>
   <div class="cursor"></div>
 </div>
-
-<slot />

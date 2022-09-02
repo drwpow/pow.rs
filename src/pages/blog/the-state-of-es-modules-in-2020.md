@@ -1,5 +1,5 @@
 ---
-title: not enough people are talking about ES Modules
+title: Not enough people are talking about ES Modules
 date: 2020-03-08
 updated: 2020-04-21
 description: |
@@ -144,8 +144,7 @@ around ESM.
 [deno]: https://deno.land/
 [deno-docs]: https://deno.land/std/manual.md#introduction
 [esm-browser]: https://caniuse.com/#feat=es6-module
-[esm-node]:
-  https://medium.com/@nodejs/announcing-core-node-js-support-for-ecmascript-modules-c5d6dc29b663
+[esm-node]: https://medium.com/@nodejs/announcing-core-node-js-support-for-ecmascript-modules-c5d6dc29b663
 [esm-npm]: https://www.pika.dev/about/stats
 [esm-react]: https://github.com/facebook/react/issues/11503
 [pika-registry]: https://www.pika.dev/registry

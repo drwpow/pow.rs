@@ -1,5 +1,5 @@
 ---
-title: we migrated to Next.js to serve our home page 7.5× faster
+title: We migrated to Next.js to serve our home page 7.5× faster
 description: server-side rendering by the numbers
 date: 2018-05-07
 tags: ['dev']

@@ -1,4 +1,4 @@
-<style lang="scss">
+<style lang="scss" is:global>
   .stack-wrapper {
     position: relative;
     height: 6rem;
@@ -31,16 +31,16 @@
   }
 
   .layer {
-    animation: sway 8s cubic-bezier(0.5, 0, 0.5, 1) infinite, shift 11s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    animation: sway 8s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     background-color: orange;
     bottom: 0;
-    height: 0.55rem;
+    height: 9px;
     left: 50%;
     margin-left: -1.5rem;
     position: absolute;
-    transform-origin: 50% 100%;
     transform: translateX(-0.25rem) translateY(calc(-100% - 4px)) rotate(-6deg);
-    width: 3rem;
+    transform-origin: 50% 100%;
+    width: 48px;
   }
 
   @keyframes sway {
@@ -67,5 +67,3 @@
     </div>
   </div>
 </div>
-
-<slot />

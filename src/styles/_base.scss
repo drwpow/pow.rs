@@ -60,6 +60,7 @@ h6 {
   position: relative;
   font-weight: 600;
   font-family: var(--heading);
+  letter-spacing: -0.01em;
   line-height: 1.2;
 
   &:hover .zola-anchor {
@@ -112,8 +113,14 @@ svg {
   fill: currentColor;
 }
 
+b,
 strong {
   font-weight: 600;
+}
+
+i,
+em {
+  font-style: italic;
 }
 
 blockquote {
@@ -186,8 +193,8 @@ th {
 
 ol,
 ul {
-  margin: 1.5em 0;
-  padding: 0;
+  margin: 2em 0;
+  padding: 0 1em;
 }
 
 ol {
@@ -195,18 +202,27 @@ ol {
 }
 
 ul {
-  list-style-type: disclosure-closed;
+  list-style-type: '‒';
 }
 
 li {
-  line-height: 1.5;
+  line-height: 1.375;
   margin-bottom: 1rem;
+  margin-left: -0.5em;
+  padding-left: 0.5em;
 }
 
 figure {
   margin: 2rem -1.5rem;
   padding: 1.5rem;
   background: var(--bg-accent);
+}
+
+.figure-group {
+  figure {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 figcaption {

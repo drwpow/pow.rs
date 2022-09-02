@@ -1,63 +1,67 @@
-<style>
-:root {
-  --sin-out: cubic-bezier(0, 0.5, 0.5, 1);
-  --sin-in: cubic-bezier(0.5, 0, 1, 0.5);
-}
 
-.dots {
-  display: flex;
-  justify-content: space-between;
-  width: 76px;
-  margin: 6rem auto;
-}
-
-@media (min-width: 600px) {
-  margin: 4rem auto;
-}
-
-.dot {
-  animation-name: bounce;
-  animation-iteration-count: infinite;
-  border-radius: 50%;
-  width: 8px;
-  height: 8px;
-  background: #f00;
-}
-.dot:nth-child(1) {animation-duration: 1s; animation-delay: 0.2s; }
-.dot:nth-child(2) {animation-duration: 1.1s;}
-.dot:nth-child(3) {animation-duration: 1.3s;}
-.dot:nth-child(4) {animation-duration: 1.4s;animation-delay: 0.1s;}
-.dot:nth-child(5) {animation-duration: 1.5s;animation-delay: 0.3s;}
-.dot:nth-child(6) {animation-duration: 1.6s;}
-
-@keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  92%,
-  100% { transform: translateY(0); }
-  40% {transform: translateY(-600%);}
-  70% {transform: translateY(-280%);}
-  90% {transform: translateY(-50%);}
-  95% {transform: translateY(-25%);}
-  40%,
-  49%,
-  70%,
-  79%,
-  90%,
-  91%,
-  96% { animation-timing-function: var(--sin-in); }
-  0%,
-  39%,
-  50%,
-  69%,
-  80%,
-  89%,
-  93%,
-  94% { animation-timing-function: var(--sin-out); }
-}
-</style>
+<style is:global>
+  :root {
+    --sin-out: cubic-bezier(0, 0.5, 0.5, 1);
+    --sin-in: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+  
+  .dots {
+    display: flex;
+    justify-content: space-between;
+    width: 76px;
+    margin: 6rem auto;
+  }
+  
+  @media (min-width: 600px) {
+    .dots {
+      margin: 4rem auto;
+    }
+  }
+  
+  .dot {
+    animation-name: bounce;
+    animation-iteration-count: infinite;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    background: #f00;
+  }
+  
+  .dot:nth-child(1) {animation-duration: 1s;animation-delay: 0.2s;}
+  .dot:nth-child(2) {animation-duration: 1.1s;}
+  .dot:nth-child(3) {animation-duration: 1.3s;}
+  .dot:nth-child(4) {animation-duration: 1.4s;animation-delay: 0.1s;}
+  .dot:nth-child(5) {animation-duration: 1.5s;animation-delay: 0.3s;}
+  .dot:nth-child(6) {animation-duration: 1.6s;}
+  
+  @keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    92%,
+    100% {transform: translateY(0);}
+    40% {transform: translateY(-600%);}
+    70% {transform: translateY(-280%);}
+    90% {transform: translateY(-50%);}
+    95% {transform: translateY(-25%);}
+    40%,
+    49%,
+    70%,
+    79%,
+    90%,
+    91%,
+    96% { animation-timing-function: var(--sin-in); }
+    0%,
+    39%,
+    50%,
+    69%,
+    80%,
+    89%,
+    93%,
+    94% { animation-timing-function: var(--sin-out); }
+  }
+</style>  
 
 <div class="dots">
   <div class="dot"></div>
@@ -67,5 +71,3 @@
   <div class="dot"></div>
   <div class="dot"></div>
 </div>
-
-<slot />

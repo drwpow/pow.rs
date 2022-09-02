@@ -1,5 +1,5 @@
 ---
-title: 'the distributed web part 2: …or do you?'
+title: 'The distributed web part 2: …or do you?'
 description: when is it time to pony up for custom development?
 date: 2016-02-07
 tags: ['strategy']

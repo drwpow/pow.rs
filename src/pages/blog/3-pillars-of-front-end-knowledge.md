@@ -1,5 +1,5 @@
 ---
-title: the great(er) divide in front-end
+title: The great(er) divide in front-end
 date: 2020-02-17
 updated: 2020-04-19
 description: |

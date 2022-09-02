@@ -1,5 +1,5 @@
 ---
-title: error handling like a three-prong outlet
+title: Error handling like a three-prong outlet
 description: the hidden part of programming
 date: 2016-08-24
 tags: ['dev']

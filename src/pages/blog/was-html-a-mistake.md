@@ -1,5 +1,5 @@
 ---
-title: is it time to retire HTML?
+title: Is it time to retire HTML?
 date: 2020-04-19
 updated: 2021-09-18
 description: |
@@ -155,8 +155,7 @@ reader support I’m going to be doing some [fun stuff in canvas][js1k].
 [betteridge]: https://en.wikipedia.org/wiki/Betteridge%27s_law_of_headlines
 [canvas]: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
 [clutch]: https://clutch.co/website-builders/resources/small-business-websites-2018
-[fb-video]:
-  https://www.theverge.com/2018/10/17/17989712/facebook-inaccurate-video-metrics-inflation-lawsuit
+[fb-video]: https://www.theverge.com/2018/10/17/17989712/facebook-inaccurate-video-metrics-inflation-lawsuit
 [flash]: https://en.wikipedia.org/wiki/Adobe_Flash
 [firstborn]: https://twitter.com/meusPartum/status/1143186195494658048?s=20
 [http-archive]: https://httparchive.org/reports/page-weight

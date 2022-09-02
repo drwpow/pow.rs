@@ -1,85 +1,145 @@
 ---
 import Tag from './Tag.astro';
-import { format } from '../helpers/date.ts';
+import { format } from '../helpers/date.js';
 
 const { post } = Astro.props;
 ---
+
 <style lang="scss">
-.preview {
-  color: var(--fg);
-  display: grid;
-  font-weight: 300;
-  grid-column-gap: 1rem;
-  grid-row-gap: 0.5rem;
-  grid-template-areas: 'date' 'title' 'summary' 'tag';
-  line-height: 1;
-  margin: 1rem 0 1.5rem;
-  max-width: 50em;
-  position: relative;
-  text-decoration: none;
+  @use '../styles/element' as *;
 
-  @media (min-width: 600px) {
-    grid-template-areas: 'date title' 'date summary' 'date tag';
-    grid-template-columns: 5rem auto;
-    margin-bottom: 3.5rem;
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
+  .preview {
+    color: var(--fg);
+    display: block;
+    font-weight: 300;
+    gap: 0.5rem;
+    line-height: 1;
+    margin: 1rem 0 1.5rem;
+    max-width: 50em;
+    position: relative;
+    text-decoration: none;
+
+    @media (min-width: 600px) {
+      margin-top: 2rem;
+      padding-left: 2.75rem;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+
+    &:first-of-type {
+      margin-top: 0;
+    }
   }
 
-  &:first-of-type {
-    margin-top: 0;
+  .date {
+    @include element;
+
+    color: var(--gray-50);
+    display: block;
+    grid-area: date;
+    font-family: Arial;
+    font-size: var(--d2);
+    text-transform: none;
+
+    @media (min-width: 600px) {
+      margin-top: 0.5em;
+    }
+
+    &::before {
+      content: '<time>';
+    }
+
+    &::after {
+      content: '</time>';
+    }
   }
-}
 
-.date {
-  color: var(--gray-50);
-  display: inline;
-  grid-area: date;
-  font-family: Arial;
-  font-size: 12px;
+  .summary {
+    @include element;
 
-  @media (min-width: 600px) {
-    margin-top: 0.5em;
+    display: block;
+    font-size: var(--u0);
+    line-height: 1.25;
+    margin: 0.25em 0;
+    max-width: 32em;
+
+    &::before {
+      content: '<p>';
+      line-height: 20px;
+    }
+
+    &::after {
+      content: '</p>';
+    }
   }
-}
 
-.summary {
-  display: block;
-  grid-area: summary;
-  font-size: var(--u1);
-  font-style: italic;
-  line-height: 1.25;
-}
+  .simlink {
+    align-self: end;
+    display: flex;
+    font-family: var(--heading);
+    font-weight: 600;
+    justify-content: flex-end;
+  }
 
-.simlink {
-  display: flex;
-  align-self: end;
-  justify-content: flex-end;
-  font-weight: 600;
-  font-family: var(--heading);
-}
+  .tags {
+    @include element;
 
-.tag {
-  display: inline-block;
-  grid-area: tag;
-}
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
 
-.title {
-  display: block;
-  grid-area: title;
-  font-size: var(--u4);
-  line-height: 0.9;
-  font-weight: 400;
-  margin: 0;
-}
+    &::before {
+      content: '<tags>';
+      line-height: 2;
+    }
 
+    &::after {
+      content: '</tags>';
+      line-height: 2;
+    }
+
+    :global(> *::before) {
+      color: var(--gray-50);
+      content: ' / ';
+      display: inline-block;
+      margin-left: 0.5em;
+      margin-right: 0.5em;
+      vertical-align: middle;
+    }
+
+    :global(> *:first-of-type::before) {
+      content: initial;
+    }
+  }
+
+  .title {
+    @include element;
+
+    display: block;
+    font-size: var(--u2);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+    margin: 0.25em 0;
+
+    &::before {
+      content: '<title>';
+      line-height: 19px;
+    }
+
+    &::after {
+      content: '</title>';
+    }
+  }
 </style>
 
 <a class="preview" href={post.url} itemscope itemtype="http://schema.org/BlogPosting">
-  <span class="title" itemprop="headline">{post.title}</span>
-  <time class="date" datetime={post.date} itemprop="datePublished">{format(post.date)}</time>
-  <span class="summary" itemprop="description">{post.description}</span>
-  <span class="tag">
-    {(post.tags || []).map((tag) => (<Tag tag={tag} />))}
+  <time class="date" datetime={post.date} itemprop="datePublished">{format(post.frontmatter.date)}</time>
+  <span class="title" itemprop="headline">{post.frontmatter.title}</span>
+  <span class="summary" itemprop="description">{post.frontmatter.description}</span>
+  <span class="tags">
+    {(post.frontmatter.tags || []).map((tag) => <Tag tag={tag} />)}
   </span>
 </a>

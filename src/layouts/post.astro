@@ -3,29 +3,34 @@ import Art from '../components/Art.astro';
 import Head from '../components/Head.astro';
 import Nav from '../components/Nav.astro';
 import Tag from '../components/Tag.astro';
-import { format } from '../helpers/date.ts';
+import { format } from '../helpers/date.js';
 
 const { content } = Astro.props;
-const slug = Astro.request.url.pathname.replace(/\/blog\//, '');
+const slug = Astro.url.pathname.replace(/\/blog\//, '');
 
-const SKULL_COLORS = ['#ff0000', '#ffff00', '#0040ff','#ff00ff', '#00ff00'];
+const SKULL_COLORS = ['#ff0000', '#ffff00', '#0040ff', '#ff00ff', '#00ff00'];
 const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.length)];
 ---
+
 <html lang="en-us">
   <head>
     <Head title={content.title} color={colorOfTheDay} />
 
     <style lang="scss">
+      @use '../styles/element' as *;
+
       .post-animation {
         display: flex;
         flex-direction: column;
         justify-content: center;
         pointer-events: none;
+        transform: translateZ(0);
+        z-index: 50;
 
         @media (min-width: 1200px) {
           position: absolute;
-          top: 8rem;
-          left: 2rem;
+          right: calc(100%);
+          top: 2rem;
           width: 16rem;
         }
       }
@@ -41,20 +46,88 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
           font-size: var(--u2);
         }
 
-        :global(ul li) {
-          position: relative;
-          list-style: none;
+        :global(h2) {
+          @include element;
 
           &::before {
-            position: absolute;
-            top: 0.25em;
-            right: 100%;
-            margin-right: 0.75em;
-            font-size: var(--d2);
-            line-height: inherit;
-            content: "▶︎";
-            pointer-events: none;
+            content: '<h2>';
+            line-height: 2.5rem;
           }
+
+          &::after {
+            content: '</h2>';
+          }
+        }
+
+        :global(h3) {
+          @include element;
+
+          &::before {
+            content: '<h3>';
+            line-height: 2.25rem;
+          }
+
+          &::after {
+            content: '</h3>';
+          }
+        }
+
+        :global(h4) {
+          @include element;
+
+          &::before {
+            content: '<h4>';
+            line-height: 1.5rem;
+          }
+
+          &::after {
+            content: '</h4>';
+          }
+        }
+
+        :global(h5) {
+          @include element;
+
+          &::before {
+            content: '<h5>';
+            line-height: 1.5rem;
+          }
+
+          &::after {
+            content: '</h5>';
+          }
+        }
+        :global(h6) {
+          @include element;
+
+          &::before {
+            content: '<h6>';
+            line-height: 1.5rem;
+          }
+
+          &::after {
+            content: '</h6>';
+          }
+        }
+      }
+
+      .post-date {
+        @include element;
+
+        color: var(--gray-50);
+        display: block;
+        font-family: 'Arial', sans-serif;
+        font-size: var(--d2);
+        text-transform: none;
+
+        &::before {
+          content: '<time>';
+          line-height: 1rem;
+        }
+
+        &::after {
+          content: '</time>';
+          line-height: 1rem;
         }
       }
 
@@ -69,31 +142,60 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
 
       .post-header {
         box-sizing: border-box;
+        position: relative;
       }
 
-      .post-meta {
+      .post-tags {
+        @include element;
+
         align-items: center;
-        display: grid;
-        font-family: Arial;
-        grid-gap: 0.5rem 1rem;
-        grid-template-columns: min-content auto;
-        margin-bottom: 1.5rem;
-        margin-top: 0;
+        display: flex;
+        flex-wrap: wrap;
 
-        @media (min-width: 650px) {
-          margin-bottom: 2rem;
+        &::before {
+          content: '<tags>';
+          line-height: 2rem;
         }
 
-        &-value {
-          margin: 0;
+        &::after {
+          content: '</tags>';
+          line-height: 2rem;
         }
+
+        :global(> *::before) {
+          color: var(--gray-50);
+          content: ' / ';
+          display: inline-block;
+          margin-left: 0.5em;
+          margin-right: 0.5em;
+        }
+
+        :global(> *:first-of-type::before) {
+          content: initial;
+        }
+      }
+
+      .post-tags-sep {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
       }
 
       .post-title {
-        font-weight: 400;
+        @include element;
+
+        font-weight: 700;
         font-size: var(--u5);
-        margin-bottom: 1rem;
-        margin-top: 0;
+        margin: 0;
+        letter-spacing: -0.01em;
+
+        &::before {
+          content: '<title>';
+          line-height: 2.75rem;
+        }
+
+        &::after {
+          content: '</title>';
+        }
       }
 
       :global(.post-yt) {
@@ -120,12 +222,16 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
       <article class="post-body" itemscope itemtype="http://schema.org/BlogPosting">
         <header class="post-header">
           <div class="post-animation"><Art id={slug} /></div>
+          {
+            content.date && (
+              <time class="post-date" datetime={content.date}>
+                {format(content.date)}
+              </time>
+            )
+          }
           <h1 class="post-title" itemprop="headline">{content.title}</h1>
-          <div class="post-meta">
-            {content.date && <time datetime={content.date}>{format(content.date)}</time>}
-            <div class="post-meta-value">
-              {content.tags.map((tag) => (<Tag tag={tag} />))}
-            </div>
+          <div class="post-tags">
+            {content.tags.map((tag) => <Tag tag={tag} />)}
           </div>
         </header>
 

@@ -1,5 +1,5 @@
 ---
-title: media queries are (still) a hack
+title: Media queries are (still) a hack
 date: 2020-01-18
 description: |
   Media queries are janky. No, it’s not just you.
@@ -116,7 +116,6 @@ I may not have any original ideas on this subject, but at least we’re all on t
 [css]: https://css-tricks.com/lets-not-forget-about-container-queries/
 [js]: https://labs.jensimmons.com/2017/03-009.html
 [ist]: https://ianstormtaylor.com/media-queries-are-a-hack/
-[pw]:
-  https://philipwalton.com/articles/responsive-components-a-solution-to-the-container-queries-problem/
+[pw]: https://philipwalton.com/articles/responsive-components-a-solution-to-the-container-queries-problem/
 [w3c]: https://www.w3.org/TR/html-design-principles/
 [zl]: https://www.zachleat.com/web/origin-container-queries/

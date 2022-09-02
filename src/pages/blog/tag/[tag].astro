@@ -3,26 +3,27 @@ import BlogPost from '../../../components/BlogPost.astro';
 import Head from '../../../components/Head.astro';
 import Nav from '../../../components/Nav.astro';
 
-const { tag } = Astro.request.params;
+const { tag } = Astro.params;
 const { posts } = Astro.props;
 
 export async function getStaticPaths() {
-  const posts = (await Astro.fetchContent('../**/*.md')).filter((p) => !!p.date);
-  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  const posts = (await Astro.glob('../**/*.{astro,md}')).filter((p) => !!p.frontmatter?.date);
+  posts.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date));
   const tags = new Set();
   for (const post of posts) {
-    if (Array.isArray(post.tags)) {
-      for (const tag of post.tags) {
+    if (Array.isArray(post.frontmatter.tags)) {
+      for (const tag of post.frontmatter.tags) {
         tags.add(tag);
       }
     }
   }
   return [...tags].map((tag) => ({
     params: { tag },
-    props: { posts: posts.filter((post) => Array.isArray(post.tags) && post.tags.includes(tag)) },
+    props: { posts: posts.filter((post) => Array.isArray(post.frontmatter.tags) && post.frontmatter.tags.includes(tag)) },
   }));
 }
 ---
+
 <html lang="en-us">
   <head>
     <Head title={`Tagged: ${tag}`} />
@@ -31,7 +32,7 @@ export async function getStaticPaths() {
     <Nav />
 
     <div class="wrapper">
-      {posts.map((post) => (<BlogPost post={post} />))}
+      {posts.map((post) => <BlogPost post={post} />)}
     </div>
   </body>
 </html>

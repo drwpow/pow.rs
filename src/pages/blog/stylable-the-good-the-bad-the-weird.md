@@ -1,5 +1,5 @@
 ---
-title: 'stylable: the good, the bad, the weird'
+title: 'Stylable: the good, the bad, the weird'
 description: taking the new CSS preprocessor from Wix for a spin
 date: 2017-11-27
 tags: ['dev']

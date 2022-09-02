@@ -1,5 +1,5 @@
 ---
-title: 'css puzzles: a mentorship program for better styling'
+title: 'CSS puzzles: a mentorship program for better styling'
 description: How a 12-week program resulted in open-source education
 date: 2019-01-17
 tags: ['dev']

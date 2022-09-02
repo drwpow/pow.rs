@@ -1,5 +1,5 @@
 ---
-title: 'cloud-jumping: swap hosted services easily with Manifold'
+title: 'Cloud-jumping: swap hosted services easily with Manifold'
 description: how to take back full control of your cloud services in one afternoon
 date: 2018-04-13
 tags: ['dev']

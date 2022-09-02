@@ -1,5 +1,5 @@
 ---
-title: web design isn’t becoming more boring, and isn’t losing its soul
+title: Web design isn’t becoming more boring, and isn’t losing its soul
 description: don’t listen to the haters
 date: 2016-12-11
 tags: ['design']

@@ -3,9 +3,10 @@ import BlogPost from '../../components/BlogPost.astro';
 import Head from '../../components/Head.astro';
 import Nav from '../../components/Nav.astro';
 
-const allPosts = await Astro.fetchContent('./**/*.md');
-const posts = allPosts.filter((p) => !!p.date).sort((a, b) => new Date(b.date) - new Date(a.date));
+const allPosts = await Astro.glob('./**/*.{astro,md}');
+const posts = allPosts.filter((p) => !!p.frontmatter?.date).sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date));
 ---
+
 <html lang="en-us">
   <head>
     <Head title="blog" />
@@ -26,9 +27,7 @@ const posts = allPosts.filter((p) => !!p.date).sort((a, b) => new Date(b.date) -
     <Nav />
 
     <div class="blog-wrapper" itemscope itemtype="https://schema.org/Blog">
-      {posts.map((blogPost) => (
-        <BlogPost post={blogPost} />
-      ))}
+      {posts.map((blogPost) => <BlogPost post={blogPost} />)}
     </div>
   </body>
 </html>

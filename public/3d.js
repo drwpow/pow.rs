@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { STLLoader } from 'three/examples/jsm/loaders/STLLoader';
+import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
 import { OutlineEffect } from 'three/examples/jsm/effects/OutlineEffect.js';
 
 let pos = { x: -1, y: -1 };
@@ -9,6 +9,7 @@ let isRockingOut = false;
 let lastHover;
 
 const NOD_FRAMES = {
+  0: 0,
   5: -0.1,
   10: 0.02,
   14: -0.05,

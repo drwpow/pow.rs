@@ -1,5 +1,5 @@
 ---
-title: how to optimize images for web
+title: How to optimize images for web
 description: not all optimization techniques are equal
 date: 2016-06-03
 tags: ['dev']

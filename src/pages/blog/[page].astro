@@ -5,23 +5,13 @@ import Nav from '../../components/Nav.astro';
 
 const { page } = Astro.props;
 
-export async function getStaticPaths({ paginate, rss }) {
-  const allPosts = await Astro.fetchContent('./**/*.md');
-  const sortedPosts = allPosts.filter((p) => !!p.date).sort((a, b) => new Date(b.date) - new Date(a.date));
-  rss({
-    title: 'drew powers',
-    description: 'personal blog',
-    items: sortedPosts.map((item) => ({
-      title: item.title,
-      description: item.description,
-      link: item.url,
-      pubDate: item.date,
-    })),
-    dest: "/blog.xml",
-  });
+export async function getStaticPaths({ paginate }) {
+  const allPosts = await Astro.glob('./**/*.{astro,md}');
+  const sortedPosts = allPosts.filter((p) => !!p.date).sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date));
   return paginate(sortedPosts, { pageSize: 10 });
 }
 ---
+
 <html lang="en-us">
   <head>
     <Head title="blog" />
@@ -31,9 +21,7 @@ export async function getStaticPaths({ paginate, rss }) {
     <Nav />
 
     <div class="wrapper" itemscope itemtype="https://schema.org/Blog">
-      {page.data.map((blogPost) => (
-        <BlogPost post={blogPost} />
-      ))}
+      {page.data.map((blogPost) => <BlogPost post={blogPost} />)}
     </div>
   </body>
 </html>

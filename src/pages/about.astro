@@ -2,9 +2,9 @@
 import Nav from '../components/Nav.astro';
 import Head from '../components/Head.astro';
 
-let title = 'about'
+let title = 'about';
 
-const SKULL_COLORS = ['#ff0000', '#ffff00', '#0040ff','#ff00ff', '#00ff00'];
+const SKULL_COLORS = ['#ff0000', '#ffff00', '#0040ff', '#ff00ff', '#00ff00'];
 const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.length)];
 ---
 
@@ -18,21 +18,22 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
 
     <div class="wrapper">
       <div itemscope itemtype="http://schema.org/Person" class="pb8">
-        <img alt="Drew" height="1000" itemprop="photo" src="/assets/drewpowers.jpg" width="2000"/>
+        <img alt="Drew" height="1000" itemprop="photo" src="/assets/drewpowers.jpg" width="2000" />
         <p>
           My name is
-          <span itemprop="name">Drew Powers</span>.
-          I’ve been building websites and spending way too much time online for over a decade. I’m passionate about using technology as an
+          <span itemprop="name">Drew Powers</span>. I’ve been building websites and spending way too much time online for over a decade. I’m passionate about using technology as an
           equalizer, both in my work and sharing what I know on this blog.
         </p>
-        <p>
-          Some things I believe (in no particular order):
-        </p>
+        <p>Some things I believe (in no particular order):</p>
         <ol>
           <li>be kind whenever possible (it is always possible)</li>
-          <li>people that “mean well,” do well</li>
+          <li>people that “mean well” do well</li>
+          <li>yeah I’m pro-L.I.F.E.—<b>L</b>et <b>I</b>ntelligent <b>F</b>emales <b>E</b>xercise-bodily-autonomy</li>
+          <li>all cops are, in fact, bastards</li>
+          <li>Black lives matter</li>
+          <li>trans rights are human rights</li>
+          <li>reading books is important</li>
           <li>Paddington 2 is a flawless movie</li>
-          <li>all cops are bastards</li>
         </ol>
         <p>
           Have a question, or a suggestion for something you’d like me to write about? Shoot me an
@@ -42,9 +43,12 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
         </p>
         <p>
           Take a tour through the Drewseum, won’t you?<br />
-          <a href="https://2010.pow.rs">2010</a> / <a href="https://2011.pow.rs">2011</a> / <a href="https://2013.pow.rs">2013</a> / <a href="https://2016.pow.rs">2016</a> / <a href="https://2017.pow.rs">2017</a>
+          <a href="https://2010.pow.rs">2010</a> / <a href="https://2011.pow.rs">2011</a> / <a href="https://2013.pow.rs">2013</a> / <a href="https://2016.pow.rs">2016</a> / <a
+            href="https://2017.pow.rs">2017</a
+          >
         </p>
-        <p>Or find me on other internet websites:<br />
+        <p>
+          Or find me on other internet websites:<br />
           <a class="link" href="https://github.com/drwpow/pow.rs" target="_blank">github</a> /
           <a class="link" href="https://twitter.com/drwpow" target="_blank">twitter</a>
         </p>

@@ -1,6 +1,7 @@
-export default {
-  buildOptions: {
-    site: 'https://pow.rs/',
-  },
-  renderers: [],
-};
+import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
+
+export default defineConfig({
+  site: 'https://pow.rs/',
+  integrations: [sitemap()],
+});

@@ -1,5 +1,5 @@
 ---
-title: are images your slow-down?
+title: Are images your slow-down?
 description: the secret to optimizing images
 date: 2014-11-11
 tags: ['dev']

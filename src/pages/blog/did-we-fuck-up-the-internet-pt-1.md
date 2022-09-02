@@ -1,5 +1,5 @@
 ---
-title: did we fuck up the internet? part 1
+title: Did we fuck up the internet? part 1
 date: 2020-08-26
 updated: 2021-09-17
 description: |

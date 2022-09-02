@@ -1,5 +1,5 @@
 ---
-title: 'the distributed web part 1: you don’t need a website'
+title: 'The distributed web part 1: you don’t need a website'
 description: when to not get sold by marketing speak
 date: 2015-08-20
 tags: ['strategy']

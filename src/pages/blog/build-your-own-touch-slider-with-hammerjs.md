@@ -1,5 +1,5 @@
 ---
-title: build your own touch slider with hammer.js
+title: Build your own touch slider with hammer.js
 description: high-performance touch events for demanding jobs
 date: 2016-04-25
 tags: ['dev']

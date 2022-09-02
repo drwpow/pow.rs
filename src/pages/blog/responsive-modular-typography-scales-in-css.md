@@ -1,5 +1,5 @@
 ---
-title: responsive modular typography scales in css
+title: Responsive modular typography scales in css
 description: a time-saving type system with little config and lots of flexibility
 date: 2017-06-14
 tags: ['design']

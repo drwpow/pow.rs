@@ -1,5 +1,5 @@
 ---
-title: learning javascript? try Vue
+title: Learning javascript? try Vue
 description: great for beginners, great for experts
 date: 2017-05-25
 tags: ['dev']

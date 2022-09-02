@@ -1,4 +1,4 @@
-<style lang="scss">
+<style lang="scss" is:global>
   .loading-container {
     position: relative;
     height: 8rem;
@@ -6,7 +6,7 @@
 
   .tick {
     animation: highlight 4s infinite, flicker 9s infinite, flash 5s infinite;
-    background-color: rgba(0, 0, 96, 0.2);
+    background-color: var(--gray-30);
     border-radius: 1em;
     height: 15px;
     left: 50%;
@@ -51,29 +51,37 @@
   }
 
   @keyframes highlight {
-    0%, 12.4% {
-      background-color: rgba(0, 0, 96, 0.6);
+    0%,
+    12.4% {
+      background-color: var(--gray-50);
     }
-    12.5%, 100% {
-      background-color: rgba(0, 0, 96, 0.2);
+    12.5%,
+    100% {
+      background-color: var(--gray-30);
     }
   }
 
   @keyframes flicker {
-    0%, 89.9% {
+    0%,
+    89.9% {
       opacity: 1;
     }
-    90%, 100% {
+    90%,
+    100% {
       opacity: 0;
     }
   }
 
   @keyframes flash {
-    0%, 44.9%, 55%, 100% {
+    0%,
+    44.9%,
+    55%,
+    100% {
       filter: none;
     }
-    45%, 54.9% {
-      filter: saturate(5) hue-rotate(90deg);
+    45%,
+    54.9% {
+      filter: saturate(5) brightness(50%) hue-rotate(90deg);
     }
   }
 </style>
@@ -88,5 +96,3 @@
   <div class="tick"></div>
   <div class="tick"></div>
 </div>
-
-<slot />

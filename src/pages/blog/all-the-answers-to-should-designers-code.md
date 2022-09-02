@@ -1,5 +1,5 @@
 ---
-title: all the answers to “should designers code?”
+title: All the answers to “should designers code?”
 description: the eternal war rages on
 date: 2017-10-11
 tags: ['design']

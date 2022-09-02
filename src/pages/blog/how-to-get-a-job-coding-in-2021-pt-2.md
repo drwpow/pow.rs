@@ -1,5 +1,5 @@
 ---
-title: how to get a job coding in 2022, part 2
+title: How to get a job coding in 2022, part 2
 date: 2021-10-03
 updated: 2021-10-03
 description: |

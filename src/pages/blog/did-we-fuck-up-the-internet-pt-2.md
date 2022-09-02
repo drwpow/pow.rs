@@ -1,5 +1,5 @@
 ---
-title: did we fuck up the internet? part 2
+title: Did we fuck up the internet? part 2
 date: 2020-10-17
 updated: 2021-10-30
 description: |
@@ -15,7 +15,7 @@ recap, the internet _is_ in a precarious state, from but not limited to the foll
 - it’s [being actively exploited as the ultimate propaganda machine][facebook]
 - it’s [frustrating and burning out its maintainers][webdev]
 
-The [first][protectors] and [second][propaganda] problems are not only beyond my pay grade; they’ve
+The [first][protectors] and [second][propaganda] problems are not only beyond my pay grade, they’ve
 been covered at length elsewhere. But I am here to speak on “frustrating and burning out its
 maintainers.” What better way to save the internet than to make its barrier to entry as low as
 possible?
