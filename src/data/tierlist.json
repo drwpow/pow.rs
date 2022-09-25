@@ -1,0 +1,323 @@
+[
+  {
+    "id": "gummies",
+    "title": "Gummies",
+    "description": "The definitive ranking of all gummies",
+    "updated": "2022-09-25",
+    "rankings": {
+      "s": [
+        {
+          "id": "big-chewy-nerds",
+          "name": "Nerds Crunch",
+          "description": "Innovative, tasty, delicious, and great gummy texture. 10/10 the ultimate gummy."
+        },
+        {
+          "id": "swedish-fish",
+          "name": "Swedish Fish",
+          "description": "Signature flavor and not too sweet."
+        }
+      ],
+      "a": [
+        {
+          "id": "nerds-rope",
+          "name": "Nerds Rope",
+          "description": "A genius combination of nerds and gummy candy in the dumbest delivery method possible."
+        },
+        {
+          "id": "sour-patch-kids",
+          "name": "Sour Patch Kids",
+          "description": "The perfect sour flavor paired with just the right size candy. But the quality can be inconsistent."
+        },
+        {
+          "id": "trolli-sour-brite-crawlers",
+          "name": "Trolli Sour Brite Cralwers",
+          "description": "A safe choice that’s never disappointing. Just the right level of sour."
+        }
+      ],
+      "b": [
+        {
+          "id": "sour-patch-watermelon",
+          "name": "Sour Patch Watermelon",
+          "description": "Never my first pick, but it’s never let me down, either."
+        }
+      ],
+      "c": [
+        {
+          "id": "jelly-belly",
+          "name": "Jelly Belly",
+          "description": "There are a few good flavors and the rest are a waste of time and energy. I couldn’t care less whether I eat these or not."
+        }
+      ],
+      "d": [
+        {
+          "id": "swedish-fish-mini",
+          "name": "Swedish Fish Mini",
+          "description": "For some reason these are always hard. Pass."
+        },
+        { "id": "sour-punch-straws", "name": "Sour Punch Straws", "description": "Good flavor but why are they always moist!?" }
+      ],
+      "f": [
+        {
+          "id": "tajin-watermelon-rings",
+          "name": "Tajin™ Watermelon Rings",
+          "description": "Absolute trash tier gummies whose looks and flavor match perfectly."
+        },
+        {
+          "id": "haribo-goldbears",
+          "name": "Haribo Goldbears",
+          "description": "I think the gummy bears and the plastic bag are the same material."
+        }
+      ]
+    }
+  },
+  {
+    "id": "video-games",
+    "title": "Video games",
+    "description": "A very personal list of video games that left an impression, good or bad",
+    "updated": "2022-09-25",
+    "rankings": {
+      "s": [
+        {
+          "id": "death-stranding",
+          "name": "Death Stranding",
+          "description": "The gameplay certainly has flaws but as an atmospheric experience it is awe-inspiring. Kojima’s finest work to-date."
+        },
+        {
+          "id": "sekiro",
+          "name": "Sekiro",
+          "description": "The complete package: challenging-but-fair gameplay, incredible story and characters, and breathtaking visuals and art direction. I keep coming back to this game for the most fun, fluid, and polished combat I’ve ever experienced."
+        },
+        {
+          "id": "nier-automata",
+          "name": "NieR: Automata",
+          "description": "Addictive hack-and-slash gameplay with RPG elements, a roller coaster story, and amazing art direction (characters by Akihiko Yoshida) make this an unmissable experience."
+        },
+        {
+          "id": "the-legend-of-zelda-breath-of-the-wild",
+          "name": "The Legend of Zelda: Breath of the Wild",
+          "description": "Without hyperbole, quite possibly the greatest video game made to-date. Even 5 years after its release it continues to captivate and inspire us."
+        },
+        {
+          "id": "final-fantasy-xii",
+          "name": "Final Fantasy XII",
+          "description": "Graphics and art direction that are simply out-of-this-world (esp. for Akihiko Yoshida fans). This game remains the most criminally underrated Final Fantasy. The weapons, boss fights, and characters are unforgettable, and it would be a phenomenal game today let alone when it was released over twenty years ago."
+        },
+        {
+          "id": "kingdom-hearts-2",
+          "name": "Kingdom Hearts 2",
+          "description": "This game is pure ecstasy to experience, from music to story to the deep action RPG combat system. Though playing the first is a requirement to fully enjoy this."
+        },
+        {
+          "id": "shadow-of-the-colossus",
+          "name": "Shadow of the Colossus",
+          "description": "It’s hard to overstate how good this game is—an unforgettable fairytale that is fun as hell to play through."
+        },
+        {
+          "id": "final-fantasy-x",
+          "name": "Final Fantasy X",
+          "description": "Probably THE most important video game to me growing up, and is always a joy to revisit."
+        },
+        {
+          "id": "mega-man-legends",
+          "name": "Mega Man Legends",
+          "description": "Peak Mega Man, and peak PS1 graphics. The character design is incredible."
+        },
+        {
+          "id": "castlevania-symphony-of-the-night",
+          "name": "Castlevania: Symphony of the Night",
+          "description": "Every track is an absolute banger, the level design is a work of art, and even decades later is an absolute blast to enjoy."
+        },
+        {
+          "id": "chrono-trigger",
+          "name": "Chrono Trigger",
+          "description": "Easily the greatest 2D RPG ever made, and in the running for best RPG ever made. Simply timeless (no pun intended)."
+        }
+      ],
+      "a": [
+        {
+          "id": "persona-5",
+          "name": "Persona 5",
+          "description": "Absolutely dripping with style and creativity. The previous Persona installments were fantastic, but this was on a whole new level."
+        },
+        {
+          "id": "super-smash-bros-ultimate",
+          "name": "Super Smash Bros. Ultimate",
+          "description": "A love letter to video game history as well as a milestone achievement in and of itself. It single-handedly invented a genre of fighting games while continuing to push its own boundaries of gameplay."
+        },
+        {
+          "id": "super-mario-odyssey",
+          "name": "Super Mario Odyssey",
+          "description": "All the Mario games are good. This is just the way of things."
+        },
+        {
+          "id": "bloodborne",
+          "name": "Bloodborne",
+          "description": "A flawless game with rich atmosphere and lore that is a true masterpiece. On a very personal note, the combat wasn’t for me."
+        },
+        {
+          "id": "metal-gear-solid-3",
+          "name": "Metal Gear Solid 3",
+          "description": "Metal Gear Solid invented a genre and took it to its absolute peak here. This was also the first game I remember geeking out over the interface design."
+        },
+        {
+          "id": "kingdom-hearts",
+          "name": "Kingdom Hearts",
+          "description": "On paper, a game mashing together Square Enix and Disney characters should have been horrible. And yet there’s something magical about its idiosynchrasies that works so well."
+        },
+        {
+          "id": "ico",
+          "name": "ICO",
+          "description": "An unexpected project from an unlikely group of former filmmakers that changed 3D gaming forever."
+        },
+        {
+          "id": "golden-sun",
+          "name": "Golden Sun",
+          "description": "At a time when RPGs were falling out of fashion, Golden Sun hit all the right notes that are nigh-impossible for a new IP to hit. It felt both refreshingly-new and nostalgically-familiar the first playthrough, and the full storyline of both games is not to be missed."
+        },
+        {
+          "id": "mystical-ninja",
+          "name": "Mystical Ninja Starring Goemon",
+          "description": "A pure nostalgia pick for me but it remains a quirky underrated title for the N64."
+        },
+        {
+          "id": "earthbound",
+          "name": "Earthbound",
+          "description": "I didn’t fully appreciate this game till I was older, but man was this game creative and hilarious."
+        }
+      ],
+      "b": [
+        {
+          "id": "13-sentinels-aegis-rim",
+          "name": "13 Sentinels: Aegis Rim",
+          "description": "Brilliant story and a unique work of art all its own. Sci-fi fans should not miss this."
+        },
+        {
+          "id": "devil-may-cry-5",
+          "name": "Devil May Cry 5",
+          "description": "The game that redefined the hack-and-slash genre showed everyone how it’s done. It’s both a fun romp to play casually and an intricate, deep gameplay system to master for the genre enthusiasts."
+        },
+        {
+          "id": "monster-hunter-world",
+          "name": "Monster Hunter World",
+          "description": "I got really into insect glaive and it was fun taking a break from playing Spider-Man to play anime Spider-Man slaying dragons."
+        },
+        {
+          "id": "spider-man",
+          "name": "Spider-Man",
+          "description": "For as many Spider-Man games that have been made, and for the brainless collect-a-thon this is, this shouldn’t be this fun. And yet it is."
+        },
+        {
+          "id": "undertale",
+          "name": "Undertale",
+          "description": "Paradoxically both a clever satire of RPGs and a good introduction to the genre."
+        },
+        {
+          "id": "dark-souls-ii",
+          "name": "Dark Souls II",
+          "description": "I really liked it, OK? Get over it."
+        },
+        {
+          "id": "dark-souls",
+          "name": "Dark Souls",
+          "description": "This game is mean. I love it."
+        },
+        {
+          "id": "metal-gear-solid-2",
+          "name": "Metal Gear Solid 2",
+          "description": "“I have no idea what I’m doing but I look good as hell doing it.” — Raiden, prolly"
+        },
+        {
+          "id": "mega-man-zero",
+          "name": "Mega Man Zero",
+          "description": "This is such a tight, well-made action game it’s a shame it had to squeeze into a tiny GBA screen. But a gem nonetheless."
+        },
+        {
+          "id": "mega-man-battle-network",
+          "name": "Mega Man Battle Network",
+          "description": "An unexpectedly fun, thoughtful, offbeat RPG experience. Has little to do with the Mega Man lore but that freedom is also what allowed some bold game design choices that paid off."
+        },
+        {
+          "id": "zone-of-the-enders",
+          "name": "Zone of the Enders",
+          "description": "Probably the most fun mech game ever made, but it could have been taken even farther."
+        },
+        {
+          "id": "metal-gear-solid",
+          "name": "Metal Gear Solid",
+          "description": "Classic story and characters we all know and love, but as a game its sequels were all improvements. Which is not a bad thing!"
+        }
+      ],
+      "c": [
+        {
+          "id": "metroid-dread",
+          "name": "Metroid Dread",
+          "description": "Definitely one of the Metroid games of all time."
+        },
+        {
+          "id": "final-fantasy-vii-remake",
+          "name": "Final Fantasy VII Remake",
+          "description": "I had a ton of fun playing this for the story and nostalgia, but the gameplay was dry and the environment was such a lazy Unreal Engine effort I was honestly surprised the default character model wasn’t one of the enemies."
+        },
+        {
+          "id": "horizon-zero-dawn",
+          "name": "Horizon: Zero Dawn",
+          "description": "Interesting story but a boring collect-a-thon of a game."
+        },
+        {
+          "id": "dark-souls-iii",
+          "name": "Dark Souls III",
+          "description": "Despite loving I (and II—sue me) and despite the excitement of Miyazaki being back at the helm, for the life of me I could not care enough about another installment of this series to get very far. I hear it’s a good game, though."
+        },
+        {
+          "id": "ni-no-kuni",
+          "name": "Ni No Kuni",
+          "description": "This is a tough one, because I sank a lot of hours into it, and the game was extremely pleasant and relaxing to play. But in hindsight I remember very little standing out. Except for someone on the NA translation team making a Unabomber joke (Unibopper)."
+        },
+        {
+          "id": "final-fantasy-xv",
+          "name": "Final Fantasy XV",
+          "description": "Shining moments of brilliance and heart but a slog to play overall. Though given its development it’s unbelievable it was ever finished."
+        },
+        {
+          "id": "metal-gear-solid-4",
+          "name": "Metal Gear Solid 4",
+          "description": "Kojima should have gone the Advent Children route and made this a straight-to-DVD movie."
+        }
+      ],
+      "d": [
+        {
+          "id": "code-vein",
+          "name": "Code Vein",
+          "description": "I expected so little from this game and was still disappointed. It’s playable but not much fun."
+        },
+        {
+          "id": "kingdom-hearts-3",
+          "name": "Kingdom Hearts 3",
+          "description": "God why was this made? And did they forget about every Square Enix character?"
+        },
+        {
+          "id": "half-life-2",
+          "name": "Half-life 2",
+          "description": "Meh."
+        },
+        {
+          "id": "donkey-kong-64",
+          "name": "Donkey Kong 64",
+          "description": "An ambitious game dozens of hours long showcasing the worst elements of Banjo–Kazooie."
+        }
+      ],
+      "f": [
+        {
+          "id": "final-fantasy-xiii",
+          "name": "Final Fantasy XIII",
+          "description": "I have never been so hyped for a game and so horribly let down. This is the only game I swore to myself to never let me play again."
+        },
+        {
+          "id": "resident-evil",
+          "name": "Resident Evil",
+          "description": "This is the worst RC car I’ve ever driven."
+        }
+      ]
+    }
+  }
+]

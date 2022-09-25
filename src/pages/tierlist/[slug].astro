@@ -1,0 +1,91 @@
+---
+import Head from '../../components/Head.astro';
+import Nav from '../../components/Nav.astro';
+import Tierlist from '../../components/Tierlist.astro';
+import tierlist from '../../data/tierlist.json';
+
+export function getStaticPaths() {
+  const sorted = tierlist;
+  sorted.sort((a, b) => new Date(b.updated).getTime() - new Date(a.updated).getTime());
+  return sorted.map((t) => ({ params: { slug: t.id } }));
+}
+
+const { slug } = Astro.params;
+
+const list = tierlist.find((t) => t.id === slug);
+
+const sorted = tierlist;
+sorted.sort((a, b) => new Date(b.updated).getTime() - new Date(a.updated).getTime());
+let nextI = sorted.findIndex((t) => t.id === slug) + 1;
+if (nextI >= sorted.length) nextI = 0;
+const next = sorted[nextI];
+---
+
+<html lang="en-us">
+  <head>
+    <Head title={`${list.title} tierlist`} />
+    <style lang="scss">
+      .tierlist-nav {
+        display: grid;
+        grid-gap: 1.25rem;
+        grid-template-columns: 1fr 1fr;
+        margin: 2rem 0 4rem;
+        padding: 2rem 1rem;
+
+        @media (min-width: 600px) {
+          padding: 0 2.5rem;
+        }
+
+        &-arrow {
+          color: var(--fg);
+          left: 100%;
+          margin-left: 1rem;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        &-label {
+          color: var(--fg);
+          display: block;
+          font-size: 16px;
+          letter-spacing: 0.125em;
+          text-transform: uppercase;
+        }
+
+        &-link {
+          align-items: flex-start;
+          display: flex;
+          flex-direction: column;
+          text-decoration: none;
+        }
+
+        &-title {
+          font-size: 32px;
+          font-weight: 700;
+          letter-spacing: -0.0625em;
+          position: relative;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <Nav />
+
+    <div class="page mb4">
+      <h1 class="page-title">Tierlist: {list.title}</h1>
+      <p class="page-description">{list.description}</p>
+    </div>
+
+    <Tierlist rankings={list.rankings} />
+
+    <nav aria-label="Next up" class="tierlist-nav">
+      &nbsp;
+      <a class="tierlist-nav-link" rel="next" href={`/tierlist/${next.id}`}>
+        <span class="tierlist-nav-label">Next</span>
+        <span class="tierlist-nav-title">{next.title}<span class="tierlist-nav-arrow">→</span></span>
+      </a>
+    </nav>
+  </body>
+</html>

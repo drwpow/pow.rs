@@ -1,0 +1,16 @@
+---
+import Head from '../../components/Head.astro';
+import Nav from '../../components/Nav.astro';
+
+const SKULL_COLORS = ['#ff0000', '#ffff00', '#0040ff', '#ff00ff', '#00ff00'];
+const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.length)];
+---
+
+<head>
+  <Head color={colorOfTheDay} />
+</head>
+
+<body>
+  <Nav />
+  <h1>Stuff</h1>
+</body>

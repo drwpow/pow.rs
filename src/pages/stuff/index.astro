@@ -1,0 +1,327 @@
+---
+import Head from '../../components/Head.astro';
+import Nav from '../../components/Nav.astro';
+import tierlist from '../../data/tierlist.json';
+import { fetchGitHubData } from '../../helpers/fetch-github-data.js';
+
+const SKULL_COLORS = ['#ff0000', '#ffff00', '#0040ff', '#ff00ff', '#00ff00'];
+const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.length)];
+
+function randomFour(list) {
+  let hat = [...list.rankings.s, ...list.rankings.a, ...list.rankings.b, ...list.rankings.c, ...list.rankings.d, ...list.rankings.f].flat();
+  let pick = [];
+  while (hat.length && pick.length < 4) {
+    const rand = Math.floor(Math.random() * hat.length);
+    pick.push(...hat.splice(rand, 1));
+  }
+  return pick;
+}
+
+const [oapiTs, astro, cobalt, betterColorTools] = await Promise.all([
+  fetchGitHubData('https://github.com/drwpow/openapi-typescript'),
+  fetchGitHubData('https://github.com/withastro/astro'),
+  fetchGitHubData('https://github.com/drwpow/cobalt-ui'),
+  fetchGitHubData('https://github.com/drwpow/better-color-tools'),
+]);
+---
+
+<head>
+  <Head title="stuff" color={colorOfTheDay} />
+  <style lang="scss">
+    .section {
+      margin: 3em 0;
+
+      > h2 {
+        font-size: 48px;
+        letter-spacing: -0.025em;
+        margin: 0;
+        padding-left: 4rem;
+      }
+
+      > p {
+        font-size: 24px;
+        margin: 0;
+        padding-left: 4rem;
+      }
+    }
+
+    .stuff-list {
+      display: flex;
+      list-style: none;
+      margin: 2rem 0;
+      overflow-x: auto;
+      padding: 0;
+      gap: 1em;
+
+      > li {
+        margin: 0;
+        min-width: 20em;
+        width: 20em;
+
+        &:first-of-type {
+          padding-left: 4rem;
+        }
+
+        &:last-of-type {
+          padding-right: 1rem;
+
+          @media (min-width: 600px) {
+            padding-right: 2.5rem;
+          }
+        }
+      }
+    }
+
+    .stuff-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      h3 {
+        font-size: 24px;
+        font-weight: 400;
+        margin: 0;
+      }
+    }
+
+    .stuff-thumb {
+      display: block;
+      height: 20em * 0.5;
+      width: 100%;
+
+      img {
+        height: 100%;
+        object-fit: cover;
+        object-position: 0 0;
+        width: 100%;
+      }
+    }
+
+    .stuff-thumb--4-3 {
+      height: 20em * 0.75;
+    }
+
+    .stuff-oss-stats {
+      display: grid;
+      font-family: var(--mono);
+      grid-template-columns: min-content auto;
+      margin: 0;
+
+      dd {
+        margin-left: 0.25em;
+      }
+    }
+
+    .tierlist-link {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+
+    .tierlist-grid {
+      display: grid;
+      grid-gap: 1px;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      height: 12rem;
+      overflow: hidden;
+      position: relative;
+      width: 12rem;
+
+      img {
+        display: block;
+      }
+
+      &::after {
+        background-image: linear-gradient(135deg, transparent, rgba(0, 0, 0, 0.75));
+        content: '';
+        height: 100%;
+        left: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }
+
+    .tierlist-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+      grid-gap: 1rem;
+      padding: 0 1rem;
+
+      @media (min-width: 600px) {
+        padding: 0 4rem;
+      }
+    }
+
+    .tierlist-date {
+      color: var(--fg);
+      line-height: 1;
+      font-size: 14px;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      text-transform: none;
+    }
+
+    .tierlist-title {
+      color: var(--fg);
+      line-height: 1;
+      font-size: 24px;
+      font-weight: 400;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <Nav />
+
+  <main>
+    <div class="page">
+      <h1 class="page-title">Stuff</h1>
+      <p class="page-description">Things I have worked on, mostly for fun</p>
+    </div>
+
+    <section class="section">
+      <h2>Open source</h2>
+      <p>Code I wrote you can steal</p>
+      <ul class="stuff-list">
+        <li class="stuff-item">
+          <h3>openapi-typescript</h3>
+          <dl class="stuff-oss-stats">
+            <dt>★</dt>
+            <dd>{oapiTs.starCount}</dd>
+          </dl>
+          <a class="stuff-thumb" href="https://github.com/drwpow/openapi-typescript" target="_blank" rel="noopener noreferrer">
+            <img width="400" height="300" src={oapiTs.unfurlImg} alt="openapi-typescript on GitHub" />
+          </a>
+          <span>Convert OpenAPI schemas into TypeScript types. Zero dependencies and super easy to use.</span>
+          <div class="stuff-links">
+            <a href="https://github.com/withastro/astro" target="_blank" rel="noopener noreferrer">GitHub</a> / <a href="" target="_blank" rel="noopener noreferrer">Docs</a>
+          </div>
+        </li>
+        <li class="stuff-item">
+          <h3>Astro</h3>
+          <dl class="stuff-oss-stats">
+            <dt>★</dt>
+            <dd>{astro.starCount}</dd>
+          </dl>
+          <a class="stuff-thumb" href="https://github.com/withastro/astro" target="_blank" rel="noopener noreferrer">
+            <img width="400" height="300" src={astro.unfurlImg} alt="Astro on GitHub" />
+          </a>
+          <span>Old web curmudgeons’ and youngbloods’ new favorite site builder for all JS frameworks. Yes—we made both happy. And yes—it’s fast!</span>
+          <div class="stuff-links">
+            <a href="https://github.com/withastro/astro" target="_blank" rel="noopener noreferrer">GitHub</a> / <a
+              href="https://docs.astro.build"
+              target="_blank"
+              rel="noopener noreferrer">Docs</a
+            >
+          </div>
+        </li>
+        <li class="stuff-item">
+          <h3>Cobalt UI</h3>
+          <dl class="stuff-oss-stats">
+            <dt>★</dt>
+            <dd>{cobalt.starCount}</dd>
+          </dl>
+          <a class="stuff-thumb" href="https://github.com/drwpow/cobalt-ui" target="_blank" rel="noopener noreferrer">
+            <img width="400" height="300" src={cobalt.unfurlImg} alt="Cobalt UI on GitHub" />
+          </a>
+          <span>Turn W3C design tokens into Sass, TypeScript, CSS, and more.</span>
+          <div class="stuff-links">
+            <a href="https://github.com/drwpow/cobalt-ui" target="_blank" rel="noopener noreferrer">GitHub</a> / <a
+              href="https://cobalt-ui.pages.dev"
+              target="_blank"
+              rel="noopener noreferrer">Docs</a
+            >
+          </div>
+        </li>
+        <li class="stuff-item">
+          <h3>Better Color Tools</h3>
+          <dl class="stuff-oss-stats">
+            <dt>★</dt>
+            <dd>{betterColorTools.starCount}</dd>
+          </dl>
+          <a class="stuff-thumb" href="https://github.com/drwpow/better-color-tools" target="_blank" rel="noopener noreferrer">
+            <img width="400" height="300" src={betterColorTools.unfurlImg} alt="Better Color Tools on GitHub" />
+          </a>
+          <span>I wanted some better color tools. And here we are.</span>
+          <div class="stuff-links">
+            <a href="https://github.com/drwpow/better-color-tools" target="_blank" rel="noopener noreferrer">GitHub</a> / <a
+              href="https://better-color-tools.pages.dev"
+              target="_blank"
+              rel="noopener noreferrer">Docs</a
+            >
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Experiments</h2>
+      <p>Fun little microsites and whatnot</p>
+
+      <ul class="stuff-list">
+        <li class="stuff-item">
+          <h3>HCT playground</h3>
+          <a class="stuff-thumb stuff-thumb--4-3" href="https://hct-test.pages.dev" target="_blank" rel="noopener noreferrer">
+            <img width="1288" height="862" src="/assets/stuff/hct-test.png" alt="HCT Playground" />
+          </a>
+          <span
+            >Little tool to test HCT, a <a
+              href="https://www.fonearena.com/blog/356853/google-hct-colour-system-android-material-design.html"
+              target="_blank"
+              rel="noopener noreferrer">new color space Google</a
+            >.
+          </span>
+          <div class="stuff-links">
+            <a href="https://hct-test.pages.dev" target="_blank" rel="noopener noreferrer">Website</a> / <a
+              href="https://github.com/drwpow/hct-test"
+              target="_blank"
+              rel="noopener noreferrer">GitHub</a
+            >
+          </div>
+        </li>
+        <li class="stuff-item">
+          <h3>Baby name explorer</h3>
+          <a class="stuff-thumb stuff-thumb--4-3" href="https://baby-name-explorer.pages.dev" target="_blank" rel="noopener noreferrer">
+            <img width="1392" height="908" src="/assets/stuff/baby-name-explorer.png" alt="Baby name explorer" />
+          </a>
+          <span>Using public census data to not name my child something stupid</span>
+          <div class="stuff-links">
+            <a href="https://baby-name-explorer.pages.dev" target="_blank" rel="noopener noreferrer">Website</a> / <a
+              href="https://github.com/drwpow/baby-names-explorer"
+              target="_blank"
+              rel="noopener noreferrer">GitHub</a
+            >
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Tierlists</h2>
+      <p>My favorite things fight to the death for the top slot</p>
+
+      <ul class="tierlist-list">
+        {
+          tierlist.map((list) => (
+            <li class="stuff-item">
+              <a class="tierlist-link" href={`/tierlist/${list.id}`}>
+                <span class="tierlist-title">{list.title}</span>
+                <time class="tierlist-date">Updated {list.updated}</time>
+                <span class="tierlist-grid">
+                  {randomFour(list).map((entry) => (
+                    <img width="600" height="600" src={`/assets/tierlists/${entry.id}.jpg`} alt={entry.title} />
+                  ))}
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </main>
+</body>

@@ -1,3 +1,4 @@
+.DS_Store
 dist
 public/3d.min.js
 node_modules
