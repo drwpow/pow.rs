@@ -1,25 +1,16 @@
 @mixin element {
   position: relative;
 
-  &::before,
-  &::after {
+  &::before {
     color: var(--gray-40);
+    display: inline-block;
     font-family: var(--mono);
     font-size: 12px;
     font-weight: 400;
     letter-spacing: 0;
-    line-height: inherit;
     pointer-events: none;
-    text-transform: none;
-  }
-
-  &::before {
-    transform: translateX(-100%);
     position: absolute;
-  }
-
-  &::after {
-    display: inline;
-    margin-left: 0.375em;
+    text-transform: none;
+    transform: translateX(-100%);
   }
 }

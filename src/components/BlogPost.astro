@@ -50,10 +50,6 @@ const { post } = Astro.props;
     &::before {
       content: '<time>';
     }
-
-    &::after {
-      content: '</time>';
-    }
   }
 
   .summary {
@@ -71,10 +67,11 @@ const { post } = Astro.props;
 
     &::before {
       content: '<p>';
-    }
+      line-height: var(--u2);
 
-    &::after {
-      content: '</p>';
+      @media (min-width: 1200px) {
+        line-height: var(--u4);
+      }
     }
   }
 
@@ -95,12 +92,7 @@ const { post } = Astro.props;
 
     &::before {
       content: '<tags>';
-      line-height: 2;
-    }
-
-    &::after {
-      content: '</tags>';
-      line-height: 2;
+      line-height: var(--u4);
     }
 
     :global(> *::before) {
@@ -133,10 +125,11 @@ const { post } = Astro.props;
 
     &::before {
       content: '<title>';
-    }
+      line-height: var(--u4);
 
-    &::after {
-      content: '</title>';
+      @media (min-width: 1200px) {
+        line-height: var(--u6);
+      }
     }
   }
 </style>

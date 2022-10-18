@@ -1,5 +1,5 @@
 ---
-title: Don’t use HSL for anything
+title: Don’t use HSL
 description: HSL is great in theory, but worse than you realize in practice
 date: 2021-11-14
 updated_at: 2022-02-02
