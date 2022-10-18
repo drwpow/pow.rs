@@ -95,17 +95,20 @@ const { rankings } = Astro.props;
 
 <ol class="tierlist">
   {
-    ['s', 'a', 'b', 'c', 'd', 'f'].map((tier) => (
-      <li class="tierlist-tier">
-        <h2 class:list={['tierlist-title', { [`tier--${tier}`]: true }]}>{tier}</h2>
-        <ul class="tierlist-group">
-          {rankings[tier].map((item) => (
-            <li class="tierlist-item">
-              <img width="100" height="100" src={`/assets/tierlists/${item.id}.jpg`} alt={item.name} title={`${item.name}: ${item.description || ''}`} />
-            </li>
-          ))}
-        </ul>
-      </li>
-    ))
+    ['s', 'a', 'b', 'c', 'd', 'f'].map((tier) => {
+      if (!rankings[tier]) return;
+      return (
+        <li class="tierlist-tier">
+          <h2 class:list={['tierlist-title', { [`tier--${tier}`]: true }]}>{tier}</h2>
+          <ul class="tierlist-group">
+            {rankings[tier].map((item) => (
+              <li class="tierlist-item">
+                <img width="100" height="100" src={`/assets/tierlists/${item.id}.jpg`} alt={item.name} title={`${item.name} / ${item.description || ''}`} />
+              </li>
+            ))}
+          </ul>
+        </li>
+      );
+    })
   }
 </ol>

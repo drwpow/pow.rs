@@ -8,7 +8,7 @@ const SKULL_COLORS = ['#ff0000', '#ffff00', '#0040ff', '#ff00ff', '#00ff00'];
 const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.length)];
 
 function randomFour(list) {
-  let hat = [...list.rankings.s, ...list.rankings.a, ...list.rankings.b, ...list.rankings.c, ...list.rankings.d, ...list.rankings.f].flat();
+  let hat = [...(list.rankings.s || []), ...(list.rankings.a || []), ...(list.rankings.b || []), ...(list.rankings.c || []), ...(list.rankings.d || []), ...(list.rankings.f || [])].flat();
   let pick = [];
   while (hat.length && pick.length < 4) {
     const rand = Math.floor(Math.random() * hat.length);
@@ -156,6 +156,14 @@ const [oapiTs, astro, cobalt, betterColorTools] = await Promise.all([
       }
     }
 
+    .tierlist-ul {
+      padding: 0 1rem;
+
+      @media (min-width: 600px) {
+        padding: 0 4rem;
+      }
+    }
+
     .tierlist-date {
       color: var(--fg);
       line-height: 1;
@@ -181,7 +189,7 @@ const [oapiTs, astro, cobalt, betterColorTools] = await Promise.all([
   <main>
     <div class="page">
       <h1 class="page-title">Stuff</h1>
-      <p class="page-description">Things I have worked on, mostly for fun</p>
+      <p class="page-description">Things I’ve made. Things I like. A random mishmash of the internet, as God intended.</p>
     </div>
 
     <section class="section">
@@ -213,11 +221,7 @@ const [oapiTs, astro, cobalt, betterColorTools] = await Promise.all([
           </a>
           <span>Old web curmudgeons’ and youngbloods’ new favorite site builder for all JS frameworks. Yes—we made both happy. And yes—it’s fast!</span>
           <div class="stuff-links">
-            <a href="https://github.com/withastro/astro" target="_blank" rel="noopener noreferrer">GitHub</a> / <a
-              href="https://docs.astro.build"
-              target="_blank"
-              rel="noopener noreferrer">Docs</a
-            >
+            <a href="https://github.com/withastro/astro" target="_blank" rel="noopener noreferrer">GitHub</a> / <a href="https://docs.astro.build" target="_blank" rel="noopener noreferrer">Docs</a>
           </div>
         </li>
         <li class="stuff-item">
@@ -226,16 +230,12 @@ const [oapiTs, astro, cobalt, betterColorTools] = await Promise.all([
             <dt>★</dt>
             <dd>{cobalt.starCount}</dd>
           </dl>
-          <a class="stuff-thumb" href="https://github.com/drwpow/cobalt-ui" target="_blank" rel="noopener noreferrer">
+          <a class="stuff-thumb" href="https://github.com/drwpow/cobalt-ui">
             <img width="400" height="300" src={cobalt.unfurlImg} alt="Cobalt UI on GitHub" />
           </a>
           <span>Turn W3C design tokens into Sass, TypeScript, CSS, and more.</span>
           <div class="stuff-links">
-            <a href="https://github.com/drwpow/cobalt-ui" target="_blank" rel="noopener noreferrer">GitHub</a> / <a
-              href="https://cobalt-ui.pages.dev"
-              target="_blank"
-              rel="noopener noreferrer">Docs</a
-            >
+            <a href="https://cobalt-ui.pages.dev">Website</a> / <a href="https://github.com/drwpow/cobalt-ui" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </li>
         <li class="stuff-item">
@@ -249,11 +249,7 @@ const [oapiTs, astro, cobalt, betterColorTools] = await Promise.all([
           </a>
           <span>I wanted some better color tools. And here we are.</span>
           <div class="stuff-links">
-            <a href="https://github.com/drwpow/better-color-tools" target="_blank" rel="noopener noreferrer">GitHub</a> / <a
-              href="https://better-color-tools.pages.dev"
-              target="_blank"
-              rel="noopener noreferrer">Docs</a
-            >
+            <a href="https://better-color-tools.pages.dev">Website</a> / <a href="https://github.com/drwpow/better-color-tools" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </li>
       </ul>
@@ -265,23 +261,23 @@ const [oapiTs, astro, cobalt, betterColorTools] = await Promise.all([
 
       <ul class="stuff-list">
         <li class="stuff-item">
+          <h3>Better Color Playground</h3>
+          <a class="stuff-thumb stuff-thumb--4-3" href="https://hct-test.pages.dev" target="_blank" rel="noopener noreferrer">
+            <img width="1288" height="862" src="/assets/stuff/better-color-tools.png" alt="Better color tools" />
+          </a>
+          <span>Analyze colors, build palettes, and mix colors using cool colorspaces like OKLAB</span>
+          <div class="stuff-links">
+            <a href="https://better-color-tools.pages.dev">Website</a> / <a href="https://github.com/drwpow/better-color-tools" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </li>
+        <li class="stuff-item">
           <h3>HCT playground</h3>
           <a class="stuff-thumb stuff-thumb--4-3" href="https://hct-test.pages.dev" target="_blank" rel="noopener noreferrer">
             <img width="1288" height="862" src="/assets/stuff/hct-test.png" alt="HCT Playground" />
           </a>
-          <span
-            >Little tool to test HCT, a <a
-              href="https://www.fonearena.com/blog/356853/google-hct-colour-system-android-material-design.html"
-              target="_blank"
-              rel="noopener noreferrer">new color space Google</a
-            >.
-          </span>
+          <span>Little tool to test Google’s new HCT colorspace</span>
           <div class="stuff-links">
-            <a href="https://hct-test.pages.dev" target="_blank" rel="noopener noreferrer">Website</a> / <a
-              href="https://github.com/drwpow/hct-test"
-              target="_blank"
-              rel="noopener noreferrer">GitHub</a
-            >
+            <a href="https://hct-test.pages.dev">Website</a> / <a href="https://github.com/drwpow/hct-test" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </li>
         <li class="stuff-item">
@@ -291,11 +287,7 @@ const [oapiTs, astro, cobalt, betterColorTools] = await Promise.all([
           </a>
           <span>Using public census data to not name my child something stupid</span>
           <div class="stuff-links">
-            <a href="https://baby-name-explorer.pages.dev" target="_blank" rel="noopener noreferrer">Website</a> / <a
-              href="https://github.com/drwpow/baby-names-explorer"
-              target="_blank"
-              rel="noopener noreferrer">GitHub</a
-            >
+            <a href="https://baby-name-explorer.pages.dev">Website</a> / <a href="https://github.com/drwpow/baby-names-explorer" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </li>
       </ul>
@@ -321,6 +313,17 @@ const [oapiTs, astro, cobalt, betterColorTools] = await Promise.all([
             </li>
           ))
         }
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Coolweb</h2>
+      <p>Good websites that keep the web fun and creative (no association to me in any way)</p>
+      <ul class="tierlist-ul">
+        <li><a href="https://www.my80stv.com" target="_blank" rel="noopener noreferrer">My 80s TV</a> / Dive back into TV nostalgia</li>
+        <li>
+          <a href="https://www.webdesignerdepot.com/2020/07/in-memory-of-flash-1996-2020/" target="_blank" rel="noopener noreferrer">In Memory of Flash 1996–2020</a> / An homage to the wonderful, weird, creative websites of a bygone era
+        </li>
       </ul>
     </section>
   </main>

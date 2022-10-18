@@ -3,7 +3,7 @@
     "id": "gummies",
     "title": "Gummies",
     "description": "The definitive ranking of all gummies",
-    "updated": "2022-09-25",
+    "updated": "2022-10-18",
     "rankings": {
       "s": [
         {
@@ -63,6 +63,11 @@
           "description": "Absolute trash tier gummies whose looks and flavor match perfectly."
         },
         {
+          "id": "giant-gummy-bear",
+          "name": "Giant gummy bear",
+          "description": "Hilarious in theory. A nightmarish gutbuster in reality."
+        },
+        {
           "id": "haribo-goldbears",
           "name": "Haribo Goldbears",
           "description": "I think the gummy bears and the plastic bag are the same material."
@@ -73,8 +78,8 @@
   {
     "id": "video-games",
     "title": "Video games",
-    "description": "A very personal list of video games that left an impression, good or bad",
-    "updated": "2022-09-25",
+    "description": "Not a list of all the games I’ve played; just games I’ve spent a lot of time in that left strong impressions, good or bad",
+    "updated": "2022-10-18",
     "rankings": {
       "s": [
         {
@@ -145,6 +150,11 @@
           "description": "A love letter to video game history as well as a milestone achievement in and of itself. It single-handedly invented a genre of fighting games while continuing to push its own boundaries of gameplay."
         },
         {
+          "id": "god-of-war",
+          "name": "God of War (2018)",
+          "description": "I ignored this game initially, expecting to hate it, but came back to it and kicked myself for sleeping on it. I usually don’t enjoy these kinds of games, but something about this hit all the right notes for me."
+        },
+        {
           "id": "super-mario-odyssey",
           "name": "Super Mario Odyssey",
           "description": "All the Mario games are good. This is just the way of things."
@@ -160,6 +170,11 @@
           "description": "Metal Gear Solid invented a genre and took it to its absolute peak here. This was also the first game I remember geeking out over the interface design."
         },
         {
+          "id": "dark-cloud-2",
+          "name": "Dark Cloud 2",
+          "description": "This is such a jam-packed action RPG. Sure, the story, characters and battles are good. But the real draw here is all the badass minigames from townbuilding to golfing to photography. And—of course—fishing."
+        },
+        {
           "id": "kingdom-hearts",
           "name": "Kingdom Hearts",
           "description": "On paper, a game mashing together Square Enix and Disney characters should have been horrible. And yet there’s something magical about its idiosynchrasies that works so well."
@@ -172,7 +187,7 @@
         {
           "id": "golden-sun",
           "name": "Golden Sun",
-          "description": "At a time when RPGs were falling out of fashion, Golden Sun hit all the right notes that are nigh-impossible for a new IP to hit. It felt both refreshingly-new and nostalgically-familiar the first playthrough, and the full storyline of both games is not to be missed."
+          "description": "At a time when RPGs were falling out of fashion, Golden Sun hit all the right notes that are nigh-impossible for a new IP to hit. It felt both refreshingly-new and nostalgically-familiar the first playthrough. Playing Golden Sun 2 is essential to complete the epic story."
         },
         {
           "id": "mystical-ninja",
@@ -199,7 +214,7 @@
         {
           "id": "monster-hunter-world",
           "name": "Monster Hunter World",
-          "description": "I got really into insect glaive and it was fun taking a break from playing Spider-Man to play anime Spider-Man slaying dragons."
+          "description": "I got really into insect glaive and it was fun taking a break from playing Spider-Man to play anime dragon-slaying Spider-Man."
         },
         {
           "id": "spider-man",
@@ -209,12 +224,12 @@
         {
           "id": "undertale",
           "name": "Undertale",
-          "description": "Paradoxically both a clever satire of RPGs and a good introduction to the genre."
+          "description": "Paradoxically both a clever satire of RPGs and a good introduction to the genre. And an absolute JAM of a soundtrack."
         },
         {
           "id": "dark-souls-ii",
           "name": "Dark Souls II",
-          "description": "I really liked it, OK? Get over it."
+          "description": "I really liked it, OK?"
         },
         {
           "id": "dark-souls",
@@ -259,11 +274,6 @@
           "description": "I had a ton of fun playing this for the story and nostalgia, but the gameplay was dry and the environment was such a lazy Unreal Engine effort I was honestly surprised the default character model wasn’t one of the enemies."
         },
         {
-          "id": "horizon-zero-dawn",
-          "name": "Horizon: Zero Dawn",
-          "description": "Interesting story but a boring collect-a-thon of a game."
-        },
-        {
           "id": "dark-souls-iii",
           "name": "Dark Souls III",
           "description": "Despite loving I (and II—sue me) and despite the excitement of Miyazaki being back at the helm, for the life of me I could not care enough about another installment of this series to get very far. I hear it’s a good game, though."
@@ -271,7 +281,7 @@
         {
           "id": "ni-no-kuni",
           "name": "Ni No Kuni",
-          "description": "This is a tough one, because I sank a lot of hours into it, and the game was extremely pleasant and relaxing to play. But in hindsight I remember very little standing out. Except for someone on the NA translation team making a Unabomber joke (Unibopper)."
+          "description": "This is a tough one, because I sank a lot of hours into it, and the game was extremely pleasant and relaxing to play. But in hindsight I remember very little standing out. Except for someone on the NA translation team making a Unabomber joke (Unibopper). Those edgelords."
         },
         {
           "id": "final-fantasy-xv",
@@ -296,6 +306,11 @@
           "description": "God why was this made? And did they forget about every Square Enix character?"
         },
         {
+          "id": "horizon-zero-dawn",
+          "name": "Horizon: Zero Dawn",
+          "description": "Interesting story but a boring collect-a-thon of a game."
+        },
+        {
           "id": "half-life-2",
           "name": "Half-life 2",
           "description": "Meh."
@@ -308,6 +323,11 @@
       ],
       "f": [
         {
+          "id": "the-last-of-us",
+          "name": "The Last of Us",
+          "description": "Zombie game go brrrrr"
+        },
+        {
           "id": "final-fantasy-xiii",
           "name": "Final Fantasy XIII",
           "description": "I have never been so hyped for a game and so horribly let down. This is the only game I swore to myself to never let me play again."
@@ -316,6 +336,121 @@
           "id": "resident-evil",
           "name": "Resident Evil",
           "description": "This is the worst RC car I’ve ever driven."
+        }
+      ]
+    }
+  },
+  {
+    "id": "albums",
+    "title": "Albums",
+    "description": "My favorite albums. Everything C-tier and below is omitted because hating isn’t what music’s about (suck it, Fantano!).",
+    "updated": "2022-10-18",
+    "rankings": {
+      "s": [
+        {
+          "id": "jackpot-juicer",
+          "name": "Dance Gavin Dance: Jackpot Juicer",
+          "description": "This album is fast, heavy, technical, and groovy, not to mention silly and fun (“One man’s cringe is another man’s tattoo“). Dance Gavin Dance continues to produce increasily-creative music that is a genre unto itself."
+        },
+        {
+          "id": "spirit-world-field-guide",
+          "name": "Aesop Rock: Spirit World Field Guide",
+          "description": "The BEATS. The beats on this album are nothing short of a spiritual awakening."
+        },
+        {
+          "id": "painted",
+          "name": "Lucky Daye: Painted",
+          "description": "Hot take: Lucky Daye over Frank Ocean any day of the week. This man’s genius is blinding."
+        },
+        {
+          "id": "malibu",
+          "name": "Anderson .Paak: Malibu",
+          "description": "Smart, groovy, fresh, and endlessly-cool. Paak’s unmatched style and flow is an absolute treat to listen to, and Malibu is a masterpiece of his talents."
+        },
+        {
+          "id": "peaceful-ghosts",
+          "name": "Nada Surf: Peaceful Ghosts",
+          "description": "Nada Surf has been one of my longtime favorites, and hearing Matthew Caws’ songwriting backed by a full symphony orchestra makes my heart sing. A beautiful album from start to finish."
+        },
+        {
+          "id": "matriarch",
+          "name": "Veil of Maya: Matriarch",
+          "description": "Is this the greatest metal album ever made? In the years since its release it’s aged like a fine wine, with relistens revealing new depth and substance."
+        }
+      ],
+      "a": [
+        {
+          "id": "not-tight",
+          "name": "DOMi & JD BECK: NOT TiGHT",
+          "description": "The initial release of two young jazz savants to Anderson .Paak’s label can’t be missed. With guest appearances from Mac Demarco, Snoop Dogg, and more, it’s an exciting debut for some pretty tight artists."
+        },
+        {
+          "id": "melt-away",
+          "name": "Jadu Heart: Melt Away",
+          "description": "This album took a while to grow on me because it created its own itch that only it could scratch. Now it gets heavy plays on a regular basis."
+        },
+        {
+          "id": "unfurl",
+          "name": "RY X: Unfurl",
+          "description": "I pronounce this artist ”relax” because I feel so zen listening to any track."
+        },
+        {
+          "id": "mm-food",
+          "name": "MF Doom: Mm..Food",
+          "description": "If I had to pick one album out of MF Doom’s vast archive it would probably be the one with Rapp Snitch Knishes and Hoe Cakes"
+        },
+        {
+          "id": "kid-a",
+          "name": "Kid A",
+          "description": "This is Radiohead’s best album. I will not elaborate further."
+        }
+      ]
+    }
+  },
+  {
+    "id": "movies",
+    "title": "Movies",
+    "description": "Everything on this list is worth watching; if it has an “F” it means “it’s so bad you have to see it.”",
+    "updated": "2022-10-18",
+    "rankings": {
+      "s": [
+        {
+          "id": "legend-of-hei",
+          "name": "The Legend of Hei",
+          "description": "A gorgeous visual treat that unfolds like a Ghibli-esque fairytale. A modern-day masterpiece from a relatively new Chinese animation studio."
+        },
+        {
+          "id": "be-kind-rewind",
+          "name": "Be Kind Rewind",
+          "description": "This absolute blast of a movie directed by Michel Gondry rarely gets the attention it deserved. But it’s the complete package of boundless creativity, timeless comedy, and who doesn’t love Mos Def?"
+        }
+      ],
+      "b": [
+        {
+          "id": "kikis-delivery-service",
+          "name": "Kiki’s Delivery Service",
+          "description": "I will never pick a favorite Miyazaki movie, but I think this metaphor about the artistic struggle is the most prolific, and the movie that has impacted my perspective the most (other than the “we’re killing the planet” messages in half his films)."
+        }
+      ],
+      "a": [
+        {
+          "id": "fiddler-on-the-roof",
+          "name": "Fiddler on the Roof",
+          "description": "This movie is laugh-out-loud funny and tearjerkingly melancholic, all beautifully strung together by Topol’s charm. And the cinematography is gorgeous."
+        }
+      ],
+      "d": [
+        {
+          "id": "rebel-without-a-cause",
+          "name": "Rebel Without a Cause",
+          "description": "Emphasis on “without a cause,” this milk-chugging, car-jumping, rustin’ tusslin’ hooligan is just so bizarre to watch from today’s perspective, but entertaining nonetheless. And it’s one of the few old movies that doesn’t have glaringly-problematic elements that make it unwatchable."
+        }
+      ],
+      "f": [
+        {
+          "id": "the-room",
+          "name": "The Room",
+          "description": "The “Citizen Kane” of bad movies, no list is complete without this trainwreck. Even knowing it’s terrible going in, it’s a difficult watch. But seeing the insanity in all its glory is truly an experience."
         }
       ]
     }
