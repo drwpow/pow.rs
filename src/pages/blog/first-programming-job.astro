@@ -1,0 +1,15 @@
+---
+import { Code } from 'astro/components';
+import PostLayout from '../../layouts/post.astro';
+
+export const frontmatter = {
+  title: 'What I learned working at my first programming job',
+  description: 'Though some things like DHTML have faded away, these are the things that have stuck with me the last 10 years.',
+  // date: '2022-11-01',
+  tags: ['dev'],
+};
+---
+
+<PostLayout content={frontmatter}>
+  <p><a href="https://playwright.dev/">Playwright</a> is shaping up to be an absolutely invaluable tool</p>
+</PostLayout>

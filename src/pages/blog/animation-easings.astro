@@ -3,8 +3,8 @@ import { Code } from 'astro/components';
 import PostLayout from '../../layouts/post.astro';
 
 export const frontmatter = {
-  title: 'Better animation easings',
-  description: 'If you’re going to bother to animate something don’t use the default easing, for Pete’s sake.',
+  title: 'A handbook to animation easings',
+  description: 'If you use default easings for your animations you might as well not even bother animating it.',
   date: '2022-05-06',
   tags: ['dev'],
 };
@@ -91,10 +91,20 @@ export const frontmatter = {
       height: 1.5rem;
       margin-top: 1.5rem;
       margin-bottom: 1.5rem;
+      position: relative;
+      user-select: none;
     }
 
     .gradient-stop {
       flex: 1;
+    }
+
+    .gradient-line {
+      border-right: 3px dotted var(--gray-30);
+      height: 100%;
+      position: absolute;
+      top: 0;
+      width: 0;
     }
 
     .graph {
@@ -396,9 +406,8 @@ export const frontmatter = {
   />
 
   <p>
-    But have you ever stopped to consider if it’s the <em>right</em> easing curve? After all, every animation has <em>some</em> curve; that’s just one way of representing the motion
-    taking place. Although there’s no “right” or “wrong” easing curves for every situation, each scenario will strongly lend itself toward a particular animation type for the most responsive,
-    fluid-feeling result.
+    But have you ever stopped to consider if it’s the <em>right</em> easing curve? After all, every animation has <em>some</em> curve; that’s just one way of representing the motion taking place. Although there’s no “right” or “wrong” easing
+    curves for every situation, each scenario will strongly lend itself toward a particular animation type for the most responsive, fluid-feeling result.
   </p>
   <h2>what is an easing curve?</h2>
   <p>
@@ -407,8 +416,8 @@ export const frontmatter = {
         href="https://bookshop.org/books/the-animator-s-survival-kit-a-manual-of-methods-principles-and-formulas-for-classical-computer-games-stop-motion-and-internet-animators-expanded/9780865478978"
         target="_blank">The Animator’s Survival Kit</a
       >
-      illustrates the concept of easing well (as would be expected from Richard Williams). This section is a cheap imitation of the lessons there. I can’t recommend buying it enough
-      as it teaches the fundamentals to animation in all forms, including web.</i
+      illustrates the concept of easing well (as would be expected from Richard Williams). This section is a cheap imitation of the lessons there. I can’t recommend buying it enough as it teaches the fundamentals to animation in all forms, including
+      web.</i
     >
   </p>
   <p>Think about animating a ball from left to right across the screen. And just for visualization, we’ll break the animation down into <strong>24 frames</strong> (or steps).</p>
@@ -423,10 +432,7 @@ export const frontmatter = {
     </div>
   </div>
 
-  <p>
-    Now, before continuing further, where would you imagine the ball would be for all the in-between frames? Let’s start with the most “logical” approach of diving the space
-    perfectly evenly:
-  </p>
+  <p>Now, before continuing further, where would you imagine the ball would be for all the in-between frames? Let’s start with the most “logical” approach of diving the space perfectly evenly:</p>
 
   <div class="ball-example">
     <div class="ball-pit">
@@ -488,16 +494,13 @@ export const frontmatter = {
     <line stroke="var(--gray-80)" stroke-width="2" x1="0" y1="200" x2="200" y2="1"></line>
   </svg>
 
+  <p>Straight as an arrow. Because we divided the space evenly, at 25% of the time, the ball has covered 25% of the distance. At 50% of the time, 50% distance has been travelled, and so on, up to 100%.</p>
   <p>
-    Straight as an arrow. Because we divided the space evenly, at 25% of the time, the ball has covered 25% of the distance. At 50% of the time, 50% distance has been travelled,
-    and so on, up to 100%.
-  </p>
-  <p>
-    This 𝑥/𝑦 representation of the animation is an <b>easing curve</b>. This is the only instance an easing “curve” will lack the curvy bits, and this is why dividing time/space
-    evenly is called a <b>linear curve</b> (i.e. straight curve). This is simply the easiest to understand; in the next example we’ll see the “curve” part of it.
+    This 𝑥/𝑦 representation of the animation is an <b>easing curve</b>. This is the only instance an easing “curve” will lack the curvy bits, and this is why dividing time/space evenly is called a <b>linear curve</b> (i.e. straight curve). This
+    is simply the easiest to understand; in the next example we’ll see the “curve” part of it.
   </p><p>
-    Now let’s try and animate the ball where the ball starts from 0 velocity, and ramps all the way up to maximum velocity by the end it reaches the right side. That causes the
-    frames to cluster closer together when moving slowly, and space farther apart when speeding up, like so:
+    Now let’s try and animate the ball where the ball starts from 0 velocity, and ramps all the way up to maximum velocity by the end it reaches the right side. That causes the frames to cluster closer together when moving slowly, and space
+    farther apart when speeding up, like so:
   </p>
 
   <div class="ball-example">
@@ -527,10 +530,7 @@ export const frontmatter = {
     </div>
   </div>
 
-  <p>
-    And when plotted on 𝑥/𝑦 produces a sharp curve that starts at zero acceleration, and keeps accelerating all the way through the animation, reaching maximum velocity on the
-    final frame:
-  </p>
+  <p>And when plotted on 𝑥/𝑦 produces a sharp curve that starts at zero acceleration, and keeps accelerating all the way through the animation, reaching maximum velocity on the final frame:</p>
 
   <svg class="graph" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-label="graph showing a “cosine” curve">
     <rect x="-0.5" y="-0.5" width="1" height="1"></rect>
@@ -562,9 +562,9 @@ export const frontmatter = {
   </svg>
 
   <p>
-    This type of accelerating curve is called an <b>ease-in curve</b> for obvious reasons: it is slowest at the beginning (the “in”) of the animation. If it did the opposite—started
-    at maximum velocity and decelerated down to zero—that would be called an <b>ease-out curve</b>. If you combined the two, and had an animation where it started and ended at slow
-    velocity, and reached maximum velocity in the middle, that’s an <b>ease-in-out curve</b>. Compare the graphs of the three:
+    This type of accelerating curve is called an <b>ease-in curve</b> for obvious reasons: it is slowest at the beginning (the “in”) of the animation. If it did the opposite—started at maximum velocity and decelerated down to zero—that would
+    be called an <b>ease-out curve</b>. If you combined the two, and had an animation where it started and ended at slow velocity, and reached maximum velocity in the middle, that’s an <b>ease-in-out curve</b>. Compare the graphs of the
+    three:
   </p>
 
   <div class="figure-group">
@@ -664,12 +664,9 @@ export const frontmatter = {
   </div>
 
   <p>
-    All together, these compose the four major types of easing curves—<b>linear</b>, <b>ease-in</b>, <b>ease-out</b>, and <b>ease-in-out</b>. Most animations use one of these four
-    curves. Of course, we’ve only scratched the surface. The ease-* curves may be tweaked slightly to provide more nuance to the motion (<a
-      href="https://easings.net/"
-      target="_blank">example</a
-    >). And there are more advanced curves that don’t fit into one of these categories (such as springs). But you now understand the “bread and butter” of animation curves from
-    these four types alone. So with that out of the way, here’s how to apply those in practice.
+    All together, these compose the four major types of easing curves—<b>linear</b>, <b>ease-in</b>, <b>ease-out</b>, and <b>ease-in-out</b>. Most animations use one of these four curves. Of course, we’ve only scratched the surface. The
+    ease-* curves may be tweaked slightly to provide more nuance to the motion (<a href="https://easings.net/" target="_blank">example</a>). And there are more advanced curves that don’t fit into one of these categories (such as springs).
+    But you now understand the “bread and butter” of animation curves from these four types alone. So with that out of the way, here’s how to apply those in practice.
   </p>
 
   <h2>1. light, color, brightness, and opacity</h2>
@@ -684,8 +681,8 @@ export const frontmatter = {
   />
 
   <p>
-    Out of any standard easing curve, a linear one will produce the most even blend of color (that’s how color is already optimized to work!). Compare a linear transition (top) to
-    an ease-out transition (middle) to an ease-in transition (bottom):
+    Out of any standard easing curve, a linear one will produce the most even blend of color (that’s how color is already optimized to work!). Compare a linear transition (top) to an ease-out transition (middle) to an ease-in transition
+    (bottom):
   </p>
 
   <div class="gradient">
@@ -701,6 +698,7 @@ export const frontmatter = {
         return <div class="gradient-stop" style={`background:#${r}${g}${b};`} />;
       })
     }
+    <div class="gradient-line" style="left: 50%;"></div>
   </div>
 
   <div class="gradient">
@@ -716,6 +714,7 @@ export const frontmatter = {
         return <div class="gradient-stop" style={`background:#${r}${g}${b};`} />;
       })
     }
+    <div class="gradient-line" style="left: 30%;"></div>
   </div>
 
   <div class="gradient">
@@ -731,24 +730,21 @@ export const frontmatter = {
         return <div class="gradient-stop" style={`background:#${r}${g}${b};`} />;
       })
     }
+    <div class="gradient-line" style="left: 70%;"></div>
   </div>
 
   <p>
-    While nonlinear curves may be desirable with motion, they produce uneven blending for colors. You can see how a linear transition (top), for the most part<sup>*</sup>, blends
-    color A and color B evenly. But when using ease-out (middle), the midpoint gets shifted too far left, and ease-in (bottom) shifts the midpoint too far right. So in most cases,
-    a <b>linear curve</b> is the best option.
+    While nonlinear curves may be desirable with motion, they produce uneven blending for colors. You can see how a linear transition (top), for the most part<sup>*</sup>, blends color A and color B evenly. But when using ease-out (middle),
+    the midpoint gets shifted too far left, and ease-in (bottom) shifts the midpoint too far right. So in most cases, a <b>linear curve</b> is the best option.
   </p><p>
-    Sure, there may be a <em>super-specific</em> usecase where you want to apply an easing curve to a color transition. But that will only ever work with a very specific curve and a
-    very specific color transition—change one, and you must change the other (it will never be generally-applicable).
+    Sure, there may be a <em>super-specific</em> usecase where you want to apply an easing curve to a color transition. But that will only ever work with a very specific curve and a very specific color transition—change one, and you must change
+    the other (it will never be generally-applicable).
   </p>
 
   <p>
     <i
-      ><sup>*</sup>If you think linear transitions don’t transition smoothly, congratulations! 🎉 You’ve <a
-        href="https://observablehq.com/@sebastien/srgb-rgb-gamma"
-        target="_blank">found a rabbit hole into color theory</a
-      >. <i>glhf</i>. But for your own sanity, just pretend that linear transitions are the smoothest among “dumb” non-color-aware easing curves. And pretend linear curves are good
-      enough for animating (which, IMHO, they are).</i
+      ><sup>*</sup>If you think linear transitions don’t transition smoothly, congratulations! 🎉 You’ve <a href="https://observablehq.com/@sebastien/srgb-rgb-gamma" target="_blank">found a rabbit hole into color theory</a>. <i>glhf</i>.
+      But for your own sanity, just pretend that linear transitions are the smoothest among “dumb” non-color-aware easing curves. And pretend linear curves are good enough for animating (which, IMHO, they are).</i
     >
   </p>
 
@@ -767,6 +763,7 @@ export const frontmatter = {
         return <div class="gradient-stop" style={`background:#${r}${g}${b};`} />;
       })
     }
+    <div class="gradient-line" style="left: 50%;"></div>
   </div>
 
   <div class="gradient">
@@ -782,6 +779,7 @@ export const frontmatter = {
         return <div class="gradient-stop" style={`background:#${r}${g}${b};`} />;
       })
     }
+    <div class="gradient-line" style="left: 33%;"></div>
   </div>
 
   <div class="gradient">
@@ -797,18 +795,16 @@ export const frontmatter = {
         return <div class="gradient-stop" style={`background:#${r}${g}${b};`} />;
       })
     }
+    <div class="gradient-line" style="left: 66%;"></div>
   </div>
 
   <p>
-    You’ll notice the same results—ease-out and ease-in are too light, or too dark, respectively. So for transitions of light (color / brightness / opacity) use a <b
-      >linear curve</b
-    >.
+    You’ll notice the same results—ease-out and ease-in are too light, or too dark, respectively. So for transitions of light (color / brightness / opacity) use a <b>linear curve</b>.
   </p>
   <h2>2. rotation</h2>
 
   <p>
-    Rotation is another good general application for a <b>linear curve</b> (though there may be a few more exceptions here). The chief offender I see is “stuttering spinners” (left)
-    that are more common than they should be:
+    Rotation is another good general application for a <b>linear curve</b> (though there may be a few more exceptions here). The chief offender I see is “stuttering spinners” (left) that are more common than they should be:
   </p><div class="figure-group">
     <figure class="figure--centered">
       <div class="spinner spinner--stutter"></div>
@@ -821,8 +817,8 @@ export const frontmatter = {
   </div>
 
   <p>
-    As you can see, the right linear animation is less distracting and moves more consistently. The poor excuse for a spinner on the left, bumping along almost like a flat tire, is
-    what you get with the brower-default <code>ease</code> curve. Inspecting the code you’ll find the fix is as simple as a single CSS property:
+    As you can see, the right linear animation is less distracting and moves more consistently. The poor excuse for a spinner on the left, bumping along almost like a flat tire, is what you get with the brower-default <code>ease</code> curve.
+    Inspecting the code you’ll find the fix is as simple as a single CSS property:
   </p>
 
   <Code
@@ -833,36 +829,28 @@ export const frontmatter = {
   />
 
   <p>
-    <i
-      >Note: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function" target="_blank">transition-timing-function</a> is the equivalent property for CSS
-      transitions you may be looking for</i
-    >
+    <i>Note: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function" target="_blank">transition-timing-function</a> is the equivalent property for CSS transitions you may be looking for</i>
   </p>
 
   <p>
-    Rotation is a bit more nuanced than light, so a linear curve isn’t an “always” rule here (a good example is <a
-      href="https://material.io/components/progress-indicators#circular-progress-indicators"
-      target="_blank">Material Design’s progress indicator</a
-    >, which is a multi-layered animation unifying several curves, but if you look closely, a linear rotation underpins the whole thing). But I’d still recommend <strong
-      >starting with a linear curve for rotation</strong
-    > and changing it if it’s not quite right.
+    Rotation is a bit more nuanced than light, so a linear curve isn’t an “always” rule here (a good example is <a href="https://material.io/components/progress-indicators#circular-progress-indicators" target="_blank"
+      >Material Design’s progress indicator</a
+    >, which is a multi-layered animation unifying several curves, but if you look closely, a linear rotation underpins the whole thing). But I’d still recommend <strong>starting with a linear curve for rotation</strong> and changing it if it’s
+    not quite right.
   </p>
 
   <h2>3. interaction</h2>
 
   <p>
-    Interactive elements is a broad category of animations, consisting of everything clickable, hoverable, draggable, etc. But despite its generality, here are 3 common mistakes
-    that, if avoided, will probably take care of most animation issues in your UI:
+    Interactive elements is a broad category of animations, consisting of everything clickable, hoverable, draggable, etc. But despite its generality, here are 3 common mistakes that, if avoided, will probably take care of most animation
+    issues in your UI:
   </p>
 
   <h3>mistake 1: sluggish interactions</h3>
   <p>
-    Humans think of an interaction as “instant” (i.e. <i>not slow</i>) if it happens within ~100ms (<a
-      href="https://www.nngroup.com/articles/response-times-3-important-limits/"
-      target="_blank">source</a
-    >). While
-    <a href="https://material.io/design/motion/speed.html#controlling-speed" target="_blank">animation speed is important</a>, we’ll focus on the easing curve. Compare the two
-    examples of hover, with one using <b>ease-in</b> and the other using <b>ease-out</b>. Which feels more “instant”?
+    Humans think of an interaction as “instant” (i.e. <i>not slow</i>) if it happens within ~100ms (<a href="https://www.nngroup.com/articles/response-times-3-important-limits/" target="_blank">source</a>). While
+    <a href="https://material.io/design/motion/speed.html#controlling-speed" target="_blank">animation speed is important</a>, we’ll focus on the easing curve. Compare the two examples of hover, with one using <b>ease-in</b> and the other using
+    <b>ease-out</b>. Which feels more “instant”?
   </p>
 
   <div class="figure-group">
@@ -883,21 +871,21 @@ export const frontmatter = {
   </div>
 
   <p>
-    It may be hard to believe, but the two animations above are identical other than the easing curve (inspect if you don’t believe me)! Both animations have the same duration, and
-    neither have a delayed start. But you can see for yourself what a difference the curve makes in the interactive feel!
+    It may be hard to believe, but the two animations above are identical other than the easing curve (inspect if you don’t believe me)! Both animations have the same duration, and neither have a delayed start. But you can see for yourself
+    what a difference the curve makes in the interactive feel!
   </p>
 
   <p>
-    As a general rule, <strong>ease-out curves are better for interactions because they respond quicker</strong>. The user is able to notice the change more easily because most of
-    the movement happens up-front (scroll back to the ease-out curve earlier in the article as proof). And as it goes with any rule of thumb, this rule can be broken, sure, and
-    there are dozens of scenarios where ease-in or ease-in-out make a better animation. But starting with an ease-out curve for interactions will feel “right” most of the time.
+    As a general rule, <strong>ease-out curves are better for interactions because they respond quicker</strong>. The user is able to notice the change more easily because most of the movement happens up-front (scroll back to the ease-out
+    curve earlier in the article as proof). And as it goes with any rule of thumb, this rule can be broken, sure, and there are dozens of scenarios where ease-in or ease-in-out make a better animation. But starting with an ease-out curve
+    for interactions will feel “right” most of the time.
   </p>
 
   <h3>mistake 2: easing drag events</h3>
 
   <p>
-    Drag events should track 1:1 with the user’s mouse or touch input. Once you start animating <em>everything</em>, it’s easy to fall into the trap adding easing curves for things
-    that shouldn’t be animated at all. Dragging is the chief offender. Compare a draggable control with easing (above) vs. no easing (below):
+    Drag events should track 1:1 with the user’s mouse or touch input. Once you start animating <em>everything</em>, it’s easy to fall into the trap adding easing curves for things that shouldn’t be animated at all. Dragging is the chief
+    offender. Compare a draggable control with easing (above) vs. no easing (below):
   </p>
 
   <div class="draggable draggable--easing" data-drag>
@@ -946,16 +934,14 @@ export const frontmatter = {
   </script>
 
   <p>
-    Animating <em>everything</em> isn’t always “delightful,” especially when they stand in the way of more direct feedback. So reserve easings for the interactions that truly benefit
-    from them.
+    Animating <em>everything</em> isn’t always “delightful,” especially when they stand in the way of more direct feedback. So reserve easings for the interactions that truly benefit from them.
   </p>
 
   <h3>mistake 3: not matching real-world motion</h3>
 
   <p>
-    Using <b>ease-out</b> as a default easing will be best <em>most</em> of the time, but when is it not? If a component acts as a metaphor for a real-world item, that should cascade
-    to animations, too. A switch is a common example of this. Think about any light switch or device switch you’ve ever pressed. Of the two, which feels like it “clicks” like a switch
-    would?
+    Using <b>ease-out</b> as a default easing will be best <em>most</em> of the time, but when is it not? If a component acts as a metaphor for a real-world item, that should cascade to animations, too. A switch is a common example of this.
+    Think about any light switch or device switch you’ve ever pressed. Of the two, which feels like it “clicks” like a switch would?
   </p>
 
   <div class="figure-group">
@@ -974,14 +960,13 @@ export const frontmatter = {
   </div>
 
   <p>
-    The right behaves more like the real-world switch it represents—there’s a bit of resistance up front as you overcome the resistance of the internal spring, then the potential
-    energy releases and the switch <em>snaps</em> into its final resting position. You can almost “hear” the 2nd switch click into place! Once again, the duration of both switches are
-    identical and the easing curve is responsible for the noticeable difference in feel.
+    The right behaves more like the real-world switch it represents—there’s a bit of resistance up front as you overcome the resistance of the internal spring, then the potential energy releases and the switch <em>snaps</em> into its final resting
+    position. You can almost “hear” the 2nd switch click into place! Once again, the duration of both switches are identical and the easing curve is responsible for the noticeable difference in feel.
   </p>
 
   <p>
-    However, by adding resistance up-front (ease-in), we’re also fighting against one of our earlier principles—showing more movement up front so the interaction doesn’t feel
-    “laggy” or delayed. So we’ll toy with the precise easing curve as well as timing to get that balance right between real-world metaphor vs responsive UI.
+    However, by adding resistance up-front (ease-in), we’re also fighting against one of our earlier principles—showing more movement up front so the interaction doesn’t feel “laggy” or delayed. So we’ll toy with the precise easing curve as
+    well as timing to get that balance right between real-world metaphor vs responsive UI.
   </p>
 
   <div class="figure-group">
@@ -1006,16 +991,16 @@ export const frontmatter = {
   </div>
 
   <p>
-    We’re now in the realm of subjective opinion where you, the implementer, have freedom to explore the nuances of movement and do what you feel is right. But no matter what you
-    decide, you’re now animating things in a much more thoughtful (and realism-inspired) way.
+    We’re now in the realm of subjective opinion where you, the implementer, have freedom to explore the nuances of movement and do what you feel is right. But no matter what you decide, you’re now animating things in a much more thoughtful
+    (and realism-inspired) way.
   </p>
 
   <h3>general recommendation</h3>
 
   <p>
-    Again, since interactions are complex and very situational, it’s hard to develop blanket rules. But hopefully these 3 mistakes get you thinking about how to reason through what
-    works and what doesn’t in animating each scenario. But when in doubt, defaulting to <b>ease-out</b> will be right for <em>most</em> interactions. Change it if needed (especially
-    if a real-world parallel behaves differently), and never forget that <b>no easing</b> is always an option (as in the dragging example).
+    Again, since interactions are complex and very situational, it’s hard to develop blanket rules. But hopefully these 3 mistakes get you thinking about how to reason through what works and what doesn’t in animating each scenario. But when
+    in doubt, defaulting to <b>ease-out</b> will be right for <em>most</em> interactions. Change it if needed (especially if a real-world parallel behaves differently), and never forget that <b>no easing</b> is always an option (as in the dragging
+    example).
   </p>
 
   <h2>summary</h2>
@@ -1029,30 +1014,21 @@ export const frontmatter = {
   </ul>
 
   <p>
-    But there are many more challenges beyond this! And there are more niche, contextual situations to encounter where easing may be more complex. For example, think back to the
-    dragging example above. What if the handle needed to reset back to center after dragging (like a joystick)? You’d need to remove the easing curve while dragging, but re-apply
-    it as it “slid” back to center position. Keep an eye out for multi-layered easings where one component may require different animations for different states.
+    But there are many more challenges beyond this! And there are more niche, contextual situations to encounter where easing may be more complex. For example, think back to the dragging example above. What if the handle needed to reset
+    back to center after dragging (like a joystick)? You’d need to remove the easing curve while dragging, but re-apply it as it “slid” back to center position. Keep an eye out for multi-layered easings where one component may require
+    different animations for different states.
   </p>
 
   <p>In respect of that, some more nuanced, universal approaches to animation easings would be:</p>
 
   <ul>
-    <li>
-      easings help the human brain notice a change (e.g. an object animating across a screen will be better perceived than “teleporting” in one frame). use them to improve
-      recognition of an action
-    </li>
+    <li>easings help the human brain notice a change (e.g. an object animating across a screen will be better perceived than “teleporting” in one frame). use them to improve recognition of an action</li>
     <li>more movement & change up-front also help with this recognition (ease-out)</li>
-    <li>
-      make animations mimic the real world (e.g. all objects have momentum while moving and accelerate/decelerate appropriately; switches “flick” on-and-off and don’t smoothly
-      glide, etc.)
-    </li>
+    <li>make animations mimic the real world (e.g. all objects have momentum while moving and accelerate/decelerate appropriately; switches “flick” on-and-off and don’t smoothly glide, etc.)</li>
     <li>animations introduce input lag! So only add them when a user is not dragging/zooming/scrolling that very instant</li>
   </ul>
 
-  <p>
-    Play around with your newfound skills and you’ll be making more sophisticated animations in no time. However, you’re also now cursed with noticing bad animation everywhere you
-    look, so good luck with that, too.
-  </p>
+  <p>Play around with your newfound skills and you’ll be making more sophisticated animations in no time. However, you’re also now cursed with noticing bad animation everywhere you look, so good luck with that, too.</p>
 
   <p><img alt="Hayao Mizazaki: “Anime was a mistake. It’s nothing but trash”" src="/assets/posts/easing-curves/miyazaki.gif" /></p>
 
@@ -1060,14 +1036,12 @@ export const frontmatter = {
 
   <ul>
     <li>
-      <a href="https://material.io/design/motion/speed.html#easing" target="_blank">Material Design’s approach to easing</a>: an absolute masterclass on easings and animation
-      orchestration
+      <a href="https://material.io/design/motion/speed.html#easing" target="_blank">Material Design’s approach to easing</a>: an absolute masterclass on easings and animation orchestration
     </li>
     <li><a href="https://rempixels.blogspot.com/2015/04/cubic-bezier-chrome-devtools.html" target="_blank">Using Chrome’s built-in cubic-bezier editor</a></li>
     <li><a href="https://easings.net" target="_blank">easings.net</a>: easing functions cheat sheet</li>
     <li>
-      <a href="https://web.dev/animations-guide/" target="_blank">How to create high-performance animations</a>: THE defacto guide on web animations. Required reading for any
-      animation endeavors.
+      <a href="https://web.dev/animations-guide/" target="_blank">How to create high-performance animations</a>: THE defacto guide on web animations. Required reading for any animation endeavors.
     </li>
   </ul>
 </PostLayout>

@@ -4,23 +4,22 @@
   &::before,
   &::after {
     color: var(--gray-40);
-    display: inline-block;
     font-family: var(--mono);
     font-size: 12px;
     font-weight: 400;
     letter-spacing: 0;
+    line-height: inherit;
     pointer-events: none;
     text-transform: none;
-    vertical-align: middle;
   }
 
   &::before {
+    transform: translateX(-100%);
     position: absolute;
-    right: calc(100% + 0.25em);
   }
 
   &::after {
-    display: inline-block;
+    display: inline;
     margin-left: 0.375em;
   }
 }

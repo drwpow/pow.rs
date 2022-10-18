@@ -1,0 +1,13 @@
+---
+import { Code } from 'astro/components';
+import PostLayout from '../../layouts/post.astro';
+
+export const frontmatter = {
+  title: 'Why aren’t you using Vitest yet?',
+  description: 'Throw away whatever you’re using already and use this for testing.',
+  // date: '2022-10-19',
+  tags: ['dev'],
+};
+---
+
+<PostLayout content={frontmatter} />

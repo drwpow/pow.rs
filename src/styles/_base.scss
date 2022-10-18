@@ -24,6 +24,7 @@ code {
 }
 
 pre {
+  font-size: 1rem;
   margin-right: -1.5rem;
   margin-left: -1.5rem;
   background: var(--bg-accent);
@@ -32,8 +33,9 @@ pre {
 
 code {
   display: inline-block;
-  padding: 0.25em 0.5em;
   font-size: var(--d2);
+  padding: 0.25em 0.5em;
+  font-size: 1em;
   background: var(--bg-accent);
 }
 
@@ -41,7 +43,7 @@ pre code {
   display: block;
   padding: 1.5rem;
   overflow-x: auto;
-  line-height: 1.2;
+  line-height: 1.5;
 }
 
 img,
@@ -125,7 +127,7 @@ em {
 
 blockquote {
   background-color: var(--gray-20);
-  font-size: var(--u3);
+  font-size: 1em;
   font-style: italic;
   font-weight: 300;
   margin: 0 -2rem;

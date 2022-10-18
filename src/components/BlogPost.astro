@@ -65,9 +65,12 @@ const { post } = Astro.props;
     margin: 0.25em 0;
     max-width: 32em;
 
+    @media (min-width: 1200px) {
+      font-size: var(--u1);
+    }
+
     &::before {
       content: '<p>';
-      line-height: 20px;
     }
 
     &::after {
@@ -124,9 +127,12 @@ const { post } = Astro.props;
     letter-spacing: -0.01em;
     margin: 0.25em 0;
 
+    @media (min-width: 1200px) {
+      font-size: var(--u4);
+    }
+
     &::before {
       content: '<title>';
-      line-height: 19px;
     }
 
     &::after {
