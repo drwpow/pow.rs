@@ -2,11 +2,10 @@
 import '../styles/global.scss';
 
 const { title, description, color } = Astro.props;
+const fullTitle = title ? title + ' / 𝔇𝔯𝔢𝔴 𝔓𝔬𝔴𝔢𝔯𝔰' : '𝔇𝔯𝔢𝔴 𝔓𝔬𝔴𝔢𝔯𝔰';
 ---
 
-<title>
-  {title ? title + ' / 𝔇𝔯𝔢𝔴 𝔓𝔬𝔴𝔢𝔯𝔰' : '𝔇𝔯𝔢𝔴 𝔓𝔬𝔴𝔢𝔯𝔰'}
-</title>
+<title>{fullTitle}</title>
 <meta charset="UTF-8" />
 <meta content="The personal site of Drew Powers" name="description" />
 <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" name="viewport" />
@@ -22,3 +21,11 @@ const { title, description, color } = Astro.props;
 <link rel="icon" type="image/png" href="/dp-monogram-32.png" sizes="32x32" />
 <link rel="icon" type="image/png" href="/dp-monogram-128.png" sizes="128x128" />
 <link rel="icon" type="image/png" href="/dp-monogram-512.png" sizes="512x512" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:site" content="@drwpow" />
+<meta name="twitter:image" content={new URL(Astro.url.pathname.startsWith('/blog') ? '/unfurl-blog.png' : '/unfurl.png', Astro.site).href} />
+<meta name="og:title" content={fullTitle} />
+<meta name="og:type" content="website" />
+<meta name="og:image" content={new URL(Astro.url.pathname.startsWith('/blog') ? '/unfurl-blog.png' : '/unfurl.png', Astro.site).href} />
+<meta name="og:url" content={Astro.url.href} />
