@@ -17,11 +17,11 @@
     "trailingComma": "all"
   },
   "dependencies": {
-    "three": "^0.145.0"
+    "three": "^0.146.0"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^1.0.0",
-    "astro": "^1.5.2",
+    "astro": "^1.6.2",
     "esbuild": "^0.15.12",
     "prettier": "^2.7.1",
     "sass": "^1.55.0"

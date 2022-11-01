@@ -1,143 +1,74 @@
 ---
 title: How to get a job coding in 2022, part 2
 date: 2021-10-03
-updated: 2021-10-03
-description: |
-  Go read part 1 first if you haven’t!
+updated: 2022-10-31
+description: Go read part 1 first if you haven’t!
 tags: ['dev']
 layout: ../../layouts/post.astro
 ---
 
-_2022 update: this advice still applies in 2022. I’ll update anything if it gets outdated 🙂_
+_Updated Oct 2022_
 
-Picking up from [part 1][pt-1], your starting point for coding comes from answering 2 questions:
+Picking up from [part 1][pt-1], you have picked a _discipline_ of backend or frontend, and are now wanting to pick a _specialization_. For beginner purposes, we can tie specializations to programming languages, as you’ll need to be able to say you’ve worked with 1 programming language to start applying to jobs (which we’ll get back to later).
 
-1. backend or frontend?
-2. which programming language?
+## backend languages
 
-Having introduced question 1 in [part 1][pt-1], let’s move on to question #2: **programming
-language.** As backend or frontend use different languages, we’ll address each discipline
-separately.
+There are far too many backend languages to list here. But based on my experience working with web companies, I can provide some general recommendations for starting out:
 
-## backend
+1. ✅ **[Elixir/Phoenix][phoenix]**: Fun to write, modern, has a great job demand, and gets you dabbling in almost every aspect of backend. This gets my top pick of best language to learn starting today.
+1. ✅ **[Go][go]**: Go, a.k.a. “Golang” is growing rapidly year over year, and more positions are opening up all the time. Go is “lower level” than Elixir/Phoenix. This means everything takes longer to write, but the end result will be about as fast and efficient as it can possibly be.
+1. ✅ **[Node.js][node]**: JavaScript for backend is called Node.js. A good choice if you want to keep the door open to frontend later. But if you are intent on purely staying backend, the other options are better.
+1. ✅ **[.NET][dot-net]**: I know the least about .NET. But I do see a lot of job postings for .NET devs, and it has a strong community which translates directly into jobs. I’d lean towards the other choices being better unless you wanted to keep the door open to developing Windows apps one day in the future (or you just love Windows in general).
+1. 🤷 **[Rust][rust]**: Rust is my pet language that I love dearly, and I use it as much as I can. But for beginners, I can’t recommend starting with it today only because the job demand needs to increase.
+1. ❌ **[Ruby on Rails][rails]**: Ruby on Rails is still in use, but its growth has stagnated and many Rails jobs are only for maintaining existing infrastructure. But even those companies are looking to migrate to Elixir/Phoenix as soon as they can, so you might as well skip a step and learn that instead.
+1. ❌ **[Java][java]**: Java is a dinosaur that is being taken out of web backends left and right. Java for Android development is its primary use these days, but even that’s being replaced by newer technologies like Kotlin.
+1. ❌ **[Python][python]**: Python for a web backend is obsolete. Python is still a staple when it comes to data analysis, statistics, and modeling, and should be pursued if you’re only doing that. But for backend, its days are long gone.
+1. ❌ **[PHP][php]**: Avoid. High competition, low pay, and PHP teaches horrible programming habits.
 
-There are far too many backend languages to list here, but I’ll start with my personal
-recommendations for 2021, in order (with some languages I’d recommend avoiding at first):
+After poking around on a few sites, and possibly reading some tutorials, you’ve picked a language. Now what?
 
-1. ✅ **[Elixir/Phoenix][phoenix]**: I’ve heard nothing but love and praise for developers of Elixir
-   (programming language), and Phoenix (the web framework built on Elixir). If you want to pick
-   something that’s fun to write and has a great job demand, you can’t go wrong with Elixir/Phoenix.
-   It gets my pick for highest recommendation for most people.
-1. ✅ **[Go][go]**: Go, a.k.a. “Golang” (which is more searchable), is a wonderful programming
-   language whose demand is on fire and only rising. Though it’s not the most popular backend
-   language today, its rapid growth seems to suggest it may be soon. Droves of companies are moving
-   from older systems to use Go because it’s well-designed, efficient, and has a ton of tools
-   that were designed to make programming for the modern web simple and fun. But best of all, Go has
-   an easy learning curve while still teaching good habits!
-1. ✅ **[Node.js][node]**: JavaScript for backend is called Node.js. If you are thinking about
-   keeping the door to frontend open, this should probably be your choice. But if you are intent on
-   purely staying backend, I think the other options are better.
-1. 🤷 **[Ruby on Rails][rails]**: Neutral recommendation: Ruby on Rails is still in use and has
-   its dedicated community, but growth has stagnated and its future is unsure. Many companies are
-   migrating away from Rails in favor of Elixir/Phoenix, Go, or something else (with Phoenix
-   being made up of a large diaspora of former Rails devs). Soft recommendation to avoid unless you
-   have your sights set on a specific job that you know 100% is Rails.
-1. 🤷‍♂️ **[Rust][rust]**: Rust is my favorite programming language, hands down. I love writing it, I
-   think it is/will transform programming as we know it, and I am a huge believer in its future. I
-   also think it’s beginner-friendly, which only adds to its appeal. But while I think Rust as a
-   language is mature, in the industry at large it’s only being used today by experimental
-   companies and early adopters. Job demand now and the next few years is impossible to predict.
-   If you have an infinite timeline on getting into coding, Rust is definitely the long term
-   investment, but I wouldn’t recommend it to people trying to get a job today (in 2022).
-1. ❌ **[Java][java]**: Java is essential for Android devs, but for the web I’m seeing more
-   companies move away from it in favor of newer technologies. I’d recommend avoiding it unless
-   you want to possibly go into Android development.
-1. ❌ **[Python][python]**: Django was a great Python web framework that had its time, but Python
-   for backend is obsolete. Don’t get me wrong—Python is a wonderful language that has a bright
-   future ahead of it in data analysis and some niche areas of programming like fonts and
-   generative art. But since we’re talking only about the web, please do not learn Python for this purpose.
-1. ❌ **[PHP][php]**: avoid. Even though PHP is consistently top 5 most popular programming
-   languages and will remain for a while, I strongly recommend _not_ learning it as a first
-   language. It is very easy to fall into bad habits, and you’re also competing with jobs with
-   millions of other PHP developers, often with lower pay than other languages. Come back to it in
-   the future if you really want to (but I’ve personally not met anyone that does).
-1. ❌ **COBOL**: [no. Just, no.](https://builtin.com/software-engineering-perspectives/why-cobol-is-still-used)
+- **Attend [backend meetups][meetup].** This is essential. You meet potential employers, you get plugged into people that can help, and there’s usually free food. And they’re actually pretty fun.
+- Get plugged into your **local dev community.** Search for `[my city] developer Discord`. It’s a place to ask questions and share knowledge in between meetups.
+- Start with the basics. Consume all the beginner tutorials you can.
+- When you’ve got the basics down, practice problems on [Codewars][codewars]. Start with the easiest (8 kyu).
+- Watch YouTube tutorials.
+- Start your first project. For backend, try and build a REST API using your chosen language. Google search for `[language] build REST API` and see what all it entails.
+- **Post code to [GitHub][github].** You’ll need a GitHub profile to apply to jobs, so might as well do that now.
 
-There are hundreds of other languages not listed here, of course. If it’s a popular language
-(C, C+, etc.) and not listed above, assume it’s not used for web (unfortunately there’s not a
-dual-purpose language used for both web and game development, unless Rust becomes both!).
-There are also some other niche languages which _are_ used for web (Erlang, Clojure, Elm, OCaml,
-etc.), but they are niche and I don’t recommend them for beginners because the path to landing
-a job will be very tricky. My recommendation is limit your starting point to one of above,
-and after getting some professional experience with one of those, then feel free to branch out.
+## frontend languages
 
-### backend next steps
+If you’ve chosen the frontend skill tree, the good news is your languages are already decided for you: HTML, CSS, and JavaScript. But the bad news is new [JS frameworks][js-frameworks] are pumped out so fast you can never keep up. Still, the progression is more straighforward:
 
-So, say you have picked a language to try out, and want to get started! What do you do?
+1. First, [learn HTML][html]. This is the foundation of the web, but it was designed to be simple to use. So this shouldn’t take too long.
+1. Next, [learn CSS][css]. You can learn this alongside HTML.
+1. Lastly, learn a JS framework\* such as React, Vue, or Svelte. My recommendation for beginners is [Vue][vue] as it’s intuitive, powerful, and has a ton of great learning resources.
 
-1. **Attend [meetups][meetup]!** Attend any in your area you can find. With COVID, many are online,
-   so you can even attend remotely.
-1. Get plugged into your **local dev community.** Search for `[my city] developer Discord` and join.
-   Ask questions, and meet new people in the same boat as you.
-1. Find a beginner’s tutorial in your preferred language. Click on the links above to find some good
-   starting tutorials.
-1. Once you’ve learned a bit, practice using a site like [Codewars][codewars]. Start with the
-   easiest exercises (8 kyu). If you never practice programming, it’ll never click!
-1. Watch YouTube tutorials on your language of choice. You may find the explanations helpful!
-1. When you feel that you’re starting to get a handle on your language, work on a project! For
-   backend, try and build a REST API using your chosen language. Google search for
-   `[language] build REST API` and see what all it entails.
-1. Lastly, post code to [GitHub][github]! Landing your first job will require you having a GitHub
-   profile, and code to look at. Can be big, can be small. Can be simple exercises. Just upload _as
-   much as possible_ to GitHub!
+_\* Note: you’re welcome to learn normal JS before tackling a framework. But just know that you’ll need to know some framework to apply to jobs, so starting with a framework is a shorter path. Just as you can drive a car without understanding how it works, I view JS frameworks the same way—they just get you from A to B faster. Sure, understanding all the parts will make you better, no doubt about it. But I don’t see it as essential, and you can always develop that deeper knowledge later._
 
-## frontend
+After finding some stepping stones to learn all of the above three, here’s what’s next:
 
-Good news and bad news: as a frontend dev, the good news is your languages are already decided for
-you: HTML, CSS, and JavaScript. But the bad news is that for HTML, CSS, and JavaScript, there are a
-million different ways to compose these, from [JS frameworks][js-frameworks] to HTML preprocessors
-to CSS utilities. It’s a lot to learn! But as always, start with the basics.
+- **Attend [frontend meetups][meetup].** Especially in the beginning, this is essential for career growth. Meet employers as well as peers that are great resources for mentorship and learning.
+- Get plugged into your **local dev community.** Search for `[my city] developer Discord`. This is how to stay involved with the local community in between meetups.
+- **Create your personal site.** Make a blog, about you, interests, etc. (_like this one! See? I practice what I preach!_). Employers will ask you for your site ([inspiration][personalsites]).
+- **Post code to [GitHub][github].** Employers will look at this when you apply for jobs.
 
-1. [Learn HTML][html]. Simple, right?
-1. [Learn CSS][css]. Now we’re cookin’!
-1. Learn a framework\* such as React, Vue, or Svelte. My personal opinion is I find [Vue][vue] to be
-   not only the easiest to learn after learning HTML, but it’s also powerful, widely-used, and
-   teaches good habits.
+## finally: landing the gig
 
-_\* Note: my advice to learn a framework first is considered controversial to some, with many
-recommended tackling plain, raw JavaScript instead. I advocate for JS frameworks in the beginning
-for the following reasons: there are more clear ways to accomplish things, it teaches good habits,
-the communities are easier to tap into, and most importantly, companies hire for frameworks so jobs
-are easier to find._
+So, having dealt with _disciplines_ and _specializations_ (programming languages), the last piece of advice I can give is to **search for jobs** (for both [backend][backend] and [frontend][frontend]).
 
-### frontend next steps
+Read the posting. Look at the requirements. Look at the expectations and experience needed. The more job postings you read, the better you’ll understand what employers are looking for, and how you should spend your time preparing for those roles.
 
-So, how do you practice frontend?
+When you are starting to feel more confident in your abilities, just apply (even if you only meet [half of the requirements][job-requirements]). Interviewing is a skill to develop, same as programming. In fact, there are even [ways to train for this](https://interviewing.io/). The more comfortable you get applying to places (and getting rejected), the more power you hold in the workforce. Because as much as your employability is determined by your programming ability, it’s equally determined by your interviewing ability.
 
-1. **Attend [meetups][meetup]!** Attend any in your area you can find. With COVID, many are online,
-   so you can even attend remotely.
-1. Get plugged into your **local dev community.** Search for `[my city] developer Discord` and join.
-   Ask questions, and meet new people in the same boat as you.
-1. Create your personal site—your blog, about you, your interests, etc.. You’ll need one to apply!
-   Practice building your own site, and iterate on it ([inspiration][personalsites]).
-1. Push your site to [GitHub][github] so others can see (employers will look at this)!
-1. [Deploy your site][netlify] online (this is the fun part!)
+By now, hopefully you’ve been exposed to the core questions involved in navigating a tricky career path. But the tough part is over—you now have a much better sense of what you don’t know. And whittling that away is now your job.
 
-## backend & frontend: landing the job
-
-It’s never too early to start searching for [backend jobs][backend] or [frontend jobs][frontend].
-Even if you don’t apply, look at the requirements. Look at what’s expected. Search GlassDoor and the
-internet for as much info as you can find about their interview process. And when you meet [half of
-the requirements, apply anyway][job-requirements] (what’s the worst that can happen?). And above
-all, don’t get discouraged; [landing that first job takes time][applying]!
-
-I can’t say this enough: there is plenty of room for more coders, there’s never been a time to join,
-and you (yes, _you_!) matter, and would make the coding community better.
+Good luck in your pursuits! And just now that there is a bright, beautiful, (well-paying) career at the end of this road for you. And it’s closer than you think.
 
 [applying]: https://www.freecodecamp.org/news/5-key-learnings-from-the-post-bootcamp-job-search-9a07468d2331/
 [backend]: https://www.google.com/search?q=backend+developer+jobs&ibp=htl;jobs
 [codewars]: https://www.codewars.com
 [css]: https://www.codecademy.com/learn/learn-css
+[dot-net]: https://www.google.com/search?q=learn+dot+net+site%3Areddit.com
 [frontend]: https://www.google.com/search?q=frontend+developer+jobs&ibp=htl;jobs
 [github]: https://lab.github.com/
 [go]: https://www.google.com/search?q=learn+go+site%3Areddit.com
@@ -147,7 +78,6 @@ and you (yes, _you_!) matter, and would make the coding community better.
 [job-requirements]: https://www.cnbc.com/2018/12/12/matching-half-of-a-jobs-requirements-might-still-get-you-an-interview.html
 [js-frameworks]: https://2020.stateofjs.com/en-US/technologies/front-end-frameworks/
 [meetup]: https://meetup.com/
-[netlify]: https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/
 [node]: https://www.google.com/search?q=learn+node.js+site%3Areddit.com
 [personalsites]: https://personalsit.es/
 [phoenix]: https://www.google.com/search?q=learn+phoenix+site%3Areddit.com

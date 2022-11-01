@@ -1,137 +1,111 @@
 ---
 title: How to get a job coding in 2022, part 1
 date: 2021-09-18
-updated: 2021-10-03
+updated: 2022-10-31
 description: |
   It’s tough to get started, but the rewards are worth it.
 tags: ['dev']
 layout: ../../layouts/post.astro
 ---
 
-_2022 update: this advice still applies in 2022. I’ll update anything if it gets outdated_ 🙂
+_Updated Oct 2022_
 
-I’ve been programming professionally for almost 15 years now, and I frequently get asked how to get
-started coding. But as I am an old geezer that got started in a different time (_we had to FTP
-uphill both ways and in the snow!_), so the story of how I got started is more trivia than advice
-in 2021. However, there’s never been a better time to learn coding than right now. [Job demand is on
-fire][job-security], and coding is something you can teach yourself to do with only discipline and a
-few months of dedicated time.
-
-This blog post is an attempt to have an evergreen answer to “how do I get started coding?” rather
-than answering it over and over again. I’m only giving you my experience and opinions, for free, no
-strings attached (_so you can all stop asking me!_).
+I’ve been programming professionally for almost 15 years now, and I frequently get asked how to get started coding. The story of how I got started so long ago is more a history lesson than advice (_we had to FTP uphill both ways and in the snow!_). But the one thing that’s stayed constant is **there isn’t a clear path to becoming a professional developer.** That’s both a major barrier to overcome, but it’s also an amazing superpower️ that can work to your advantage, which we’ll come back to.
 
 ## why learn to code?
 
-Coding has a huge number of benefits:
+But before we get to the _how_, we’ll start with the _why_. Why is it even worth starting such an ambigulous journey?
 
-- **High pay**. Depending on your city, you can reasonably expect to start at $50–70k as a beginner,
-  with full benefits. And within a few years [easily make 6 figures][levels].
-- **No credentials**. No degree is required, and most coders are self-taught. All that’s needed is
-  practice and tapping into your local coding community for support & guidance.
-- **Job security**. Once you get your foot in the door, expect to never have to worry about
-  employment for at least the next 20–30 years.
-- **You can still follow your passions**. Coding isn’t some boring mathematical job that robs you of
-  creativity. Nowadays [every industry needs coders][tech-company]. So whether you’re passionate
-  about animals, art, music, astronomy—you can actually code _for_ any business! Think of coding as
-  a gateway to working at your dream company.
+- **High pay**. Depending on your city, you can reasonably expect to start at $50–70k as a beginner, with full benefits. And within a few years [easily make 6 figures][levels].
+- **No credentials**. No degree or certification is needed, and all the materials are free online (_back to that superpower thing mentioned earlier_).
+- **Job security**. Once you get your foot in the door, expect to never have to worry about employment for at least the next 20–30 years.
+- **You can still follow your passions**. [Every company is now a tech company][tech-company]. And tech companies need developers. Whatever you’re passionate about, there’s likely a progamming job in that field.
 
 ## “ok… so what’s the catch?”
 
-You might be wondering why people aren’t flocking to all become coders, and saturating the market.
-If the grass is so green, why does it seem so hard to get started?
+You’re probably expecting a “buy my book” pitch here to “unlock all the secrets.” Unfortunately, there’s not a quick path to programming (and if anyone is selling you that, don’t believe them!). In my experience these are the pitfalls for most failed attempts:
 
-The answer is complex, but from my perspective here are the biggest reasons why coding is so elusive
-to many:
+- **No access to a computer**. If you have a personal computer (even if it’s ancient), you have a privilege most don’t. Learning to code requires owning an expensive machine that is unfortunately a barrier (if you don’t own one, you can still learn to code but you’ll need to put more time and effort in and use all available resources like your local library).
+- **No definitive starting point**. There are many niches within programming, and every year more specializations are added. The materials get outdated constantly, so even universities and bootcamps struggle to stay relevant.
+- **There are gatekeepers**. Sadly, [toxic tech][amazon] and [lack of diversity][diversity] do exist. At some companies you’ll find jerks trying to keep newcomers out _because_ it’s so good right now.
+- **The “continual learner” mindset is hard to learn**. This is probably the biggest mental barrier to overcome. Many other trades have a clear path to certification, but mastery of programming is an illusion because it’s evolving so rapidly. Just accepting the reality that you will be learning _forever_ can be hard for some people to grasp (but I personally find it exhilarating!).
 
-- **There’s no definitive starting point**. Coding is rapidly-evolving every year, and there are
-  many different disciplines within coding. The materials get outdated constantly, and it’s easy to
-  drown in the competing information on learning to code (yes, even this blog post may get stale!
-  But you can use this as a current marker for now).
-- **There are gatekeepers**. You’ve probably heard the stories of [toxic tech][amazon] and rampant
-  [lack of diversity][diversity]. Unfortunately, there are many people in the industry that want to
-  keep newcomers out _because_ it’s so good right now. But you know what? Those jerks can kick rocks
-  because you (yes, _you!_) deserve to be here more than those dumbwits. And I believe in you.
-- **The “continual learner” mindset is hard to learn**. I’d say this is the biggest mental barrier
-  people have to coding. In school, you’re taught that once you know something, you know it. You
-  repeat it, and practice it. You may even have a job now that you feel you mastered. With coding,
-  there is no mastery, only continual learning. This can be discouraging, feeling like you’re always
-  “behind” or “dumb.” I’ve been doing this for almost 15 years and I still feel dumb constantly. But
-  once you stop trying to attain “mastery” and instead become enamored with learning and discovery,
-  you’ll start to grasp what it’s all about.
+If you’re reading this blog post, you can do it! There are so many empty seats waiting for new developers to fill. The ones that quit before they make it usually just aren’t aware of how many challenges they have to overcome, and they think “I’m not good at it” when that couldn’t be farther from the truth.
+
+The reality is: _you can do it_. But it does require an understanding of what’s involved.
 
 ## so, where do I start?
 
-My recommendation, being a web developer myself, is to **start with web.** In my opinion, web
-development has the lowest barrier to entry, greatest diversity of job titles, some of the highest
-pay, _period_, and is in [the most demand right now][job-security].
+There are 3 questions you’ll have to answer to start your journey:
 
-Compared to web, your other options include **game development** and **data analytics**. I don’t
-recommend starting with game development because there are far fewer open positions, the industry is
-[rife with burnout][gamedev-burnout], and the learning curve can be much steeper. I don’t recommend
-[data analytics][data-analytics] either becasue it requires you learn programming _and_ statistical
-analysis at the same time. Data Analytics also has far fewer positions available (only certain
-companies hire this role).
+1. _What do I start studying?_
+2. _Where do I go to learn this?_
+3. _Where do I start applying?_
 
-Anyways, to start, you only have to answer 2 questions for now, which I’ll guide you through:
+In the interest of focus, I’m going to short-change #2 and #3 with my mostly-unexplained opinions and spend the time fleshing out #1. You may disagree, and that’s fine. But developing your own answers even if you disagree with my advice will make your starting clearer than before, and that’s all that matters.
 
-1. **backend or frontend?**
-2. **which programming language?**
+### ii. where do I learn this?
 
-> ⚠️ Notice how programming language **isn’t** the first choice? This is a common pitfall new
-> learners fall into: not being sure which language to start with, and where it’ll take them. That’s
-> why the backend vs frontend question is vital to answer first!
+There are three major options: going to a university, going to a bootcamp, or self-taught. My quick opinion: **self-taught is the way to go.** Universities are too expensive and the material is usually out-of-date. A few bootcamps are phenomenal, but most are a waste of time and money. Self-teaching is _H-A-R-D_. And slow. And frustrating. But it is free/cheap, and it will set you up long-term the best because it’s at the very core of programming. So might as well frontload that now. I’m self-taught and I would do it the same way again. The best way to start is from sites like [egghead.io](https://egghead.io/) or [codeacademy.com](https://www.codecademy.com), or any other place that offers free/cheap courses (you will have to spend a few dollars here and there to learn, but nothing truly expensive).
 
-## backend or frontend?
+### iii. where do I start applying?
 
-Let’s fast-forward to applying for your first job. You’ll apply for a position as either a
-[backend][backend-jobs] or [frontend][frontend-jobs] developer. So it’s important to pick one, and
-stick with it until your first job. You can always change your mind later! But the quickest path to
-coding is committing to backend or frontend in the short-term.
+Another quick-and-dirty opinion: being a web developer myself, I think you should **apply to web companies.** Web development has the lowest barrier to entry, greatest diversity of job titles, some of the highest pay, _period_, and is in [the most demand right now][job-security]. This in opposition to, say, game development (too much competition, too much burnout), or a more traditional software company (requires too much specialization, usually outdated pay and work environment). You can find these jobs on boards like [builtin.com](https://builtin.com/).
 
-### frontend
+### i. what do I start studying?
 
-Frontend is a little easier to explain than backend, because it’s what you’re seeing right now!
-Frontend developers manage what the users see. This means handling user interface, interactions,
-text inputs, animations, loading, and even the design of the website. Frontend requires a keen eye
-for design, and a very visual mindset.
+Back to the hairiest question: the answer to this decides your fate. Maybe not _forever_, but at least for the first year of studying and applying to jobs.
 
-Probably when most people think about websites, they think about frontend. But frontend is just the
-tip of the iceberg! Sitting behind what you see is a massive, complex machine of servers, and
-networks, and databases, and a ton of amazing engineering that makes the internet possible. If
-frontend comprises the _visible_ part of the web, then backend is the _invisible_.
+Within web development, there are two _disciplines_—backend and frontend—and within either discipline are myriad _specializations_, which are difficult to outline here but for now we’ll correlate those with programming languages.
 
-**You may like frontend if you…**
+## discipline: backend or frontend?
 
-- …enjoy art, design, and typography
-- …love animation
-- …have an interest in psychology & user experience
+Let’s fast-forward to applying for your first job. You’ll apply for a position as either a [backend][backend-jobs] or [frontend][frontend-jobs] developer (well, there’s also “fullstack,” but pretend that doesn’t exist for now).
 
-### backend
+Pick one. Stick with it until your first job. This is the way.
 
-Conversely, backend is what you don’t see, but powers everything. It’s the massive iceberg under the
-water holding everything up. If you are new to programming, there are probably entire layers to the
-internet you didn’t even know existed, and it’s all backend.
+You can always change your mind later, and any choice here heads down the same general path. But you’ll need commitment to get there.
 
-Backend developers manage servers, databases, deploying code, and even automating things to make
-things simpler.
+### option 1: frontend
 
-**You may like backend if you…**
+Frontend is a little easier to explain than backend because it’s what you’re seeing right now. Frontend developers manage what the users see. This means handling user interface, interactions, text inputs, animations, loading, and even the design of the website. Frontend requires a keen eye for design, and a very visual mindset.
 
-- …enjoy logic and organization
-- …want to create lightning-fast experiences
-- …have an interest in puzzles
+However, frontend also sees an incredible amount of churn, and a nagging feeling that you’re always falling behind. For some that can be exciting; for others, stressful.
 
----
+**You may like frontend if…**
 
-If you’re unsure which to start with, I generally recommend **backend as a default,** and frontend
-only if you are a visual person.
+- …you enjoy art, design, and typography
+- …you love animation
+- …you have an interest in psychology & user experience
 
-Now, mind you, frontend isn’t the “creative” choice—they’re both creative and both equally
-challenging. But not all creativity is visual, much like art vs music.
+**You may _not_ like it if…**
 
-So now that the _backend vs frontend_ question is planted in your mind, you’ll want to learn a bit
-more about what you’ll need to learn to apply to that first job. We’ll cover that in [part 2][pt-2]!
+- …you hate spending all your time getting two #@$%ing pixels to line up
+- …you really don’t care what color that hover effect is
+- …you don’t want to throw your code away constantly and rewrite it from scratch
+
+### option 2: backend
+
+Conversely, backend is what you don’t see—it’s the massive iceberg under the water holding everything up. If you are new to programming, there are probably entire layers to the internet you didn’t even know existed—servers, databases, deployments, automation, and more.
+
+**You may like backend if…**
+
+- …you like solving puzzles
+- …you like math, or you like the process of engineering things to fit together
+- …you like making things go very fast
+
+**You may _not_ like it if…**
+
+- …you’re not big on heavy reading and lots of writing
+- …repetitive tasks drive you crazy
+
+<hr />
+
+If you’re unsure which to start with, I recommend **backend as a default,** and frontend only if you are a visual person. And mind you, “visual” doesn’t mean “creative”—if that were the case, music artists wouldn’t be creative! Both frontend and backend require creativity and are different forms of art. But frontend can be a little harder to navigate for those that don’t also want to put time into graphic design and animation as well.
+
+## next up: specialization
+
+Have you made a decision on _backend vs frontend_? Great. Now, you’ll want to pick a specialization. To do that, keep following along in [part 2][pt-2]!
 
 [activision]: https://www.polygon.com/22627759/activision-blizzard-lawsuit-games-worker-unions-labor-organizing
 [amazon]: https://www.motherjones.com/politics/2021/09/my-wife-was-dying-of-brain-cancer-my-boss-at-amazon-told-me-to-perform-or-quit/
