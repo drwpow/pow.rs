@@ -21,8 +21,8 @@
   },
   "devDependencies": {
     "@astrojs/sitemap": "^1.0.0",
-    "astro": "^1.6.8",
-    "esbuild": "^0.15.13",
+    "astro": "^1.6.10",
+    "esbuild": "^0.15.14",
     "prettier": "^2.7.1",
     "sass": "^1.56.1"
   }
