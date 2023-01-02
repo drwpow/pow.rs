@@ -48,50 +48,54 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
 
         :global(h2) {
           @include element;
-
-          &::before {
-            content: '<h2>';
-            line-height: 2.5rem;
-          }
         }
 
         :global(h3) {
           @include element;
-
-          &::before {
-            content: '<h3>';
-            line-height: 2.25rem;
-          }
         }
 
         :global(h4) {
           @include element;
-
-          &::before {
-            content: '<h4>';
-            line-height: 1.5rem;
-          }
         }
 
         :global(h5) {
           @include element;
-
-          &::before {
-            content: '<h5>';
-            line-height: 1.5rem;
-          }
         }
         :global(h6) {
           @include element;
-
-          &::before {
-            content: '<h6>';
-            line-height: 1.5rem;
-          }
         }
 
         :global(code) {
           font-size: var(--d2);
+        }
+
+        :global(dl) {
+          display: grid;
+          grid-template-columns: 1fr 2fr;
+        }
+
+        :global(dt) {
+          color: var(--gray-60);
+          font-size: var(--d3);
+          letter-spacing: 0.125em;
+          padding-right: 0.5rem;
+          text-transform: uppercase;
+        }
+
+        :global(dd) {
+          font-size: var(--d1);
+          margin: 0;
+        }
+
+        :global(dt),
+        :global(dd) {
+          border-top: 1px solid var(--gray-20);
+          padding-bottom: 1rem;
+          padding-top: 1rem;
+
+          &:first-of-type {
+            border-top: none;
+          }
         }
       }
 
@@ -103,11 +107,6 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
         font-family: 'Arial', sans-serif;
         font-size: var(--d2);
         text-transform: none;
-
-        &::before {
-          content: '<time>';
-          line-height: 1rem;
-        }
       }
 
       .post-description {
@@ -131,13 +130,8 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
         display: flex;
         flex-wrap: wrap;
 
-        &::before {
-          content: '<tags>';
-          line-height: 2rem;
-        }
-
         :global(> *::before) {
-          color: var(--gray-50);
+          color: var(--gray-30);
           content: ' / ';
           display: inline-block;
           margin-left: 0.5em;
@@ -161,11 +155,6 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
         font-size: var(--u5);
         margin: 0;
         letter-spacing: -0.01em;
-
-        &::before {
-          content: '<title>';
-          line-height: 2.75rem;
-        }
       }
 
       :global(.post-yt) {

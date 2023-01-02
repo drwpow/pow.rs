@@ -14,14 +14,13 @@ const { post } = Astro.props;
     font-weight: 300;
     gap: 0.5rem;
     line-height: 1;
-    margin: 1rem 0 1.5rem;
     max-width: 50em;
     position: relative;
     text-decoration: none;
 
     @media (min-width: 600px) {
-      margin-top: 2rem;
-      padding-left: 2.75rem;
+      margin-top: 4rem;
+      padding-left: 2.5rem;
 
       &:first-of-type {
         margin-top: 0;
@@ -46,10 +45,6 @@ const { post } = Astro.props;
     @media (min-width: 600px) {
       margin-top: 0.5em;
     }
-
-    &::before {
-      content: '<time>';
-    }
   }
 
   .summary {
@@ -57,21 +52,13 @@ const { post } = Astro.props;
 
     display: block;
     font-size: var(--u0);
+    letter-spacing: 0.0375em;
     line-height: 1.25;
     margin: 0.25em 0;
     max-width: 32em;
 
     @media (min-width: 1200px) {
       font-size: var(--u1);
-    }
-
-    &::before {
-      content: '<p>';
-      line-height: var(--u2);
-
-      @media (min-width: 1200px) {
-        line-height: var(--u4);
-      }
     }
   }
 
@@ -89,11 +76,6 @@ const { post } = Astro.props;
     align-items: center;
     display: flex;
     flex-wrap: wrap;
-
-    &::before {
-      content: '<tags>';
-      line-height: var(--u4);
-    }
 
     :global(> *::before) {
       color: var(--gray-50);
@@ -114,22 +96,13 @@ const { post } = Astro.props;
 
     display: block;
     font-size: var(--u2);
-    font-weight: 700;
+    font-weight: 400;
     line-height: 0.9;
     letter-spacing: -0.01em;
     margin: 0.25em 0;
 
     @media (min-width: 1200px) {
       font-size: var(--u4);
-    }
-
-    &::before {
-      content: '<title>';
-      line-height: var(--u4);
-
-      @media (min-width: 1200px) {
-        line-height: var(--u6);
-      }
     }
   }
 </style>
