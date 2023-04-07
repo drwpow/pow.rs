@@ -20,10 +20,10 @@
     "three": "^0.148.0"
   },
   "devDependencies": {
-    "@astrojs/sitemap": "^1.0.0",
-    "astro": "^1.8.0",
-    "esbuild": "^0.16.12",
-    "prettier": "^2.8.1",
-    "sass": "^1.57.1"
+    "@astrojs/sitemap": "^1.2.2",
+    "astro": "^1.9.2",
+    "esbuild": "^0.17.15",
+    "prettier": "^2.8.7",
+    "sass": "^1.61.0"
   }
 }
