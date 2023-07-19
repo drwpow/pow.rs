@@ -6,7 +6,7 @@ export const frontmatter = {
   title: 'Don’t use HSL',
   description: 'HSL is great in theory, but worse than you realize in practice',
   date: '2021-11-14',
-  updated_at: '2022-10-19',
+  updated_at: '2023-07-19',
   tags: ['design', 'dev'],
 };
 ---
@@ -26,8 +26,8 @@ export const frontmatter = {
   <h2>HSL is missing a lot more than it gives</h2>
 
   <p>
-    There’s not a 1:1 conversion between HSL and RGB. In one sense this is obvious, because HSL’s appeal is that it’s _not_ RGB. But in another sense, just _how_ different they are can often be overlooked, and you’d be forgiven for not
-    realizing HSL is as bad as it is.
+    Though HSL derives from sRGB, there’s not a 1:1 conversion of colors. In one sense this is obvious, because HSL’s appeal is that it’s <em>not</em> sRGB. But in another sense, just <em>how</em> different they are can often be overlooked,
+    and you’d be forgiven for not realizing HSL is as bad as it is.
   </p>
 
   <table>
@@ -41,10 +41,10 @@ export const frontmatter = {
     </thead>
     <tbody>
       <tr>
-        <td>RGB</td>
+        <td>sRGB</td>
         <td class="tac"><small>256 ^ 3</small></td>
         <td class="tar"><code>16,777,216</code></td>
-        <td>100%</td>
+        <td class="tar">100%</td>
       </tr>
       <tr>
         <td>HSL</td>
@@ -56,8 +56,8 @@ export const frontmatter = {
   </table>
 
   <p>
-    Just comparing the possible values, HSL is missing almost 80% of RGB’s. But if throwing away 80% of colors weren’t bad enough, it’s actually worse! Not every HSL value maps to a <em>unique</em> RGB color, and there are multiple ways to express
-    the same color in HSL. For example, when saturation is <code>0</code>, HSL has 36,000 different values that generate only <code>100</code> grays. When you remove all the duplicates, HSL is missing closer to
+    Just comparing the possible values, HSL is missing almost 80% of sRGB’s. But if throwing away 80% of colors weren’t bad enough, it’s actually worse! Not every HSL value maps to a <em>unique</em> sRGB color, and there are multiple ways to
+    express the same color in HSL. For example, when saturation is <code>0</code>, HSL has 36,000 different values that generate only <code>100</code> grays. When you remove all the duplicates, HSL is missing closer to
     <b>85%</b> of RGB’s colors (<a href="https://gist.github.com/drwpow/0fabf0cc932285ad023ca39e6f9ed35d" target="_blank" rel="noopener noreferrer">source</a>). And when is an 85% loss in quality ever acceptable?
   </p>
 
@@ -68,7 +68,7 @@ export const frontmatter = {
     possible values and becomes a barren wasteland of mostly-duplicated colors. Since now most adjustments won’t end up changing the color at all, it means using HSL with decimals makes it worthless.
   </p>
 
-  <p>So back to our original premise: when <b>storing colors,</b> HSL is a terrible format to use because it’s missing so much of the RGB colorspace. And attempting to fill in those gaps results in mostly-useless values.</p>
+  <p>So back to our original premise: when <b>storing colors,</b> HSL is a terrible format to use because it’s missing so much of the sRGB colorspace. And attempting to fill in those gaps results in mostly-useless values.</p>
 
   <h2>The “L” stands for “Ludicrous”</h2>
 
@@ -100,42 +100,47 @@ export const frontmatter = {
   <h2>Use OKLCH instead</h2>
 
   <p>
-    <a href="https://bottosson.github.io/posts/oklab/" target="_blank" rel="noopener noreferrer">OKLAB</a> (and its companion, OKLCH) are new-ish colorspaces that provide better color distribution for RGB when manipulating values. Though it
-    may or may not make it into the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color()" target="_blank" rel="noopener noreferrer">CSS color function</a>, it can be used today via a library like <a
-      href="https://github.com/drwpow/better-color-tools"
+    <a href="https://oklch.com" target="_blank" rel="noopener noreferrer">OKLCH</a> is a perceptually-consistent colorspace that can be used today in all major browsers. It works exactly like HSL, except <em>it actually works</em>. The
+    “LCH” part of it stands for <b>L</b>ightness, <b>C</b>hroma, and <b>H</b>ue. If you rearranged it to <i>HCL</i>, you’d realize it’s only off by one letter from <i>HSL</i>. Rather than <b>S</b>aturation, you’re dealing with <i
+      ><b>C</b>hroma</i
+    > which is the same basic concept, just modified to be a little more honest (some colors can achieve higher chroma than others because of the <a
+      href="https://en.wikipedia.org/wiki/RGB_color_spaces"
       target="_blank"
-      rel="noopener noreferrer">better-color-tools</a
-    > which uses OKLAB/OKLCH for all operations by default.
+      rel="noopener noreferrer">asymmetric gamut of RGB monitors</a
+    >, thus, it’s a linear scale rather than a percentage).
   </p>
 
   <p>
-    OKLCH, or “OK” LCH, will feel instantly familiar when you realize it stands for <b>L</b>ightness, <b>C</b>hroma, and <b>H</b>ue. If you rearranged it to <i>HCL</i>, you’d find the only difference from HSL is <i>chroma</i> vs <i
-      >saturation</i
-    > (which was changed to reflect a more accurate description of what that value does). You can manipulate colors like so:
+    Picking OKLCH colors is simple using online an online tool like <a href="https://oklch.com" target="_blank" rel="noopener noreferrer">oklch.com</a> or <a
+      href="https://better-color-tools.pages.dev"
+      target="_blank"
+      rel="noopener noreferrer">better-color-tools</a
+    >. Using it in CSS is possible through the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch">oklch()</a> function which has wide browser support as of 2023.
   </p>
 
   <Code
-    code={`import better from 'better-color-tools';
+    code={`.button {
+  --color: oklch(70% 0.16 240); /* 240° blue hue, 70% lightness, 0.6 chroma */
 
-const color = better.from('#b3f6e6').oklchVal; // lightness: 92.4%, chroma: 7%, hue: 178
-const color2 = better.darken('#b3f6e6', 0.1);  // lightness: 82.4%, chroma: 7%, hue: 178`}
-    lang="ts"
-  />
+  background-color: var(--color);
+  color: white;
+}
 
-  <p>Or, if you’re using Sass:</p>
-
-  <Code
-    code={`@use 'better-color-tools';
-
-.btn:hover {
-  background-color: better.darken(#b3f6e6, 0.1);
+/* on hover, lighten 10% via OKLAB’s algorithm */
+.button:hover {
+  background-color: color-mix(in oklab, var(--color), 10% white);
 }`}
-    lang="scss"
+    lang="css"
   />
+
+  <blockquote>
+    ✨ <b>Tip</b>: always use <code>in oklab</code> as the mixing space for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix" target="_blank" rel="noopener noreferrer">color-mix()</a>, even when using OKLCH
+    colors. It will outperform any other blending mode almost every time (<a href="https://better-color-tools.pages.dev/mix" target="_blank" rel="noopener noreferrer">comparison</a>).
+  </blockquote>
 
   <p>
     So again, it’s not that the <em>premise</em> of manipulating color via hue, lightness, and chroma/saturation are flawed; it’s simply that HSL’s <em>implementation</em> of it is unusable if you care about color integrity even a little bit.
-    And OKLCH fits the bill exactly.
+    But OKLCH fits the bill.
   </p>
 
   <p>So please, for the love of everyone’s eyeballs, don’t use HSL.</p>
