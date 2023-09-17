@@ -17,11 +17,12 @@ function randomFour(list) {
   return pick;
 }
 
-const [oapiTs, astro, cobalt, betterColorTools] = await Promise.all([
+const [oapiTs, astro, cobalt, lqip, bundlesize] = await Promise.all([
   fetchGitHubData('https://github.com/drwpow/openapi-typescript'),
   fetchGitHubData('https://github.com/withastro/astro'),
   fetchGitHubData('https://github.com/drwpow/cobalt-ui'),
-  fetchGitHubData('https://github.com/drwpow/better-color-tools'),
+  fetchGitHubData('https://github.com/drwpow/vite-plugin-lqip'),
+  fetchGitHubData('https://github.com/drwpow/vite-plugin-bundlesize'),
 ]);
 ---
 
@@ -121,7 +122,7 @@ const [oapiTs, astro, cobalt, betterColorTools] = await Promise.all([
       margin: 0;
 
       dd {
-        margin-left: 0.25em;
+        margin-left: 0.25rem;
       }
     }
 
@@ -218,7 +219,7 @@ const [oapiTs, astro, cobalt, betterColorTools] = await Promise.all([
           <a class="stuff-thumb" href="https://github.com/drwpow/openapi-typescript" target="_blank" rel="noopener noreferrer">
             <img width="400" height="300" src={oapiTs.unfurlImg} alt="openapi-typescript on GitHub" />
           </a>
-          <span>Convert OpenAPI schemas into TypeScript types. Zero dependencies and super easy to use.</span>
+          <span>Convert OpenAPI schemas into TypeScript types.</span>
           <div class="stuff-links">
             <a href="https://openapi-ts.pages.dev" target="_blank" rel="noopener noreferrer">Docs</a> / <a href="https://github.com/drwpow/openapi-typescript" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
@@ -232,7 +233,7 @@ const [oapiTs, astro, cobalt, betterColorTools] = await Promise.all([
           <a class="stuff-thumb" href="https://github.com/withastro/astro" target="_blank" rel="noopener noreferrer">
             <img width="400" height="300" src={astro.unfurlImg} alt="Astro on GitHub" />
           </a>
-          <span>Old web curmudgeons’ and youngbloods’ new favorite site builder for all JS frameworks. Yes—we made both happy. And yes—it’s fast!</span>
+          <span>A thing I co-created for the web. Use it if you want.</span>
           <div class="stuff-links">
             <a href="https://docs.astro.build" target="_blank" rel="noopener noreferrer">Docs</a> / <a href="https://github.com/withastro/astro" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
@@ -246,23 +247,37 @@ const [oapiTs, astro, cobalt, betterColorTools] = await Promise.all([
           <a class="stuff-thumb" href="https://github.com/drwpow/cobalt-ui">
             <img width="400" height="300" src={cobalt.unfurlImg} alt="Cobalt UI on GitHub" />
           </a>
-          <span>Turn W3C design tokens into Sass, TypeScript, CSS, and more.</span>
+          <span>Use design tokens in code</span>
           <div class="stuff-links">
             <a href="https://cobalt-ui.pages.dev">Website</a> / <a href="https://github.com/drwpow/cobalt-ui" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </li>
         <li class="stuff-item">
-          <h3>Better Color Tools</h3>
+          <h3>Vite LQIP Plugin</h3>
           <dl class="stuff-oss-stats">
             <dt>★</dt>
-            <dd>{betterColorTools.starCount}</dd>
+            <dd>{lqip.starCount}</dd>
           </dl>
-          <a class="stuff-thumb" href="https://github.com/drwpow/better-color-tools" target="_blank" rel="noopener noreferrer">
-            <img width="400" height="300" src={betterColorTools.unfurlImg} alt="Better Color Tools on GitHub" />
+          <a class="stuff-thumb" href="https://github.com/drwpow/cobalt-ui">
+            <img width="400" height="300" src={lqip.unfurlImg} alt="Cobalt UI on GitHub" />
           </a>
-          <span>I wanted some better color tools. And here we are.</span>
+          <span>The easiest way to use low-quality image placeholders (LQIP) in Vite</span>
           <div class="stuff-links">
-            <a href="https://better-color-tools.pages.dev">Website</a> / <a href="https://github.com/drwpow/better-color-tools" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://vite-plugin-lqip.pages.dev/">Demo</a> / <a href="https://github.com/drwpow/vite-plugin-lqip" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </li>
+        <li class="stuff-item">
+          <h3>Vite Bundlesize Plugin</h3>
+          <dl class="stuff-oss-stats">
+            <dt>★</dt>
+            <dd>{bundlesize.starCount}</dd>
+          </dl>
+          <a class="stuff-thumb" href="https://github.com/drwpow/cobalt-ui">
+            <img width="400" height="300" src={bundlesize.unfurlImg} alt="Cobalt UI on GitHub" />
+          </a>
+          <span>Profile your JS bundle and keep it itty bitty</span>
+          <div class="stuff-links">
+            <a href="https://github.com/drwpow/vite-plugin-bundlesize" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </li>
       </ul>
