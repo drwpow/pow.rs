@@ -39,9 +39,19 @@
           "id": "sour-patch-watermelon",
           "name": "Sour Patch Watermelon",
           "description": "Never my first pick, but it’s never let me down, either."
+        },
+        {
+          "id": "scandinavian-swimmers",
+          "name": "Trader Joe’s Scandinavian Swimmers",
+          "description": "Better than most gummies, especially in a pinch."
         }
       ],
       "c": [
+        {
+          "id": "mike-and-ike",
+          "name": "Mike & Ike",
+          "description": "Never anyone’s first choice, but they grow on you the more you accidentally find yourself forced to consume them."
+        },
         {
           "id": "jelly-belly",
           "name": "Jelly Belly",
@@ -54,23 +64,27 @@
           "name": "Swedish Fish Mini",
           "description": "For some reason these are always hard. Pass."
         },
-        { "id": "sour-punch-straws", "name": "Sour Punch Straws", "description": "Good flavor but why are they always moist!?" }
+        {
+          "id": "haribo-goldbears",
+          "name": "Haribo Goldbears",
+          "description": "I think the gummy bears and the plastic bag are the same material."
+        }
       ],
       "f": [
         {
+          "id": "sour-punch-straws",
+          "name": "Sour Punch Straws",
+          "description": "Good flavor but why are they always moist!?"
+        },
+        {
           "id": "tajin-watermelon-rings",
           "name": "Tajin™ Watermelon Rings",
-          "description": "Absolute trash tier gummies whose looks and flavor match perfectly."
+          "description": "God is dead and we have killed him."
         },
         {
           "id": "giant-gummy-bear",
           "name": "Giant gummy bear",
           "description": "Hilarious in theory. A nightmarish gutbuster in reality."
-        },
-        {
-          "id": "haribo-goldbears",
-          "name": "Haribo Goldbears",
-          "description": "I think the gummy bears and the plastic bag are the same material."
         }
       ]
     }
@@ -140,6 +154,11 @@
       ],
       "a": [
         {
+          "id": "bomb-rush-cyberfunk",
+          "name": "Bomb Rush Cyberfunk",
+          "description": "The MUSIC in this game. My god! Gameplay and story is dope too. I wasn’t expecting much more than a cheap nostalgia play but was surprised by the love and creativity poured into this title."
+        },
+        {
           "id": "persona-5",
           "name": "Persona 5",
           "description": "Absolutely dripping with style and creativity. The previous Persona installments were fantastic, but this was on a whole new level."
@@ -148,11 +167,6 @@
           "id": "super-smash-bros-ultimate",
           "name": "Super Smash Bros. Ultimate",
           "description": "A love letter to video game history as well as a milestone achievement in and of itself. It single-handedly invented a genre of fighting games while continuing to push its own boundaries of gameplay."
-        },
-        {
-          "id": "god-of-war",
-          "name": "God of War (2018)",
-          "description": "I ignored this game initially, expecting to hate it, but came back to it and kicked myself for sleeping on it. I usually don’t enjoy these kinds of games, but something about this hit all the right notes for me."
         },
         {
           "id": "super-mario-odyssey",
@@ -210,6 +224,11 @@
           "id": "devil-may-cry-5",
           "name": "Devil May Cry 5",
           "description": "The game that redefined the hack-and-slash genre showed everyone how it’s done. It’s both a fun romp to play casually and an intricate, deep gameplay system to master for the genre enthusiasts."
+        },
+        {
+          "id": "god-of-war",
+          "name": "God of War (2018)",
+          "description": "I ignored this game initially, expecting to hate it, but came back to it and kicked myself for sleeping on it. I usually don’t enjoy these kinds of games, but something about this hit all the right notes for me."
         },
         {
           "id": "monster-hunter-world",
@@ -343,7 +362,7 @@
   {
     "id": "albums",
     "title": "Albums",
-    "description": "My favorite albums. Everything C-tier and below is omitted because hating isn’t what music’s about (suck it, Fantano!).",
+    "description": "My favorite albums. Everything C-tier and below is omitted because who am I, Anthony Fantano?",
     "updated": "2022-10-18",
     "rankings": {
       "s": [
@@ -353,6 +372,11 @@
           "description": "This album is fast, heavy, technical, and groovy, not to mention silly and fun (“One man’s cringe is another man’s tattoo“). Dance Gavin Dance continues to produce increasily-creative music that is a genre unto itself."
         },
         {
+          "id": "archspire-bleed-the-future",
+          "name": "Archspire: Bleed the Future",
+          "description": "Insanely technical, heavy, fast, melodic, and surprisng. Drone Corpse Aviator is an absolute banger. Apologies to the 17 people whose semantic password was exposed."
+        },
+        {
           "id": "spirit-world-field-guide",
           "name": "Aesop Rock: Spirit World Field Guide",
           "description": "The BEATS. The beats on this album are nothing short of a spiritual awakening."
@@ -360,7 +384,12 @@
         {
           "id": "painted",
           "name": "Lucky Daye: Painted",
-          "description": "Hot take: Lucky Daye over Frank Ocean any day of the week. This man’s genius is blinding."
+          "description": "Lucky Daye over Frank Ocean any day of the week."
+        },
+        {
+          "id": "tame-impala-the-slow-rush",
+          "name": "Tame Impala: The Slow Rush",
+          "description": "Lying underneath a poppy sound and catchy beats is surprisingly deep and layered songwriting."
         },
         {
           "id": "malibu",
@@ -368,31 +397,41 @@
           "description": "Smart, groovy, fresh, and endlessly-cool. Paak’s unmatched style and flow is an absolute treat to listen to, and Malibu is a masterpiece of his talents."
         },
         {
-          "id": "peaceful-ghosts",
-          "name": "Nada Surf: Peaceful Ghosts",
-          "description": "Nada Surf has been one of my longtime favorites, and hearing Matthew Caws’ songwriting backed by a full symphony orchestra makes my heart sing. A beautiful album from start to finish."
-        },
-        {
           "id": "matriarch",
           "name": "Veil of Maya: Matriarch",
           "description": "Is this the greatest metal album ever made? In the years since its release it’s aged like a fine wine, with relistens revealing new depth and substance."
+        },
+        {
+          "id": "wintersun",
+          "name": "Wintersun",
+          "description": "This might be the greatest metal album ever made. Conceived by the lead singer/guitarist of Ensiferum, this is his opus."
         }
       ],
       "a": [
+        {
+          "id": "masego-studying-abroad",
+          "name": "Masego: Studying Abroad",
+          "description": "Jazzy as hell while retaining unique personality and soul. I’m looking forward to hearing more from this guy."
+        },
         {
           "id": "not-tight",
           "name": "DOMi & JD BECK: NOT TiGHT",
           "description": "The initial release of two young jazz savants to Anderson .Paak’s label can’t be missed. With guest appearances from Mac Demarco, Snoop Dogg, and more, it’s an exciting debut for some pretty tight artists."
         },
         {
-          "id": "melt-away",
-          "name": "Jadu Heart: Melt Away",
-          "description": "This album took a while to grow on me because it created its own itch that only it could scratch. Now it gets heavy plays on a regular basis."
+          "id": "erra",
+          "name": "Erra",
+          "description": "Way heavier than a metal band from Alabama has right to be."
         },
         {
-          "id": "unfurl",
-          "name": "RY X: Unfurl",
-          "description": "I pronounce this artist ”relax” because I feel so zen listening to any track."
+          "id": "andrew-bird-mysterious-production-of-eggs",
+          "name": "Andrew Bird & The Mysterious Production of Eggs",
+          "description": "Andrew Bird has several lifetimes of musical genius behind him, but this album was the turning point from a talented musician into prolific artist."
+        },
+        {
+          "id": "children-of-bodom-hate-crew",
+          "name": "Children of Bodom: Hate Crew Deathroll",
+          "description": "There is no “best” CoB album. But this album showcases the pinnacle of Alexi Laiho’s writing talent and raw energy."
         },
         {
           "id": "mm-food",
@@ -404,53 +443,32 @@
           "name": "Kid A",
           "description": "This is Radiohead’s best album. I will not elaborate further."
         }
-      ]
-    }
-  },
-  {
-    "id": "movies",
-    "title": "Movies",
-    "description": "Everything on this list is worth watching; if it has an “F” it means “it’s so bad you have to see it.”",
-    "updated": "2022-10-18",
-    "rankings": {
-      "s": [
-        {
-          "id": "legend-of-hei",
-          "name": "The Legend of Hei",
-          "description": "A gorgeous visual treat that unfolds like a Ghibli-esque fairytale. A modern-day masterpiece from a relatively new Chinese animation studio."
-        },
-        {
-          "id": "be-kind-rewind",
-          "name": "Be Kind Rewind",
-          "description": "This absolute blast of a movie directed by Michel Gondry rarely gets the attention it deserved. But it’s the complete package of boundless creativity, timeless comedy, and who doesn’t love Mos Def?"
-        }
       ],
       "b": [
         {
-          "id": "kikis-delivery-service",
-          "name": "Kiki’s Delivery Service",
-          "description": "I will never pick a favorite Miyazaki movie, but I think this metaphor about the artistic struggle is the most prolific, and the movie that has impacted my perspective the most (other than the “we’re killing the planet” messages in half his films)."
-        }
-      ],
-      "a": [
+          "id": "spiritbox-eternal-blue",
+          "name": "Spiritbox: Eternal Blue",
+          "description": "Talented clean and unclean vocalist, but the real headline here is the guitarist."
+        },
         {
-          "id": "fiddler-on-the-roof",
-          "name": "Fiddler on the Roof",
-          "description": "This movie is laugh-out-loud funny and tearjerkingly melancholic, all beautifully strung together by Topol’s charm. And the cinematography is gorgeous."
-        }
-      ],
-      "d": [
+          "id": "khruangbin-mordechai",
+          "name": "Khruangbin: Mordechai",
+          "description": "It’s a real toe-tapper, that it is."
+        },
         {
-          "id": "rebel-without-a-cause",
-          "name": "Rebel Without a Cause",
-          "description": "Emphasis on “without a cause,” this milk-chugging, car-jumping, rustin’ tusslin’ hooligan is just so bizarre to watch from today’s perspective, but entertaining nonetheless. And it’s one of the few old movies that doesn’t have glaringly-problematic elements that make it unwatchable."
-        }
-      ],
-      "f": [
+          "id": "melt-away",
+          "name": "Jadu Heart: Melt Away",
+          "description": "This album took a while to grow on me because it created its own itch that only it could scratch. Now it gets heavy plays on a regular basis."
+        },
         {
-          "id": "the-room",
-          "name": "The Room",
-          "description": "The “Citizen Kane” of bad movies, no list is complete without this trainwreck. Even knowing it’s terrible going in, it’s a difficult watch. But seeing the insanity in all its glory is truly an experience."
+          "id": "gidim",
+          "name": "Rings of Saturn: Gidim",
+          "description": "An incredibly-talented band, but a lot of unrealized potential."
+        },
+        {
+          "id": "unfurl",
+          "name": "RY X: Unfurl",
+          "description": "I pronounce this artist ”relax” because I feel so zen listening to any track."
         }
       ]
     }

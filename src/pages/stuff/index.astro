@@ -32,16 +32,29 @@ const [oapiTs, astro, cobalt, betterColorTools] = await Promise.all([
       margin: 3em 0;
 
       > h2 {
-        font-size: 48px;
+        font-size: 32px;
+        font-weight: 400;
         letter-spacing: -0.025em;
         margin: 0;
-        padding-left: 4rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        @media (min-width: 600px) {
+          padding-left: 2.5rem;
+          padding-right: 2.5rem;
+        }
       }
 
       > p {
         font-size: 24px;
         margin: 0;
-        padding-left: 4rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        @media (min-width: 600px) {
+          padding-left: 2.5rem;
+          padding-right: 2.5rem;
+        }
       }
     }
 
@@ -320,9 +333,92 @@ const [oapiTs, astro, cobalt, betterColorTools] = await Promise.all([
       <h2>Coolweb</h2>
       <p>Good websites that keep the web fun and creative (no association to me in any way)</p>
       <ul class="tierlist-ul">
-        <li><a href="https://www.my80stv.com" target="_blank" rel="noopener noreferrer">My 80s TV</a> / Dive back into TV nostalgia</li>
+        <li>
+          <a href="http://www.windows93.net" target="_blank" rel="noopener noreferrer">WINDOWS93</a>
+        </li>
+        <li>
+          <a href="https://webamp.org" target="_blank" rel="noopener noreferrer">Webamp</a> / Winamp in the browser
+        </li>
+        <li>
+          <a href="https://pavellaptev.github.io/web-dark-ages/" target="_blank" rel="noopener noreferrer">Dark Ages of the Web</a> / A collection of websites from the 90s and early 2000s
+        </li>
+        <li>
+          <a href="https://getcoleman.com" target="_blank" rel="noopener noreferrer">Joe Coleman</a> / Copywriter
+        </li>
+        <li>
+          <a href="https://www.my80stv.com" target="_blank" rel="noopener noreferrer">My 80s TV</a> / Dive back into TV nostalgia
+        </li>
+        <li>
+          <a href="https://www.kenrockwell.com/tech/notcamera.htm" target="_blank" rel="noopener noreferrer">Your Camera Doesn’t Matter</a> / The best camera is the one you have with you
+        </li>
         <li>
           <a href="https://www.webdesignerdepot.com/2020/07/in-memory-of-flash-1996-2020/" target="_blank" rel="noopener noreferrer">In Memory of Flash 1996–2020</a> / An homage to the wonderful, weird, creative websites of a bygone era
+        </li>
+        <li>
+          <a href="https://neal.fun" target="_blank" rel="noopener noreferrer">Neal.fun</a> / A collection of minisites by Neal Agarwal
+        </li>
+        <li>
+          <a href="https://bezier.method.ac" target="_blank" rel="noopener noreferrer">Bezier Game</a> / A game to help you master the pen tool
+        </li>
+        <li>
+          <a href="https://midi.city/" target="_blank" rel="noopener noreferrer">MIDI City</a> / online MIDI instrument
+        </li>
+        <li>
+          <a href="https://ocremix.org/" target="_blank" rel="noopener noreferrer">OverClocked ReMix</a> / Video game music community
+        </li>
+        <li>
+          <a href="https://userinyerface.com" target="_blank" rel="noopener noreferrer">User Inyerface</a> / A challenging exploration of user interactions and design patterns.
+        </li>
+        <li>
+          <a href="http://histography.io" target="_blank" rel="noopener noreferrer">Histography</a> / Timeline of history
+        </li>
+        <li>
+          <a href="https://www.jezzamon.com/fourier/" target="_blank" rel="noopener noreferrer">An Interactive Introduction to Fourier Transforms</a>
+        </li>
+        <li>
+          <a href="https://interfaceingame.com/" target="_blank" rel="noopener noreferrer">Interface in Game</a> / A collection of UIs from video games
+        </li>
+        <li>
+          <a href="https://www.hudsandguis.com" tareget="_blank" rel="noopener noreferrer">Huds and Guis</a> / an inspiration resource site featuring Future User Interfaces, Graphic User Interfaces, Heads Up Displays and UX/UI Design from areas such as film and games
+        </li>
+        <li>
+          <a href="https://www.guitar-chord-finder.com" target="_blank" rel="noopener noreferrer">Guitar Chord Finder</a> / Find Guitar Chords
+        </li>
+        <li>
+          <a href="https://nestflix.fun" target="_blank" rel="noopener noreferrer">Nestflix</a> / A platform for fictional films and shows within other films and shows.
+        </li>
+        <li>
+          <a href="https://www.animatedknots.com/" target="_blank" rel="noopener noreferrer">Animated Knots</a> / Learn how to tie knots
+        </li>
+        <li>
+          <a href="https://www.tylervigen.com/spurious-correlations" target="_blank" rel="noopener noreferrer">Spurious Correlations</a> / Correlation does not imply causation
+        </li>
+        <li>
+          <a href="https://flickmetrix.com" target="_blank" rel="noopener noreferrer">Flickmetrix</a> / the best movies to watch on Netflix
+        </li>
+        <li>
+          <a href="https://www.translationparty.com/good-egg-3858158" target="_blank" rel="noopener noreferrer">Translation Party</a> / Translate a phrase back and forth between English and Japanese until it reaches equilibrium
+        </li>
+        <li>
+          <a href="https://origamisimulator.org/" target="_blank" rel="noopener noreferrer">Origami Simulator</a> / Learn how to fold origami
+        </li>
+        <li>
+          <a href="https://www.linyangchen.com/Typography-Fell-Types-font" target="_blank" rel="noopener noreferrer">A 17th-century font in a 21st-century thesis</a>
+        </li>
+        <li>
+          <a href="http://www.imissmybar.com" target="_blank" rel="noopener noreferrer">I Miss My Bar</a> / Recreate Your Favorite Bar’s Atmosphere
+        </li>
+        <li>
+          <a href="https://research.exoticsilicon.com" target="_blank" rel="noopener noreferrer">Exotic Silicon</a> / The most beautiful website ever made?
+        </li>
+        <li>
+          <a href="https://js13kgames.com" target="_blank" rel="noopener noreferrer">JS13kGames</a> / JavaScript Game Development Competition in just 13 kB
+        </li>
+        <li>
+          <a href="https://layoffs.fyi" target="_blank" rel="noopener noreferrer">Layoffs.fyi</a> / Tech layoff tracker and startup layoff lists
+        </li>
+        <li>
+          <a href="https://levels.fyi" target="_blank" rel="noopener noreferrer">Levels.fyi</a> / Compare career levels and salaries across companies
         </li>
       </ul>
     </section>
