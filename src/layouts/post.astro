@@ -120,6 +120,9 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
 
       .post-header {
         box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
         position: relative;
       }
 
@@ -154,6 +157,7 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
         font-weight: 700;
         font-size: var(--u5);
         margin: 0;
+        line-height: 1;
         letter-spacing: -0.01em;
       }
 
