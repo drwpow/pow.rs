@@ -37,9 +37,11 @@ const { post } = Astro.props;
 
     color: var(--gray-50);
     display: block;
-    grid-area: date;
     font-family: Arial;
     font-size: var(--d2);
+    letter-spacing: 0.125em;
+    grid-area: date;
+    line-height: 1.5;
     text-transform: none;
 
     @media (min-width: 600px) {
@@ -95,15 +97,12 @@ const { post } = Astro.props;
     @include element;
 
     display: block;
-    font-size: var(--u2);
+    font-size: 1rem;
     font-weight: 400;
+    letter-spacing: 0.25em;
     line-height: 0.9;
-    letter-spacing: -0.01em;
     margin: 0.25em 0;
-
-    @media (min-width: 1200px) {
-      font-size: var(--u4);
-    }
+    text-transform: uppercase;
   }
 </style>
 

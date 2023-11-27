@@ -11,6 +11,12 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
 <html lang="en-us">
   <head>
     <Head title={title} color={colorOfTheDay} />
+    <style>
+      .intro {
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+      }
+    </style>
   </head>
 
   <body>
@@ -18,17 +24,16 @@ const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.lengt
 
     <div class="wrapper">
       <div itemscope itemtype="http://schema.org/Person" class="pb8">
-        <img alt="Drew" height="1000" itemprop="photo" src="/assets/drewpowers.jpg" width="2000" />
+        <img alt="Drew" height="1000" itemprop="photo" src="/assets/dhf.jpg" width="1440" />
         <p>
-          My name is
-          <span itemprop="name">Drew</span>. I have measurable brain rot from the internet. I believe the web sucks sometimes, but it can also make peoples’ lives better. And hope to do just a bit of the latter in my time on earth, if I’m lucky.
+          <span class="intro">My name is
+          <span itemprop="name">Drew</span>.</span> I’m a husbad, dad, and web developer living in Denver, CO. I like using my time to make the web better for everyone (or at least, I try to).
         </p>
         <p>Some things I believe (in no particular order):</p>
         <ol>
           <li>Black lives matter</li>
           <li>trans rights are human rights</li>
-          <li>everyone deserves a fair shot at equality, freedom, and happiness</li>
-          <li>impact &gt; intent</li>
+          <li>impact matters more than intent</li>
           <li>be kind whenever possible (it is always possible)</li>
         </ol>
         <p>
