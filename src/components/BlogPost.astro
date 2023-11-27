@@ -15,8 +15,24 @@ const { post } = Astro.props;
     gap: 0.5rem;
     line-height: 1;
     max-width: 50em;
+    outline: none;
     position: relative;
     text-decoration: none;
+
+    &::after {
+      border-radius: 0.5rem;
+      bottom: -1rem;
+      content: "";
+      display: block;
+      left: -1rem;
+      opacity: 0;
+      outline: 2px solid var(--green);
+      pointer-events: none;
+      position: absolute;
+      right: -1rem;
+      top: -1rem;
+      transition: opacity 100ms linear;
+    }
 
     @media (min-width: 600px) {
       margin-top: 4rem;
@@ -29,6 +45,17 @@ const { post } = Astro.props;
 
     &:first-of-type {
       margin-top: 0;
+    }
+
+    &:hover,
+    &:focus-visible {
+      .title {
+        color: var(--green);
+      }
+    }
+
+    &:focus-visible::after {
+      opacity: 1;
     }
   }
 
@@ -100,9 +127,10 @@ const { post } = Astro.props;
     font-size: 1rem;
     font-weight: 400;
     letter-spacing: 0.25em;
-    line-height: 0.9;
+    line-height: 1.2;
     margin: 0.25em 0;
     text-transform: uppercase;
+    transition: color 100ms linear;
   }
 </style>
 
