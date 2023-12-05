@@ -93,9 +93,14 @@
     "id": "video-games",
     "title": "Video games",
     "description": "Not a list of all the games I’ve played; just games I’ve spent a lot of time in that left strong impressions, good or bad",
-    "updated": "2022-10-18",
+    "updated": "2023-12-04",
     "rankings": {
       "s": [
+        {
+          "id": "final-fantasy-origin-sop",
+          "name": "Stranger of Paradise: Final Fantasy Origin",
+          "description": "It’s no secret I’m a Final Fantasy stan. I was not expecting such an amazingly-deep action RPG from Team Ninja that simultaneously pays homage to the entire series while crafting something totally unique and innovative on its own. Er, um, I mean… “I’M HERE TO KILL CHAOS!”"
+        },
         {
           "id": "death-stranding",
           "name": "Death Stranding",
