@@ -128,14 +128,14 @@ function init() {
           nodStart = performance.now();
         }
       },
-      { bubble: false }
+      { bubble: false },
     );
     el.addEventListener(
       'mouseleave',
       () => {
         lastHover = undefined;
       },
-      { bubble: false }
+      { bubble: false },
     );
   });
 
@@ -181,7 +181,7 @@ function init() {
   let keyBuffer = [];
   let bufferTimeout;
   const success = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
-  const playlist = ['bgm_qotsa_ytiawadbiflam', 'bgm_cob_cob', 'bgm_m_tm', 'bgm_m_tm', 'bgm_bg_wss', 'bgm_if_pm', 'bgm_dgd_po']; // weight bgm_m_tm a lil more!
+  const playlist = ['bgm_qotsa_ytiawadbiflam', 'bgm_cob_cob', 'bgm_ws_bat', 'bgm_m_tm', 'bgm_m_tm', 'bgm_bg_wss', 'bgm_if_pm', 'btm_ptv_amiw', 'bgm_vom_mk', 'bgm_as_aum', 'bgm_sf_btia', 'bgm_fs_rq']; // weight bgm_m_tm a lil more!
   let lastPlayed;
   window.addEventListener('keyup', (evt) => {
     clearTimeout(bufferTimeout);
