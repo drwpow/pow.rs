@@ -363,9 +363,14 @@
     "id": "albums",
     "title": "Albums",
     "description": "My favorite albums. Everything C-tier and below is omitted because who am I, Anthony Fantano?",
-    "updated": "2022-10-18",
+    "updated": "2023-12-04",
     "rankings": {
       "s": [
+        {
+          "id": "future-static-liminality",
+          "name": "Future Static: Liminality",
+          "description": "Obsessed with this prog/metalcore/metalpunk band from Australia. Currently trying to figure out how to headbang upside-down."
+        },
         {
           "id": "jackpot-juicer",
           "name": "Dance Gavin Dance: Jackpot Juicer",
