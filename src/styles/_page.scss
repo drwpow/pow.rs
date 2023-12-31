@@ -1,5 +1,5 @@
 .page {
-  padding: 0 1.25rem;
+  padding: 0 1.5rem;
 
   @media (min-width: 600px) {
     padding: 0 2.5rem;
@@ -15,6 +15,7 @@
     font-size: 24px;
     font-style: italic;
     letter-spacing: -0.025em;
+    line-height: 1.25;
     margin: 0;
   }
 }

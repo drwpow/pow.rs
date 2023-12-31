@@ -12,8 +12,8 @@ const posts = allPosts.filter((p) => !!p.frontmatter?.date).sort((a, b) => new D
     <Head title="blog" />
     <style lang="scss">
       .blog-wrapper {
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
 
         @media (min-width: 600px) {
           padding-left: 2.25rem;
@@ -28,7 +28,7 @@ const posts = allPosts.filter((p) => !!p.frontmatter?.date).sort((a, b) => new D
 
     <div class="page">
       <h1 class="page-title">Blog</h1>
-      <p class="page-description" style="margin-bottom:3rem">Thoughts about web and web-related things</p>
+      <p class="page-description">Thoughts about web and web-related things</p>
     </div>
 
     <div class="blog-wrapper" itemscope itemtype="https://schema.org/Blog">
