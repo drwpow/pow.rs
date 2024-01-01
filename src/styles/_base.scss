@@ -248,14 +248,29 @@ figcaption {
   font-size: var(--d1);
   font-style: italic;
   line-height: 1.75;
-
-  em {
-    font-style: normal;
-  }
 }
 
 hr {
   border-width: 1px 0 0 0;
-  border-top: 1px solid var(--bg-accent);
+  border-top: 1px solid var(--border);
   margin: 3rem 0;
+}
+
+figcaption,
+em,
+i {
+  em,
+  i {
+    font-style: normal;
+
+    em,
+    i {
+      font-style: italic;
+
+      em,
+      i {
+        font-style: normal;
+      }
+    }
+  }
 }

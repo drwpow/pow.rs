@@ -1,0 +1,177 @@
+---
+import PostLayout from '../../layouts/post.astro';
+
+export const frontmatter = {
+  title: '10 Years of Frontend',
+  description: 'Plus another 6 of whatever you called it before that.',
+  // date: '2023-12-31',
+  tags: ['dev'],
+};
+---
+
+<PostLayout content={frontmatter}>
+  <p>This year marks a decade of frontend development for me. Which is as long as anyone could say they’ve done it, because it wasn’t a job title before then (at least not in my part of the world).</p>
+  <p>
+    In the past 10 years the web has undergone some really interesting changes that may give hints at where the next 10 are going, because the best years of the internet are still ahead of us. I’ll try my best to stick to the <em
+      >actually interesting</em
+    > bits and avoid boring technical trivia, and “back in my day” front porch ramblings (but in fairness, let an old man ramble <em>a bit</em> if he wants to).
+  </p>
+  <h2>The rise of React</h2>
+  <p>
+    It’s no secret that Facebook’s JS framework has had a monumental impact on how the web is built and experienced. It opened our eyes to what’s possible—we could have true, interactive, animated, desktop-app-like experiences in a browser!
+    No longer are we limited to simple brochure sites and form-submission-powered dashboards.
+  </p>
+  <p>React spread like wildfire, becoming “the way to do things<sup>1</sup>” within a few short years of its public release.</p>
+  <hr />
+  <p>
+    <i><sup>1</sup> While many frameworks like Backbone/Angular/Batman/EmberJS/etc. predated React, they paled in comparison to React’s adoption and widespread usage.</i>
+  </p>
+  <figure>
+    <img src="/assets/posts/10-years-of-frontend/npm.png" alt="Timeseries graph of npm downloads comparing React, Angular, Vue, and Svelte." />
+    <figcaption>
+      It’s not even close—React (orange) is downloaded 5× more than the runner-up framework (Vue, in red), and almost 10× more than 3rd place (Angular, in blue). And the gap is <em>widening</em>!<br /><br />Sidenote: ignore the spikes;
+      those are reporting errors. Also please excuse the lines not matching their respective brand colors (the chart wasn’t configurable 😛)
+    </figcaption>
+  </figure>
+  <p>
+    <em>Why</em> React became so widely-used (and so quickly) is complex, and doesn’t fit into a neat answer. It wasn’t the first popular JS framework, nor was it the most advanced. But answering that question isn’t interesting to me; I
+    just chalk it up to “right time, right place” and move on. A far more interesting analysis is reflecting on React’s lasting impact, not only on the <strong>content</strong> of the internet, but the <strong>developers</strong> who build
+    it as well.
+  </p>
+  <figure>
+    <img src="/assets/posts/10-years-of-frontend/page-weight.png" alt="Timeseries graph of page weight, accoring to HTTP Archive’s State of the Web report." />
+    <figcaption>
+      From 2013–2023, the average page weight increased from ~0.8MB to ~2.5MB, according to <a href="https://httparchive.org/reports/state-of-the-web" target="_blank" rel="noreferrer">State of the Web report</a>
+    </figcaption>
+  </figure>
+  <h3>React’s impact on the content of the internet</h3>
+  <p>
+    In <b>content terms</b>, <strong>the internet has gotten (much) heavier</strong>. I won’t belabor the point as it’s been <a
+      href="https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4"
+      target="_blank"
+      rel="noreferrer">already</a
+    >
+    <a href="https://infrequently.org/2018/09/the-developer-experience-bait-and-switch/" target="_blank" rel="noreferrer">been</a>
+    <a href="https://web.dev/case-studies/vitals-business-impact" target="_blank" rel="noreferrer">covered</a>
+    <a href="https://macwright.com/2020/05/10/spa-fatigue" target="_blank" rel="noreferrer">at</a>
+    <a href="https://infrequently.org/2023/02/the-market-for-lemons/" target="_blank" rel="noreferrer">length</a>. But it’s still worth not forgetting React was a large cause of this: by shifting the interactivity from the backend to the
+    frontend, it also increases the code weight and slows execution time by its fundamental design. But frameworks like <a href="https://qwik.builder.io/" target="_blank" rel="noreferrer">Qwik</a> (and Astro!) have led the charge in
+    executing that client code in the server (or not all). Which is a feat of engineering, to say the least.
+  </p>
+  <p>
+    The good news is devs have been receptive to tools that basically provide “free speed” while still getting to write React (or React-adjacent) code, so in the spirit of optimism I’m calling it early: we’ve turned the tide, and tooling
+    has caught up to React and counterbalanced the weight it introduces. <em>Mischief managed</em>. Good work, everyone.
+  </p>
+  <h3>React’s impact on frontend</h3>
+  <figure class="two-up">
+    <img src="/assets/posts/getting-started-with-webpack/old-way.png" style="background:#fff" />
+    <img src="/assets/posts/getting-started-with-webpack/new-way.png" style="background:#fff" />
+  </figure>
+  <p>
+    In <b>dev terms</b>, we couldn’t be in a more different place than where we were 10 years ago. I diagramed this major paradigm shift in a blog post <a href="/blog/getting-started-with-webpack">I wrote in 2016 on webpack</a>: we shifted
+    from a workflow where a frontend developer would have to manually manage the inputs & outputs of every file type they were using (which was complex and brittle), to a new workflow where everything ran through JavaScript, and the tooling
+    determined all the outputs from a single entry (JavaScript) file.
+  </p>
+  <p>
+    While this was an improvement, it meant everything had to change. In what felt like an overnight change, everything built before React was being rapidly thrown out in favor of this new gospel. And though “webpack” was the name of the
+    tool that powered this new workflow, it was really React pulling the strings<sup>2</sup>. After all, we had no reason to run everything through JS in a world before we wrote all <a
+      href="https://en.wikipedia.org/wiki/JSX_(JavaScript)"
+      target="_blank"
+      rel="noreferrer">our markup in JS</a
+    >.
+  </p>
+  <img src="/assets/posts/10-years-of-frontend/everything.jpg" alt="Apple Keynote 2015: Tim Cook standing on stage in front of this year’s theme message: “The Only Thing That’s Changed Is Everything”" />
+  <p>
+    Mind you, it wasn’t the <em>templating</em> power of JSX that led to this paradigm shift<sup>3</sup>. Rather, it was the <a href="https://youtu.be/wyKQe_i9yyo" target="_blank" rel="noreferrer">volatile mixing of HTML and JS</a> that
+    enabled so many breakthroughs while completely upending every frontend dev’s knowledge, toolchain, and workflow. Not to mention <a
+      href="https://www.pentalog.com/blog/front-end-development/react-front-end-development/"
+      target="_blank"
+      rel="noreferrer">job requirements</a
+    >. This rift was described accurately in Chris Coyier’s oft-quoted 2019 post <i><a href="https://css-tricks.com/the-great-divide/" target="_blank" rel="noreferrer">The Great Divide</a></i>. Through one lens, there was a rift between
+    “front-of-the-frontend” CSS devs and “back-of-the-frontend” JS devs. But through another, the rift was between frontend devs stuck in “the old way” (HTML, CSS, and JS are separate) vs “the new way” (HTML and JS are one; CSS gets
+    ignored, but we’ll get back to that in the next section on styling).
+  </p>
+  <p>However you choose to interpret the schism of frontend devs, React was the so-to-speak “95 Theses” that instigated it. And we can’t go back to a world without React at this point.</p>
+  <p>
+    <strong>Summary:</strong> React defined the last 10 years of frontend.<br />
+    <strong>Prediction:</strong> React will define the next 10, too?<sup>4</sup>
+  </p>
+  <hr />
+  <p>
+    <i
+      ><sup>2</sup> Even Tobias Koppers admits <a href="https://levelup.gitconnected.com/tobias-koppers-on-upcoming-webpack-changes-we-are-not-changing-just-to-annoy-users-11c0b234d7b3" target="_blank" rel="noreferrer"
+        >webpack’s popularity largely had early adoption from Facebook’s dev team to thank</a
+      >.</i
+    ><br />
+    <i><sup>3</sup> HTML partials and programmatic HTML had been around for nearly all of the internet’s history (going back to the days of Perl and CGI)</i><br />
+    <i
+      ><sup>4</sup> Despite the rise of competitors, React still seems to be pulling ahead at even greater speeds. While I <em>really</em> think in the next 10 years we’ll stumble upon another paradigm shift that changes everything (no, not
+      AI—something better), as of 2023 there’s no sign of it.</i
+    >
+  </p>
+  <hr />
+  <h2>Styling is the (most/least) important thing</h2>
+  <p>
+    <em>“So if HTML + JS = JSX, where does that leave CSS?”</em>
+    <em>Where,</em> indeed!
+  </p>
+  <p>
+    While React was gaining popularity in 2015 and unifying all the disparate ways of JS<sup>5</sup>, CSS was in a very different place. Despite (very) vocal advocates of BEM/OOCSS/SMACCS, most people didn’t have a good one-size-fits-all
+    solution<sup>5</sup>. And React didn’t help with that at all, instead, entirely punting on the decision and leaving it up to the individual developer.
+  </p>
+  <p>
+    And so, largely <em>as a direct result</em> of the rise of React, CSS underwent its renaissance. Which is to be expected, after all—how could the trigger for a radical change also predict its own impact (spoiler: it can’t)? So while I
+    think React <b>not making a decision on styling was the right call</b>, it still leaves us all, collectively, in the dark. Even in 2023.
+  </p>
+  <figure>
+    <img src="/assets/posts/10-years-of-frontend/state-of-css.png" alt="Timeseries chart comparing CSS solutions" />
+    <figcaption>
+      CSS Modules has just barely eked out as the most popular solution for now, but it’s still neck-and-neck with Styled Components and others (<a href="https://2023.stateofcss.com/en-US/css-in-js/" target="_blank" rel="noreferrer"
+        >source</a
+      >). Also, I personally take this with a grain of salt, since this survey skews heavily toward North American devs working on bleeding-edge software and doesn’t represent the global community of frontend devs.
+    </figcaption>
+  </figure>
+  <p>
+    Collectively, we’ve tried CSS Modules, CSS-in-JS, Atomic Styles, Scoped CSS, and more. And there’s still no clear direction<sup>6</sup>. With all the <a
+      href="https://developer.chrome.com/blog/css-wrapped-2023"
+      target="_blank"
+      rel="noreferrer">rapid improvements in CSS</a
+    >, the answer may end up just being “vanilla CSS was actually good enough after all.” But even now, as of 2023, the dust hasn’t settled, and we’re still figuring out collectively how to do styling<sup>7</sup>. But as a result, it’s the
+    biggest factor (still) dividing frontend developers. Odd how CSS—one of the 3 pillars of frontend—is also one of its most controversial, most-often-neglected parts.
+  </p>
+  <p>
+    <strong>Summary:</strong> CSS underwent its most extreme metamorphosis the last 10 years, and it’s not finished yet.<br />
+    <strong>Prediction:</strong> The next 10 years will see the (re) rise of vanilla CSS. And a whole new generation of haters. And probably another decade of failed experiments trying to replace it.
+  </p>
+  <hr />
+  <p>
+    <i
+      ><sup>5</sup> Its biggest criticisms were a) it required 100% manual human enforcement and was 0% automatable, b) required too much of a learning curve only to result in what was still a subjective solution (e.g. having pedantic
+      arguments over whether sub-“elements” are allowed or whether that’s a new “block”), and c) it still assumed global CSS, which meant one accidental line of CSS could break the entire app.
+    </i><br />
+    <i
+      ><sup>6</sup> No. The future of styling <em>isn’t</em> Tailwind.<br />
+      <img src="/assets/posts/10-years-of-frontend/tailwind.png" alt="Gabe from “The Office”: ”Shut up about [Tailwind]. Shut up about [Tailwind]”" width="320" /></i
+    ><br />
+    <i
+      ><sup>7</sup> It’s easy to point out “Vue and Svelte had built-in styling solutions; why didn’t React?” while forgetting the timeline. Vue didn’t even have the <code>.vue</code> syntax with <code>&lt;style&gt;</code> tags until its
+      2.0 release. And even in the initial release, support was limited, and buggy (I still think Vue’s decision to “leak” the top-level element into parent styling in scoped styles is a mistake, but that’s another discussion). Svelte came
+      much later, and got to reap the benefit of years of failed experiments in React and Vue-land. But React came earlier, during a time when there wasn’t even a popular solution to bet on. So they were right in not arbitrarily picking
+      a stance.
+    </i>
+  </p>
+</PostLayout>
+
+<style lang="scss">
+  @media (width >= 800px) {
+    .two-up {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+
+      figcaption {
+        grid-column-end: 2;
+      }
+    }
+  }
+</style>

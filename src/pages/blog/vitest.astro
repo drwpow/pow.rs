@@ -12,8 +12,8 @@ export const frontmatter = {
 
 <PostLayout content={frontmatter}>
   <p>
-    <a href="https://vitest.dev/" target="_blank" rel="noopener noreferrer">Vitest</a> is the hottest thing to happen in testing since … <em>ever</em>. And that’s not an exaggeration! It’s truly a milestone in web dev that no one could have
-    predicted. I’ll admit that when I heard Vite could be used as a test runner I had a knee-jerk <a href="https://www.youtube.com/watch?v=O7oD_oX-Gio" target="_blank" rel="noopener noreferrer"
+    <a href="https://vitest.dev/" target="_blank" rel="noreferrer">Vitest</a> is the hottest thing to happen in testing since … <em>ever</em>. And that’s not an exaggeration! It’s truly a milestone in web dev that no one could have
+    predicted. I’ll admit that when I heard Vite could be used as a test runner I had a knee-jerk <a href="https://www.youtube.com/watch?v=O7oD_oX-Gio" target="_blank" rel="noreferrer"
       ><i>you-got-peanut-butter-in-my-chocolate</i>
     </a> reaction where it felt like two things got combined by accident. But the more I’ve used it and thought about it, the more I’ve realized the combination is absolutely perfect for each other and it’s been a crucial missing piece in the
     webdev workflow that can’t be overstated.
@@ -27,7 +27,7 @@ export const frontmatter = {
     As one of the core maintainers of <a href="https://github.com/FredKSchott/snowpack" target="_blank">Snowpack</a> (it was real hot before Vite came along) and one of the creators of <a
       href="https://github.com/withastro/astro"
       target="_blank"
-      rel="noopener noreferrer">Astro</a
+      rel="noreferrer">Astro</a
     >, I can say with experience that dealing with CommonJS vs ESM interop code is <em>hard</em>. And until Vite, the defacto way of managing it was to avoid it. Mainly by way of backporting everything into legacy CommonJS. Which, in the
     year of our Lord 2022—<a href="/blog/the-state-of-es-modules-in-2020">seven years after ESM has been standardized</a>—Jest is still transpiling modern ESM code back to legacy CommonJS with no end in sight. And when it comes to testing,
     <strong>it makes no sense to execute your code in a different language from the one it was written in</strong>. And yet that’s what Jest has been doing this entire time.
@@ -50,7 +50,7 @@ export const frontmatter = {
     ecosystem separately. And it’s Vitest’s prometheal revelation that your builder and test env should have been the same all along, feels like critical step toward the holy grail of a <a
       href="https://rome.tools/"
       target="_blank"
-      rel="noopener noreferrer">unified JS toolchain</a
+      rel="noreferrer">unified JS toolchain</a
     >. And that’s point two in Vitest’s favor:
     <strong>you use your <em>exact</em> production build config in your tests—with no setup and no maintenance</strong>.
   </p>

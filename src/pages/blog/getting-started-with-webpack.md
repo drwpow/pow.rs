@@ -21,7 +21,7 @@ override anything else in this article)._
 At its simplest, webpack is a module bundler for your JavaScript. However, since its release it’s
 evolved into a manager of all your front-end code (either intentionally or by the community’s will).
 
-<figure><img src="https://miro.medium.com/max/60/1*yBt2rFj2DbckFliGE0LEyg.png?q=20"><figcaption>The old task runner way: your markup, styles, and JavaScript are isolated. You must manage each separately, and it’s your job to make sure everything gets to production properly.</figcaption></figure>
+<figure><img src="/assets/posts/getting-started-with-webpack/old-way.png" style="background:#fff"><figcaption>The old task runner way: your markup, styles, and JavaScript are isolated. You must manage each separately, and it’s your job to make sure everything gets to production properly.</figcaption></figure>
 
 A task runner such as _Gulp_ can handle many different preprocessers and transpilers, but in all
 cases, it will take a source _input_ and crunch it into a compiled _output_. However, it does this
@@ -34,7 +34,7 @@ a part of the development process that handled dependencies on its own? What if 
 write code in such a way that the build process managed itself, based on only what was necessary in
 the end?_
 
-<figure><img src="https://miro.medium.com/max/60/1*TOFfoH0cXTc8G3Y_F6j3Jg.png?q=20"><figcaption>The webpack way: if webpack knows about it, it bundles only what you’re *actually* using to production.</figcaption></figure>
+<figure><img src="/assets/posts/getting-started-with-webpack/new-way.png" style="background:#fff"><figcaption>The webpack way: if webpack knows about it, it bundles only what you’re *actually* using to production.</figcaption></figure>
 
 If you’ve been a part of the web community for the past few years, you already know the preferred
 method of solving a problem: _build this with JavaScript_. And so webpack attempts to make the build

@@ -14,7 +14,7 @@ experiment. And it may shed light on some of the more frustrating parts of makin
 
 ## why was HTML created?
 
-<figure><img src="/assets/posts/was-html-a-mistake/tims_editor.gif" alt="Tim Berners Lee’s WorldWideWeb (Nexus) browser editor" /><figcaption>Tim Berners Lee’s “WorldWideWeb” browser editor (1993) <a href="https://www.w3.org/People/Berners-Lee/WorldWideWeb.html" target="_blank" rel="noopener noreferrer">source</a></figcaption></figure>
+<figure><img src="/assets/posts/was-html-a-mistake/tims_editor.gif" alt="Tim Berners Lee’s WorldWideWeb (Nexus) browser editor" /><figcaption>Tim Berners Lee’s “WorldWideWeb” browser editor (1993) <a href="https://www.w3.org/People/Berners-Lee/WorldWideWeb.html" target="_blank" rel="noreferrer">source</a></figcaption></figure>
 
 Tim Berners Lee open-sourced the first browser in 1993 as a [WYSIWYG][wysiwyg] editor. So basically
 an internet-connected Microsoft Word.
@@ -29,7 +29,7 @@ something like this in a WYSIWYG editor:
   <video autoplay="true" controls muted loop playsinline width="800" height="500">
     <source src="/publci/posts/was-html-a-mistake/rino-pelle.mp4" type="video/mp4" />
   </video>
-  <figcaption>The actual homepage of <a href="https://rino-pelle.com" target="_blank" rel="noopener noreferrer">rino-pelle.com</a>. An actual work of animation art that people actually made, somehow.</figcaption>
+  <figcaption>The actual homepage of <a href="https://rino-pelle.com" target="_blank" rel="noreferrer">rino-pelle.com</a>. An actual work of animation art that people actually made, somehow.</figcaption>
 </figure>
 
 If your answer is “that looks hard to do,” you are absolutely correct. It’s _hard_ trying to trick
@@ -89,7 +89,7 @@ you have to build your rendering tools from scratch compared to HTML + CSS.
   <video autoplay="true" controls muted loop playsinline width="800" height="500">
     <source src="/assets/posts/was-html-a-mistake/zoomquilt.mp4" type="video/mp4" />
   </video>
-  <figcaption>Zoomquilt, the greatest Flash experiment ever made, was <a href="https://zoomquilt.org" target="_blank" rel="noopener noreferrer">revived in HTML5 canvas form!</a><br />Full disclosure: I know this isn’t 100% relevant to this post, but when am I going to get another opportunity to reminisce about Zoomquilt?</figcaption>
+  <figcaption>Zoomquilt, the greatest Flash experiment ever made, was <a href="https://zoomquilt.org" target="_blank" rel="noreferrer">revived in HTML5 canvas form!</a><br />Full disclosure: I know this isn’t 100% relevant to this post, but when am I going to get another opportunity to reminisce about Zoomquilt?</figcaption>
 </figure>
 
 But let’s assume (thought experiment) there _was_ a way to render crazy-awesome experiences with

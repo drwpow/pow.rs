@@ -25,7 +25,7 @@ const { post } = Astro.props;
     &::after {
       border-radius: 0.5rem;
       bottom: -1rem;
-      content: "";
+      content: '';
       display: block;
       left: -1rem;
       opacity: 0;
@@ -37,8 +37,9 @@ const { post } = Astro.props;
       transition: opacity 100ms linear;
     }
 
-    @media (min-width: 600px) {
-      margin-top: 4rem;
+    @media (width >= 600px) {
+      gap: 0.5rem;
+      margin-top: 3rem;
       padding-left: 2.5rem;
     }
 

@@ -23,7 +23,7 @@ export const frontmatter = {
   </p>
 
   <p>
-    In this example we’ll show how to get Playwright to take screenshots of <a href="https://storybook.js.org" target="_blank" rel="noopener noreferrer">Storybook</a> stories to catch regressions. But nothing here is Storybook-dependent; if
+    In this example we’ll show how to get Playwright to take screenshots of <a href="https://storybook.js.org" target="_blank" rel="noreferrer">Storybook</a> stories to catch regressions. But nothing here is Storybook-dependent; if
     you had any other example of your components or pages you’d like to screenshot, anything will work (even your live production site, if you’d like).
   </p>
 
@@ -42,7 +42,7 @@ export const frontmatter = {
     <li>Whenever a component and/or page is added, a VRT test is written and a screenshot is taken locally.</li>
     <li>Screenshots are committed to git locally as part of the PR.</li>
     <li>
-      Visual changes are thus part of the PR review process (and GitHub has an <a href="https://blog.jakelee.co.uk/exploring-pull-requests-with-githubs-rich-diff-functionality/" target="_blank" rel="noopener noreferrer"
+      Visual changes are thus part of the PR review process (and GitHub has an <a href="https://blog.jakelee.co.uk/exploring-pull-requests-with-githubs-rich-diff-functionality/" target="_blank" rel="noreferrer"
         >incredible image diff tool</a
       > built in to PR reviews!)
     </li>
@@ -56,11 +56,11 @@ export const frontmatter = {
   <Code code={`npm i -D @playwright/test servor`} lang="shell" />
 
   <p>
-    <i>Note: this setup uses the super minimal <a href="https://www.npmjs.com/package/servor" target="_blank" rel="noopener noreferrer">servor</a> for a static file server, but you can replace with any static file server instead.</i>
+    <i>Note: this setup uses the super minimal <a href="https://www.npmjs.com/package/servor" target="_blank" rel="noreferrer">servor</a> for a static file server, but you can replace with any static file server instead.</i>
   </p>
 
   <p>
-    Next, add a <code>playwright.config.ts</code> file in your project root (this example uses Chrome, Firefox, and Safari, but <a href="https://playwright.dev/docs/emulation#devices" target="_blank" rel="noopener noreferrer"
+    Next, add a <code>playwright.config.ts</code> file in your project root (this example uses Chrome, Firefox, and Safari, but <a href="https://playwright.dev/docs/emulation#devices" target="_blank" rel="noreferrer"
       >even more are possible</a
     >):
   </p>
@@ -150,8 +150,8 @@ export default config;`}
   </p>
 
   <p>
-    After you’ve read this blog post and kicked the tires a bit, you may come back to adding <a href="https://playwright.dev/docs/test-configuration" target="_blank" rel="noopener noreferrer">additional setup</a> here or adding creature comforts
-    like <a href="https://playwright.dev/docs/getting-started-vscode" target="_blank" rel="noopener noreferrer">the VS Code Extension</a>. Playwright has built a wonderful little ecosystem of fun things to explore that may be huge
+    After you’ve read this blog post and kicked the tires a bit, you may come back to adding <a href="https://playwright.dev/docs/test-configuration" target="_blank" rel="noreferrer">additional setup</a> here or adding creature comforts
+    like <a href="https://playwright.dev/docs/getting-started-vscode" target="_blank" rel="noreferrer">the VS Code Extension</a>. Playwright has built a wonderful little ecosystem of fun things to explore that may be huge
     timesavers for you and/or your team (and for as hard as testwriting can be, every little thing helps!).
   </p>
 
@@ -246,7 +246,7 @@ test('Button: default', async ({ page }) => {
       ✨Tip: our example is given the default <code>.test.ts</code> extension, but if you’re also using another test runner for unit testing like <a href="/blog/vitest">Vitest</a>, you’ll have conflicts. Consider using something like an <code
         >.e2e.ts</code
       >
-      extension for Playwright tests, which you can set via the <a href="https://playwright.dev/docs/test-configuration" target="_blank" rel="noopener noreferrer">testMatch</a> config option.
+      extension for Playwright tests, which you can set via the <a href="https://playwright.dev/docs/test-configuration" target="_blank" rel="noreferrer">testMatch</a> config option.
     </p>
   </blockquote>
 
@@ -283,10 +283,10 @@ test('Button: focus', async ({ page }) => {
   </p>
 
   <ul>
-    <li>Testing forms show <a href="https://www.nngroup.com/articles/errors-forms-design-guidelines/" target="_blank" rel="noopener noreferrer">validation errors after blur</a>, etc.</li>
+    <li>Testing forms show <a href="https://www.nngroup.com/articles/errors-forms-design-guidelines/" target="_blank" rel="noreferrer">validation errors after blur</a>, etc.</li>
     <li>Testing dialogs open as expected</li>
     <li>Testing keyboard functionality on complex components (e.g. comboboxes)</li>
-    <li>Responsive testing using <a href="https://playwright.dev/docs/api/class-page#page-set-viewport-size" target="_blank" rel="noopener noreferrer">page.setViewport()</a></li>
+    <li>Responsive testing using <a href="https://playwright.dev/docs/api/class-page#page-set-viewport-size" target="_blank" rel="noreferrer">page.setViewport()</a></li>
   </ul>
 
   <p>If you’re testing accessibility of a website such as visible focus ring, the only real way to test this is using VRT. And it couldn’t be easier to do than with Playwright.</p>
@@ -340,7 +340,7 @@ jobs:
     This will run in GitHub Actions on every PR, and report any failures that happened. Playwright will list out the specific tests that failed in its error logs, but to see the actual diff you’ll need to <a
       href="https://docs.github.com/en/actions/managing-workflow-runs/downloading-workflow-artifacts"
       target="_blank"
-      rel="noopener noreferrer">download the artifact</a
+      rel="noreferrer">download the artifact</a
     > it generated. But assuming it was an actual regression and not a flaky test, the PR diff itself will give pretty strong hints as to what caused the regression.
   </p>
 
@@ -376,8 +376,8 @@ jobs:
   </p>
 
   <p>
-    The simplest solution is to <a href="https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow" target="_blank" rel="noopener noreferrer">create a manual workflow</a> that can be run from the GitHub UI inside
-    each PR. You’ll have to make sure the action <a href="https://github.com/marketplace/actions/add-commit" target="_blank" rel="noopener noreferrer">makes a commit</a> in the right place, and follows all guidelines you have in place. But there
+    The simplest solution is to <a href="https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow" target="_blank" rel="noreferrer">create a manual workflow</a> that can be run from the GitHub UI inside
+    each PR. You’ll have to make sure the action <a href="https://github.com/marketplace/actions/add-commit" target="_blank" rel="noreferrer">makes a commit</a> in the right place, and follows all guidelines you have in place. But there
     are dozens of other ways to solve this problem that will differ based on team and project needs.
   </p>
 
@@ -402,12 +402,12 @@ jobs:
       Sadly, dialing in tests to reduce flakiness is just part of VRT. Even paid VRT products struggle with this. Fortunately, you can set sensible defaults in your <a
         href="https://playwright.dev/docs/api/class-testconfig#test-config-expect"
         target="_blank"
-        rel="noopener noreferrer">global config</a
-      > as well as using overrides in <a href="https://playwright.dev/docs/test-assertions#page-assertions-to-have-screenshot-2" target="_blank" rel="noopener noreferrer">individual tests</a> (but worth noting that Playwright has pretty great
+        rel="noreferrer">global config</a
+      > as well as using overrides in <a href="https://playwright.dev/docs/test-assertions#page-assertions-to-have-screenshot-2" target="_blank" rel="noreferrer">individual tests</a> (but worth noting that Playwright has pretty great
       defaults out-of-the-box that are neither too strict nor too lax).
     </li>
     <li>
-      Allow for some margin of error with text antialiasing (⚠️ warning: trying to get perfect results <a href="https://github.com/microsoft/playwright/issues/7548#issuecomment-881897256" target="_blank" rel="noopener noreferrer"
+      Allow for some margin of error with text antialiasing (⚠️ warning: trying to get perfect results <a href="https://github.com/microsoft/playwright/issues/7548#issuecomment-881897256" target="_blank" rel="noreferrer"
         >is a rabbit hole</a
       >)
     </li>
@@ -416,9 +416,9 @@ jobs:
       not dealing well with text antialiasing noise. Likewise, <code>maxDiffPixelRatio</code> is ideal for text-heavy screenshots, but it can sometimes be too loose when it comes to catching subtle pixel regressions for larger components/pages.
       Knowing when to use one over the other will take experimentation and distinguishing between the goals of what you’re trying to capture in your VRT.
     </li>
-    <li>Screenshots have too much whitespace? Try the <a href="https://playwright.dev/docs/test-assertions#page-assertions-to-have-screenshot-2" target="_blank" rel="noopener noreferrer">clip option</a></li>
+    <li>Screenshots have too much whitespace? Try the <a href="https://playwright.dev/docs/test-assertions#page-assertions-to-have-screenshot-2" target="_blank" rel="noreferrer">clip option</a></li>
     <li>
-      Add a <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches" target="_blank" rel="noopener noreferrer"
+      Add a <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches" target="_blank" rel="noreferrer"
         >suggestion to update branches</a
       > if possible. This helps eliminate the possibility of a VRT failure caused merging an out-of-date PR.
     </li>

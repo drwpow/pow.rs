@@ -19,7 +19,7 @@ export const frontmatter = {
   </p>
 
   <p>
-    You’ll no doubt find <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl()" target="_blank" rel="noopener noreferrer">HSL</a> easier to work with as a developer, since it was designed to manipulate colors more directly.
+    You’ll no doubt find <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl()" target="_blank" rel="noreferrer">HSL</a> easier to work with as a developer, since it was designed to manipulate colors more directly.
     However, just because it’s easy to edit doesn’t mean it’s a superior format. In fact, quite the opposite.
   </p>
 
@@ -58,7 +58,7 @@ export const frontmatter = {
   <p>
     Just comparing the possible values, HSL is missing almost 80% of sRGB’s. But if throwing away 80% of colors weren’t bad enough, it’s actually worse! Not every HSL value maps to a <em>unique</em> sRGB color, and there are multiple ways to
     express the same color in HSL. For example, when saturation is <code>0</code>, HSL has 36,000 different values that generate only <code>100</code> grays. When you remove all the duplicates, HSL is missing closer to
-    <b>85%</b> of sRGB’s colors (<a href="https://gist.github.com/drwpow/0fabf0cc932285ad023ca39e6f9ed35d" target="_blank" rel="noopener noreferrer">source</a>). And when is an 85% loss in quality ever acceptable?
+    <b>85%</b> of sRGB’s colors (<a href="https://gist.github.com/drwpow/0fabf0cc932285ad023ca39e6f9ed35d" target="_blank" rel="noreferrer">source</a>). And when is an 85% loss in quality ever acceptable?
   </p>
 
   <blockquote>When is an 85% loss in quality ever acceptable?</blockquote>
@@ -90,7 +90,7 @@ export const frontmatter = {
     <div style="background:rgb(82, 82, 82)"></div>
   </div>
 
-  <p><i>Calculated using <a href="https://github.com/drwpow/better-color-tools" target="_blank" rel="noopener noreferrer">better-color-tools</a></i></p>
+  <p><i>Calculated using <a href="https://github.com/drwpow/better-color-tools" target="_blank" rel="noreferrer">better-color-tools</a></i></p>
 
   <p>
     Not even close. Yellow is significantly brighter than the other colors! While
@@ -100,21 +100,21 @@ export const frontmatter = {
   <h2>Use OKLCH instead</h2>
 
   <p>
-    <a href="https://oklch.com" target="_blank" rel="noopener noreferrer">OKLCH</a> is a perceptually-consistent colorspace that can be used today in all major browsers. It works exactly like HSL, except <em>it actually works</em>. The
+    <a href="https://oklch.com" target="_blank" rel="noreferrer">OKLCH</a> is a perceptually-consistent colorspace that can be used today in all major browsers. It works exactly like HSL, except <em>it actually works</em>. The
     “LCH” part of it stands for <b>L</b>ightness, <b>C</b>hroma, and <b>H</b>ue. If you rearranged it to <i>HCL</i>, you’d realize it’s only off by one letter from <i>HSL</i>. Rather than <b>S</b>aturation, you’re dealing with <i
       ><b>C</b>hroma</i
     > which is the same basic concept, just modified to be a little more honest (some colors can achieve higher chroma than others because of the <a
       href="https://en.wikipedia.org/wiki/RGB_color_spaces"
       target="_blank"
-      rel="noopener noreferrer">asymmetric gamut of RGB monitors</a
+      rel="noreferrer">asymmetric gamut of RGB monitors</a
     >, thus, it’s a linear scale rather than a percentage).
   </p>
 
   <p>
-    Picking OKLCH colors is simple using online an online tool like <a href="https://oklch.com" target="_blank" rel="noopener noreferrer">oklch.com</a> or <a
+    Picking OKLCH colors is simple using online an online tool like <a href="https://oklch.com" target="_blank" rel="noreferrer">oklch.com</a> or <a
       href="https://better-color-tools.pages.dev"
       target="_blank"
-      rel="noopener noreferrer">better-color-tools</a
+      rel="noreferrer">better-color-tools</a
     >. Using it in CSS is possible through the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch">oklch()</a> function which has wide browser support as of 2023.
   </p>
 
@@ -134,8 +134,8 @@ export const frontmatter = {
   />
 
   <blockquote>
-    ✨ <b>Tip</b>: always use <code>in oklab</code> as the mixing space for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix" target="_blank" rel="noopener noreferrer">color-mix()</a>, even when using OKLCH
-    colors. It will outperform any other blending mode almost every time (<a href="https://better-color-tools.pages.dev/mix" target="_blank" rel="noopener noreferrer">comparison</a>).
+    ✨ <b>Tip</b>: always use <code>in oklab</code> as the mixing space for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix" target="_blank" rel="noreferrer">color-mix()</a>, even when using OKLCH
+    colors. It will outperform any other blending mode almost every time (<a href="https://better-color-tools.pages.dev/mix" target="_blank" rel="noreferrer">comparison</a>).
   </blockquote>
 
   <p>
