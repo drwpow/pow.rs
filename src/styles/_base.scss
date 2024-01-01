@@ -140,6 +140,11 @@ em {
   font-style: italic;
 }
 
+abbr {
+  border-bottom: 1px dashed var(--gray-50);
+  text-decoration: none;
+}
+
 blockquote {
   background-color: var(--gray-20);
   font-size: 1em;
@@ -165,6 +170,10 @@ time {
   letter-spacing: 0.0375em;
   white-space: nowrap;
   text-transform: uppercase;
+}
+
+strike {
+  opacity: 0.7;
 }
 
 table {
@@ -223,7 +232,7 @@ ul {
 }
 
 li {
-  line-height: 1.375;
+  line-height: 1.5;
   margin-bottom: 1rem;
   margin-left: -0.5em;
   padding-left: 0.5em;
