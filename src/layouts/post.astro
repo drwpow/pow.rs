@@ -9,7 +9,7 @@ const { content } = Astro.props;
 const slug = Astro.url.pathname.replace(/\/blog\//, '');
 
 const SKULL_COLORS = ['#ff0000', '#ffff00', '#0040ff', '#ff00ff', '#00ff00'];
-const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.length)];
+const colorOfTheDay = SKULL_COLORS[2]; // blog posts are always blue
 ---
 
 <html lang="en-us">
