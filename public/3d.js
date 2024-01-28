@@ -29,7 +29,6 @@ function init() {
   const renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.outputEncoding = THREE.sRGBEncoding;
   document.querySelector('#canvas').appendChild(renderer.domElement);
   const scene = new THREE.Scene();
   const loader = new STLLoader();
@@ -55,7 +54,7 @@ function init() {
     scene.add(skull);
   });
 
-  let directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.5);
+  let directionalLight1 = new THREE.DirectionalLight(0xffffff, 1);
   directionalLight1.position.y = 2500;
   directionalLight1.position.z = 2000;
   scene.add(directionalLight1);
