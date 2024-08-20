@@ -28,7 +28,7 @@ function easeOutQuint(x) {
 function init() {
   THREE.ColorManagement.enabled = true;
   const renderer = new THREE.WebGLRenderer({ antialias: true });
-  renderer.outputColorSpace = THREE.sRGBEncoding;
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.querySelector('#canvas').appendChild(renderer.domElement);
