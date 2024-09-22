@@ -17,10 +17,10 @@ function randomFour(list) {
   return pick;
 }
 
-const [oapiTs, astro, cobalt, lqip, bundlesize] = await Promise.all([
+const [oapiTs, astro, terrazzo, lqip, bundlesize] = await Promise.all([
   fetchGitHubData('https://github.com/drwpow/openapi-typescript'),
   fetchGitHubData('https://github.com/withastro/astro'),
-  fetchGitHubData('https://github.com/drwpow/cobalt-ui'),
+  fetchGitHubData('https://github.com/terrazzoapp/terrazzo'),
   fetchGitHubData('https://github.com/drwpow/vite-plugin-lqip'),
   fetchGitHubData('https://github.com/drwpow/vite-plugin-bundlesize'),
 ]);
@@ -240,13 +240,13 @@ const [oapiTs, astro, cobalt, lqip, bundlesize] = await Promise.all([
           </div>
         </li>
         <li class="stuff-item">
-          <h3>Cobalt UI</h3>
+          <h3>Terrazzo</h3>
           <dl class="stuff-oss-stats">
             <dt>★</dt>
-            <dd>{cobalt.starCount}</dd>
+            <dd>{terrazzo.starCount}</dd>
           </dl>
-          <a class="stuff-thumb" href="https://github.com/drwpow/cobalt-ui">
-            <img width="400" height="300" src={cobalt.unfurlImg} alt="Cobalt UI on GitHub" />
+          <a class="stuff-thumb" href="https://github.com/terrazzoapp/terrazzo">
+            <img width="400" height="300" src={terrazzo.unfurlImg} alt="Terrazzo on GitHub" />
           </a>
           <span>Use design tokens in code</span>
           <div class="stuff-links">
@@ -395,7 +395,8 @@ const [oapiTs, astro, cobalt, lqip, bundlesize] = await Promise.all([
           <a href="https://interfaceingame.com/" target="_blank" rel="noreferrer">Interface in Game</a> / A collection of UIs from video games
         </li>
         <li>
-          <a href="https://www.hudsandguis.com" tareget="_blank" rel="noreferrer">Huds and Guis</a> / an inspiration resource site featuring Future User Interfaces, Graphic User Interfaces, Heads Up Displays and UX/UI Design from areas such as film and games
+          <a href="https://www.hudsandguis.com" tareget="_blank" rel="noreferrer">Huds and Guis</a> / an inspiration resource site featuring Future User Interfaces, Graphic User Interfaces, Heads Up Displays and UX/UI Design from areas such
+          as film and games
         </li>
         <li>
           <a href="https://www.guitar-chord-finder.com" target="_blank" rel="noreferrer">Guitar Chord Finder</a> / Find Guitar Chords

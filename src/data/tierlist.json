@@ -93,13 +93,23 @@
     "id": "video-games",
     "title": "Video games",
     "description": "Not a list of all the games I’ve played; just games I’ve spent a lot of time in that left strong impressions, good or bad",
-    "updated": "2023-12-04",
+    "updated": "2024-09-21",
     "rankings": {
       "s": [
+        {
+          "id": "sonic-mania",
+          "name": "Sonic Mania",
+          "description": "This is the only Sonic game that exists in my mind. Somehow, in 2017, they made a new 2D game even better than the originals. You’d be forgiven for not even knowing this game exists. But if ever you find yourself itching to play a retro game, this game pays homage to all retro games and elevates them with modern sensibilities."
+        },
         {
           "id": "final-fantasy-origin-sop",
           "name": "Stranger of Paradise: Final Fantasy Origin",
           "description": "It’s no secret I’m a Final Fantasy stan. I was not expecting such an amazingly-deep action RPG from Team Ninja that simultaneously pays homage to the entire series while crafting something totally unique and innovative on its own. Er, um, I mean… “I’M HERE TO KILL CHAOS!”"
+        },
+        {
+          "id": "hollow-knight",
+          "name": "Hollow Knight",
+          "description": "I don’t even need to explain this one. You all know."
         },
         {
           "id": "death-stranding",
@@ -114,22 +124,17 @@
         {
           "id": "nier-automata",
           "name": "NieR: Automata",
-          "description": "Addictive hack-and-slash gameplay with RPG elements, a roller coaster story, and amazing art direction (characters by Akihiko Yoshida) make this an unmissable experience."
+          "description": "Get drawn in by the stylish hack-and-slash gameplay, but stay for the sleeper story that sucker punches you, one of the best soundtracks in history, and amazing art direction (characters by Akihiko Yoshida)."
         },
         {
           "id": "the-legend-of-zelda-breath-of-the-wild",
           "name": "The Legend of Zelda: Breath of the Wild",
-          "description": "Without hyperbole, quite possibly the greatest video game made to-date. Even 5 years after its release it continues to captivate and inspire us."
+          "description": "Without hyperbole, quite possibly the greatest video game made to-date. Even years after its release it continues to captivate and inspire us."
         },
         {
           "id": "final-fantasy-xii",
           "name": "Final Fantasy XII",
           "description": "Graphics and art direction that are simply out-of-this-world (esp. for Akihiko Yoshida fans). This game remains the most criminally underrated Final Fantasy. The weapons, boss fights, and characters are unforgettable, and it would be a phenomenal game today let alone when it was released over twenty years ago."
-        },
-        {
-          "id": "kingdom-hearts-2",
-          "name": "Kingdom Hearts 2",
-          "description": "This game is pure ecstasy to experience, from music to story to the deep action RPG combat system. Though playing the first is a requirement to fully enjoy this."
         },
         {
           "id": "shadow-of-the-colossus",
@@ -139,12 +144,12 @@
         {
           "id": "final-fantasy-x",
           "name": "Final Fantasy X",
-          "description": "Probably THE most important video game to me growing up, and is always a joy to revisit."
+          "description": "At 12 years old this became my identity. Replaying it as an adult it still holds a special place in my heart."
         },
         {
           "id": "mega-man-legends",
           "name": "Mega Man Legends",
-          "description": "Peak Mega Man, and peak PS1 graphics. The character design is incredible."
+          "description": "This is my aesthetic."
         },
         {
           "id": "castlevania-symphony-of-the-night",
@@ -187,6 +192,11 @@
           "id": "metal-gear-solid-3",
           "name": "Metal Gear Solid 3",
           "description": "Metal Gear Solid invented a genre and took it to its absolute peak here. This was also the first game I remember geeking out over the interface design."
+        },
+        {
+          "id": "kingdom-hearts-2",
+          "name": "Kingdom Hearts 2",
+          "description": "This game is pure ecstasy to experience, from music to story to the deep action RPG combat system. Though playing the first is a requirement to fully enjoy this."
         },
         {
           "id": "dark-cloud-2",
