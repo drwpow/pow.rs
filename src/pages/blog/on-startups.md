@@ -9,9 +9,9 @@ tags:
 
 I recently grabbed lunch with a former coworker to catch up, and was sad to hear the unhealthy working environment I left hadn’t improved much. As we talked, I realized I had strong opinions about what NOT to do having run on the early-stage hamster wheel 4 times now. While I am but a mere grunt—a pawn in the grand game of venture capital chess—I still have experiences of what didn’t work well from the ground-level perspective. Follow this advice if you want to fail, and fail spectacularly:
 
-## Go fast, in any direction
+## Change your fundamental values constantly
 
-I’ve said for years the main thing that stresses me out in a startup environment is _not_ the pivots, and taking wandering paths to reach a goal (that’s life!); it’s when the North Star is in a different hemisphere every quarter. The moment the fundamental vision and values change, you’ve lost. Combine that with no carrot, all stick from execs, trying to drive everybody at full speed while not having the courage to admit mistakes, and you have all the ingredients of the worst possible work environment.
+I’ve said for years the main thing that stresses me out in a startup environment is _not_ the pivots, and taking wandering paths to reach a goal. It’s when the North Star is in a different hemisphere every quarter. The moment the fundamental vision and values change, you’ve lost. Combine that with no carrot, all stick from execs, trying to drive everybody at full speed while not having the courage to admit mistakes, and you have all the ingredients of the worst possible work environment.
 
 But more than that, let’s look at it from a customer perspective—_they know_. If you’ve ever had trouble breaking through to a market, it may have been your track record. They look at how likely you’re going to pull the rug on them. They can _see_ you’re trying to sell a 5-year product on a 2-year runway to them. Have some guts, and have conviction your product is worth staying the course for, and customers will respect that. And don’t blame them if they also want to wait you out, and see if you’ll even be around in a year or two. If your approach to solving a problem is worth it, you’ll dedicate all your resources to it, and in the process you’ll overtake the competition that’s one foot out, distracted trying to capture other markets when they haven’t even captured their first.
 
@@ -28,9 +28,9 @@ Who knows why people are the way they are? But also, who cares? If we’re looki
 
 Ideally most engineers have some bits of both. But it’s when you have people who disrupt every meeting they’re in, steamroll decisions, stonewall input, _AND_ don’t deliver anything of technical value to the company, they are causing more destruction in your eng org than anything else. Which brings us to the next point:
 
-## Overemphasize engineering
+## Leave engineering unchecked
 
-I came into early-stage startups from agencies, and I was delighted that it was a lot of the same of what I had been doing—building greenfield apps—but for much higher pay (over double, in fact!). And where I would frequently see the highest burn of engineering time was when engineers from Big Tech™ would do it a certain way, because that solved a problem for their billion dollar company that served a completely different customer vertical. In other words, carrying over all their technical debt to new infrastructure that didn’t have any of the maturity or value produced by that debt.
+I came into early-stage startups from agencies, and I was delighted that it was a lot of the same of what I had been doing—building greenfield apps—but for much higher pay (over double, in fact!). And where I would frequently see the highest burn of engineering time was when engineers from Big Tech™ would do it a certain way, because that solved a problem for their billion dollar company that served a completely different customer vertical. Said Big Tech engineers wouldn’t be challenged, because after all, who am I to argue with Salesforce/Google/Facebook/Apple/Uber/etc.? But what happened in reality would be that developer carrying over all their previous company’s technical debt to new infrastructure that didn’t have any of the maturity or value produced by that debt.
 
 It always ended up in 1 of 2 ways: if the Big Tech™ engineer had some integrity and courage, they’d admit their mistake and we’d only have lost about 6–12 mos of work as we rebuilt parts of the system that were overengineered _AND_ underengineered in all the wrong areas. Or, they’d go down fighting tooth-and-nail, and the eng org would struggle to ship anything on a reasonable schedule until the runway was gone. In both scenarios, an unrecoverable amount of time was wasted, not as a hindsight thing, but as an open secret that everyone in the eng org saw coming, and raised, but weren’t listened to.
 
@@ -44,7 +44,7 @@ It took everything within me to not reach through the Zoom call to strangle them
 
 ![Quote from the end scene of The Warriors (1979), modified for humor. Swan: “Why’d you do it? Why’d you waste everybody’s time?” Luther: “No reason. I just LIKE doing things like that!”](/assets/posts/on-startups/warriors-whyd-you-do-it.jpg)
 
-Now I won’t say that doing the _opposite_ of overengineering is significantly better, having an app barely held together with duct tape and prayers. Both extremes will burn out your engineers and result in attrition. And obviously I’m not saying Big Tech™ engineers aren’t good hires, either; they ABSOLUTELY are—at later stages. But if you have to err on one side or the other, underengineering (and learning your own lessons rather than being burdened with your predecessors’) during the early stages is far more recoverable.
+Now I won’t say that doing the _opposite_ of overengineering is significantly better, having an app barely held together with duct tape and prayers. Both extremes will burn out your engineers and result in attrition. And obviously I’m not saying Big Tech™ engineers aren’t good hires, either; they ABSOLUTELY are—at later stages. But if you have to err on one side or the other, learning your own lessons (and challenging “Big Tech did it that way so we have to”) rather than being burdened with your predecessors’ during the early stages is far more recoverable.
 
 ## Hire the product scapegoat halfway through runway
 
