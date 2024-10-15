@@ -36,7 +36,7 @@ Bazel—and any other build system for that matter—operates off this principle
 
 ## Problem 1: I won’t do what you tell me
 
-Bazel uses a proprietary syntax called [Starlark](https://bazel.build/rules/language) that is based on Python. All packages require writing Starlark for config, which I don’t really mind (I prefer this to MAKEFILEs). Here’s a simple example:
+Bazel uses a proprietary syntax called [Starlark](https://bazel.build/rules/language) that is based on Python. All packages require writing Starlark for config. I don’t really mind it (better than MAKEFILEs), but it can be… a lot. Here’s a simple example:
 
 ```starlark
 # BUILD
@@ -70,7 +70,6 @@ ts_project(
     ]
   ),
 
-
   transpiler = "tsc",
 
   # 2b. You’ll also need to redeclare many TSConfig settings, even if they’re
@@ -88,7 +87,7 @@ ts_project(
   ],
 )
 
-# 3. You’ll need to actually tell Bazel you want it to write _something_ to disk
+# 3. You’ll need to actually tell Bazel you want it to write SOMETHING to disk
 copy_to_directory(
   name = "dist",
   srcs = [":ts"],
@@ -122,16 +121,16 @@ npm_package(
 
 You don’t have to read or understand any of that, but some of the commentary will explain what’s happening. I mainly wanted to give a realistic example of what every package in a monorepo requires **at a minimum.**
 
-Putting complexity and learning curve aside, the damning design flaw is **Bazel requires all this work and configuration so it can run commands differently.** Different environment, different processes. Even using a forked version of Node.js where it can hijack the filesystem if it wants to. The issue isn’t that Starlark requires a little repetition from `package.json` and `tsconfig.json`. It’s the issue of _running different underlying processes entirely, that don’t map 1:1 with `package.json` and `tsconfig.json`_, masquerading as repetition. This, as you fear, results in different (or missing) output, different errors, and a different end result than just using Node.js. If you have ever worked with a bundler before, you know how scary it is dealing with the uncertainty of a complex thing ending up in a different shape than what you had predicted.
+Putting complexity and learning curve aside, the damning design flaw is **Bazel requires all this work and configuration so it can run commands differently.** Different environment, different processes. Even using a forked version of Node.js where it can [hijack node:fs](https://github.com/aspect-build/rules_js/blob/main/docs/js_run_binary.md#user-content-js_run_binary-patch_node_fs) if it wants to. The issue isn’t that Starlark requires a little repetition from `package.json` and `tsconfig.json`. It’s the issue of _running different underlying processes entirely, that don’t map 1:1 with `package.json` and `tsconfig.json`_, masquerading as repetition. This, as you fear, results in different (or missing) output, different errors, and a different end result than just using Node.js. If you have ever worked with a bundler before, you know how scary it is dealing with the uncertainty of a complex thing ending up in a different shape than what you had predicted.
 
 <figure>
   <img width="656" height="401" src="/assets/posts/bazel-is-incompatible-with-javascript/normal.gif" alt="Mom: “Why can’t you just be normal!?” Kid: *screams*" />
   <figcaption>Me: “why can’t you just run <code>pnpm run build</code>?”<br />Bazel: <em>*screams*</em></figcaption>
 </figure>
 
-“It’s just a knowledge issue! This can be configured to work the same as Node.” Some might say. No, no it can’t. If that were the case, then Bazel wouldn’t need the Starlark files, rules, macros, and thousands of lines of code underneath all that rewriting the original processes. All the information already exists to build the project outside Starlark, but there’s a reason that’s being discarded (and Bazel devs, if you’re reading this and want to prove me wrong, _I love being wrong!_ Nothing would make me happier than if JS projects could be built with mere npm scripts and no other config).
+“It’s just a knowledge issue! This can be configured to work the same as Node.” Some might say. No, no it can’t. If that were the case, then Bazel wouldn’t need the Starlark files, rules, macros, and thousands of lines of code wrapping the original processes. All the information already exists to build the project outside Starlark, but there’s a reason that’s being discarded (and Bazel devs, if you’re reading this and want to prove me wrong, _I love being wrong!_ Nothing would make me happier than if JS projects could be built with mere npm scripts and no other config).
 
-If different outputs wasn’t enough, it also results in the slow death of the local dev setup. _When_—not _if_—Bazel running in CI disagrees with the Node processes and IDE extensions, CI wins. After all, you _have_ to ship, and short-term we can sacrifice a little DX. “We’ll fix it later,” you say. Slowly but surely, more and more IDE extensions stop working as Bazel claims more and more of the toolchain, until the entire thing is unusable outside of Bazel. All because Bazel refuses to just run npm scripts directly.
+If different outputs wasn’t enough, it also results in the slow death of the local dev setup. _When_—not _if_—Bazel disagrees with Node, CI wins (because Bazel is what runs in CI). After all, you _have_ to ship, and short-term we can sacrifice a little DX. “We’ll fix it later,” you say. Slowly but surely, more and more IDE extensions stop working as Bazel “wins” more and more disagreements with Node and the native toolchain, until the entire thing is unusable outside of Bazel. All because Bazel refuses to just run npm scripts directly.
 
 ## Problem 2: the hermetic upside-down
 
@@ -194,7 +193,7 @@ At the end of the day, a build system just won’t work for all languages, and t
 
 But rather than end on a sour note and be a downer, I know a natural question is “well if all that is true, then what _would_ make Bazel compatible with JS?” And to give a more concrete answer than “make it like Turbopack” (OK, I lied—I did end up mentioning it again), only 3 changes would be required:
 
-1. **Bazel only runs npm scripts.** The entire Node.js world operates off npm scripts. Everything meanginful happens in npm scripts—building, linting, testing. All the problems of bottom-up building, working local dev setup, and reliability are all handled by Bazel deferring to… the thing that already existed and is already working as expected.
+1. **Bazel only runs npm scripts.** The entire Node.js world operates off npm scripts. Everything meaningful happens in npm scripts—building, linting, testing. All the problems of bottom-up building, working local dev setup, and reliability are all handled by Bazel deferring to… the thing that already existed and is already working as expected.
 2. **Bazel automatically writes files to source.** Any build step in a Node.js package already has all the information it needs to put the files in its proper place. In fact, most of the time this is also statically set in the `package.json` under the [main](https://docs.npmjs.com/cli/v10/configuring-npm/package-json) or [exports](https://docs.npmjs.com/cli/v10/configuring-npm/package-json#exports) fields, and sometimes even [files](https://docs.npmjs.com/cli/v10/configuring-npm/package-json#files). Node.js **ALWAYS** requires files to exist in the source tree, so Bazel needs to just start assuming that.
 3. **No TS rules.** To ensure better interop with the Node ecosystem at large, there shouldn’t be such a thing as `rules_ts` (separate from `rules_js`). If Bazel only ran Node.js/npm/pnpm commands, TS is just another package like any other. This would automatically improve support across the board for all Node.js projects because Bazel would be deferring builds to the things that should be building in the first place.
 
