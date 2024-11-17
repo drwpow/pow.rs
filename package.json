@@ -19,9 +19,9 @@
     "three": "^0.169.0"
   },
   "devDependencies": {
-    "@astrojs/sitemap": "^3.2.0",
-    "astro": "^4.16.2",
+    "@astrojs/sitemap": "^3.2.1",
+    "astro": "^4.16.13",
     "prettier": "^3.3.3",
-    "sass": "^1.79.5"
+    "sass": "^1.81.0"
   }
 }
