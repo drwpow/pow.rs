@@ -20,8 +20,8 @@
   },
   "devDependencies": {
     "@astrojs/sitemap": "^3.2.1",
-    "astro": "^4.16.13",
-    "prettier": "^3.3.3",
-    "sass": "^1.81.0"
+    "astro": "^5.1.7",
+    "prettier": "^3.4.2",
+    "sass": "^1.83.4"
   }
 }
