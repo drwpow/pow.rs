@@ -2,6 +2,7 @@
 title: Bazel is incompatible with JavaScript
 description: If you don’t know what Bazel is, you not only can skip this blog post; I envy you greatly.
 date: 2024-10-13
+updated: 2024-01-24
 tags:
   - dev
 layout: ../../layouts/post.astro
@@ -14,9 +15,7 @@ layout: ../../layouts/post.astro
 - Remote build caching
 - Support for any programming language, any codebase, and any possible deploy target
 
-The reviews are great. It has a passionate fanbase. It’s well-maintained and supported.
-
-There's just one itty-bitty problem that gets overlooked by the people opting for it: _it's hopeless at JavaScript_. In this blog post wemll dig into why Bazel shouldn’t touch ANY JavaScript, TypeScript, or Node.js at all.
+The reviews are great. It has a passionate fanbase. It’s well-maintained and supported. There's just one itty-bitty problem that gets overlooked by the people opting for it: _it's useless for JavaScript_. In this blog post wemll dig into why Bazel shouldn’t touch ANY JavaScript, TypeScript, or Node.js at all.
 
 ![@BenLesh on x.com: “I loved Blaze (Bazel) at Google... But your company will never, ever be able to do Bazel like Google does Blaze. And while it probably helps the build  pipeline for your JVM-based whatever backend, it's an absolute hinderance for TypeScript/JavaScript development.”](/assets/posts/bazel-is-incompatible-with-javascript/ben-lesh.png)
 
@@ -24,7 +23,7 @@ There's just one itty-bitty problem that gets overlooked by the people opting fo
 
 “I don’t use Bazel and don’t care. I found this Googling and just want to know what I _should_ use.” Use [Turborepo + pnpm](https://turbo.build/repo). Turborepo is designed for how JS works from the ground-up, and does a lovely job at delivering on all of Bazel’s promises but tailored to the JS ecosystem. Though I won’t mention Turborepo again in this blog post, just know for every criticism levied against Bazel, I can’t say the same for Turborepo.
 
-“What about Nx?” I've had a lot more papercuts with Nx because they try and follow Bazel philosophy more closely, but compromise on what parts don't fit into JS. So you’re left with not the original headaches, but a _compromise
+“What about Nx?” I've had a lot more papercuts with Nx because they try and follow Bazel philosophy more closely, but compromise on what parts don't fit into JS. So while you don’t have the full-on headaches, you have a _compromise_ of the headaches.
 
 Anyways, with that out of the way…
 
@@ -40,9 +39,9 @@ Much of the existing Bazel + JS systems have focused on `tsc` generation: for ev
 
 There are 2 really common patterns in JS that are currently unsolved problems in Bazel: npm packages, and bundled sites.
 
-An npm package needs to build `.mjs`, `.cjs`, `.d.ts` (not to mention `.d.mts` and `.d.cjs`), as well as `.map` files for all of the above. And based on the environments it runs in, it may not even be 1:1 with the source `.ts` files. You may bundle your CJS build into one file, or your ESM, or both. And you may choose to even have a “lite” version of your package that leaves out heavy modules. In both cases the output, structure, filenames, and everything are fluid and not predictable. Bazel would want me to give it a full list of every file in my package ahead of time. Which means I have to manually write down a list of possibly hundreds of files before any build will work.
+An npm package needs to build `.mjs`, `.cjs`, `.d.ts` (not to mention `.d.mts` and `.d.cjs`), as well as `.map` files for all of the above. And based on the environments it runs in, it may not even be 1:1 with the source `.ts` files. But in a package, **the inputs alone do not determine the outputs; they are merely a piece.** You may bundle your CJS build into one file, or your ESM, or both. You may choose to even have a “lite” version of your package that leaves out heavy modules. In both cases the output, structure, filenames, and everything are fluid and not predictable, and are a product of the inputs + **the build system** (Rollup, etc.). Bazel would want me to give it a full list of every file in my package ahead of time. Which means I have to manually write down a list of possibly hundreds of files before any build will work.
 
-For the bundled site, consider an Astro site like this one! It can handle any foletype the web can (because we're building a website). But what’s more, we have things like PageFind, where based on the contents of other files, we will get about 50+ `.pf.index` files, with random hashes generated, indexing the site for search. Bazel would want me to tell it ahead of time what all those random files will be named I have no control over but that are critical to the functioning of my site. 
+For the bundled site, consider an Astro site like this one! It can handle any foletype the web can (because we're building a website). But what’s more, we have things like PageFind, where based on the contents of other files, we will get about 50+ `.pf.index` files, with random hashes generated, indexing the site for search. Bazel would want me to tell it ahead of time what all those random files will be named I have no control over but that are critical to the functioning of my site.
 
 No.
 
@@ -59,7 +58,7 @@ After hours of research you‘ll find:
 
 You come to the realization that you can’t just run commands like you used to. You have to write an entire Starlark wrapper for the npm package you use. You find `rules_rollup`, thinking you're saved, except it had no tests or examples and is just a proof of concept that can't actually do anything. So you write your Starlark wrapper, taking an extra week or two to work on this. And in the end, out of tiredness, you've skipped recreating all the features you didn't use. It works. Barely.
 
-[2 weeks later]
+![2 weeks later](/assets/posts/bazel-is-incompatible-with-javascript/2-weeks-later.jpg)
 
 Now onto your 2nd npm CLI. Oh God. Weeks and weeks have gone by, just trying to get a thing running that normally takes 15 minutes. You claw your way back to normalcy, with it barely running. Then you change your Rollup config and your rules_gen breaks. You break.
 
@@ -77,7 +76,7 @@ Even assuming you are able to get a JS project running exactly as it did, the fi
 
 Some of the afore-mentioned would be workable if, say, work and knowledge invested in getting your Bazel system set up payed dividends down the line. Or was just a steep learning curve with a huge payoff. But the biggest mistake I see Bazel users making is **underestimating how quickly the JS exosystem evolves.**
 
-Spending weeks getting a buggy replication of an npm tool barely running is already a poor choice on the surface. But imagine having to do this every month. Every time a major version of an npm package is released. Every time a Rust counterpart is released that’s orders of magnitude faster (Rolldown). You have to invest _more time_ getting the next generation of tooling working because it’s evolutionarily more complex. It can accomplish more. But rather than spending time using the tools themselves, you’re investing all your time and energy trying to “catch up” to an international community of developers cranking out software faster than you can create wrappers for.
+Spending weeks getting a buggy replication of an npm tool barely running is already a poor choice on the surface. But imagine having to do this every month. Every time a major version of an npm package is released. Every time a Rust counterpart is released that’s orders of magnitude faster ([Rolldown](https://rolldown.rs/guide/)). You have to invest _more time_ getting the next generation of tooling working because it’s evolutionarily more complex. It can accomplish more. But rather than spending time using the tools themselves, you’re investing all your time and energy trying to “catch up” to an international community of developers cranking out software faster than you can create wrappers for.
 
 But the _real_ pointlessness is in the payoff—you think your Bazel wrappers actually improve the tool by caching output. But the reality is the tool that just came out completes its builds in less time than it takes to spin up a Bazel server and analyze the existing cache. It’s over. The JS ecosystem won. There’s no need to even use Bazel anymore with new tools.
 
