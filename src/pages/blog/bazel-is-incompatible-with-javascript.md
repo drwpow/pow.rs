@@ -33,11 +33,11 @@ Bazel—and any other build system for that matter—operates off this principle
 
 ## Problem 1: Assistant to the Micromanager
 
-Much of the existing Bazel + JS systems have focused on `tsc` generation: for every `.ts` file, build one `.js` file. While that is a common usecase, friend, if you think that's all JS build tools do, I've got really bad news.
+Much of the existing Bazel + JS systems have focused on simple `tsc` generation: for every `.ts` file, build one `.js` file. While that is _one_ usecase, friend, if you think that's all JS build tools do, I've got really bad news.
 
-There are 2 really common patterns in JS that are currently unsolved problems in Bazel: npm packages, and bundled sites.
+There are 2 common patterns in JS that are unsolved problems in Bazel: npm packages, and bundled sites.
 
-An npm package needs to build `.mjs`/`.js`, `.cjs`, corresponding `.d.mts` and `.d.cjs` declarations, as well as `*.map` files for all of the above. And based on the environments it runs in, they likely won’t be 1:1 with the source `.ts` files. But in a package, **the inputs alone do not determine the outputs; they are only half of the equation.** You may bundle your CJS build into one file, or your ESM, or both. You may choose to even have a “lite” version of your package that leaves out heavy modules. In both cases the output, structure, filenames, and everything are fluid and not predictable, and are a product of the inputs **+ the build system** (Rollup, etc.). Bazel would want me to give it a full list of every file in my package ahead of time. Which means I have to manually write down a list of possibly hundreds of files before any build will work.
+An npm package needs to build `.mjs`, `.js`, `.cjs`, corresponding `.d.mts` and `.d.cjs` declarations, as well as `*.map` files for all of the above. All these outouts likely won’t be 1:1 with the source `.ts` files. In a distributed package, **the inputs alone do not determine the outputs; they are only half of the equation.** You may bundle your CJS build into one file, or your ESM, or both. You may choose to even have a “lite” version of your package that leaves out heavy modules. In all cases the output is a product of the **inputs + build system**. Bazel would want me to give it a full list of every file in my package ahead of time. Which means I have to manually write down a list of possibly hundreds of files before any build will work.
 
 For the bundled site, consider an Astro site (like this one!). It can handle any filetype the web can (because we’re building a website). But what’s more, we have things like PageFind, where based on the contents of other files, we will get about 50+ `.pf_meta`/`.pf_index`/`.pf_fragment` files, randomly-hashed, indexing the site for search. Bazel would want me to tell it ahead of time what all those random files will be named I have no control over that are critical to the functioning of my site.
 
