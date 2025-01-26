@@ -25,8 +25,6 @@ The reviews are great. It has a passionate fanbase. It’s well-maintained and s
 
 “What about Nx?” I've had a lot more papercuts with Nx because they try and follow Bazel philosophy more closely, but compromise on what parts don't fit into JS. So while you don’t have the full-on headaches, you have a _compromise_ of the headaches.
 
-Anyways, with that out of the way…
-
 ## Inputs and outputs
 
 Let’s back up a bit and lay some groundwork. The underlying principle of skipping work is **determinism.** Or more specifically, the idea that **if the inputs don’t change, the outputs shouldn’t,** therefore, no reason to rebuild (assuming it’s a [pure system](https://en.wikipedia.org/wiki/Pure_function)).
@@ -47,7 +45,7 @@ No.
 
 ## Problem 2: What we have is a failure to communicate
 
-If typing out lists of filenames doesn't sound that bad to you, I've got even worse news: _you can’t run npm CLIs._ That’s right. All your favorite npm tools? _Poof._ Gone.
+If typing out lists of filenames doesn't sound that bad to you, I've got even worse news: _you can’t run npm executables._ That’s right. All your favorite npm CLIs? _Poof._ Gone.
 
 Let's say you have an existing Rollup build you want to Bazelify. You describe all your inputs and outputs, but… how do you run `rollup -c`? You can’t!
 
@@ -55,12 +53,13 @@ After hours of research you‘ll find:
 
 - `rules_js` kinda has a thing where you can point to a `bin` inside an npm package. But it blows up for many packages.
 - You find a `js_binary` macro, but that's for running JS scripts _you_ own, not npm CLIs (but you can spawn child processes to run npm CLIs except you might as well not use Bazel at that point).
+- You find `rules_rollup`, thinking you’re saved, except it only has a placeholder test that’s just a flimsy proof of concept.
 
-You come to the realization that you can’t just run commands like you used to. You have to write an entire [Starlark](https://bazel.build/rules/language) wrapper for the npm package you use. You find `rules_rollup`, thinking you’re saved, except it only has a placeholder test that’s just a proof of concept. So you write your Starlark wrapper, taking an extra week or two to work on this. And in the end, out of tiredness, you’ve skipped recreating all the features you didn't use. It works. Barely.
+You slowly come to the realization you’re going to have to make an entire [Starlark](https://bazel.build/rules/language) wrapper. taking a week or two to work on this. You run into dead end after dead end. You fear the reason you can’t find others have paved this path before you is because it’s a bad idea. In the end, you get it working, but out of tiredness you’ve skipped recreating all the features you didn’t use.
 
 ![2 weeks later](/assets/posts/bazel-is-incompatible-with-javascript/2-weeks-later.jpg)
 
-Now onto your 2nd npm CLI. Oh God. Weeks have gone by, just trying to get a thing running that normally takes 15 minutes. You claw your way back to normalcy, with it barely running. Then you change your Rollup config and your rules_gen breaks. You break.
+Now onto your 2nd npm executable. Oh God. Weeks have gone by, just trying to get a thing running that normally takes 15 minutes. You claw your way back to normalcy, with it barely running. Then you change your Rollup config and your `rules_gen` breaks. You break.
 
 ## Problem 3: Dante’s 9 circles of hermeticity
 
@@ -76,9 +75,9 @@ Even assuming you are able to get a JS project running exactly as it did, the fi
 
 Some of the afore-mentioned would be workable if investments in Bazel paid dividends down the line. But the biggest mistake I see Bazel users making is **underestimating how quickly the JS ecosystem evolves.**
 
-Smart technical decisions require less investment over time. Bazel requires _increasing_ amounts of time and energy to maintain your infrastructure of Starlark wrappers and shim code teaching Bazel about JS. Imagine having to redo this every month. Every time a major version of an npm package is released. Every time a Rust counterpart is released that’s orders of magnitude faster (that’s [Rolldown](https://rolldown.rs/guide/)). Every generation of JS tooling requires _more_ time plugging into Bazel because it’s evolutionarily more complex. But you’ll never benefit from all these new tools because you’re too busy trying to catch up to the previous generation and get it running in Bazel.
+Smart technical decisions require less investment over time. Bazel requires _increasing_ amounts of time and energy to maintain your infrastructure of Starlark wrappers and shim code teaching Bazel about JS. Imagine having to redo this every month. Every time a major version of an npm package is released. Every time an OSS project fails out of maintenance and a new one takes its place. Every time a quantum leap forward happens in research. Every generation of JS tooling requires _more_ time plugging into Bazel because it’s evolutionarily more complex. But you’ll never benefit from all these new tools because you’re (still) trying to catch up to the previous generation.
 
-But the _real_ pointlessness is the fact that the JS ecosystem gets orders of magnitude faster every generation. All that work you spent building a wrapper for the slow JS tool would have been better served upgrading to fast JS tool. I’m not even talking hypothetically: webpack is replaced by [Turbopack](https://turbo.build/pack/docs), Rollup with [Rolldown](https://rolldown.rs/guide/), ESLint with [Biome](https://biomejs.dev/), and that’s not even mentioning [Vite](https://vite.dev) and [esbuild](https://esbuild.github.io/). If you’re using Bazel to **speed up CI,** then compare apples to apples. Focus on speeding up CI. And usually that fast track is leaning into the hundreds of thousands of smart JS devs that would absolutely love to help you with that.
+But the _real_ pointlessness is the fact that the JS ecosystem gets orders of magnitude faster every generation. All that work you spent building a wrapper for the slow JS tool that sped it up by 25% would have been better served upgrading to its successor that’s 1,000% faster. I’m not even talking hypothetically: webpack was replaced by [Vite](https://vite.dev), [esbuild](https://esbuild.github.io/), and soon [Turbopack](https://turbo.build/pack/docs), Rollup with [Rolldown](https://rolldown.rs/guide/), ESLint with [Biome](https://biomejs.dev/). If you’re using Bazel to **speed up CI,** then compare apples to apples. Focus on speeding up CI. And usually that fast track is leaning into the hundreds of thousands of smart JS devs that would absolutely love to help you with that.
 
 ## Summary
 
@@ -89,10 +88,10 @@ But the _real_ pointlessness is the fact that the JS ecosystem gets orders of ma
 
 At the end of the day, a build system just won’t work for all languages, and that’s OK. Bazel was designed for a different usecase than JS. And it’s natural that Bazel tried to solve a problem for everyone, especially with the growing popularity and maturation of JS. And I applaud all the lovely contributors and maintainers that are making an effort at making Bazel better! But that doesn’t mean I’d touch Bazel with a 10 foot pole for handling JS right now.
 
-But rather than end on a sour note and be a downer, I know a natural question is “well if all that is true, then what _would_ make Bazel compatible with JS?” And to give a more concrete answer than “make it like Turbopack” (OK, I lied—I did end up mentioning it again), only 3 changes would be required:
+But rather than end on a sour note and be a downer, I can sum up what _would_ make Bazel compatible with JS with a more concrete answer than “make it like Turbopack” (OK, I lied—I did end up mentioning it again), only 3 changes would be required:
 
-1. **Bazel runs npm executables with zero config.** The entire Node.js world operates off npm executables. Everything meaningful happens in npm scripts—building, linting, testing. All the problems of bottom-up building, working local dev setup, and reliability are all handled by Bazel deferring to… the thing that already existed and is already working as expected. Bszel needs to run zero-config commands just like Turborepo does.
-2. **Bazel treats local `node_modules` as the canonical source.** All Node.js tools rely on the `node_modules` local directory to share cache, and talk to other packahes. This is what powers Electon ecosystems like VS Code. Don’t overlook all the optimizations npm packages are using that all happen in that local folder—not in the hermetic layer.
-3. **No rules_ts.** In case it hasn’t clicked, evidence of Bazel’s incompatibility has been right under your nose the whole time. If Bazel Just Worked™ with the npm ecosystem, rules_ts goes away. After all, TypeScript is just another package. The fact that Bazel requires a heavyweight wrapper for every tool you use is not a sustainable development model. Bazel will always be playing catchup to JS’ ecosystem. But if Bazel truly integrated with JS, `rules_js` would be the end-all be-all.
+1. **Bazel runs npm executables with zero config.** The most important tools in the ecosystem——build systems, linters, test runners—run via CLI and npm bins. Having to rewrite every CLI we want to use in Starlark is insane; we should just be able to use the damn thing.
+2. **Bazel treats local `node_modules` as the canonical source.** All Node.js tools rely on the `node_modules` local directory to share caches and talk to other packages. This is what powers Electon ecosystems like VS Code. Don’t overlook all the optimizations npm packages are using that all happen in that local folder—not the hermetic layer.
+3. **No `rules_ts`.** Evidence of Bazel’s incompatibility has been right under your nose the whole time. If Bazel Just Worked™ with the npm ecosystem, `rules_ts` goes away. After all, TypeScript is a package just like any other. The fact that Bazel requires a heavyweight wrapper for every tool you use is not a sustainable development model. Bazel will always be playing catchup to JS’ ecosystem. But if Bazel truly integrated with JS, `rules_js` would have everything you needed.
 
-Will all these changes happen? Who can say. The Bazel project and its devs doesn’t owe me, or anyone else for that matter, anything. And these changes would probably disrupt all the things it’s doing properly. But until these changes are made, I’ll personally be using anything _but_ Bazel for JS. And you should too.
+Will all these changes happen? I don’t know. And I’m not making ’em. But until these changes are made, I’ll personally be using anything _but_ Bazel for JS. And you should, too.
