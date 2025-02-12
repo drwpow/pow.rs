@@ -16,7 +16,7 @@
     "trailingComma": "all"
   },
   "dependencies": {
-    "three": "^0.169.0"
+    "three": "^0.173.0"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^3.2.1",

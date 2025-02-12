@@ -44,7 +44,7 @@ function init() {
     twoTone.magFilter = THREE.NearestFilter;
     skull = new THREE.Mesh(geometry);
     const material = new THREE.MeshToonMaterial({
-      color: 0xffffff,
+      color: new THREE.Color().setRGB(1.0, 1.0, 1.0),
       gradientMap: twoTone,
     });
     skull.material = material;
@@ -56,7 +56,7 @@ function init() {
     scene.add(skull);
   });
 
-  let directionalLight1 = new THREE.DirectionalLight(0xffffff, 1);
+  let directionalLight1 = new THREE.DirectionalLight(new THREE.Color().setRGB(1.0, 1.0, 1.0), 2);
   directionalLight1.position.y = 2500;
   directionalLight1.position.z = 2000;
   scene.add(directionalLight1);
@@ -97,7 +97,7 @@ function init() {
           last = next;
           next = v;
           prevKeyframe = nextKeyframe;
-          nextKeyframe = parseInt(k, 10);
+          nextKeyframe = Number.parseInt(k, 10);
           if (currentFrame < k) break;
         }
         skull.rotation.x = rotX + easeOutQuint((currentFrame - prevKeyframe) / (nextKeyframe - prevKeyframe)) * (next - last);
