@@ -2,7 +2,7 @@
 title: Bazel is incompatible with JavaScript
 description: If you don’t know what Bazel is, you not only can skip this blog post; I envy you greatly.
 date: 2024-10-13
-updated: 2024-01-24
+updated: 2025-01-24
 tags:
   - dev
 layout: ../../layouts/post.astro
