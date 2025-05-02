@@ -29,7 +29,7 @@ The reviews are great. It has a passionate fanbase. It’s well-maintained and s
 
 Let’s back up a bit and lay some groundwork. The underlying principle of skipping work is **determinism.** Or more specifically, the idea that **if the inputs don’t change, the outputs shouldn’t,** therefore, no reason to rebuild (assuming it’s a [pure system](https://en.wikipedia.org/wiki/Pure_function)).
 
-Bazel—and any other build system for that matter—operates off this principle of “identify the inputs, and you can determine whether or not a rebuild is necessary.” Everyone is on board at this point. But where it oversteps is it needs to know the _outputs_ ahead of time, too, Which doesn't work for JS.
+Bazel—and any other build system for that matter—operates off the core deterministic principle of identifying the inputs to determine the outputs. This is something almost every programming language strives for. But where it oversteps is it needs to know the _outputs_ ahead of time, too. Which is like saying “before we run this mathematical equation, we first have to know what the answer is to run it.” It doesn’t make any sense. At this point why do we even have math? Why do we have programming languages? But needless to say, it’s at the “knowing the outputs ahead of time” part that JS has now jumped ship.
 
 ## Problem 1: Assistant to the Micromanager
 
@@ -37,11 +37,13 @@ Much of the existing Bazel + JS systems have focused on simple `tsc` generation:
 
 There are 2 common patterns in JS that are unsolved problems in Bazel: npm packages, and bundled sites.
 
-An npm package needs to build `.mjs`, `.js`, `.cjs`, corresponding `.d.mts` and `.d.cjs` declarations, as well as `*.map` files for all of the above. All these outouts likely won’t be 1:1 with the source `.ts` files. In a distributed package, **the inputs alone do not determine the outputs; they are only half of the equation.** You may bundle your CJS build into one file, or your ESM, or both. You may choose to even have a “lite” version of your package that leaves out heavy modules. In all cases the output is a product of the **inputs + build system**. Bazel would want me to give it a full list of every file in my package ahead of time. Which means I have to manually write down a list of possibly hundreds of files before any build will work.
+Look into any medium-size npm package and you’ll find `.mjs`, `.js`, and `.cjs` to support ESM and CommonJS, corresponding `.d.mts` and `.d.cjs` declarations to satisfy TypeScript, as well as `*.map` files for all of the above so debugging is easy. Of course, all these outputs likely won’t be 1:1 with the source `.ts` files—sometimes CommonJS will be bundled or vice-versa. Sometimes there are “lite” builds for clients. There really is no association with the entry files because it’s hand-tailored to what the package does and the philosophy it embodies. In other words, the package’s contents are a product of both the **inputs _AND_ the build system**. Bazel, trying to be the build system, but without providing any value, would require me to manually write down a list of possibly hundreds of files before any build will work.
+
+For npm packages it’s _borderline_ unmaintainable.
 
 For the bundled site, consider an Astro site (like this one!). It can handle any filetype the web can (because we’re building a website). But what’s more, we have things like PageFind, where based on the contents of other files, we will get about 50+ `.pf_meta`/`.pf_index`/`.pf_fragment` files, randomly-hashed, indexing the site for search. Bazel would want me to tell it ahead of time what all those random files will be named I have no control over that are critical to the functioning of my site.
 
-No.
+For bundled sites, it’s _outright_ unmaintainable.
 
 ## Problem 2: What we have is a failure to communicate
 
