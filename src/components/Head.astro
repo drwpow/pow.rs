@@ -1,8 +1,9 @@
 ---
 import '../styles/global.scss';
 
-const { title, description, color } = Astro.props;
+const { title, description, img, color } = Astro.props;
 const fullTitle = title ? title + ' / 𝔇𝔯𝔢𝔴 𝔓𝔬𝔴𝔢𝔯𝔰' : '𝔇𝔯𝔢𝔴 𝔓𝔬𝔴𝔢𝔯𝔰';
+const imgFallback = Astro.url.pathname.startsWith('/blog') ? '/unfurl-blog.png' : '/unfurl.png';
 ---
 
 <title>{fullTitle}</title>
@@ -25,8 +26,8 @@ const fullTitle = title ? title + ' / 𝔇𝔯𝔢𝔴 𝔓𝔬𝔴𝔢𝔯𝔰'
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content={fullTitle} />
 <meta name="twitter:site" content="@drwpow" />
-<meta name="twitter:image" content={new URL(Astro.url.pathname.startsWith('/blog') ? '/unfurl-blog.png' : '/unfurl.png', Astro.site).href} />
+<meta name="twitter:image" content={new URL(img ?? imgFallback, Astro.site).href} />
 <meta name="og:title" content={fullTitle} />
 <meta name="og:type" content="website" />
-<meta name="og:image" content={new URL(Astro.url.pathname.startsWith('/blog') ? '/unfurl-blog.png' : '/unfurl.png', Astro.site).href} />
+<meta name="og:image" content={new URL(img ?? imgFallback, Astro.site).href} />
 <meta name="og:url" content={Astro.url.href} />

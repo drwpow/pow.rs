@@ -2,6 +2,7 @@
 title: There’s no such thing as multi-axis modes
 description: Modes, themes, collections, whatever you call it, doesn’t solve your busted design token setup.
 date: 2026-06-22
+img: /assets/posts/theres-no-such-thing-as-multi-axis-modes/dts-01.jpg
 tags:
   - design
 layout: ../../layouts/post.astro
