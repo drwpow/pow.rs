@@ -11,27 +11,25 @@ The two best days in a design system designer’s life is the day they inherit t
 
 ## A la mode
 
-When you start managing design tokens for your system, there comes a point when you make the leap from light mode to dark mode (or the rarer dark-to-light). Figma makes this fairly manageable—just click that little plus sign in the Variables panel and get to work!
+When you start managing design tokens for your system, there comes a point when you make the leap from light mode to dark mode (or the rarer dark-to-light). Figma makes this simple—just click that little plus sign in the Variables panel and get to work!
 
 <figure>
   <img alt="screenshot of the Figma UI, hovering over the plus sign in the Variables panel. The tooltip reads “New variable mode.”" src="/assets/posts/theres-no-such-thing-as-multi-axis-modes/001.png" width="1684" height="906" />
   <figcaption>“It’s one button, Michael. What could it cost? 10 hours?”</figcaption>
 </figure>
 
-But by the time the third and then fourth mode rolls around, you start feeling the pain. “That’s ridiculous!” Some of you may be thinking. “What’s there even to do after dark mode?” Glad you asked! Here are several common scenarios that lead to multiplying modes:
+But by the time the third and then fourth mode rolls around, you start feeling the pain. <i>“That’s ridiculous!”</i> some of you may be thinking. <i>“When would you even need a third mode after Dark Mode?”</i> Glad you asked! Here are several common scenarios that lead to multiplying modes:
 
 - **Accessibility.** Need a high contrast theme? Now you need alternate versions of light and dark mode that pass WCAG standards.
 - **Color blindness.** Protanopia/deuteranopia and tritanopia users exist! Good news is protanopia and deuteranopia are similar enough they can share a set. Bad news is that all your existing color tokens just multiplied by 2.
-- **Multi-brand.** _Oopsie!_ That new startup your company acquired had _its_ own design system you need to incorporate.
+- **Multi-brand.** That new startup your company acquired had _its_ own design system you need to incorporate.
 
-Mind you, these are not exclusive scenarios! Some companies undergo all 3, or more. And every time you add on a new layer, it _multiplies_ the number of existing color tokens you have.
+Mind you, these are not exclusive scenarios—some companies undergo all 3, or more. And every time you add on a new layer, it _multiplies_ the number of existing color tokens you have.
 
 <figure>
   <img alt="same variables panel in figma, only showing 4 columns now—Light, Dark, Light H.C., and Dark H.C." src="/assets/posts/theres-no-such-thing-as-multi-axis-modes/002.png" width="1610" height="898" />
-  <figcaption>Starting from light + dark modes, adding an additional “high contrast” layer increased your number of modes to <em>4</em>! Not <em>3</em>! It multiplied.</figcaption>
+  <figcaption>Starting from light + dark modes, adding one additional “high contrast” layer increased the number of modes not by 1, but by 2! Additional layers also have the same multiplying effect, resulting in exponential growth.</figcaption>
 </figure>
-
-You can see how 1 → 2 layers, or “axes,” was a non-issue. But going beyond 2 layers to 3, 4, or even 5 or more, quickly starts to topple your entire system. It accelerates to a point that you can’t even hire a design systems team fast enough to maintain it, even assuming you had the budget in the first place (you don’t). “There must be a better way,” you say.
 
 ```
 Editor’s note: I was going to make another graphic here that had 8+ columns, and
@@ -39,10 +37,12 @@ the columns would have increasingly-desparate sounding names like “oh god,”
 “oh fuck,” etc. But I got paywalled by Figma (yes, my own company), because even
 they have a limit on how many values they can maintain before charging more $$$.
 
-The problem exists on both sides. It turns out having a button that multiplies
-your number of database records exponentially isn’t great software architecture
+The problem exists on both sides—it turns out having a button that when clicked
+multiplies your number of database records isn’t great software architecture
 either. At least both devs and designers agree on this!
 ```
+
+You can see how 1 → 2 layers, or “axes,” was a non-issue. But going beyond 2 layers to 3, or more starts to topple your system. It accelerates to a point that you can’t even hire a design systems team fast enough to maintain it, even assuming you had the budget in the first place (you don’t). “There must be a better way,” you say.
 
 ## Multi-axis-whosie-whatsie?
 
@@ -56,7 +56,7 @@ We’ll keep the scenario of going from 1 → 2 axes, the first being “light/d
 
 ### Failed attempt 1: the cascade, but worse
 
-Breaking out of Figma, and going into CSS, we realize the problem immediately: trying to only declare tokens in 3 sets proves to be a challenge:
+Breaking out of Figma, and going into CSS, we realize the problem immediately: trying to declare a 2×2 matrix in only 3 sets proves to be a challenge:
 
 ```css
 [data-theme='light'] {
@@ -80,7 +80,7 @@ Breaking out of Figma, and going into CSS, we realize the problem immediately: t
 /* ❌ What happens for <div data-theme="dark" data-highcontrast="true">?  */
 ```
 
-We realize immediately that `data-highcontrast` only works for light mode, and not dark mode. So we shaved down our modes from 4 → 3 by _\*checks notes\*_ deleting one. <i>“Hm. I’ll have another go.”</i>
+We realize `data-highcontrast` only works for light mode, and not dark mode. We shaved down our modes from 4 → 3 by _\*checks notes\*_ deleting one. We were trying to handle `<div data-theme="light" data-highcontrast="true">`, and wanted to get `<div data-theme="dark" data-highcontrast="true">` for free, but it didn’t seem to happen this go-round. <i>“Hm. I’ll have another go.”</i>
 
 ```css
 [data-theme='light'] {
@@ -119,9 +119,9 @@ You’ve fixed your cascade issue, but are still stuck at the same number of tok
 
 ### Failed attempt 2: in colorspace, no one can hear you scream
 
-<i>“Well, of course you wound up with the same number of tokens—you had created all those hex codes manually in the first place! The <em>real</em> solution is in multiplying.”</i>
+<i>“Well, of course you wound up with the same number of tokens—you had created all those hex codes manually in the first place! The <em>real</em> solution is in generation.”</i>
 
-Asking color science to fix your problems has historically never worked for anyone, and it is no help to us here, either. We could try and use HSL, but in addition to our developers hating us forever, we also reach a dead even more quickly:
+Asking color science to fix your problems has historically never worked for anyone. But maybe it will work for us here!
 
 ```css
 :root {
@@ -166,31 +166,36 @@ Asking color science to fix your problems has historically never worked for anyo
 }
 ```
 
-<i>“I am so clever,”</i> you say, before realizing this doesn’t work at all. Not only is it a tangled _mess_ (for only 3 tokens), this is not how CSS works.
+<i>“I am so clever,”</i> you say, before realizing this doesn’t work at all. Not only is it an incomprehensible _mess_ (for only 3 tokens), this is not how CSS works.
 
 - When CSS variables compose other CSS variables, they have to be redeclared. In `:root`, `--color-text` isn’t even valid because those variables don’t exist, therefore it’s not a color. Defining them later in the stylesheet doesn’t count; you have to copy + paste that entire line again.
 - You can’t simply `calc()` into Mordor. `undefined × anything = undefined`.
-- Further, even if `calc()` did work in some alternate universe, HSL is [absolute dogshit](/blog/dont-use-hsl-for-anything) so what works for light high contrast won’t work at all for dark high contrast
+- Further, even if `calc()` did work in some alternate universe, HSL is [absolute dogshit](/blog/dont-use-hsl-for-anything) at declaring colors, so any formula that works in light mode won’t work at all for dark mode. It’s a completely different calculation.
 
 I know you already get the point, but just to drive the nail through to the absolute center of the earth:
 
-- <i>“Oh, it was just the HSL space that’s bad. What if we used LAB?”</i>
-- LAB is [not perceptually-uniform like Oklab/Oklch](https://bottosson.github.io/posts/oklab/)
-- <i>“OK, we’ll use Oklab/Oklch then.”</i>
-- The WCAG 2.2 standard is based on LAB (D65 whitepoint) so we won’t pass
-- <i>“Is there a better standard than WCAG?”</i>
-- Not at the moment, unless you count APCA, which is a candidate for WCAG 3 but is closed-license and WCAG 3 doesn’t exist yet.
+<i>“Oh, it was just the HSL space that’s bad. What if we used LAB?”</i>
 
-The TL;DR about color science is human eyeballs are weird, and RGB screens are limited. That means \*\*there is no magic math that will produce even 2 axes’ worth of colors, let alone more. You are welcome to try and prove me wrong! But beware it will take a bigger time investment than you realize.
+<p style="text-align:right">LAB is <a href="https://bottosson.github.io/posts/oklab/" target="_blank">not perceptually-uniform like Oklab/Oklch</a></p>
+
+<i>“OK, we’ll use Oklab/Oklch, then.”</i>
+
+<p style="text-align:right">The WCAG 2.2 standard is based on LAB (D65 whitepoint) so we won’t pass</p>
+
+<i>“Is there a better standard than WCAG?”</i>
+
+<p style="text-align:right">Not at the moment, unless you count APCA, which is a candidate for WCAG 3 but is currently proprietary/closed license. Also WCAG 3 doesn’t exist yet.</p>
+
+The TL;DR about color science is human eyeballs are weird, and RGB screens are limited. That means **there is no magic math that will produce 2 axes’ worth of colors, let alone more.** You are welcome to try and prove me wrong! But beware it will take a bigger time investment than you realize.
 
 <figure>
   <img alt="visualization of the OKLCH colorspace, which looks like someone on an acid trip tried to draw the batman logo. It has so many curves and bumps it can’t even be described by a simple mathmatical formula." src="/assets/posts/theres-no-such-thing-as-multi-axis-modes/oklch.png" width="732" height="576" />
-  <figcaption>Do you see this ridiculous shape? Simply looking at it is just the tip of the iceberg, my friend. Try creating math that successfully navigates it. (© Evil Martians)</figcaption>
+  <figcaption>Do you see this ridiculous shape? Simply <em>looking</em> at it is only the tip of the iceberg, my friend. Try creating math that successfully navigates it! (<a href="https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl" target="_blank">© Evil Martians</a>)</figcaption>
 </figure>
 
 ### Failed attempt 3: magic?
 
-I’m now an author on the [Design Tokens Spec](https://designtokens.org) which happened because I read every kooky comment posted [on the GitHub repo](https://github.com/design-tokens/community-group), the kookiest of which was [#210: Native modes and theming support](https://github.com/design-tokens/community-group/issues/210), a 60-comment discussion where the smartest design systems thinkers on the internet collectively descended into the depths of madness trying to solve this issue.
+I’m now an author on the [Design Tokens Spec](https://designtokens.org) which happened because I read every kooky comment posted [on the GitHub repo](https://github.com/design-tokens/community-group). The kookiest of which was [#210: Native modes and theming support](https://github.com/design-tokens/community-group/issues/210), a 60-comment discussion where the smartest design systems thinkers on the internet collectively descended into the depths of madness trying to solve this problem.
 
 I was mentioned in comment #1 on that thread which meant I was dragged down to the pit of hell along with everyone else. For those that haven’t read it, here’s a brief 3-part visual summary:
 
@@ -205,14 +210,14 @@ Anyway, about a year later, all of that debate coagulated into a proposal to sol
 What it does solve:
 
 - Token duplication across modes
-- Theme support for people using the Design Tokens spec in a backwards-compatible way
+- Theme support for people using the Design Tokens Spec in a backwards-compatible way
 - A code-friendly way to describe Figma Variables and Tokens Studio variables
 
 What it does not solve:
 
 - The problem outlined at the beginning of this blog post
 
-The rub is, even with really fancy abstractions on top, in the end the computer is still going to ask “what color does this need to be?” And if you don’t know, neither does it.
+The rub is, even with really fancy abstractions on top, in the end the computer is still going to ask “what color does this need to be?” And if you don’t know, neither will it.
 
 The Resolver spec _is_ really cool. And it _is_ magic how it can remove all duplicate tokens in your system, leaving the minimum number necessary to manage. But removing duplicates doesn’t change that underlying 2D “spreadsheet” like how Figma Variables works today. That’s just the system itself.
 
@@ -220,30 +225,24 @@ The Resolver spec _is_ really cool. And it _is_ magic how it can remove all dupl
 
 <i>“No, no, no! You’re just not getting it! Instead of multiplying every token in a single plane, we’ll just create a new ‘axis!’ Then we only have to declare 1 token per plane!”</i>
 
-Brilliant. You’ve succeeded in breaking out of the 2D token spreadsheet, and have entered the 5th dimension. Have fun organizing 5th-dimensional tokens with your 3rd-dimensional brain. Idiot.
+Brilliant. You’ve succeeded in breaking out of the 2D token spreadsheet, and have entered the 5th dimension. Have fun organizing 5-dimensional tokens into your 2-dimensional UI. Idiot.
 
 ## No, really. help.
 
-Figma Variables will get some exciting expansions, _someday_, but ultimately, I think the 2D spreadsheet is here to stay. It is the single most helpful visualization of your system. If it feels complex, it’s because _you’re doing a lot!_ And it _is_ complex. And you should feel amazed at yourself for handling such a complex thing.
+Multiple axes may have been a dead end, but that doesn’t mean we can’t make some slight improvements to the 2D spreadsheet to make it a little more manageable. Perhaps this will happen in Figma Variables, perhaps it won’t. But either way, the 2D spreadsheet is here to stay. If the spreadsheet feels complex, it’s because _you’re doing a lot!_ And it _is_ complex. And you should feel amazed at yourself for handling such a complex thing.
 
 <figure>
   <img alt="“you’re doing amazing sweeite” meme, but with Kim covered up by 12 modes: light mode, dark mode, high contrast, high contrast dark, brand 2, brand 3, 2.0 beta, protanopia, deuteranopia, some fuggin last-minute CEO idea" src="/assets/posts/theres-no-such-thing-as-multi-axis-modes/doing-amazing-sweetie.jpg" width="800" height="937" />
   <figcaption>Complexity is complex. More at 7.</figcaption>
 </figure>
 
-The best we can do for now is try and declare **layered fallbacks** for each mode. Figma Variables doesn’t support this (yet), but here’s the basic idea. Imagine we are starting from our **Dark High Contrast mode** again, but instead of having to list out every token, we had more of a system like so:
-
-1. If there’s a color defined in `Dark High Contrast`, use that.
-2. If not, check `Dark`
-3. If not, check `Default (Light)`.
-
-In doing so, we end up with more of a [swiss cheese model](https://en.wikipedia.org/wiki/Swiss_cheese_model) of sorts, only having to declare the absolute minimum number of tokens. But in a way where it’s still dead simple to understand what the color of something will be in any mode.
-
-If you were to think of it in Figma Variable terms, here’s what it may look like: if we found values that were already declared elsewhere, we can simply specify a fallback order in where to look if the value isn’t defined. This means that **only a single mode has to be fully described,** and you only have to manage **the minimum possible number of tokens.**
+The best we can do for now is declare **mode fallbacks**. A “fallback” is different from an <dfn>alias</dfn>, where one token value points to another. A <dfn>mode fallback</dfn> allows a mode to leave “gaps” in token definitions, but declares “if a token is not defined here, try Mode 𝑥. If Mode 𝑥 doesn’t have it, try Mode 𝑦,” and so on, until we eventually hit a value. Figma Variables doesn’t support this yet, but is actively working on a similar mechanism (name TBD). To visualize it in the Figma Variable table, it would look something like this:
 
 <figure>
   <img alt="the same 4-column Figma Variables screenshot from before, but 2 color values are empty, with arrows pointing to other modes indicating their fallbacks." src="/assets/posts/theres-no-such-thing-as-multi-axis-modes/003.png" width="1610" height="898" />
   <figcaption>For most practical applications, design token fallbacks only work if you can specify multiple. Like ranked choice voting. If anyone ever figures out how to make that happen.</figcaption>
 </figure>
 
-Sure, it’s maybe not the revolutionary change you were hoping for. But it’s as simple as any system can get. And it still leaves you in full control.
+Mode fallbacks are like a [swiss cheese model](https://en.wikipedia.org/wiki/Swiss_cheese_model) of sorts, where each mode is allowed to have “holes.” But when you have multiple layers, with the holes being in different places, you cover all the gaps across all modes.
+
+Sure, it’s maybe not the revolutionary change you were hoping for. But it’s about as simple as any system can get while leaving you in full control.
