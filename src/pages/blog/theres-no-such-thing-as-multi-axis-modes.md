@@ -1,7 +1,7 @@
 ---
 title: There’s no such thing as multi-axis modes
 description: Modes, themes, collections, whatever you call it, doesn’t solve your busted design token setup.
-date: 2026-06-22
+date: 2025-06-22
 img: /assets/posts/theres-no-such-thing-as-multi-axis-modes/dts-01.jpg
 tags:
   - design
@@ -57,7 +57,7 @@ We’ll keep the scenario of going from 1 → 2 axes, the first being Dark mode 
 
 ### Failed attempt 1: the cascade, but worse
 
-Breaking out of Figma, and going into CSS, we realize the problem immediately: trying to declare a 2×2 matrix in only 3 sets proves to be a challenge:
+Breaking out of Figma, and going into CSS, we realize the problem immediately: trying to declare a [2×2 matrix](https://en.wikipedia.org/wiki/Punnett_square) in only 3 selectors proves to be a challenge:
 
 ```css
 [data-theme='light'] {
@@ -116,7 +116,7 @@ We realize `data-highcontrast` only works for light mode, and not dark mode. We 
 }
 ```
 
-You’ve fixed your cascade issue, but are still stuck at the same number of tokens. In fact, try this at home—try and come up with a scenario where you can express a 2-axis system in CSS with only 3 selectors. Any system you engineer will have some problem with cascading, or have colors ultimately missing that will lead to a bad experience.
+You’ve fixed your cascade issue, but are still stuck at the same number of tokens. In fact, try this at home—try and come up with a scenario where you can express a 2-axis system (2×2 matrix) in CSS with only 3 selectors. Any system you engineer will have some problem with cascading, or have colors ultimately missing that will lead to a bad experience.
 
 ### Failed attempt 2: in colorspace, no one can hear you scream
 
@@ -142,7 +142,7 @@ Asking color science to fix your problems has historically never worked for anyo
 }
 
 :root {
-  --color-text: hsl(var(--color-text-h), var(--color-text-s), var(--color-text));
+  --color-text: hsl(var(--color-text-h), var(--color-text-s), var(--color-text-l));
   --color-bg: hsl(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l));
   --color-action: hsl(var(--color-action-h), var(--color-action-s), var(--color-action-l));
 }
@@ -169,9 +169,9 @@ Asking color science to fix your problems has historically never worked for anyo
 
 <i>“I am so clever,”</i> you say, before realizing this doesn’t work at all. Not only is it an incomprehensible _mess_ (for only 3 tokens), this is not how CSS works.
 
-- When CSS variables compose other CSS variables, they have to be redeclared. In `:root`, `--color-text` isn’t even valid because those variables don’t exist, therefore it’s not a color. Defining them later in the stylesheet doesn’t count; you have to copy + paste that entire line again.
+- When CSS variables compose other CSS variables, they have to be redeclared. In `:root`, `--color-text` doesn’t work because `var(--color-text-l)` isn’t defined until later. `--color-text` has to be redeclared in every selector to resolve to a color (which means, _ding ding ding_ we need that 4th selector back)
 - You can’t simply `calc()` into Mordor. `undefined × anything = undefined`.
-- Further, even if `calc()` did work in some alternate universe, HSL is [absolute dogshit](/blog/dont-use-hsl-for-anything) at declaring colors, so any formula that works in light mode won’t work at all for dark mode. It’s a completely different calculation.
+- Further, even if `calc()` did work in some alternate universe, [HSL is dogshit](/blog/dont-use-hsl-for-anything), so any formula that works in light mode won’t work at all for dark mode. It’s a completely different calculation.
 
 I know you already get the point, but just to drive the nail through to the absolute center of the earth:
 
