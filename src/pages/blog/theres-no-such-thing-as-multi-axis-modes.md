@@ -22,7 +22,7 @@ When you start managing design tokens for your system, there comes a point when 
 But by the time the third and then fourth mode rolls around, you start feeling the pain. <i>“That’s ridiculous!”</i> some of you may be thinking. <i>“When would you even need a third mode after Dark Mode?”</i> Glad you asked! Here are several common scenarios that lead to multiplying modes:
 
 - **Accessibility.** Need a high contrast theme? Now you need alternate versions of light and dark mode that pass WCAG standards.
-- **Color blindness.** Protanopia/deuteranopia and tritanopia users exist! Good news is protanopia and deuteranopia are similar enough they can share a set. Bad news is that all your existing color tokens just multiplied by 2.
+- **Color blindness.** Protanopia/deuteranopia and tritanopia users exist! Good news is protanopia and deuteranopia are similar enough they can share a set. Bad news is that all your existing color tokens still multiplied by 3.
 - **Multi-brand.** That new startup your company acquired had _its_ own design system you need to incorporate.
 
 Mind you, these are not exclusive scenarios—some companies undergo all 3, or more. And every time you add on a new layer, it _multiplies_ the number of existing color tokens you have.
@@ -43,7 +43,7 @@ multiplies your number of database records isn’t great software architecture
 either. At least both devs and designers agree on this!
 ```
 
-You can see how 1 → 2 layers, or “axes,” was a non-issue. But going beyond 2 layers to 3, or more starts to topple your system. It accelerates to a point that you can’t even hire a design systems team fast enough to maintain it, even assuming you had the budget in the first place (you don’t). “There must be a better way,” you say.
+You can see how 0 → 1 layers, or “axes,” was a non-issue. But going 1 → 2 and beyond starts to topple your system. It accelerates to a point that you can’t hire fast enough to maintain it, even assuming you had the budget in the first place (you don’t). “There must be a better way,” you say.
 
 ## Multi-axis-whosie-whatsie?
 
@@ -53,7 +53,7 @@ There isn’t a better way. Thanks for reading! Bye-bye!
 
 Unfortunately, yes. Let’s take another look at trying to come up with a “clever” solution, and we’ll see it doesn’t work.
 
-We’ll keep the scenario of going from 1 → 2 axes, the first being “light/dark” and the second being high contrast mode.
+We’ll keep the scenario of going from 1 → 2 axes, the first being Dark mode and the second being High Contrast mode.
 
 ### Failed attempt 1: the cascade, but worse
 
