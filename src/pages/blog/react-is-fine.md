@@ -12,7 +12,7 @@ What happened to Vue and Svelte? Weren’t they supposed to overtake React any y
 I’ve been asking every year since about, oh, 2019 “when can I stop using React?” yet I find myself still within its throes 6 years later, feeling like not much has changed. The most succinct answer I have is: we’re in the stone ages of the internet. We’re banging rocks together trying to make fire, praying Prometheus will be stupid enough to just give it to us instead. I don’t really think React _is_ that fire, because I think I would know fucking fire if it descended from the heavens. But it’s the best we’ve got for now.
 
 <figure>
-  <img src="/assets/posts/so-are-frontend-frameworks-solved-yet/npm-trends-react.png" alt="npmtrends.com showing a line graph of React steadly climbing into 40M downloads/week, while Vue, Svelte, Lit, and Angular dwindle in the low millions, a mere fraction." />
+  <img src="/assets/posts/react-is-fine/npm-trends-react.png" alt="npmtrends.com showing a line graph of React steadly climbing into 40M downloads/week, while Vue, Svelte, Lit, and Angular dwindle in the low millions, a mere fraction." />
   <figcaption>I look at <a href="https://npmtrends.com" target="_blank">npm trends</a> a couple times each year only to be more disappointed</figcaption>
 </figure>
 
