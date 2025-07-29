@@ -1,7 +1,7 @@
 ---
 title: How to get a job coding in 2022, part 2
-date: 2021-10-03
-updated: 2022-10-31
+# date: 2021-10-03
+# updated: 2022-10-31
 description: Go read part 1 first if you haven’t!
 tags: ['dev']
 layout: ../../layouts/post.astro

@@ -1,7 +1,7 @@
 ---
 title: How to get a job coding in 2022, part 1
-date: 2021-09-18
-updated: 2022-10-31
+# date: 2021-09-18
+# updated: 2022-10-31
 description: |
   It’s tough to get started, but the rewards are worth it.
 tags: ['dev']
