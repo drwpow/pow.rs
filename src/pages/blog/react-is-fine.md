@@ -3,6 +3,7 @@ title: React is… fine
 description: |
   The year of React’s demise should be coming the same year as the Linux Desktop.
 date: 2025-07-28
+updated: 2025-08-12
 tags: ['dev']
 layout: ../../layouts/post.astro
 ---
@@ -46,8 +47,8 @@ Because when you take a step back and realize that teams, knowing full well alte
 
 And then I wonder “is this just me?” until I go and look at what other JS frameworks are doing and remember I’m not alone. Despite popularity, in spite of capitalism, open source communities are still creating and building more JS frameworks that are solving React failures _and_ pushing the needle forward in significant ways.
 
-[**Lit**](https://lit.dev/) is taking all the best ideas of JS frameworks in the last 10+ years, and tying them as closely to the web platform as possible, to yield the best blend of developer ergonomics with raw performance and future-proofing. [**Svelte**](https://svelte.dev) continues to produce innovation after innovation in imagining what a JS framework _could_ be, all while leaning into its successes. Other frameworks like [**Solid**](https://www.solidjs.com/) are trying to provide a stepping stone from our current React world to the future, offering a better way forward but without death by a thousand papercuts.
+[**Lit**](https://lit.dev/) is taking all the best ideas of JS frameworks in the last 10+ years, and tying them as closely to the web platform as possible, to yield the best blend of developer ergonomics with raw performance and future-proofing. [**Svelte**](https://svelte.dev) continues to produce innovation after innovation in imagining what a JS framework _could_ be, all while leaning into its successes. Other frameworks like [**Solid**](https://www.solidjs.com/) are trying to provide a stepping stone from our current React world to the future.
 
-All of them are beautiful, and wonderful, and are a million times better than anything I could ever do. But they’re still not fucking fire sent from heaven.
+All of these ideas are great, and an improvement over modern React. But none are fucking fire sent from heaven. And they’re not _that_ much better than the mediocrity we deal with.
 
-Maybe we won’t have that paradigm shift until [the web platform itself does](/blog/did-we-fuck-up-the-internet-pt-1). Maybe we’re stuck with React until then. React is… *fine*. It does the job until either developer sensibilities change (like the techtonic shift from OOP → FP a few years ago), or business needs arise, or both do at once. But until then, other JS frameworks—perhaps ones that don’t even exist at the time of writing this—are waiting in the wings, hoping that shift happens.
+No, I think the shift will happen not by doing “React, but better.” I think the shift will happen when[the web platform itself does](/blog/did-we-fuck-up-the-internet-pt-1), or some substantial part of the browser stack changes like direct Wasm DOM manipulation such that React becomes impossible to follow. I think we’re stuck until then.
