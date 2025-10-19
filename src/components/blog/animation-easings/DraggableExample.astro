@@ -1,0 +1,121 @@
+<div class="draggable draggable--easing" data-drag>
+  <div class="draggable-handle"></div>
+</div>
+
+<div class="draggable" data-drag>
+  <div class="draggable-handle"></div>
+</div>
+
+<script is:inline>
+let dragEl = undefined;
+
+document.querySelectorAll('[data-drag]').forEach((el) => {
+  el.addEventListener('mousedown', startDrag);
+  document.addEventListener('mouseup', endDrag);
+  document.addEventListener('mousemove', addDrag);
+  el.addEventListener('touchstart', startDrag);
+  document.addEventListener('touchend', endDrag);
+  document.addEventListener('touchmove', addDrag);
+});
+
+function startDrag(evt) {
+  if (!evt.target) return;
+  document.body.classList.add('is-dragging');
+  dragEl = evt.target.closest('[data-drag]');
+}
+
+function endDrag(evt) {
+  document.body.classList.remove('is-dragging');
+  dragEl = undefined;
+}
+
+function addDrag(evt) {
+  if (!dragEl) return;
+
+  const clientX = evt.touches ? evt.touches[0].clientX : evt.clientX;
+
+  const { left, width, right } = dragEl.getBoundingClientRect();
+  const centerX = left + width / 2;
+  const handle = dragEl.querySelector('.draggable-handle');
+
+  const deltaX = Math.min(Math.max(clientX, left), right) - centerX;
+  handle.style.transform = `translateX(${deltaX}px)`;
+}
+</script>
+
+<style>
+.draggable {
+  height: 5rem;
+  margin: 2rem 0;
+  position: relative;
+
+  &::before {
+    background: var(--gray-20);
+    border-radius: 1rem;
+    content: '';
+    display: block;
+    height: 3px;
+    top: 50%;
+    margin-top: -1px;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+  }
+}
+
+.draggable-handle {
+  background: var(--gray-00);
+  border: 2px solid var(--gray-80);
+  border-radius: 50%;
+  cursor: grab;
+  height: 3rem;
+  left: 50%;
+  margin-left: -1.5rem;
+  margin-top: -1.5rem;
+  position: absolute;
+  top: 50%;
+  touch-action: none;
+  width: 3rem;
+  z-index: 10;
+}
+
+.draggable--easing .draggable-handle {
+  transition: transform 200ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.draggable-handle::after {
+  background: linear-gradient(
+    90deg,
+    transparent 2px,
+    var(--gray-80) 2px,
+    var(--gray-80) 4px,
+    transparent 4px,
+    transparent 7px,
+    var(--gray-80) 7px,
+    var(--gray-80) 9px,
+    transparent 9px,
+    transparent 12px,
+    var(--gray-80) 12px,
+    var(--gray-80) 14px,
+    transparent 14px,
+    transparent 18px
+  );
+  background-size: 100% 100%;
+  background-repeat: repeat-y;
+  border-radius: 50%;
+  content: '';
+  display: block;
+  height: 1rem;
+  left: 50%;
+  margin-left: -0.5rem;
+  margin-top: -0.5rem;
+  position: absolute;
+  top: 50%;
+  width: 1rem;
+}
+
+body.is-dragging,
+body.is-dragging .draggable-handle {
+  cursor: grabbing !important;
+}
+</style>

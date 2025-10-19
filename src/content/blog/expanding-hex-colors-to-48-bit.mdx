@@ -1,0 +1,109 @@
+---
+title: Expanding hex colors to 48 bit
+description: Dumb solutions can be smart, sometimes
+pubDate: 2025-10-19
+categories: ["design", "dev"]
+---
+
+import Hex16Examples from "../../components/blog/expanding-hex-colors-to-48-bit/Hex16Examples.astro";
+
+{/* prettier-ignore */}
+<figure>
+  <img src="/assets/posts/expanding-hex-colors-to-48-bit/figma-hex-swag.jpg" alt="Figma swag of a baseball cap with the hex code on the back" />
+  <figcaption>Color Hex codes on swag seems to suggest they’ve transcended ubiquity to some levels of cult appreciation. © Figma</figcaption>
+</figure>
+
+Hexadecimal for expressing colors has been a staple of the internet for close to 20 years now. They’re a really darn efficient way of encoding colors, and are a rare combination of:
+
+- **Highly-compressed**: it’s difficult to pack more data into fewer bytes
+- **Human-readable**: they can even be memorized well—arguably more than any other color storage format
+
+But my one major gripe is [they reduce colors to 24-bit depth](<https://en.wikipedia.org/wiki/Color_depth#True_color_(24-bit)>), which was fine for the 90s, but today is growing obsolete as we watch movies in 30-bit color (and beyond) on our TVs, phones, and tablets. So why is the web (and our design software) lagging behind?
+
+In this article, I’m going to try to convince you that 12-digit hex codes are a good next step for the web.
+
+## A lesson on quick maths
+
+In order to understand what hex codes are doing, we’ll need to spend a little _bit_ (har) of time unpacking the math behind them.
+
+The [Rule of least power](https://en.wikipedia.org/wiki/Rule_of_least_power) in computing aims to accomplish tasks using the fewest resources possible. And a common method of achieving that is understanding how many possible values you need to account for, and only accounting for those and no more. So when hex colors were made into a web standard in the 90s, 2<sup>8</sup> values per each R, G, and B channels (called “24-bit” color because 8 + 8 + 8 = 24) seemed to be a reasonable balance at the time, allowing some future growth but without being wasteful of resources.
+
+A 6-character hex code (we’re ignoring alpha in this blog post; that doesn’t affect the math as far as we’re concerned) allows 2 characters per channel. Each R, G, and B channel allows `256` possible values because 16 × 16 = `256`. This we all know. But here’s where it gets interesting: **we use a base-16 counting system because:**
+
+<math>
+  <msup>
+    <mn>2</mn>
+    <mn>8</mn>
+  </msup>
+  <mo>=</mo>
+  <msup>
+    <mn>16</mn>
+    <mn>2</mn>
+  </msup>
+</math>
+
+In other words, we found an _alignment_ of 8-bit data (2<sup>8</sup>) with hexadecimal compression when squared (16<sup>2</sup>). Or, put another way, it’s not that 2<sup>8</sup> _must_ be expressed in hexadecimal. It’s just one incredibly convenient vehicle for it.
+
+### Encoding formats
+
+Jumping over to the _encoding_ side, we start by dealing with the limitations of the ten digits of `0-9`. If we want to reach sixteen, have to borrow symbols to make the difference. Letters are convenient, and cheap. And since we’re only short six, we’ll just take the first six letters of the alphabet.
+
+_But what if we want to go higher than sixteen?_ We have more letters to borrow, so why not keep going?
+
+- Base24 is _technically_ a thing, but is uncommon because Base32 gives more bang-for-the-buck anyway.
+- The [Base32](https://en.wikipedia.org/wiki/Base32) approach doubles it by adding the 26 character alphabet to the 10 digits to get 36, and then throw away 4 letters because 36 is “weird” not being a power of 2.
+  - _Which_ 4 letters you throw away is up to you, but a popular approach is discarding `I` and `L` because they look like `1`, `O` because it looks like `0`, and `V` … just because we needed a fourth. This is efficient _and_ reduces mistakes!
+  - Also, note that we didn’t specify uppercase or lowercase! So like hexadecimal, Base32 is case-insensitive which is friendly to use.
+- The [Base64](https://en.wikipedia.org/wiki/Base64) approach can _quadruple_ it by “double dipping” and treating uppercase and lowercase letters as unique characters. We then add `+` and `/` because we need 2 more symbols to get to 64.
+  - This gives us a _ton_ of compression, however, we are losing our user-friendliness because now `0`, `O`, and `o` are all significant. Memorizing and writing by hand is significantly more error prone than simpler Base32 or hex.
+
+…And that’s pretty much as high as it goes. Though _theoretically_ we could outline Base96, Base128, or higher forms, we’ve already exhausted standard numerals and letters, so where do you start borrowing symbols from? _Unicode characters?_ _Chinese?_ _Emojis?_ Base64, many would argue, has already pushed past user-friendliness, and we’re not interested in encodings that are only machine readable and writable.
+
+Also remember that for **alignment**, we could come up with Base29, Base41, or any other number in between, but we know before even trying we won’t hit any powers of 2 with odd numbers.
+
+So for systems that are usable, we really only have Base32 (2<sup>32</sup>), and Base64 (2<sup>64</sup>) (and Base24, should we need it).
+
+### Finding alignments
+
+Back to our initial discovery before: we can match 8-bit color with 2-digit hexadecimal because 2<sup>8</sup> = 16<sup>2</sup>. So if we want higher bit depths, where can we find alignment among other compression approaches?
+
+| Color code | Colors (per channel) | Result | Fidelity (per channel) |
+| :--------- | -------------------: | :----: | ---------------------- |
+| Hex-6      |                  256 |   =    | 8-bit (256)            |
+| Hex-9      |                4.096 |   =    | 12-bit (4,096)         |
+| Hex-12     |               65,536 |   =    | 16-bit (65,536)        |
+| Base32-6   |                1,024 |   =    | 10-bit (1,024)         |
+| Base32-9   |               32,768 |   =    | 15-bit (32,768)        |
+| Base64-6   |                4,096 |   =    | 12-bit (4,096)         |
+| Base64-9   |              262,144 |   =    | 18-bit (262,144)       |
+
+## Comparing results
+
+Our ideal target to hit is **16-bits** per channel or above, i.e. double the current standard. This would give us plenty of room to support all modern higher-depth color devices today and for years to come, without violating the Rule of least power. Plus, Adobe Photoshop [using 16-bit color for years](https://en.wikipedia.org/wiki/Color_depth#48-bit) is good precedent.
+
+Of the table above, some good contenders are:
+
+- Base32-6, e.g. `#x0f1z8`, gets us to 10-bit, _and_ it’s the same length as hex codes! But 10-bit is really not that much higher than 8-bit, so this may not last long.
+- Hex-9 gets us to 12-bit. This is a pretty good leap, but can we go higher?
+- Base32-9 gets us to 15-bit, which is our best so far!
+- Hex-12 gets us to that magic **16-bit** target. Its only downside is its length.
+
+Base64 we can rule out because it only met our target in one case: 3 characters per channel. But let’s be honest about dealing with `#O0O0O0O0O` as a real, actual color code—a mixture of the letter `O` and number `0`, mind you! _This is an ergonomic nightmare._ No one wants to remember whether letters were capitalized or not. And since we get similar results with hexadecimal and Base32, nothing would be worth this experience.
+
+But how do Base32 and our old friend hexadecimal compare?
+
+- **Familiarity**: hexadecimal. Hex takes the point here—don’t need to teach people what they already know!
+- **Length**: Base32-9, as it’s shorter than Hex-12.
+- **Fidelity**: Hex-12, which produces 16-bit color as opposed to Base32-9’s 15-bit.
+
+## And the winner is…
+
+For me, I feel like **Hex-16** _juuuuust_ tips the scales with it being the same thing we’ve been using, just expanding the length. Base32-9 does shave off a few digits, yes, but us going from 16-bit → 15-bit _and_ introducing a never-before-seen color code system would probably make it a harder sell for folks. There’s never a simpler upgrade path than “don’t change how anything works, just double it.”
+
+Which, looking back and skipping over our train of thought that got us here, it’s like, “duh—when you double hex codes you get double the values.” Which sounds simple when you put it that way. But sometimes dumb ideas are smart.
+
+So to leave you with something to ruminate on, let’s just look at how you’d translate some existing colors to Hex-16, and it’s really not that bad:
+
+<Hex16Examples />
+
+What’s a few extra characters for **perfect color reproduction?** I say it’s worth it.

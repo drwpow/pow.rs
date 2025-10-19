@@ -1,9 +1,16 @@
 ---
-import '../styles/global.scss';
+import "../styles/global.scss";
 
-const { title, description = 'The personal site of Drew Powers', img, color } = Astro.props;
-const fullTitle = title ? title + ' / 𝔇𝔯𝔢𝔴 𝔓𝔬𝔴𝔢𝔯𝔰' : '𝔇𝔯𝔢𝔴 𝔓𝔬𝔴𝔢𝔯𝔰';
-const imgFallback = Astro.url.pathname.startsWith('/blog') ? '/unfurl-blog.png' : '/unfurl.png';
+const {
+  title,
+  description = "The personal site of Drew Powers",
+  img,
+  color,
+} = Astro.props;
+const fullTitle = title ? `${title} / 𝔇𝔯𝔢𝔴 𝔓𝔬𝔴𝔢𝔯𝔰` : "𝔇𝔯𝔢𝔴 𝔓𝔬𝔴𝔢𝔯𝔰";
+const imgFallback = Astro.url.pathname.startsWith("/blog")
+  ? "/unfurl-blog.png"
+  : "/unfurl.png";
 ---
 
 <title>{fullTitle}</title>
@@ -14,7 +21,7 @@ const imgFallback = Astro.url.pathname.startsWith('/blog') ? '/unfurl-blog.png' 
 <meta content={color} name="theme-color" />
 <meta content="yes" name="apple-mobile-web-app-capable" />
 <meta content="IE=Edge" http-equiv="x-ua-compatible" />
-<link href="/blog.xml" rel="alternate" title="RSS 2.0" type="application/rss+xml" />
+<link rel="alternate" href="/blog.xml" title="RSS 2.0" type="application/rss+xml" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link rel="icon" href="/favicon.svg" />
 <link rel="icon" type="image/png" href="/dp-monogram-16.png" sizes="16x16" />

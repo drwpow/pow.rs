@@ -1,15 +1,23 @@
 ---
-import Head from '../../components/Head.astro';
-import Nav from '../../components/Nav.astro';
-import tierlist from '../../data/tierlist.json';
-import { fetchGitHubData } from '../../helpers/fetch-github-data.js';
+import Head from "../../components/Head.astro";
+import Nav from "../../components/Nav.astro";
+import tierlist from "../../data/tierlist.json";
+import { fetchGitHubData } from "../../helpers/fetch-github-data.js";
 
-const SKULL_COLORS = ['#ff0000', '#ffff00', '#0040ff', '#ff00ff', '#00ff00'];
-const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.length)];
+const SKULL_COLORS = ["#ff0000", "#ffff00", "#0040ff", "#ff00ff", "#00ff00"];
+const colorOfTheDay =
+  SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.length)];
 
 function randomFour(list) {
-  let hat = [...(list.rankings.s || []), ...(list.rankings.a || []), ...(list.rankings.b || []), ...(list.rankings.c || []), ...(list.rankings.d || []), ...(list.rankings.f || [])].flat();
-  let pick = [];
+  const hat = [
+    ...(list.rankings.s || []),
+    ...(list.rankings.a || []),
+    ...(list.rankings.b || []),
+    ...(list.rankings.c || []),
+    ...(list.rankings.d || []),
+    ...(list.rankings.f || []),
+  ].flat();
+  const pick = [];
   while (hat.length && pick.length < 4) {
     const rand = Math.floor(Math.random() * hat.length);
     pick.push(...hat.splice(rand, 1));
@@ -18,11 +26,11 @@ function randomFour(list) {
 }
 
 const [oapiTs, astro, terrazzo, lqip, bundlesize] = await Promise.all([
-  fetchGitHubData('https://github.com/drwpow/openapi-typescript'),
-  fetchGitHubData('https://github.com/withastro/astro'),
-  fetchGitHubData('https://github.com/terrazzoapp/terrazzo'),
-  fetchGitHubData('https://github.com/drwpow/vite-plugin-lqip'),
-  fetchGitHubData('https://github.com/drwpow/vite-plugin-bundlesize'),
+  fetchGitHubData("https://github.com/drwpow/openapi-typescript"),
+  fetchGitHubData("https://github.com/withastro/astro"),
+  fetchGitHubData("https://github.com/terrazzoapp/terrazzo"),
+  fetchGitHubData("https://github.com/drwpow/vite-plugin-lqip"),
+  fetchGitHubData("https://github.com/drwpow/vite-plugin-bundlesize"),
 ]);
 ---
 
@@ -294,7 +302,7 @@ const [oapiTs, astro, terrazzo, lqip, bundlesize] = await Promise.all([
           <a class="stuff-thumb stuff-thumb--4-3" href="https://better-color-tools.pages.dev" target="_blank" rel="noreferrer">
             <img width="1288" height="862" src="/assets/stuff/better-color-tools.png" alt="Better color tools" />
           </a>
-          <span>Analyze colors, build palettes, and mix colors using cool colorspaces like OKLAB</span>
+          <span>Analyze colors, build palettes, and mix colors using cool color spaces like OKLAB</span>
           <div class="stuff-links">
             <a href="https://better-color-tools.pages.dev">Website</a> / <a href="https://github.com/drwpow/better-color-tools" target="_blank" rel="noreferrer">GitHub</a>
           </div>
@@ -304,7 +312,7 @@ const [oapiTs, astro, terrazzo, lqip, bundlesize] = await Promise.all([
           <a class="stuff-thumb stuff-thumb--4-3" href="https://hct-test.pages.dev" target="_blank" rel="noreferrer">
             <img width="1288" height="862" src="/assets/stuff/hct-test.png" alt="HCT Playground" />
           </a>
-          <span>Little tool to test Google’s new HCT colorspace</span>
+          <span>Little tool to test Google’s new HCT color space</span>
           <div class="stuff-links">
             <a href="https://hct-test.pages.dev">Website</a> / <a href="https://github.com/drwpow/hct-test" target="_blank" rel="noreferrer">GitHub</a>
           </div>
@@ -395,7 +403,7 @@ const [oapiTs, astro, terrazzo, lqip, bundlesize] = await Promise.all([
           <a href="https://interfaceingame.com/" target="_blank" rel="noreferrer">Interface in Game</a> / A collection of UIs from video games
         </li>
         <li>
-          <a href="https://www.hudsandguis.com" tareget="_blank" rel="noreferrer">Huds and Guis</a> / an inspiration resource site featuring Future User Interfaces, Graphic User Interfaces, Heads Up Displays and UX/UI Design from areas such
+          <a href="https://www.hudsandguis.com" target="_blank" rel="noreferrer">HUDs and GUIs</a> / an inspiration resource site featuring Future User Interfaces, Graphic User Interfaces, Heads Up Displays and UX/UI Design from areas such
           as film and games
         </li>
         <li>

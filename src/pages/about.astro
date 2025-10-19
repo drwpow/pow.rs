@@ -1,11 +1,12 @@
 ---
-import Nav from '../components/Nav.astro';
-import Head from '../components/Head.astro';
+import Head from "../components/Head.astro";
+import Nav from "../components/Nav.astro";
 
-let title = 'about';
+const title = "about";
 
-const SKULL_COLORS = ['#ff0000', '#ffff00', '#0040ff', '#ff00ff', '#00ff00'];
-const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.length)];
+const SKULL_COLORS = ["#ff0000", "#ffff00", "#0040ff", "#ff00ff", "#00ff00"];
+const colorOfTheDay =
+  SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.length)];
 ---
 
 <html lang="en-us">

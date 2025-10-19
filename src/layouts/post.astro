@@ -1,20 +1,19 @@
 ---
-import Art from '../components/Art.astro';
-import Head from '../components/Head.astro';
-import Nav from '../components/Nav.astro';
-import Tag from '../components/Tag.astro';
-import { format } from '../helpers/date.js';
+import Art from "../components/Art.astro";
+import Head from "../components/Head.astro";
+import Nav from "../components/Nav.astro";
+import Tag from "../components/Tag.astro";
+import { format } from "../helpers/date.js";
 
-const { content } = Astro.props;
-const slug = Astro.url.pathname.replace(/\/blog\//, '');
+const { post } = Astro.props;
 
-const SKULL_COLORS = ['#ff0000', '#ffff00', '#0040ff', '#ff00ff', '#00ff00'];
+const SKULL_COLORS = ["#ff0000", "#ffff00", "#0040ff", "#ff00ff", "#00ff00"];
 const colorOfTheDay = SKULL_COLORS[2]; // blog posts are always blue
 ---
 
 <html lang="en-us">
   <head>
-    <Head title={content.title} description={content.description} img={content.img} color={colorOfTheDay} />
+    <Head title={post.data.title} description={post.data.description} img={post.data.img} color={colorOfTheDay} />
 
     <style lang="scss">
       @use '../styles/element' as *;
@@ -182,17 +181,17 @@ const colorOfTheDay = SKULL_COLORS[2]; // blog posts are always blue
     <div class="wrapper">
       <article class="post-body" itemscope itemtype="http://schema.org/BlogPosting">
         <header class="post-header">
-          <div class="post-animation"><Art id={slug} /></div>
+          <div class="post-animation"><Art id={post.id} /></div>
           {
-            content.date && (
-              <time class="post-date" datetime={content.date}>
-                {format(content.date)}
+            post.data.pubDate && (
+              <time class="post-date" datetime={post.data.pubDate}>
+                {format(post.data.pubDate)}
               </time>
             )
           }
-          <h1 class="post-title" itemprop="headline">{content.title}</h1>
+          <h1 class="post-title" itemprop="headline">{post.data.title}</h1>
           <div class="post-tags">
-            {content.tags.map((tag) => <Tag tag={tag} />)}
+            {post.data.categories.map((tag) => <Tag tag={tag} />)}
           </div>
         </header>
 

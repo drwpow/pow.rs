@@ -1,10 +1,13 @@
 ---
-import BlogPost from '../../components/BlogPost.astro';
-import Head from '../../components/Head.astro';
-import Nav from '../../components/Nav.astro';
+import { getCollection } from "astro:content";
+import BlogPost from "../../components/BlogPost.astro";
+import Head from "../../components/Head.astro";
+import Nav from "../../components/Nav.astro";
 
-const allPosts = await Astro.glob('./**/*.{astro,md}');
-const posts = allPosts.filter((p) => !!p.frontmatter?.date).sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date));
+const allPosts = await getCollection("blog");
+const posts = allPosts
+  .filter((p) => !!p.data?.pubDate)
+  .sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate));
 ---
 
 <html lang="en-us">
