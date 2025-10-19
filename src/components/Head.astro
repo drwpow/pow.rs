@@ -1,9 +1,16 @@
 ---
 import "../styles/global.scss";
 
-const { title, description = "The personal site of Drew Powers", img, color } = Astro.props;
+const {
+  title,
+  description = "The personal site of Drew Powers",
+  img,
+  color,
+} = Astro.props;
 const fullTitle = title ? `${title} / 𝔇𝔯𝔢𝔴 𝔓𝔬𝔴𝔢𝔯𝔰` : "𝔇𝔯𝔢𝔴 𝔓𝔬𝔴𝔢𝔯𝔰";
-const imgFallback = Astro.url.pathname.startsWith("/blog") ? "/unfurl-blog.png" : "/unfurl.png";
+const imgFallback = Astro.url.pathname.startsWith("/blog")
+  ? "/unfurl-blog.png"
+  : "/unfurl.png";
 ---
 
 <title>{fullTitle}</title>

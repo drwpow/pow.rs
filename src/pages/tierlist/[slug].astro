@@ -1,12 +1,14 @@
 ---
-import Head from '../../components/Head.astro';
-import Nav from '../../components/Nav.astro';
-import Tierlist from '../../components/Tierlist.astro';
-import tierlist from '../../data/tierlist.json';
+import Head from "../../components/Head.astro";
+import Nav from "../../components/Nav.astro";
+import Tierlist from "../../components/Tierlist.astro";
+import tierlist from "../../data/tierlist.json";
 
 export function getStaticPaths() {
   const sorted = tierlist;
-  sorted.sort((a, b) => new Date(b.updated).getTime() - new Date(a.updated).getTime());
+  sorted.sort(
+    (a, b) => new Date(b.updated).getTime() - new Date(a.updated).getTime(),
+  );
   return sorted.map((t) => ({ params: { slug: t.id } }));
 }
 
@@ -15,7 +17,9 @@ const { slug } = Astro.params;
 const list = tierlist.find((t) => t.id === slug);
 
 const sorted = tierlist;
-sorted.sort((a, b) => new Date(b.updated).getTime() - new Date(a.updated).getTime());
+sorted.sort(
+  (a, b) => new Date(b.updated).getTime() - new Date(a.updated).getTime(),
+);
 let nextI = sorted.findIndex((t) => t.id === slug) + 1;
 if (nextI >= sorted.length) nextI = 0;
 const next = sorted[nextI];

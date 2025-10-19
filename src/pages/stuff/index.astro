@@ -1,15 +1,23 @@
 ---
-import Head from '../../components/Head.astro';
-import Nav from '../../components/Nav.astro';
-import tierlist from '../../data/tierlist.json';
-import { fetchGitHubData } from '../../helpers/fetch-github-data.js';
+import Head from "../../components/Head.astro";
+import Nav from "../../components/Nav.astro";
+import tierlist from "../../data/tierlist.json";
+import { fetchGitHubData } from "../../helpers/fetch-github-data.js";
 
-const SKULL_COLORS = ['#ff0000', '#ffff00', '#0040ff', '#ff00ff', '#00ff00'];
-const colorOfTheDay = SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.length)];
+const SKULL_COLORS = ["#ff0000", "#ffff00", "#0040ff", "#ff00ff", "#00ff00"];
+const colorOfTheDay =
+  SKULL_COLORS[Math.floor(Math.random() * SKULL_COLORS.length)];
 
 function randomFour(list) {
-  let hat = [...(list.rankings.s || []), ...(list.rankings.a || []), ...(list.rankings.b || []), ...(list.rankings.c || []), ...(list.rankings.d || []), ...(list.rankings.f || [])].flat();
-  let pick = [];
+  const hat = [
+    ...(list.rankings.s || []),
+    ...(list.rankings.a || []),
+    ...(list.rankings.b || []),
+    ...(list.rankings.c || []),
+    ...(list.rankings.d || []),
+    ...(list.rankings.f || []),
+  ].flat();
+  const pick = [];
   while (hat.length && pick.length < 4) {
     const rand = Math.floor(Math.random() * hat.length);
     pick.push(...hat.splice(rand, 1));
@@ -18,11 +26,11 @@ function randomFour(list) {
 }
 
 const [oapiTs, astro, terrazzo, lqip, bundlesize] = await Promise.all([
-  fetchGitHubData('https://github.com/drwpow/openapi-typescript'),
-  fetchGitHubData('https://github.com/withastro/astro'),
-  fetchGitHubData('https://github.com/terrazzoapp/terrazzo'),
-  fetchGitHubData('https://github.com/drwpow/vite-plugin-lqip'),
-  fetchGitHubData('https://github.com/drwpow/vite-plugin-bundlesize'),
+  fetchGitHubData("https://github.com/drwpow/openapi-typescript"),
+  fetchGitHubData("https://github.com/withastro/astro"),
+  fetchGitHubData("https://github.com/terrazzoapp/terrazzo"),
+  fetchGitHubData("https://github.com/drwpow/vite-plugin-lqip"),
+  fetchGitHubData("https://github.com/drwpow/vite-plugin-bundlesize"),
 ]);
 ---
 

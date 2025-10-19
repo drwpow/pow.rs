@@ -1,13 +1,13 @@
 ---
-import Art from '../components/Art.astro';
-import Head from '../components/Head.astro';
-import Nav from '../components/Nav.astro';
-import Tag from '../components/Tag.astro';
-import { format } from '../helpers/date.js';
+import Art from "../components/Art.astro";
+import Head from "../components/Head.astro";
+import Nav from "../components/Nav.astro";
+import Tag from "../components/Tag.astro";
+import { format } from "../helpers/date.js";
 
 const { post } = Astro.props;
 
-const SKULL_COLORS = ['#ff0000', '#ffff00', '#0040ff', '#ff00ff', '#00ff00'];
+const SKULL_COLORS = ["#ff0000", "#ffff00", "#0040ff", "#ff00ff", "#00ff00"];
 const colorOfTheDay = SKULL_COLORS[2]; // blog posts are always blue
 ---
 

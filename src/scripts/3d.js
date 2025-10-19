@@ -1,8 +1,8 @@
-import * as THREE from 'three';
-import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
-import { OutlineEffect } from 'three/examples/jsm/effects/OutlineEffect.js';
+import * as THREE from "three";
+import { OutlineEffect } from "three/examples/jsm/effects/OutlineEffect.js";
+import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
 
-let pos = { x: -1, y: -1 };
+const pos = { x: -1, y: -1 };
 let nodStart;
 let isLoaded = false;
 let isRockingOut = false;
@@ -31,15 +31,15 @@ function init() {
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
-  document.querySelector('#canvas').appendChild(renderer.domElement);
+  document.querySelector("#canvas").appendChild(renderer.domElement);
   const scene = new THREE.Scene();
   const loader = new STLLoader();
   const camera = new THREE.OrthographicCamera();
   updateCamera();
   const textureLoader = new THREE.TextureLoader();
-  const twoTone = textureLoader.load('/gradientmap.png');
+  const twoTone = textureLoader.load("/gradientmap.png");
   let skull;
-  loader.load('/skull_shades.stl', (geometry) => {
+  loader.load("/skull_shades.stl", (geometry) => {
     twoTone.minFilter = THREE.NearestFilter;
     twoTone.magFilter = THREE.NearestFilter;
     skull = new THREE.Mesh(geometry);
@@ -51,12 +51,15 @@ function init() {
     skull.position.x = (window.innerWidth / 2) * 0.3333;
     skull.position.y = 100;
     skull.rotation.y = THREEQRTR_POSE;
-    let scale = Math.max(12, Math.min(window.innerWidth / 50, 25));
+    const scale = Math.max(12, Math.min(window.innerWidth / 50, 25));
     skull.scale.set(scale, scale, scale);
     scene.add(skull);
   });
 
-  let directionalLight1 = new THREE.DirectionalLight(new THREE.Color().setRGB(1.0, 1.0, 1.0), 2);
+  const directionalLight1 = new THREE.DirectionalLight(
+    new THREE.Color().setRGB(1.0, 1.0, 1.0),
+    2,
+  );
   directionalLight1.position.y = 2500;
   directionalLight1.position.z = 2000;
   scene.add(directionalLight1);
@@ -79,12 +82,18 @@ function init() {
 
     if (skull) {
       if (isLoaded === false) {
-        document.querySelector('#canvas').classList.add('is-loaded');
+        document.querySelector("#canvas").classList.add("is-loaded");
         isLoaded = true;
       }
 
-      let rotX = pos.y !== -1 ? (pos.y / window.innerHeight) * 0.5 - 0.2 : 0;
-      let rotY = pos.x !== -1 ? ((pos.x - window.innerWidth / 2) / window.innerWidth) * 0.25 * Math.PI + 0.9 * THREEQRTR_POSE : THREEQRTR_POSE;
+      const rotX = pos.y !== -1 ? (pos.y / window.innerHeight) * 0.5 - 0.2 : 0;
+      const rotY =
+        pos.x !== -1
+          ? ((pos.x - window.innerWidth / 2) / window.innerWidth) *
+              0.25 *
+              Math.PI +
+            0.9 * THREEQRTR_POSE
+          : THREEQRTR_POSE;
 
       if (nodStart > 0) {
         const diff = performance.now() - nodStart;
@@ -100,7 +109,12 @@ function init() {
           nextKeyframe = Number.parseInt(k, 10);
           if (currentFrame < k) break;
         }
-        skull.rotation.x = rotX + easeOutQuint((currentFrame - prevKeyframe) / (nextKeyframe - prevKeyframe)) * (next - last);
+        skull.rotation.x =
+          rotX +
+          easeOutQuint(
+            (currentFrame - prevKeyframe) / (nextKeyframe - prevKeyframe),
+          ) *
+            (next - last);
         if (diff > NOD_DURATION) {
           nodStart = undefined;
         }
@@ -120,9 +134,9 @@ function init() {
 
   animate();
 
-  document.querySelectorAll('.jump-item').forEach((el) => {
+  document.querySelectorAll(".jump-item").forEach((el) => {
     el.addEventListener(
-      'mouseover',
+      "mouseover",
       () => {
         if (!nodStart && lastHover !== el.id) {
           lastHover = el.id;
@@ -132,7 +146,7 @@ function init() {
       { bubble: false },
     );
     el.addEventListener(
-      'mouseleave',
+      "mouseleave",
       () => {
         lastHover = undefined;
       },
@@ -141,7 +155,7 @@ function init() {
   });
 
   let lastMouseMove;
-  window.addEventListener('mousemove', (evt) => {
+  window.addEventListener("mousemove", (evt) => {
     if (isTouchActive) return;
     if (lastMouseMove) cancelAnimationFrame(lastMouseMove);
     lastMouseMove = requestAnimationFrame(() => {
@@ -149,14 +163,14 @@ function init() {
       pos.y = evt.pageY;
     });
   });
-  window.addEventListener('touchstart', () => {
+  window.addEventListener("touchstart", () => {
     isTouchActive = true;
   });
-  window.addEventListener('touchend', () => {
+  window.addEventListener("touchend", () => {
     isTouchActive = false;
   });
   let lastTouchMove;
-  window.addEventListener('touchmove', (evt) => {
+  window.addEventListener("touchmove", (evt) => {
     if (lastTouchMove) cancelAnimationFrame(lastTouchMove);
     lastTouchMove = requestAnimationFrame(() => {
       pos.x = evt.touches[0].pageX;
@@ -164,27 +178,53 @@ function init() {
     });
   });
 
-  document.addEventListener('click', () => {
+  document.addEventListener("click", () => {
     if (!nodStart) nodStart = performance.now();
   });
 
   let lastResize;
-  window.addEventListener('resize', () => {
+  window.addEventListener("resize", () => {
     if (lastResize) cancelAnimationFrame(lastResize);
     lastResize = requestAnimationFrame(() => {
       updateCamera();
       renderer.setSize(window.innerWidth, window.innerHeight);
-      let scale = Math.max(12, Math.min(window.innerWidth / 50, 25));
+      const scale = Math.max(12, Math.min(window.innerWidth / 50, 25));
       skull.scale.set(scale, scale, scale);
     });
   });
 
   let keyBuffer = [];
   let bufferTimeout;
-  const success = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
-  const playlist = ['bgm_qotsa_ytiawadbiflam', 'bgm_cob_d', 'bgm_ws_bat', 'bgm_m_tm', 'bgm_bg_wss', 'bgm_if_pm', 'bgm_vom_mk', 'bgm_as_aum', 'bgm_sf_btia', 'bgm_ws_bat', 'bgm_m_bdroc', 'bgm_dgd_c', 'bgm_k_oof', 'bgm_cftg_hpt'];
+  const success = [
+    "ArrowUp",
+    "ArrowUp",
+    "ArrowDown",
+    "ArrowDown",
+    "ArrowLeft",
+    "ArrowRight",
+    "ArrowLeft",
+    "ArrowRight",
+    "KeyB",
+    "KeyA",
+  ];
+  const playlist = [
+    "bgm_qotsa_ytiawadbiflam",
+    "bgm_cob_d",
+    "bgm_ws_bat",
+    "bgm_m_tm",
+    "bgm_bg_wss",
+    "bgm_if_pm",
+    "bgm_vom_mk",
+    "bgm_as_aum",
+    "bgm_sf_btia",
+    "bgm_ws_bat",
+    "bgm_m_bdroc",
+    "bgm_dgd_c",
+    "bgm_k_oof",
+    "bgm_cftg_hpt",
+  ];
   let lastPlayed;
-  window.addEventListener('keyup', (evt) => {
+  window.addEventListener("keyup", (evt) => {
     clearTimeout(bufferTimeout);
     bufferTimeout = setTimeout(() => {
       keyBuffer = [];
@@ -198,25 +238,26 @@ function init() {
         isRockingOut = true;
         function playNext(audioEl) {
           let next = playlist[Math.floor(Math.random() * playlist.length)];
-          while (next === lastPlayed) next = playlist[Math.floor(Math.random() * playlist.length)]; // don’t dupe
+          while (next === lastPlayed)
+            next = playlist[Math.floor(Math.random() * playlist.length)]; // don’t dupe
           audioEl.src = `https://drewhost.s3.amazonaws.com/${next}.mp3`;
           audioEl.play();
           lastPlayed = next;
         }
 
         let audioEl;
-        if (document.querySelector('audio')) {
-          audioEl = document.querySelector('audio');
+        if (document.querySelector("audio")) {
+          audioEl = document.querySelector("audio");
         } else {
-          audioEl = document.createElement('audio');
+          audioEl = document.createElement("audio");
           document.body.appendChild(audioEl);
         }
 
         playNext(audioEl);
-        audioEl.addEventListener('ended', () => {
+        audioEl.addEventListener("ended", () => {
           playNext(audioEl);
         });
-        document.querySelector('#canvas').classList.add('is-rocking-out');
+        document.querySelector("#canvas").classList.add("is-rocking-out");
       }
     } else {
       keyBuffer = [];

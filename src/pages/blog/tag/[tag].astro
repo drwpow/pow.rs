@@ -1,14 +1,14 @@
 ---
-import { getCollection } from 'astro:content';
-import BlogPost from '../../../components/BlogPost.astro';
-import Head from '../../../components/Head.astro';
-import Nav from '../../../components/Nav.astro';
+import { getCollection } from "astro:content";
+import BlogPost from "../../../components/BlogPost.astro";
+import Head from "../../../components/Head.astro";
+import Nav from "../../../components/Nav.astro";
 
 const { tag } = Astro.params;
 const { posts } = Astro.props;
 
 export async function getStaticPaths() {
-  const posts = (await getCollection('blog')).filter((p) => !!p.data.pubDate);
+  const posts = (await getCollection("blog")).filter((p) => !!p.data.pubDate);
   posts.sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate));
   const tags = new Set();
   for (const post of posts) {
@@ -20,7 +20,13 @@ export async function getStaticPaths() {
   }
   return [...tags].map((tag) => ({
     params: { tag },
-    props: { posts: posts.filter((post) => Array.isArray(post.data.categories) && post.data.categories.includes(tag)) },
+    props: {
+      posts: posts.filter(
+        (post) =>
+          Array.isArray(post.data.categories) &&
+          post.data.categories.includes(tag),
+      ),
+    },
   }));
 }
 ---
