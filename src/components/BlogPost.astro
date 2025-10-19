@@ -127,11 +127,11 @@ const { post } = Astro.props;
   }
 </style>
 
-<a class="preview" href={post.url} itemscope itemtype="http://schema.org/BlogPosting">
-  <time class="date" datetime={post.date} itemprop="datePublished">{format(post.frontmatter.date)}</time>
-  <span class="title" itemprop="headline">{post.frontmatter.title}</span>
-  <span class="summary" itemprop="description">{post.frontmatter.description}</span>
+<a class="preview" href={`/blog/${post.id}`} itemscope itemtype="http://schema.org/BlogPosting">
+  <time class="date" datetime={post.data.pubDate} itemprop="datePublished">{format(post.data.pubDate)}</time>
+  <span class="title" itemprop="headline">{post.data.title}</span>
+  <span class="summary" itemprop="description">{post.data.description}</span>
   <span class="tags">
-    {(post.frontmatter.tags || []).map((tag) => <Tag tag={tag} />)}
+    {(post.data.categories || []).map((tag) => <Tag tag={tag} />)}
   </span>
 </a>
