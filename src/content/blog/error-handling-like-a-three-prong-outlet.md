@@ -3,7 +3,6 @@ title: Error handling like a three-prong outlet
 description: the hidden part of programming
 pubDate: 2016-08-24
 categories: ['dev']
-layout: ../../layouts/post.astro
 ---
 
 # Error handling like a three-prong outlet

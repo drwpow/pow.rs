@@ -1,10 +1,8 @@
 ---
 title: On Startups
 description: How to burn out your employees AND bridges all at the same time!
-layout: ../../layouts/post.astro
 pubDate: 2024-09-21
-tags:
-  - dev
+categories: ['dev']
 ---
 
 I recently grabbed lunch with a former coworker to catch up, and was sad to hear the unhealthy working environment I left hadn’t improved much. As we talked, I realized I had strong opinions about what NOT to do having run on the early-stage hamster wheel 4 times now. While I am but a mere grunt—a pawn in the grand game of venture capital chess—I still have experiences of what didn’t work well from the ground-level perspective. Follow this advice if you want to fail, and fail spectacularly:

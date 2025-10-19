@@ -5,7 +5,6 @@ updated: 2021-10-30
 description: |
   As the philosopher Thom Yorke once said, “where do we go from here?”
 categories: ['dev']
-layout: ../../layouts/post.astro
 ---
 
 I took a month from [my last post][pt1] to reflect on what the future of the internet might be. To

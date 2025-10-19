@@ -3,7 +3,6 @@ title: Secure runtime variables in IronWorker with Manifold
 description: Docker secrets with minimal code & configuration
 pubDate: 2018-06-10
 categories: ['dev']
-layout: ../../layouts/post.astro
 ---
 
 <figure>

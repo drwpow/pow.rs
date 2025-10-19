@@ -8,12 +8,9 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build"
-  },
-  "prettier": {
-    "printWidth": 240,
-    "singleQuote": true,
-    "trailingComma": "all"
+    "build": "astro build",
+    "lint": "biome check src --log-level=none",
+    "format": "biome format --write src"
   },
   "dependencies": {
     "three": "^0.173.0"
@@ -22,8 +19,8 @@
     "@astrojs/mdx": "^4.3.7",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.6.0",
+    "@biomejs/biome": "^2.2.6",
     "astro": "^5.14.6",
-    "prettier": "^3.6.2",
     "sass": "^1.93.2",
     "zod": "^4.1.12"
   }

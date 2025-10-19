@@ -3,7 +3,6 @@ title: Learning javascript? try Vue
 description: great for beginners, great for experts
 pubDate: 2017-05-25
 categories: ['dev']
-layout: ../../layouts/post.astro
 ---
 
 <figure><img src="https://miro.medium.com/max/1400/1*2Z8gFBnlmFYo3hVOS1s2bw.gif"><figcaption>Behold! The Vue!</figcaption></figure>

@@ -3,7 +3,6 @@ title: 'CSS puzzles: a mentorship program for better styling'
 description: How a 12-week program resulted in open-source education
 pubDate: 2019-01-17
 categories: ['dev']
-layout: ../../layouts/post.astro
 ---
 
 Manifold’s internal mentorship program provides opportunities for coworkers to learn from one

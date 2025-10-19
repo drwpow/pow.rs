@@ -4,7 +4,6 @@ pubDate: 2020-08-02
 description: |
   Get perfect, easy-to-use font scaling with &lt; 1kB of CSS. Sound too good to be true? It’s not!
 categories: ['design']
-layout: ../../layouts/post.astro
 ---
 
 Are you making typography on the web harder on yourself than it needs to be? Probably. What if I

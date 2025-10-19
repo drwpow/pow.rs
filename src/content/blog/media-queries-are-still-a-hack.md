@@ -4,7 +4,6 @@ pubDate: 2020-01-18
 description: |
   Media queries are janky. No, it’s not just you.
 categories: ['dev']
-layout: ../../layouts/post.astro
 ---
 
 After 15 years of working with CSS, media queries still don’t do enough for me to create responsive

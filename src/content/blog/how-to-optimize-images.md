@@ -3,7 +3,6 @@ title: How to optimize images for web
 description: not all optimization techniques are equal
 pubDate: 2016-06-03
 categories: ['dev']
-layout: ../../layouts/post.astro
 ---
 
 <figure><img src="https://miro.medium.com/max/1400/1*-NIO56PqC98E1k9ruqQ5Kw.jpeg"></figure>

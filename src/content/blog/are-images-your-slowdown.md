@@ -3,7 +3,6 @@ title: Are images your slow-down?
 description: the secret to optimizing images
 pubDate: 2014-11-11
 categories: ['dev']
-layout: ../../layouts/post.astro
 ---
 
 This article covers the image export half of optimization. For the server half, read Nathaniel

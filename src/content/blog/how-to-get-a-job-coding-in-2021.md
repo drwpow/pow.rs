@@ -5,7 +5,6 @@ title: How to get a job coding in 2022, part 1
 description: |
   It’s tough to get started, but the rewards are worth it.
 categories: ['dev']
-layout: ../../layouts/post.astro
 ---
 
 _Updated Oct 2022_

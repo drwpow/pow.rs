@@ -3,7 +3,6 @@ title: webpack + postcss + cssnext
 description: writing future CSS in a modern JS setup
 pubDate: 2016-11-25
 categories: ['dev']
-layout: ../../layouts/post.astro
 ---
 
 <figure><img src="https://miro.medium.com/max/1400/1*YuzakcmBI7vlrwuWdkIeUA.jpeg"><figcaption>© http://www.zazzle.com/stevenfrank</figcaption></figure>

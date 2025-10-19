@@ -5,7 +5,6 @@ description: |
 pubDate: 2025-07-28
 updated: 2025-08-12
 categories: ['dev']
-layout: ../../layouts/post.astro
 ---
 
 What happened to Vue and Svelte? Weren’t they supposed to overtake React any year now? What happened?

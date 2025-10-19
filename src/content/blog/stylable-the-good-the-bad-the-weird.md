@@ -3,7 +3,6 @@ title: 'Stylable: the good, the bad, the weird'
 description: taking the new CSS preprocessor from Wix for a spin
 pubDate: 2017-11-27
 categories: ['dev']
-layout: ../../layouts/post.astro
 ---
 
 <figure><img src="https://miro.medium.com/max/1400/1*Sb40yvgs-8Kx-fCyLCSXCQ.png"></figure>

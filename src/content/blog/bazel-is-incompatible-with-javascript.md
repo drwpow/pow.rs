@@ -3,9 +3,7 @@ title: Bazel is incompatible with JavaScript
 description: If you don’t know what Bazel is, you not only can skip this blog post; I envy you greatly.
 pubDate: 2024-10-13
 updated: 2025-06-22
-tags:
-  - dev
-layout: ../../layouts/post.astro
+categories: ['dev']
 ---
 
 [Bazel](https://bazel.build/) is an open source fork of Google’s internal tooling, Blaze, that I’ve had the misfortune of fighting with for the past year. It promises a mouthwatering smorgasboard of:

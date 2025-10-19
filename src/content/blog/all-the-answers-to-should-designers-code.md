@@ -3,7 +3,6 @@ title: All the answers to “should designers code?”
 description: the eternal war rages on
 pubDate: 2017-10-11
 categories: ['design']
-layout: ../../layouts/post.astro
 ---
 
 # All the answers to the “Should designers code?” question

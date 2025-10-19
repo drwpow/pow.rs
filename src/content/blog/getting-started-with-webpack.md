@@ -3,7 +3,6 @@ title: getting started with webpack
 description: harnessing the web’s most powerful build tool
 pubDate: 2016-10-24
 categories: ['dev']
-layout: ../../layouts/post.astro
 ---
 
 <figure><img src="https://miro.medium.com/max/4812/1*yI44h8Df-l-2LUqvXIi8JQ.png"></figure>

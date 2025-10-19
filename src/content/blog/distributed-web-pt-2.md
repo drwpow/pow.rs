@@ -3,7 +3,6 @@ title: 'The distributed web part 2: …or do you?'
 description: when is it time to pony up for custom development?
 pubDate: 2016-02-07
 categories: ['strategy']
-layout: ../../layouts/post.astro
 ---
 
 _This is a follow-up to [You Don’t Need a Website](/blog/distributed-web-pt-1/)_.

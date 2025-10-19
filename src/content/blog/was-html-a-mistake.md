@@ -5,7 +5,6 @@ updated: 2021-09-18
 description: |
   HTML was designed for basic text editing. How is it still holding up in a world where we’re building rich interactive experiences?
 categories: ['dev']
-layout: ../../layouts/post.astro
 ---
 
 OK, hear me out. Even if [Betteridge is right][betteridge] and the answer at the end of this blog

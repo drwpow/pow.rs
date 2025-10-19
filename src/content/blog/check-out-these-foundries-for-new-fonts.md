@@ -3,7 +3,6 @@ title: check out these foundries for new fonts
 description: designs looking a little stale? it’s probably your weak fonts
 pubDate: 2016-05-16
 categories: ['design']
-layout: ../../layouts/post.astro
 ---
 
 As

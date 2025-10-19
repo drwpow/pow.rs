@@ -5,7 +5,6 @@ updated: 2020-04-21
 description: |
   JavaScript changed forever in 2019. Did you miss it?
 categories: ['dev']
-layout: ../../layouts/post.astro
 ---
 
 **In 2019, a revolution happened in JS.** You may have missed it. All [major browsers][esm-browser]

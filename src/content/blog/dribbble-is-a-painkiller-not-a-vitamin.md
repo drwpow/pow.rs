@@ -3,7 +3,6 @@ title: Dribbble is a painkiller, not a vitamin
 description: how instant gratification can curb growth
 pubDate: 2017-08-07
 categories: ['design']
-layout: ../../layouts/post.astro
 ---
 
 <figure><img src="https://miro.medium.com/max/1400/1*oS-G7aAlZ6Ot6lHGbGWk5g.gif"></figure>

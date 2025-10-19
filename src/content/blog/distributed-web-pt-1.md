@@ -3,7 +3,6 @@ title: 'The distributed web part 1: you don’t need a website'
 description: when to not get sold by marketing speak
 pubDate: 2015-08-20
 categories: ['strategy']
-layout: ../../layouts/post.astro
 ---
 
 <figure><img src="/assets/posts/distributed-web-pt-1/city.jpg"><figcaption>Illustration by

@@ -5,7 +5,6 @@ updated: 2019-04-19
 description: |
   At what point does whimsy and “delight” turn into user frustration?
 categories: ['design']
-layout: ../../layouts/post.astro
 ---
 
 All of us can recall being frustrated by a website or app, as well as inspired and entertained.

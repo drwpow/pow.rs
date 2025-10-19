@@ -1,7 +1,7 @@
 .ball {
   border: 2px solid var(--gray-80);
   border-radius: 50%;
-  content: '';
+  content: "";
   display: block;
   height: 2rem;
   left: 0;
@@ -25,7 +25,7 @@
 
   &::after {
     background: var(--gray-80);
-    content: '';
+    content: "";
     display: block;
     height: 0.75rem;
     left: 50%;
@@ -45,7 +45,7 @@
 }
 
 .ball-stop-count {
-  font-family: Arial;
+  font-family: "Arial", sans-serif;
   font-size: 14px;
   left: 50%;
   position: absolute;
@@ -137,7 +137,7 @@
   &::before {
     border: 0.5rem solid var(--gray-20);
     border-radius: 50%;
-    content: '';
+    content: "";
     display: block;
     height: 100%;
     left: 50%;
@@ -150,7 +150,7 @@
   &::after {
     background: var(--gray-80);
     border-radius: 50%;
-    content: '';
+    content: "";
     display: block;
     height: 0.5rem;
     left: 50%;
@@ -172,7 +172,7 @@
   border: 1px solid currentColor;
   border-radius: 0.5rem;
   cursor: pointer;
-  font-family: Arial;
+  font-family: "Arial", sans-serif;
   font-size: 14px;
   padding: 0.5rem 2rem;
   position: relative;
@@ -233,7 +233,7 @@
     background: var(--gray-10);
     border: 1px solid var(--gray-80);
     border-radius: 1rem;
-    content: '';
+    content: "";
     display: block;
     height: 1.5rem;
     left: 50%;
@@ -246,7 +246,7 @@
   &::after {
     background: var(--gray-80);
     border-radius: 1rem;
-    content: '';
+    content: "";
     display: block;
     height: 1.125rem;
     left: 50%;

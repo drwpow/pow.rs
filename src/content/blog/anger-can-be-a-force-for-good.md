@@ -3,7 +3,6 @@ title: Anger can be a force for good
 description: if expressed right—a huge, ginormous “if”
 pubDate: 2017-10-28
 categories: ['other']
-layout: ../../layouts/post.astro
 ---
 
 I grew up in a household with lots of misdirected anger, mostly from my dad. He was generally an

@@ -3,7 +3,6 @@ title: Envy Labs’ 2017 rebrand
 description: rediscovering meaning, returning to form
 pubDate: 2017-11-06
 categories: ['design']
-layout: ../../layouts/post.astro
 ---
 
 <figure><img src="https://miro.medium.com/max/2000/1*iIbd4NbphwdXR2TDGFKx5w.gif"><figcaption>The 2017 site is rife with meaning, with visualizations pulling from Envy Labs-generated data (the homepage’s visualization is based on data collected from our team’s annual Epcot Day photos).</figcaption></figure>

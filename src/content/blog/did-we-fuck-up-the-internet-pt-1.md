@@ -5,7 +5,6 @@ updated: 2021-09-17
 description: |
   The principal designs of the internet were made a long time ago, for different uses than what we use it for today. Are keeping those old designs hurting the internet long-term?
 categories: ['dev']
-layout: ../../layouts/post.astro
 ---
 
 “Learn the fundamentals” is a common piece of advice given to beginners when starting out. And

@@ -4,7 +4,6 @@ title: How to get a job coding in 2022, part 2
 # updated: 2022-10-31
 description: Go read part 1 first if you haven’t!
 categories: ['dev']
-layout: ../../layouts/post.astro
 ---
 
 _Updated Oct 2022_

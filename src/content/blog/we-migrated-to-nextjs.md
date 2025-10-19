@@ -3,7 +3,6 @@ title: We migrated to Next.js to serve our home page 7.5× faster
 description: server-side rendering by the numbers
 pubDate: 2018-05-07
 categories: ['dev']
-layout: ../../layouts/post.astro
 ---
 
 <figure><img src="https://miro.medium.com/max/5000/1*pQBGo34dZ3IRdPeAu4JhNA.png"></figure>

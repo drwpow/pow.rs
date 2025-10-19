@@ -3,7 +3,6 @@ title: Build your own touch slider with hammer.js
 description: high-performance touch events for demanding jobs
 pubDate: 2016-04-25
 categories: ['dev']
-layout: ../../layouts/post.astro
 ---
 
 There are countless pre-built libraries for sliders, carousels, and everything in-between, and it

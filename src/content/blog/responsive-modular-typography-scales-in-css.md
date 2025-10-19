@@ -3,7 +3,6 @@ title: Responsive modular typography scales in css
 description: a time-saving type system with little config and lots of flexibility
 pubDate: 2017-06-14
 categories: ['design']
-layout: ../../layouts/post.astro
 ---
 
 <figure><img src="https://miro.medium.com/max/2000/1*x3U2FeqeJ0I9ZW41NV2sXQ.gif"></figure>

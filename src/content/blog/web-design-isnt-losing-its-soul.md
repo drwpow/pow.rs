@@ -3,7 +3,6 @@ title: Web design isn’t becoming more boring, and isn’t losing its soul
 description: don’t listen to the haters
 pubDate: 2016-12-11
 categories: ['design']
-layout: ../../layouts/post.astro
 ---
 
 <figure><img src="https://miro.medium.com/max/2000/1*Q6n1VkGryI2zCtDaluOIig.png"></figure>

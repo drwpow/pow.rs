@@ -3,7 +3,6 @@ title: VIM setup for a designer/front-end dev on macOS
 description: when you want to use vim but don’t want your eyes to bleed
 pubDate: 2016-09-22
 categories: ['dev']
-layout: ../../layouts/post.astro
 ---
 
 _Updated for Oct 2017_

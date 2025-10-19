@@ -2,9 +2,7 @@
 title: lessons from Astro
 description: |
   lessons from helping start a startup from scratch and working on open source fulltime
-tags:
-  - dev
-layout: ../../layouts/post.astro
+categories: ['dev']
 ---
 
 There rarely comes along an opportunity as exciting as getting to push the web forward. Even rarer is an opportunity that knocks on your door. But such was my luck when Fred Schott gave me a phonecall and asked if I wanted to help him start Astro (née Skypack).

@@ -3,7 +3,6 @@ title: 'Cloud-jumping: swap hosted services easily with Manifold'
 description: how to take back full control of your cloud services in one afternoon
 pubDate: 2018-04-13
 categories: ['dev']
-layout: ../../layouts/post.astro
 ---
 
 <figure><img src="https://miro.medium.com/max/2000/1*twYXJ0AvFBD_V4yNKhud_A.png"></figure>
