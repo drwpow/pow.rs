@@ -4,7 +4,7 @@ pubDate: 2019-11-06
 updated: 2019-04-19
 description: |
   At what point does whimsy and “delight” turn into user frustration?
-categories: ['design']
+categories: ["design"]
 ---
 
 All of us can recall being frustrated by a website or app, as well as inspired and entertained.
@@ -108,7 +108,7 @@ your horrible service!”
 
 In light of so many failures we encounter on the web, successes are something that should be
 celebrated! 🎉 Did a user finish sending an email? Add a fun illustration and some congratulatory
-copy on that succes page! Has a user reached a certain milestone in your app (miles walked,
+copy on that success page! Has a user reached a certain milestone in your app (miles walked,
 achievement reached, numbers hit)? Add a cool badge to their profile.
 
 Unexpected rewards may result in the most positively-perceived experiences. So let’s try and help

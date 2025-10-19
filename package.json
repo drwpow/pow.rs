@@ -23,7 +23,9 @@
     "@astrojs/sitemap": "^3.6.0",
     "@biomejs/biome": "^2.2.6",
     "astro": "^5.14.6",
+    "colorjs.io": "^0.5.2",
     "cspell": "^9.2.1",
+    "prettier": "^3.6.2",
     "sass": "^1.93.2",
     "zod": "^4.1.12"
   }

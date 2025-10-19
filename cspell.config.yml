@@ -9,57 +9,120 @@ dictionaries:
   - node
   - npm
   - typescript
+ignorePaths:
+  - src/data/tierlist.json
+  - src/scripts/3d.js
+ignoreRegExpList:
+  - /@[A-Za-z0-9-_]+/
 words:
+  - Adelson
+  - Afterbox
+  - Albers
+  - agnoster
   - Amador
+  - antialiasing
   - APCA
+  - aquihire
+  - Banack
+  - Bazel
+  - Berners
+  - Betaworks
+  - Betteridge
+  - Botez
+  - buzzworthy
   - Campistron
+  - convo
   - Coyier
+  - creds
+  - cringingly
+  - Crutchley
+  - cssnext
   - D’Arcy
   - Dalbin
-  - Dalton Maag
+  - Dalton
+  - devs
   - Digg
+  - dogshit
   - downvote
   - Döhren
+  - Draplin
   - Drasner
   - Dribbble
   - Durko
+  - Dylon
+  - ecommerce
+  - fanbase
+  - Fayr
   - Fontsmith
   - Fontstand
   - FOUC
+  - Friendish
   - Fuzzco
+  - gatekept
   - Gimbel
   - Giphy
   - Grilli
+  - Gumroad
   - Gwenyth
   - Hayao
+  - Healey
   - hermeticity
   - HTMLWG
   - hoverable
+  - Hypnerotomachia
+  - ICYMI
   - IMDB
+  - JPEGXL
+  - Kanye
+  - Kemendo
+  - Ibram
+  - influencers
+  - Lexie
+  - LQIP
+  - Lubalin
   - janky
+  - Jarret
+  - JAWSDB
   - Kemar
   - Klim
+  - Koppers
   - Kyra
   - laggy
+  - Laravel
   - Larkin
   - Lightspeed
+  - Maag
+  - Mata
+  - Merch
   - MCKL
   - mailgun
+  - Mendelson
   - mentee
   - Miyazaki
   - Muscarella
+  - Mordor
+  - Mortensen
+  - networkidle
   - Nubank
   - OKLAB
   - OKLCH
+  - OOCSS
   - Optimo
   - overengineered
   - Qwik
   - Paltrow
+  - paywalled
   - Playtype
   - Pngcrush
   - PNGOUT
+  - Poliphili
+  - postgres
   - Preethi
+  - psql
+  - roastery
+  - Sambrato
   - Schott
+  - screencap
   - Sharptype
   - Skypack
   - SMACSS
@@ -67,9 +130,11 @@ words:
   - Steinberg
   - Stratigakis
   - Ström
+  - stylability
   - Sudtipos
   - Teleportal
   - Thanasi
+  - Thom
   - Tibaldi
   - tierlist
   - Turbopack
@@ -80,9 +145,18 @@ words:
   - Urkel
   - upvote
   - Vaynerchuk
+  - Vjeux
   - Wayans
+  - wayfinding
+  - webdev
+  - webpack
+  - webpacks
   - WCAG
+  - Witag
+  - Wonka
   - WYSIWYG
   - wysiwyg
+  - Yorke
+  - Zack
   - Zeit
   - Zopfli

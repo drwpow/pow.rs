@@ -2,8 +2,10 @@
 title: VIM setup for a designer/front-end dev on macOS
 description: when you want to use vim but don’t want your eyes to bleed
 pubDate: 2016-09-22
-categories: ['dev']
+categories: ["dev"]
 ---
+
+<!-- cSpell:words Autojump,ctrlp,Powerline,Syntastic,tpope,Vimscript,vimrc -->
 
 _Updated for Oct 2017_
 

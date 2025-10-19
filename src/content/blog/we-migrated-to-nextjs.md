@@ -2,7 +2,7 @@
 title: We migrated to Next.js to serve our home page 7.5× faster
 description: server-side rendering by the numbers
 pubDate: 2018-05-07
-categories: ['dev']
+categories: ["dev"]
 ---
 
 <figure><img src="https://miro.medium.com/max/5000/1*pQBGo34dZ3IRdPeAu4JhNA.png"></figure>
@@ -169,7 +169,7 @@ As a result, you’ll have to engineer shims like this within `next.js.config`:
 The `config.isServer` flag within webpack becomes your best friend when the same code has to run in
 multiple environments.
 
-You also have Next.js’ propretary `getInitialProps()` lifecycle addition to React, which only runs
+You also have Next.js’ proprietary `getInitialProps()` lifecycle addition to React, which only runs
 in server-mode, as well:
 
 Oh, and let’s not forget about our good friend `window`, needed for event listening, window

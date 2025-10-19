@@ -239,7 +239,7 @@ Brilliant. You’ve succeeded in breaking out of the 2D token spreadsheet, and h
 Multiple axes may have been a dead end, but that doesn’t mean we can’t make some slight improvements to the 2D spreadsheet to make it a little more manageable. Perhaps this will happen in Figma Variables, perhaps it won’t. But either way, the 2D spreadsheet is here to stay. If the spreadsheet feels complex, it’s because _you’re doing a lot!_ And it _is_ complex. And you should feel amazed at yourself for handling such a complex thing.
 
 <figure>
-  <img alt="“you’re doing amazing sweeite” meme, but with Kim covered up by 12 modes: light mode, dark mode, high contrast, high contrast dark, brand 2, brand 3, 2.0 beta, protanopia, deuteranopia, some fuggin last-minute CEO idea" src="/assets/posts/theres-no-such-thing-as-multi-axis-modes/doing-amazing-sweetie.jpg" width="800" height="937" />
+  <img alt="“you’re doing amazing sweetie” meme, but with Kim covered up by 12 modes: light mode, dark mode, high contrast, high contrast dark, brand 2, brand 3, 2.0 beta, protanopia, deuteranopia, some fuggin last-minute CEO idea" src="/assets/posts/theres-no-such-thing-as-multi-axis-modes/doing-amazing-sweetie.jpg" width="800" height="937" />
   <figcaption>Complexity is complex. More at 7.</figcaption>
 </figure>
 

@@ -4,7 +4,7 @@ pubDate: 2020-03-08
 updated: 2020-04-21
 description: |
   JavaScript changed forever in 2019. Did you miss it?
-categories: ['dev']
+categories: ["dev"]
 ---
 
 **In 2019, a revolution happened in JS.** You may have missed it. All [major browsers][esm-browser]
@@ -112,7 +112,7 @@ now-legacy CommonJS tools:
 ### Snowpack
 
 [Snowpack][snowpack] (a play on ”no pack”) is an install tool (disclosure: that I’m one of the [lead
-contributers for][snowpack-contrib]) that lets you ship ESM-ready code straight to the browser
+contributors for][snowpack-contrib]) that lets you ship ESM-ready code straight to the browser
 **and** use npm. You can `npm install` like normal, and lets you use Preact, Vue, Svelte, and more
 but with **zero build time** and **no configuration.**
 

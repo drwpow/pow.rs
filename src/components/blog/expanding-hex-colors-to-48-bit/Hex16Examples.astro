@@ -1,0 +1,52 @@
+---
+import { type Color, ColorSpace, parse, sRGB } from "colorjs.io/fn";
+
+ColorSpace.register(sRGB);
+
+const BIT_8 = 2 ** 8 - 1;
+const BIT_16 = 2 ** 16 - 1;
+
+function hex6(color) {
+  return `#${color.coords
+    .map((v) =>
+      Math.round(v * BIT_8)
+        .toString(16)
+        .padStart(2, "0"),
+    )
+    .join("")}`;
+}
+
+function hex12(color) {
+  return `#${color.coords
+    .map((v) =>
+      Math.round(v * BIT_16)
+        .toString(16)
+        .padStart(4, "0"),
+    )
+    .join(" ")}`;
+}
+
+const colors = [
+  "color(srgb 1 0 0)",
+  "color(srgb 0 1 1)",
+  "color(srgb 1 1 1)",
+  "color(srgb 0.73 0.85 0.33)",
+  "color(srgb 0.3 0.13 0.73)",
+  "color(srgb 0.64 0.4 0.22)",
+];
+---
+
+<table>
+  <thead>
+    <tr><th>Color</th><th>Hex-6</th><th>Hex-12</th></tr>
+  </thead>
+  <tbody>
+    {colors.map((c) => (
+      <tr>
+        <td style={`background:${c}`}><code>{c}</code></td>
+        <td><code>{hex6(parse(c))}</code></td>
+        <td><code>{hex12(parse(c))}</code></td>
+      </tr>
+    ))}
+  </tbody>
+</table>

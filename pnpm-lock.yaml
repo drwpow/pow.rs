@@ -27,9 +27,15 @@ importers:
       astro:
         specifier: ^5.14.6
         version: 5.14.6(@types/node@24.8.1)(rollup@4.52.5)(sass@1.93.2)(typescript@5.5.4)(yaml@2.8.1)
+      colorjs.io:
+        specifier: ^0.5.2
+        version: 0.5.2
       cspell:
         specifier: ^9.2.1
         version: 9.2.1
+      prettier:
+        specifier: ^3.6.2
+        version: 3.6.2
       sass:
         specifier: ^1.93.2
         version: 1.93.2
@@ -1061,6 +1067,9 @@ packages:
   collapse-white-space@2.1.0:
     resolution: {integrity: sha512-loKTxY1zCOuG4j9f6EPnuyyYkf58RnhhWTvRoZEokgB+WbdXehfjFviyOVYkqzEWz1Q5kRiZdBYS5SwxbQYwzw==}
 
+  colorjs.io@0.5.2:
+    resolution: {integrity: sha512-twmVoizEW7ylZSN32OgKdXRmo1qg+wT5/6C3xu5b9QsWzSFAhHLn2xd8ro0diCsKfCj1RdaTP/nrcW+vAoQPIw==}
+
   comma-separated-tokens@2.0.3:
     resolution: {integrity: sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg==}
 
@@ -1719,6 +1728,11 @@ packages:
   postcss@8.5.6:
     resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
     engines: {node: ^10 || ^12 || >=14}
+
+  prettier@3.6.2:
+    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
+    engines: {node: '>=14'}
+    hasBin: true
 
   prismjs@1.30.0:
     resolution: {integrity: sha512-DEvV2ZF2r2/63V+tK8hQvrR2ZGn10srHbXviTlcv7Kpzw8jWiNTqbVgjO3IY8RxrrOUF8VPMQQFysYYYv0YZxw==}
@@ -3153,6 +3167,8 @@ snapshots:
 
   collapse-white-space@2.1.0: {}
 
+  colorjs.io@0.5.2: {}
+
   comma-separated-tokens@2.0.3: {}
 
   commander@14.0.1: {}
@@ -4216,6 +4232,8 @@ snapshots:
       nanoid: 3.3.11
       picocolors: 1.1.1
       source-map-js: 1.2.1
+
+  prettier@3.6.2: {}
 
   prismjs@1.30.0: {}
 

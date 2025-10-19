@@ -4,7 +4,7 @@ pubDate: 2020-08-26
 updated: 2021-09-17
 description: |
   The principal designs of the internet were made a long time ago, for different uses than what we use it for today. Are keeping those old designs hurting the internet long-term?
-categories: ['dev']
+categories: ["dev"]
 ---
 
 “Learn the fundamentals” is a common piece of advice given to beginners when starting out. And
@@ -43,7 +43,7 @@ development of _the entire internet_ is so monumental, it crushes any mere team 
 with it. Either way, if Chromium is the last browser standing, it’s bad news for all.
 
 > Do you think the web has almost 'priced itself out of the market' in terms of complexity if only
-> 1-2 organisations are capable of building rendering engines for it?
+> 1-2 organizations are capable of building rendering engines for it?
 >
 > Microsoft gave up, Mozilla will struggle as you say.
 >
