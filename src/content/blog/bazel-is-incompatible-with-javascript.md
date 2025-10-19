@@ -3,7 +3,7 @@ title: Bazel is incompatible with JavaScript
 description: If you don’t know what Bazel is, you not only can skip this blog post; I envy you greatly.
 pubDate: 2024-10-13
 updated: 2025-06-22
-categories: ['dev']
+categories: ["dev"]
 ---
 
 [Bazel](https://bazel.build/) is an open source fork of Google’s internal tooling, Blaze, that I’ve had the misfortune of fighting with for the past year. It promises a mouthwatering smorgasboard of:
@@ -86,7 +86,7 @@ But the _real_ pointlessness is the fact that the JS ecosystem gets orders of ma
 
 At the end of the day, a build system just won’t work for all languages, and that’s OK. Bazel was designed for a completely different ecosystem than a JIT scriping language. And it’s natural that Bazel tried to solve a problem for everyone, especially with the growing popularity and maturation of JS. And I applaud all the lovely contributors and maintainers that are making an effort at making Bazel better! But that doesn’t mean I’d touch Bazel with a 10 foot pole for handling JS right now.
 
-But rather than end on a sour note and be a downer, I can sum up what _would_ make Bazel compatible with JS with a more concrete answer than “make it like Turbopack” (OK, I lied—I did end up mentioning it again), only 3 changes would be required:
+But rather than end on a sour note and be a downer, I can sum up what _would_ make Bazel compatible with JS with a more concrete answer than “make it like Turborepo” (OK, I lied—I did end up mentioning it again), only 3 changes would be required:
 
 1. **Bazel runs npm executables with zero config.** The most important tools in the ecosystem——build systems, linters, test runners—run via CLI and npm bins. Having to rewrite every CLI we want to use in Starlark is insane; we should just be able to use the damn thing.
 2. **Bazel treats local `node_modules` as the canonical source.** That’s right, no sandbox, no hermiticity. All Node.js tools rely on the nested `node_modules` all the way up the file tree to share caches and resolve packages. Node.js has never been sandboxed, and never will be. You’re only lighting compute on fire going against a decade of how Node.js has worked from day 1, and has millions of developers relying on this system.

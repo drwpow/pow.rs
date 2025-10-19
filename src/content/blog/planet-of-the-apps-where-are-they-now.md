@@ -1,9 +1,9 @@
 ---
-title: 'Planet of the Apps: where are they now?'
+title: "Planet of the Apps: where are they now?"
 description: Looking back on everyone’s favorite cursed Shark Tank ripoff.
 pubDate: 2023-01-08
 updated: 2023-09-18
-categories: ['tv', 'tech']
+categories: ["tv", "tech"]
 ---
 
 <img width="1556" height="873" src="/assets/posts/planet-of-the-apps-where-are-they-now/hero.jpg" alt="will.i.am with a goofy smile on his face" />
@@ -123,7 +123,7 @@ Kemar is a multi-talented ex-Google, ex-Apple developer-turned-founder/CEO who�
   <dt>Status</dt><dd>Failed to launch</dd>
 </dl>
 
-The irony of a talent-finding app’s founder being talentless himself is not wasted on us as we watch him blow up his shot at business and free money in the 8 minutes of screentime he gets. He rejects will.i.am’s desparate pleas to accept his competitor Damon Wayans Jr.’s offer of a buyout (yes, _that_ Damon Wayans Jr.), goes double-or-nothing in his VC pitch, and loses. In the pitch meeting, will.i.am sheepishly stands in the corner the whole time (looking fly as hell though), waiting for it to bomb, and hoping this wouldn’t be remembered (sorry, will—I remember it, and all the episodes are still free to watch on Apple Music). To no one’s surprise, he raised nothing, and Lightspeed laughed him out of the room. I couldn’t find any trace of this app ever being created other than a <a href="https://www.indiegogo.com/projects/subwaytalent-an-app-for-booking-musicians" target="_blank" rel="noreferrer">failed IndieGoGo</a> (which everyone knows is always the best backup after failing to raise).
+The irony of a talent-finding app’s founder being talentless himself is not wasted on us as we watch him blow up his shot at business and free money in the 8 minutes of screen time he gets. He rejects will.i.am’s desperate pleas to accept his competitor Damon Wayans Jr.’s offer of a buyout (yes, _that_ Damon Wayans Jr.), goes double-or-nothing in his VC pitch, and loses. In the pitch meeting, will.i.am sheepishly stands in the corner the whole time (looking fly as hell though), waiting for it to bomb, and hoping this wouldn’t be remembered (sorry, will—I remember it, and all the episodes are still free to watch on Apple Music). To no one’s surprise, he raised nothing, and Lightspeed laughed him out of the room. I couldn’t find any trace of this app ever being created other than a <a href="https://www.indiegogo.com/projects/subwaytalent-an-app-for-booking-musicians" target="_blank" rel="noreferrer">failed IndieGoGo</a> (which everyone knows is always the best backup after failing to raise).
 
 <figure><img width="1561" height="874" src="/assets/posts/planet-of-the-apps-where-are-they-now/merchbooth.jpg" alt="Kristopher Jones and Damon Wayans Jr." /><figcaption>DWJ’s inner monologue, probably: “I know this fool didn’t just turn down an instant $100k for nothing and is asking for even more money right now”</figcaption></figure>
 

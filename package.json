@@ -9,7 +9,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "lint": "biome check src --log-level=none",
+    "lint": "pnpm run \"/^lint:.*/\"",
+    "lint:js": "biome check src --log-level=none",
+    "lint:spell": "cspell src",
     "format": "biome format --write src"
   },
   "dependencies": {
@@ -21,6 +23,7 @@
     "@astrojs/sitemap": "^3.6.0",
     "@biomejs/biome": "^2.2.6",
     "astro": "^5.14.6",
+    "cspell": "^9.2.1",
     "sass": "^1.93.2",
     "zod": "^4.1.12"
   }

@@ -4,7 +4,7 @@ title: How to get a job coding in 2022, part 1
 # updated: 2022-10-31
 description: |
   It’s tough to get started, but the rewards are worth it.
-categories: ['dev']
+categories: ["dev"]
 ---
 
 _Updated Oct 2022_
@@ -25,7 +25,7 @@ But before we get to the _how_, we’ll start with the _why_. Why is it even wor
 You’re probably expecting a “buy my book” pitch here to “unlock all the secrets.” Unfortunately, there’s not a quick path to programming (and if anyone is selling you that, don’t believe them!). In my experience these are the pitfalls for most failed attempts:
 
 - **No access to a computer**. If you have a personal computer (even if it’s ancient), you have a privilege most don’t. Learning to code requires owning an expensive machine that is unfortunately a barrier (if you don’t own one, you can still learn to code but you’ll need to put more time and effort in and use all available resources like your local library).
-- **No definitive starting point**. There are many niches within programming, and every year more specializations are added. The materials get outdated constantly, so even universities and bootcamps struggle to stay relevant.
+- **No definitive starting point**. There are many niches within programming, and every year more specializations are added. The materials get outdated constantly, so even universities and boot camps struggle to stay relevant.
 - **There are gatekeepers**. Sadly, [toxic tech][amazon] and [lack of diversity][diversity] do exist. At some companies you’ll find jerks trying to keep newcomers out _because_ it’s so good right now.
 - **The “continual learner” mindset is hard to learn**. This is probably the biggest mental barrier to overcome. Many other trades have a clear path to certification, but mastery of programming is an illusion because it’s evolving so rapidly. Just accepting the reality that you will be learning _forever_ can be hard for some people to grasp (but I personally find it exhilarating!).
 
@@ -45,7 +45,7 @@ In the interest of focus, I’m going to short-change #2 and #3 with my mostly-u
 
 ### ii. where do I learn this?
 
-There are three major options: going to a university, going to a bootcamp, or self-taught. My quick opinion: **self-taught is the way to go.** Universities are too expensive and the material is usually out-of-date. A few bootcamps are phenomenal, but most are a waste of time and money. Self-teaching is _H-A-R-D_. And slow. And frustrating. But it is free/cheap, and it will set you up long-term the best because it’s at the very core of programming. So might as well frontload that now. I’m self-taught and I would do it the same way again. The best way to start is from sites like [egghead.io](https://egghead.io/) or [codeacademy.com](https://www.codecademy.com), or any other place that offers free/cheap courses (you will have to spend a few dollars here and there to learn, but nothing truly expensive).
+There are three major options: going to a university, going to a boot camp, or self-taught. My quick opinion: **self-taught is the way to go.** Universities are too expensive and the material is usually out-of-date. A few boot camps are phenomenal, but most are a waste of time and money. Self-teaching is _H-A-R-D_. And slow. And frustrating. But it is free/cheap, and it will set you up long-term the best because it’s at the very core of programming. So might as well frontload that now. I’m self-taught and I would do it the same way again. The best way to start is from sites like [egghead.io](https://egghead.io/) or [codeacademy.com](https://www.codecademy.com), or any other place that offers free/cheap courses (you will have to spend a few dollars here and there to learn, but nothing truly expensive).
 
 ### iii. where do I start applying?
 

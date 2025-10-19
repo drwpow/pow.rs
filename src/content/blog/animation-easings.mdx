@@ -2,11 +2,11 @@
 title: A handbook to animation easings
 description: If you use default easings for your animations you might as well not even bother animating it.
 pubDate: 2022-05-06
-categories: ['dev']
+categories: ["dev"]
 ---
 
-import '../../styles/blog/animation-easings.css';
-import DraggableExample from '../../components/blog/animation-easings/DraggableExample.astro';
+import "../../styles/blog/animation-easings.css";
+import DraggableExample from "../../components/blog/animation-easings/DraggableExample.astro";
 
 You’ve doubtless used CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition" target="_blank">transition</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations" target="_blank">animation</a> a million times by now:
 
@@ -49,7 +49,9 @@ Now, before continuing further, where would you imagine the ball would be for al
   <div class="ball-pit">
     {[...new Array(25)].map((_, n) => (
       <div class="ball" style={`left:${(100 / 24) * n}%;`}>
-        {(n == 0 || n == 12 || n == 24) && <div class="ball-stop-count">{n}</div>}
+        {(n == 0 || n == 12 || n == 24) && (
+          <div class="ball-stop-count">{n}</div>
+        )}
       </div>
     ))}
   </div>
@@ -58,13 +60,18 @@ Now, before continuing further, where would you imagine the ball would be for al
 If we animate that, we see a robotic-looking animation that changes direction instantly and without any loss to momentum:
 
 <div class="ball-example">
-  <div class="ball-pit ball-pit--zero" style="animation:move-right 2s linear infinite alternate;">
+  <div
+    class="ball-pit ball-pit--zero"
+    style="animation:move-right 2s linear infinite alternate;"
+  >
     <div class="ball ball--solo" style="left:0%;"></div>
   </div>
   <div class="ball-pit">
     {[...new Array(25)].map((_, n) => (
       <div class="ball ball--invisible" style={`left:${(100 / 24) * n}%;`}>
-        {(n == 0 || n == 12 || n == 24) && <div class="ball-stop-count">{n}</div>}
+        {(n == 0 || n == 12 || n == 24) && (
+          <div class="ball-stop-count">{n}</div>
+        )}
       </div>
     ))}
   </div>
@@ -72,7 +79,12 @@ If we animate that, we see a robotic-looking animation that changes direction in
 
 If we took that motion and plotted it on an 𝑥/𝑦 graph, with 𝑥 representing time and 𝑦 representing distance, we’d get the following:
 
-<svg class="graph" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-label="graph showing linear line starting at (0, 0) and terminating at (1, 1)">
+<svg
+  class="graph"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 200 200"
+  aria-label="graph showing linear line starting at (0, 0) and terminating at (1, 1)"
+>
   <rect x="-0.5" y="-0.5" width="1" height="1"></rect>
   <rect x="-0.5" y="49.5" width="1" height="1"></rect>
   <rect x="-0.5" y="99.5" width="1" height="1"></rect>
@@ -98,7 +110,14 @@ If we took that motion and plotted it on an 𝑥/𝑦 graph, with 𝑥 represent
   <rect x="199.5" y="149.5" width="1" height="1"></rect>
   <rect x="199.5" y="199.5" width="1" height="1"></rect>
   <rect y="149.5" width="1" height="1"></rect>
-  <line stroke="var(--gray-80)" stroke-width="2" x1="0" y1="200" x2="200" y2="1"></line>
+  <line
+    stroke="var(--gray-80)"
+    stroke-width="2"
+    x1="0"
+    y1="200"
+    x2="200"
+    y2="1"
+  ></line>
 </svg>
 
 Straight as an arrow. Because we divided the space evenly, at 25% of the time, the ball has covered 25% of the distance. At 50% of the time, 50% distance has been travelled, and so on, up to 100%.
@@ -110,8 +129,13 @@ Now let’s try and animate the ball where the ball starts from 0 velocity, and 
 <div class="ball-example">
   <div class="ball-pit">
     {[...new Array(25)].map((_, n) => (
-      <div class="ball" style={`left:${(1 - Math.cos(((Math.PI / 2) * n) / 24)) * 100}%;`}>
-        {(n == 0 || n == 12 || n == 24) && <div class="ball-stop-count">{n}</div>}
+      <div
+        class="ball"
+        style={`left:${(1 - Math.cos(((Math.PI / 2) * n) / 24)) * 100}%;`}
+      >
+        {(n == 0 || n == 12 || n == 24) && (
+          <div class="ball-stop-count">{n}</div>
+        )}
       </div>
     ))}
   </div>
@@ -120,13 +144,21 @@ Now let’s try and animate the ball where the ball starts from 0 velocity, and 
 That, animated, produces the following “bouncy” animation:
 
 <div class="ball-example">
-  <div class="ball-pit ball-pit--zero" style="animation:move-right 2s cubic-bezier(0.552284749831, 0, 1, 0.552284749831) infinite alternate;">
+  <div
+    class="ball-pit ball-pit--zero"
+    style="animation:move-right 2s cubic-bezier(0.552284749831, 0, 1, 0.552284749831) infinite alternate;"
+  >
     <div class="ball ball--solo" style="left:0%;"></div>
   </div>
   <div class="ball-pit">
     {[...new Array(25)].map((_, n) => (
-      <div class="ball ball--invisible" style={`left:${(1 - Math.cos(((Math.PI / 2) * n) / 24)) * 100}%;`}>
-        {(n == 0 || n == 12 || n == 24) && <div class="ball-stop-count">{n}</div>}
+      <div
+        class="ball ball--invisible"
+        style={`left:${(1 - Math.cos(((Math.PI / 2) * n) / 24)) * 100}%;`}
+      >
+        {(n == 0 || n == 12 || n == 24) && (
+          <div class="ball-stop-count">{n}</div>
+        )}
       </div>
     ))}
   </div>
@@ -134,7 +166,12 @@ That, animated, produces the following “bouncy” animation:
 
 And when plotted on 𝑥/𝑦 produces a sharp curve that starts at zero acceleration, and keeps accelerating all the way through the animation, reaching maximum velocity on the final frame:
 
-<svg class="graph" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-label="graph showing a “cosine” curve">
+<svg
+  class="graph"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 200 200"
+  aria-label="graph showing a “cosine” curve"
+>
   <rect x="-0.5" y="-0.5" width="1" height="1"></rect>
   <rect x="-0.5" y="49.5" width="1" height="1"></rect>
   <rect x="-0.5" y="99.5" width="1" height="1"></rect>
@@ -160,7 +197,12 @@ And when plotted on 𝑥/𝑦 produces a sharp curve that starts at zero acceler
   <rect x="199.5" y="149.5" width="1" height="1"></rect>
   <rect x="199.5" y="199.5" width="1" height="1"></rect>
   <rect y="149.5" width="1" height="1"></rect>
-  <path fill="none" stroke="var(--gray-80)" stroke-width="2" d="M0,200c110.01,0.5,200.65-90.75,200.5-199"></path>
+  <path
+    fill="none"
+    stroke="var(--gray-80)"
+    stroke-width="2"
+    d="M0,200c110.01,0.5,200.65-90.75,200.5-199"
+  ></path>
 </svg>
 
 This type of accelerating curve is called an <b>ease-in curve</b> for obvious reasons: it is slowest at the beginning (the “in”) of the animation. If it did the opposite—started at maximum velocity and decelerated down to zero—that would be called an <b>ease-out curve</b>. If you combined the two, and had an animation where it started and ended at slow velocity, and reached maximum velocity in the middle, that’s an <b>ease-in-out curve</b>. Compare the graphs of the three:
@@ -193,7 +235,12 @@ This type of accelerating curve is called an <b>ease-in curve</b> for obvious re
       <rect x="199.5" y="149.5" width="1" height="1"></rect>
       <rect x="199.5" y="199.5" width="1" height="1"></rect>
       <rect y="149.5" width="1" height="1"></rect>
-      <path fill="none" stroke="var(--gray-80)" stroke-width="2" d="M0,200c110.01,0.5,200.65-90.75,200.5-199"></path>
+      <path
+        fill="none"
+        stroke="var(--gray-80)"
+        stroke-width="2"
+        d="M0,200c110.01,0.5,200.65-90.75,200.5-199"
+      ></path>
     </svg>
     <figcaption>ease-in</figcaption>
   </figure>
@@ -224,7 +271,12 @@ This type of accelerating curve is called an <b>ease-in curve</b> for obvious re
       <rect x="199.5" y="149.5" width="1" height="1"></rect>
       <rect x="199.5" y="199.5" width="1" height="1"></rect>
       <rect y="149.5" width="1" height="1"></rect>
-      <path fill="none" stroke="var(--gray-80)" stroke-width="2" d="M0,200C1,91,92.7,0,200.5,1"></path>
+      <path
+        fill="none"
+        stroke="var(--gray-80)"
+        stroke-width="2"
+        d="M0,200C1,91,92.7,0,200.5,1"
+      ></path>
     </svg>
     <figcaption>ease-out</figcaption>
   </figure>
@@ -255,7 +307,12 @@ This type of accelerating curve is called an <b>ease-in curve</b> for obvious re
       <rect x="199.5" y="149.5" width="1" height="1"></rect>
       <rect x="199.5" y="199.5" width="1" height="1"></rect>
       <rect y="149.5" width="1" height="1"></rect>
-      <path fill="none" stroke="var(--gray-80)" stroke-width="2" d="M0,200C110.1,200,92.7,0,200.5,1"></path>
+      <path
+        fill="none"
+        stroke="var(--gray-80)"
+        stroke-width="2"
+        d="M0,200C110.1,200,92.7,0,200.5,1"
+      ></path>
     </svg>
     <figcaption>ease-in-out</figcaption>
   </figure>
@@ -280,7 +337,7 @@ Out of any standard easing curve, a linear one will produce the most even blend 
     let progress = n / 99;
     let r = Math.round(255 - 255 * progress).toString(16);
     let g = Math.round(255 * progress).toString(16);
-    let b = 'ff';
+    let b = "ff";
     if (r.length == 1) r = `0${r}`;
     if (g.length == 1) g = `0${g}`;
     if (b.length == 1) b = `0${b}`;
@@ -294,7 +351,7 @@ Out of any standard easing curve, a linear one will produce the most even blend 
     let progress = Math.sin(((Math.PI / 2) * n) / 99);
     let r = Math.round(255 - 255 * progress).toString(16);
     let g = Math.round(255 * progress).toString(16);
-    let b = 'ff';
+    let b = "ff";
     if (r.length == 1) r = `0${r}`;
     if (g.length == 1) g = `0${g}`;
     if (b.length == 1) b = `0${b}`;
@@ -308,7 +365,7 @@ Out of any standard easing curve, a linear one will produce the most even blend 
     let progress = 1 - Math.cos(((Math.PI / 2) * n) / 99);
     let r = Math.round(255 - 255 * progress).toString(16);
     let g = Math.round(255 * progress).toString(16);
-    let b = 'ff';
+    let b = "ff";
     if (r.length == 1) r = `0${r}`;
     if (g.length == 1) g = `0${g}`;
     if (b.length == 1) b = `0${b}`;
@@ -483,7 +540,8 @@ Now that you’ve been made aware of the quick wins, you can apply the following
 
 - <b>light</b>: use linear easing
 - <b>rotation</b>: start with linear easing by default, but adjust to taste
-- <b>interactions</b>: start with ease-out by default, but adjust to taste, and also consider no easing as an option
+- <b>interactions</b>: start with ease-out by default, but adjust to taste, and
+  also consider no easing as an option
 
 But there are many more challenges beyond this! And there are more niche, contextual situations to encounter where easing may be more complex. For example, think back to the dragging example above. What if the handle needed to reset back to center after dragging (like a joystick)? You’d need to remove the easing curve while dragging, but re-apply it as it “slid” back to center position. Keep an eye out for multi-layered easings where one component may require different animations for different states.
 
@@ -496,7 +554,7 @@ In respect of that, some more nuanced, universal approaches to animation easings
 
 Play around with your newfound skills and you’ll be making more sophisticated animations in no time. However, you’re also now cursed with noticing bad animation everywhere you look, so good luck with that, too.
 
-<img alt="Hayao Mizazaki: “Anime was a mistake. It’s nothing but trash”" src="/assets/posts/easing-curves/miyazaki.gif" />
+![Hayao Miyazaki: “Anime was a mistake. It’s nothing but trash”](/assets/posts/easing-curves/miyazaki.gif)
 
 ### more reading / resources
 

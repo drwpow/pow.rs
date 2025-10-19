@@ -3,7 +3,7 @@ title: There’s no such thing as multi-axis modes
 description: Modes, themes, collections, whatever you call it, doesn’t solve your busted design token setup.
 pubDate: 2025-06-22
 img: /assets/posts/theres-no-such-thing-as-multi-axis-modes/dts-01.jpg
-categories: ['design']
+categories: ["design"]
 ---
 
 The two best days in a design system designer’s life is the day they inherit the design system, and the day they get rid of it. Or so the saying goes.
@@ -32,7 +32,7 @@ Mind you, these are not exclusive scenarios—some companies undergo all 3, or m
 
 ```
 Editor’s note: I was going to make another graphic here that had 8+ columns, and
-the columns would have increasingly-desparate sounding names like “oh god,”
+the columns would have increasingly-desperate sounding names like “oh god,”
 “oh fuck,” etc. But I got paywalled by Figma (yes, my own company), because even
 they have a limit on how many values they can maintain before charging more $$$.
 
@@ -58,19 +58,19 @@ We’ll keep the scenario of going from 1 → 2 axes, the first being Dark mode 
 Breaking out of Figma, and going into CSS, we realize the problem immediately: trying to declare a [2×2 matrix](https://en.wikipedia.org/wiki/Punnett_square) in only 3 selectors proves to be a challenge:
 
 ```css
-[data-theme='light'] {
+[data-theme="light"] {
   --color-text: #101010;
   --color-bg: #ffffff;
   --color-action: #0049e8;
 }
 
-[data-theme='dark'] {
+[data-theme="dark"] {
   --color-text: #e5e5e5;
   --color-bg: #202020;
   --color-action: #1265e2;
 }
 
-[data-highcontrast='true'] {
+[data-highcontrast="true"] {
   --color-text: #000000;
   --color-bg: #ffffff;
   --color-action: #0034a5;
@@ -82,16 +82,16 @@ Breaking out of Figma, and going into CSS, we realize the problem immediately: t
 We realize `data-highcontrast` only works for light mode, and not dark mode. We shaved down our modes from 4 → 3 by _\*checks notes\*_ deleting one. We were trying to handle `<div data-theme="light" data-highcontrast="true">`, and wanted to get `<div data-theme="dark" data-highcontrast="true">` for free, but it didn’t seem to happen this go-round. <i>“Hm. I’ll have another go.”</i>
 
 ```css
-[data-theme='light'] {
+[data-theme="light"] {
   /* … */
-  [data-highcontrast='true'] {
+  [data-highcontrast="true"] {
     /* … */
   }
 }
 
-[data-theme='dark'] {
+[data-theme="dark"] {
   /* … */
-  [data-highcontrast='true'] {
+  [data-highcontrast="true"] {
     /* … */
   }
 }
@@ -100,23 +100,23 @@ We realize `data-highcontrast` only works for light mode, and not dark mode. We 
 <i>”I’ve done it!”</i> you say, a half-second before realizing you are back at the number of tokens you started with. What’s more, you’ve created a scenario where now `[data-theme]` and `[data-highcontrast]` can’t even be on the same HTML element! <i>“No, no, wait—I’ve got it,”</i> you say.
 
 ```css
-[data-theme='light']:not([data-highcontrast='true']) {
+[data-theme="light"]:not([data-highcontrast="true"]) {
   /* … */
 }
-[data-theme='light'][data-highcontrast='true'] {
+[data-theme="light"][data-highcontrast="true"] {
   /* … */
 }
-[data-theme='dark']:not([data-highcontrast='true']) {
+[data-theme="dark"]:not([data-highcontrast="true"]) {
   /* … */
 }
-[data-highcontrast='true'][data-highcontrast='true'] {
+[data-highcontrast="true"][data-highcontrast="true"] {
   /* … */
 }
 ```
 
 You’ve fixed your cascade issue, but are still stuck at the same number of tokens. In fact, try this at home—try and come up with a scenario where you can express a 2-axis system (2×2 matrix) in CSS with only 3 selectors. Any system you engineer will have some problem with cascading, or have colors ultimately missing that will lead to a bad experience.
 
-### Failed attempt 2: in colorspace, no one can hear you scream
+### Failed attempt 2: in color space, no one can hear you scream
 
 <i>“Well, of course you wound up with the same number of tokens—you had created all those hex codes manually in the first place! The <em>real</em> solution is in generation.”</i>
 
@@ -140,25 +140,33 @@ Asking color science to fix your problems has historically never worked for anyo
 }
 
 :root {
-  --color-text: hsl(var(--color-text-h), var(--color-text-s), var(--color-text-l));
+  --color-text: hsl(
+    var(--color-text-h),
+    var(--color-text-s),
+    var(--color-text-l)
+  );
   --color-bg: hsl(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l));
-  --color-action: hsl(var(--color-action-h), var(--color-action-s), var(--color-action-l));
+  --color-action: hsl(
+    var(--color-action-h),
+    var(--color-action-s),
+    var(--color-action-l)
+  );
 }
 
-[data-theme='light'] {
+[data-theme="light"] {
   --color-text-l: var(--color-text-l-light);
   --color-bg-l: var(--color-bg-l-light);
   --color-action-l: var(--color-action-l-light);
 }
 
-[data-theme='dark'] {
+[data-theme="dark"] {
   --color-text-l: var(--color-text-l-light);
   --color-bg-l: var(--color-bg-l-dark);
   --color-action-h: var(--color-action-h-dark);
   --color-action-l: var(--color-action-l-dark);
 }
 
-[data-highcontrast='true'] {
+[data-highcontrast="true"] {
   --color-text-l: calc(1.2 * var(--color-text-1));
   --color-bg-l: calc(1.2 * var(--color-bg-1));
   --color-action-l: calc(1.2 * var(--color-action-1));
@@ -188,7 +196,7 @@ I know you already get the point, but just to drive the nail through to the abso
 The TL;DR about color science is human eyeballs are weird, and RGB screens are limited. That means **there is no magic math that will produce 2 axes’ worth of colors, let alone more.** You are welcome to try and prove me wrong! But beware it will take a bigger time investment than you realize.
 
 <figure>
-  <img alt="visualization of the OKLCH colorspace, which looks like someone on an acid trip tried to draw the batman logo. It has so many curves and bumps it can’t even be described by a simple mathmatical formula." src="/assets/posts/theres-no-such-thing-as-multi-axis-modes/oklch.png" width="732" height="576" />
+  <img alt="visualization of the OKLCH color space, which looks like someone on an acid trip tried to draw the batman logo. It has so many curves and bumps it can’t even be described by a simple mathematical formula." src="/assets/posts/theres-no-such-thing-as-multi-axis-modes/oklch.png" width="732" height="576" />
   <figcaption>Do you see this ridiculous shape? Simply <em>looking</em> at it is only the tip of the iceberg, my friend. Try creating math that successfully navigates it! (<a href="https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl" target="_blank">© Evil Martians</a>)</figcaption>
 </figure>
 

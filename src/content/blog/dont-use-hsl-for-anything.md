@@ -3,7 +3,7 @@ title: Don’t use HSL
 description: HSL is great in theory, but worse than you realize in practice
 pubDate: 2021-11-14
 updated_at: 2023-07-19
-categories: ['design', 'dev']
+categories: ["design", "dev"]
 ---
 
 Making websites usually involves _<span style="color:#f00">C</span><span style="color:#f80">O</span><span style="color:#ff0">L</span><span style="color:#0f0">O</span><span style="color:#0ff">R</span><span style="color:#f0f">S</span>_ (they’re all the rage these days!).
@@ -53,7 +53,7 @@ Not even close. Yellow is significantly brighter than the other colors! While <c
 
 ## Use OKLCH instead
 
-<a href="https://oklch.com" target="_blank" rel="noreferrer">OKLCH</a> is a perceptually-consistent colorspace that can be used today in all major browsers. It works exactly like HSL, except _it actually works_. The “LCH” part of it stands for <b>L</b>ightness, <b>C</b>hroma, and <b>H</b>ue. If you rearranged it to <i>HCL</i>, you’d realize it’s only off by one letter from <i>HSL</i>. Rather than <b>S</b>aturation, you’re dealing with <i><b>C</b>hroma</i> which is the same basic concept, just modified to be a little more honest (some colors can achieve higher chroma than others because of the <a href="https://en.wikipedia.org/wiki/RGB_color_spaces" target="_blank" rel="noreferrer">asymmetric gamut of RGB monitors</a>, thus, it’s a linear scale rather than a percentage).
+<a href="https://oklch.com" target="_blank" rel="noreferrer">OKLCH</a> is a perceptually-consistent color space that can be used today in all major browsers. It works exactly like HSL, except _it actually works_. The “LCH” part of it stands for <b>L</b>ightness, <b>C</b>hroma, and <b>H</b>ue. If you rearranged it to <i>HCL</i>, you’d realize it’s only off by one letter from <i>HSL</i>. Rather than <b>S</b>aturation, you’re dealing with <i><b>C</b>hroma</i> which is the same basic concept, just modified to be a little more honest (some colors can achieve higher chroma than others because of the <a href="https://en.wikipedia.org/wiki/RGB_color_spaces" target="_blank" rel="noreferrer">asymmetric gamut of RGB monitors</a>, thus, it’s a linear scale rather than a percentage).
 
 Picking OKLCH colors is simple using online an online tool like <a href="https://oklch.com" target="_blank" rel="noreferrer">oklch.com</a> or <a href="https://better-color-tools.pages.dev" target="_blank" rel="noreferrer">better-color-tools</a >. Using it in CSS is possible through the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch">oklch()</a> function which has wide browser support as of 2023.
 
