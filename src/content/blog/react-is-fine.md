@@ -22,7 +22,7 @@ Getting to complain about React is an absolute blessing and privilege, because I
 
 ## i. Inconsistent design
 
-React hooks’ design is horriffic. The point of having a reactive framework is to have state manipulation automatically figure out what the final DOM mutations should be. Requiring users to manually redeclare reactive dependency arrays everywhere while shipping [linters discouraging you from touching any of them](https://www.npmjs.com/package/eslint-plugin-react-hooks) is an absolute shitshow.
+React hooks’ design is horrific. The point of having a reactive framework is to have state manipulation automatically figure out what the final DOM mutations should be. Requiring users to manually redeclare reactive dependency arrays everywhere while shipping [linters discouraging you from touching any of them](https://www.npmjs.com/package/eslint-plugin-react-hooks) is an absolute shitshow.
 
 Why would you take away granular rerender hooks like `shouldComponentUpdate()` and replace with a magic solution and say “don’t control re-rendering,” except, _actually do_ require users to control rerendering on an even more granular level than before? The design is confused at best, broken at worst, and is getting even more muddied with [React Compiler](https://react.dev/learn/react-compiler/introduction) rollout threatening to break core APIs you “should have known not to use” (despite no deprecation warnings).
 

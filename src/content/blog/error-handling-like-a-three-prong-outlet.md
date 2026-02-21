@@ -2,7 +2,7 @@
 title: Error handling like a three-prong outlet
 description: the hidden part of programming
 pubDate: 2016-08-24
-categories: ['dev']
+categories: ["dev"]
 ---
 
 # Error handling like a three-prong outlet
@@ -53,7 +53,7 @@ used. Yet, why do we continue to build programs that spit out stupid/unhelpful e
 doesn’t every API return proper HTTP status codes? Why do core navigations of so many sites depend
 on third-party tracking scripts to load? Why do web forms omit _actions_ making it impossible to
 submit when there’s a JavaScript error? Why is it so, so easy to unravel a large application
-oftentimes by just pulling on one thread? Often it’s due to sloppy/non-existant error handling.
+oftentimes by just pulling on one thread? Often it’s due to sloppy/non-existent error handling.
 
 <figure><img src="https://miro.medium.com/max/60/1*iij3dPvKv2yXmwzF5T-vmg.jpeg?q=20"><figcaption>Error: a suitable error message could not be found</figcaption></figure>
 

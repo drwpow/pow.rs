@@ -2,7 +2,7 @@
 title: Bazel is incompatible with JavaScript
 description: If you don’t know what Bazel is, you not only can skip this blog post; I envy you greatly.
 pubDate: 2024-10-13
-updated: 2025-06-22
+updated: 2026-02-21
 categories: ["dev"]
 ---
 
@@ -31,7 +31,7 @@ But where Bazel oversteps for JavaScript is it needs to know the _outputs_ ahead
 
 ## Problem 1: no boundaries
 
-Much of the existing Bazel JS tooling has tunnel vision on a single TypeScript usecase: for every `.ts` file, build one `.js` file. While that is _one_ usecase, friend, if you think that's all JS build tools do, I've got really bad news.
+Much of the existing Bazel JS tooling has tunnel vision on a single TypeScript use case: for every `.ts` file, build one `.js` file. While that is _one_ use case, friend, if you think that's all JS build tools do, I've got really bad news.
 
 Look into any medium-size npm package and you’ll find `.mjs`, `.js`, and `.cjs` to support ESM and CommonJS, corresponding `.d.mts` and `.d.cjs` declarations to satisfy TypeScript, as well as `*.map` files for all of the above so debugging is easy. Of course, all these outputs likely won’t be 1:1 with the source `.ts` files—sometimes CommonJS will be bundled or vice-versa. Sometimes there are “lite” builds for clients. There really is no association with the entry files because it’s hand-tailored to what the package does and the philosophy it embodies. In other words, the package’s contents are a product of both the **inputs _AND_ the build system**. Bazel oversteps its boundaries by trying to _be_ the build system, but without providing any possible way for that to even happen.
 
@@ -84,7 +84,7 @@ But the _real_ pointlessness is the fact that the JS ecosystem gets orders of ma
   <figcaption>In summary, Bazel, you’re tacky and I hate you.</figcaption>
 </figure>
 
-At the end of the day, a build system just won’t work for all languages, and that’s OK. Bazel was designed for a completely different ecosystem than a JIT scriping language. And it’s natural that Bazel tried to solve a problem for everyone, especially with the growing popularity and maturation of JS. And I applaud all the lovely contributors and maintainers that are making an effort at making Bazel better! But that doesn’t mean I’d touch Bazel with a 10 foot pole for handling JS right now.
+At the end of the day, a build system just won’t work for all languages, and that’s OK. Bazel was designed for a completely different ecosystem than a JIT scripting language. And it’s natural that Bazel tried to solve a problem for everyone, especially with the growing popularity and maturation of JS. And I applaud all the lovely contributors and maintainers that are making an effort at making Bazel better! But that doesn’t mean I’d touch Bazel with a 10 foot pole for handling JS right now.
 
 But rather than end on a sour note and be a downer, I can sum up what _would_ make Bazel compatible with JS with a more concrete answer than “make it like Turborepo” (OK, I lied—I did end up mentioning it again), only 3 changes would be required:
 

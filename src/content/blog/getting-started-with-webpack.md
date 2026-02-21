@@ -2,7 +2,7 @@
 title: getting started with webpack
 description: harnessing the web’s most powerful build tool
 pubDate: 2016-10-24
-categories: ['dev']
+categories: ["dev"]
 ---
 
 <figure><img src="https://miro.medium.com/max/4812/1*yI44h8Df-l-2LUqvXIi8JQ.png"></figure>
@@ -80,16 +80,16 @@ We’ll then declare a webpack configuration with a `webpack.config.js` file in 
 project directory:
 
 ```js
-const path = require('path');
-const webpack = require('webpack');
+const path = require("path");
+const webpack = require("webpack");
 module.exports = {
-  context: path.resolve(__dirname, 'src'),
+  context: path.resolve(__dirname, "src"),
   entry: {
-    app: './app.js',
+    app: "./app.js",
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].bundle.js",
   },
 };
 ```
@@ -114,8 +114,8 @@ So if our `src/app.js` file looked something like this (assuming we ran `yarn ad
 beforehand):
 
 ```js
-import moment from 'moment';
-var rightNow = moment().format('MMMM Do YYYY, h:mm:ss a');
+import moment from "moment";
+var rightNow = moment().format("MMMM Do YYYY, h:mm:ss a");
 console.log(rightNow);
 // "October 23rd 2016, 9:30:24 pm"
 ```
@@ -165,18 +165,18 @@ Will all be bundled together as one `dist/app.bundle.js` file, in array order.
 ### **Multiple files, multiple outputs**
 
 ```js
-const path = require('path');
-const webpack = require('webpack');
+const path = require("path");
+const webpack = require("webpack");
 module.exports = {
-  context: path.resolve(__dirname, 'src'),
+  context: path.resolve(__dirname, "src"),
   entry: {
-    home: './home.js',
-    events: './events.js',
-    contact: './contact.js',
+    home: "./home.js",
+    events: "./events.js",
+    contact: "./contact.js",
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].bundle.js",
   },
 };
 ```
@@ -191,15 +191,15 @@ re-download your third-party dependencies every time you make a minor app update
 that thanks to webpack’s built-in Commons Chunk Plugin:
 
 ```js
-const webpack = require('webpack');
+const webpack = require("webpack");
 module.exports = {
   entry: {
-    index: './index.js',
-    vendor: ['react', 'react-dom'],
+    index: "./index.js",
+    vendor: ["react", "react-dom"],
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
+      name: "vendor",
       minChunks: Infinity,
     }),
   ],
@@ -285,7 +285,7 @@ Need to use some of your functions from a global namespace? Simply set `output.l
 ```js
 module.exports = {
   output: {
-    library: 'myClassName',
+    library: "myClassName",
   },
 };
 ```
@@ -324,8 +324,8 @@ module.exports = {
         exclude: [/node_modules/],
         use: [
           {
-            loader: 'babel-loader',
-            options: { presets: ['env'] },
+            loader: "babel-loader",
+            options: { presets: ["env"] },
           },
         ],
       },
@@ -356,7 +356,7 @@ If we wanted to only load CSS as our application needed, we could do that as wel
 an `index.js` file. We’ll import it from there:
 
 ```js
-import styles from './assets/stylesheets/application.css';
+import styles from "./assets/stylesheets/application.css";
 ```
 
 We’ll get the following error: `You may need an appropriate loader to handle this file type`.
@@ -396,7 +396,7 @@ JavaScript anyway, this essentially eliminates
 
 You’ll also notice that—out of the box—webpack has automatically resolved all of your `@import`
 queries by packaging those files together as one (rather than relying on CSS’s default import which
-can result in gratuitious header requests and slow-loading assets).
+can result in gratuitous header requests and slow-loading assets).
 
 Loading CSS from your JS is pretty amazing, **because you now can modularize your CSS in powerful
 new ways.** Say you loaded `button.css` only through `button.js`. This would mean if `button.js` is
@@ -410,7 +410,7 @@ We can use webpack to take advantage of importing Node Modules using Node’s `~
 `yarn`` ``add normalize.css`, we could use:
 
 ```css
-@import '~normalize.css';
+@import "~normalize.css";
 ```
 
 … and take full advantage of NPM managing our third party styles for us—versioning and all—without
@@ -438,9 +438,9 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          'style-loader',
+          "style-loader",
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: { modules: true },
           },
         ],
@@ -462,7 +462,7 @@ to `webpack.config.js` to give webpack a better understanding of your intended m
 ```js
 module.exports = {
   resolve: {
-    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    modules: [path.resolve(__dirname, "src"), "node_modules"],
   },
 };
 ```
@@ -506,7 +506,7 @@ reason. We can do that easily by swapping out `style-loader` with `extract-text-
 our config without having to change any code. Take our example `app.js` file:
 
 ```js
-import styles from './assets/stylesheets/application.css';
+import styles from "./assets/stylesheets/application.css";
 ```
 
 Let’s install the plugin locally…

@@ -13,12 +13,12 @@ I’ve been programming professionally for almost 15 years now, and I frequently
 
 ## why learn to code?
 
-But before we get to the _how_, we’ll start with the _why_. Why is it even worth starting such an ambigulous journey?
+But before we get to the _how_, we’ll start with the _why_. Why is it even worth starting such an ambiguous journey?
 
 - **High pay**. Depending on your city, you can reasonably expect to start at $50–70k as a beginner, with full benefits. And within a few years [easily make 6 figures][levels].
 - **No credentials**. No degree or certification is needed, and all the materials are free online (_back to that superpower thing mentioned earlier_).
 - **Job security**. Once you get your foot in the door, expect to never have to worry about employment for at least the next 20–30 years.
-- **You can still follow your passions**. [Every company is now a tech company][tech-company]. And tech companies need developers. Whatever you’re passionate about, there’s likely a progamming job in that field.
+- **You can still follow your passions**. [Every company is now a tech company][tech-company]. And tech companies need developers. Whatever you’re passionate about, there’s likely a programming job in that field.
 
 ## “ok… so what’s the catch?”
 
