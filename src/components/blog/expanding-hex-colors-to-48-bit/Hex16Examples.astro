@@ -1,5 +1,5 @@
 ---
-import { type Color, ColorSpace, parse, sRGB } from "colorjs.io/fn";
+import { ColorSpace, parse, sRGB } from "colorjs.io/fn";
 
 ColorSpace.register(sRGB);
 
@@ -41,12 +41,20 @@ const colors = [
     <tr><th>Color</th><th>Hex-6</th><th>Hex-12</th></tr>
   </thead>
   <tbody>
-    {colors.map((c) => (
-      <tr>
-        <td style={`background:${c}`}><code>{c}</code></td>
-        <td><code>{hex6(parse(c))}</code></td>
-        <td><code>{hex12(parse(c))}</code></td>
-      </tr>
-    ))}
+    {
+      colors.map((c) => (
+        <tr>
+          <td style={`background:${c}`}>
+            <code>{c}</code>
+          </td>
+          <td>
+            <code>{hex6(parse(c))}</code>
+          </td>
+          <td>
+            <code>{hex12(parse(c))}</code>
+          </td>
+        </tr>
+      ))
+    }
   </tbody>
 </table>

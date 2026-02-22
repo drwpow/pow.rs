@@ -48,7 +48,7 @@ Jessica, bless her heart, did everything within her power to educate Andrew, hel
   <dt>Status</dt><dd>Vanished</dd>
 </dl>
 
-Gary spent the entire show telling Lexie and Jake how great and smart he is while spouting intro-to-business level advice they had already done years ago. The duo did score $1m investment from Lightspeed, but the app mysteriously vanished into thin air right after the episode aired. Almost as if both founders mutually agreed to kill the company to avoid ever having to listen to Gary’s voice again. After the show, Jake suddently became an investor (possibly with $1m in pocket?), while Lexie went on to just work at other companies (she’s currently a Product Manager at Warner Bros.).
+Gary spent the entire show telling Lexie and Jake how great and smart he is while spouting intro-to-business level advice they had already done years ago. The duo did score $1m investment from Lightspeed, but the app mysteriously vanished into thin air right after the episode aired. Almost as if both founders mutually agreed to kill the company to avoid ever having to listen to Gary’s voice again. After the show, Jake suddenly became an investor (possibly with $1m in pocket?), while Lexie went on to just work at other companies (she’s currently a Product Manager at Warner Bros.).
 
 <figure><img width="1558" height="871" src="/assets/posts/planet-of-the-apps-where-are-they-now/tracks.jpg" alt="Ibram Uppal and will.i.am" /><figcaption>“I could not have asked for a better partner than Will, but the minute I sat down and showed him the app, he had new ideas … So now we’re going to have the foxes battle. And be able to talk.”</figcaption></figure>
 
@@ -63,7 +63,7 @@ Gary spent the entire show telling Lexie and Jake how great and smart he is whil
   <dt>Status</dt><dd>Fizzled</dd>
 </dl>
 
-This is peak will.i.am and the reason I watch the show: convincing a poor young developer to turn his beloved fitness app into a Pokémon-inspired battle game. We’re also treated to the best montage in the entire show, with will.i.am’s rapidfire questions “Can my fox battle Kanye’s fox?” “Can my fox have access to my calendar?” “Can my fox have access to my Instagram?” “Can my fox have armor?” “Can I talk to my fox? … No not Siri; I want to _talk_ to my fox.” This is another happy ending, because though the app failed to gain traction and ultimately ran out of money, the founder went on to be an iOS developer for Apple. And gets to text will.i.am from time-to-time (which, being honest, is the greatest reward of all).
+This is peak will.i.am and the reason I watch the show: convincing a poor young developer to turn his beloved fitness app into a Pokémon-inspired battle game. We’re also treated to the best montage in the entire show, with will.i.am’s rapid fire questions “Can my fox battle Kanye’s fox?” “Can my fox have access to my calendar?” “Can my fox have access to my Instagram?” “Can my fox have armor?” “Can I talk to my fox? … No not Siri; I want to _talk_ to my fox.” This is another happy ending, because though the app failed to gain traction and ultimately ran out of money, the founder went on to be an iOS developer for Apple. And gets to text will.i.am from time-to-time (which, being honest, is the greatest reward of all).
 
 <figure><img width="1858" height="1044" src="/assets/posts/planet-of-the-apps-where-are-they-now/dote.jpg" alt="Lauren Farleigh" /></figure>
 

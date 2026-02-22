@@ -2,7 +2,7 @@
 title: Secure runtime variables in IronWorker with Manifold
 description: Docker secrets with minimal code & configuration
 pubDate: 2018-06-10
-categories: ['dev']
+categories: ["dev"]
 ---
 
 <figure>
@@ -327,7 +327,7 @@ support for Golang, Ruby, Java, PHP, Python, and .NET too!
 We can’t **schedule** from outside our app, because ideally scheduling should be self-managing! To
 recap: you can **schedule** from the IronWorker CLI or the Dashboard, or you can **queue** from
 anywhere using the IronWorker client. Consider a different approach if you’re trying to schedule a
-repeat event programatically.
+repeat event programmatically.
 
 To learn more about queueing, see the
 [docs on IronWorker client](http://dev.iron.io/worker/libraries/).

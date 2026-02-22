@@ -376,7 +376,7 @@ Out of any standard easing curve, a linear one will produce the most even blend 
 
 While nonlinear curves may be desirable with motion, they produce uneven blending for colors. You can see how a linear transition (top), for the most part<sup>\*</sup>, blends color A and color B evenly. But when using ease-out (middle), the midpoint gets shifted too far left, and ease-in (bottom) shifts the midpoint too far right. So in most cases, a <b>linear curve</b> is the best option.
 
-Sure, there may be a _super-specific_ usecase where you want to apply an easing curve to a color transition. But that will only ever work with a very specific curve and a very specific color transition—change one, and you must change the other (it will never be generally-applicable).
+Sure, there may be a _super-specific_ use case where you want to apply an easing curve to a color transition. But that will only ever work with a very specific curve and a very specific color transition—change one, and you must change the other (it will never be generally-applicable).
 
 _<sup>\*</sup>If you think linear transitions don’t transition smoothly, congratulations! 🎉 You’ve <a href="https://observablehq.com/@sebastien/srgb-rgb-gamma" target="_blank">found a rabbit hole into color theory</a>. <i>glhf</i>. But for your own sanity, just pretend that linear transitions are the smoothest among “dumb” non-color-aware easing curves. And pretend linear curves are good enough for animating (which, IMHO, they are)._
 
@@ -443,7 +443,7 @@ Rotation is another good general application for a <b>linear curve</b> (though t
   </figure>
 </div>
 
-As you can see, the right linear animation is less distracting and moves more consistently. The poor excuse for a spinner on the left, bumping along almost like a flat tire, is what you get with the brower-default <code>ease</code> curve. Inspecting the code you’ll find the fix is as simple as a single CSS property:
+As you can see, the right linear animation is less distracting and moves more consistently. The poor excuse for a spinner on the left, bumping along almost like a flat tire, is what you get with the browser-default <code>ease</code> curve. Inspecting the code you’ll find the fix is as simple as a single CSS property:
 
 ```diff
   .spinner--stutter {

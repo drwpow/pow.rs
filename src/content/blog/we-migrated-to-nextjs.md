@@ -133,7 +133,7 @@ Next makes you use their provider for a reason.
 
 In general, this highlights a key problem with Next.js:** very little is documented**. They have
 [many examples to draw from](https://github.com/zeit/next.js/tree/canary/examples/), but if your
-usecase isn’t there, good luck!
+use case isn’t there, good luck!
 
 <figure><img src="https://miro.medium.com/freeze/max/60/1*jIPpDxpwCCD3yEx2NX9DWQ.gif?q=20"><figcaption>If you do not have a relevant Next.js example to pull from, godspeed.</figcaption></figure>
 

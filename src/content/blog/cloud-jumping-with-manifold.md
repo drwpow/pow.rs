@@ -1,8 +1,8 @@
 ---
-title: 'Cloud-jumping: swap hosted services easily with Manifold'
+title: "Cloud-jumping: swap hosted services easily with Manifold"
 description: how to take back full control of your cloud services in one afternoon
 pubDate: 2018-04-13
-categories: ['dev']
+categories: ["dev"]
 ---
 
 <figure><img src="https://miro.medium.com/max/2000/1*twYXJ0AvFBD_V4yNKhud_A.png"></figure>
@@ -43,7 +43,7 @@ Though the values aren’t saved in the app, you can see all the variable names 
 # Moving to Manifold
 
 With [Manifold](https://www.manifold.co/), you can hook up any service you want—even those not
-listed on the [Services page](https://www.manifold.co/services)! But for this example, our usecase
+listed on the [Services page](https://www.manifold.co/services)! But for this example, our use case
 is satisfied by the existing services of [Mailgun](https://www.manifold.co/services/mailgun) and
 [JawsDB Postgres](https://www.manifold.co/services/jawsdb-postgres), so we’ll use those two. But
 again, once the application uses Manifold, those can be swapped out easily at any time.

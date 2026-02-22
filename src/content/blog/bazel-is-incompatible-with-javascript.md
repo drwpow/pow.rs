@@ -2,18 +2,18 @@
 title: Bazel is incompatible with JavaScript
 description: If you don’t know what Bazel is, you not only can skip this blog post; I envy you greatly.
 pubDate: 2024-10-13
-updated: 2025-06-22
+updated: 2026-02-21
 categories: ["dev"]
 ---
 
-[Bazel](https://bazel.build/) is an open source fork of Google’s internal tooling, Blaze, that I’ve had the misfortune of fighting with for the past year. It promises a mouthwatering smorgasboard of:
+[Bazel](https://bazel.build/) is an open source fork of Google’s internal tooling, Blaze, that I’ve had the misfortune of fighting with for the past year. It promises a mouthwatering smorgasboard of:
 
 - Incremental builds
 - Build caching
 - Remote build caching
 - Support for any programming language, any codebase, and any possible deploy target
 
-The reviews are great. It has a passionate fanbase. It’s well-maintained, has a full-time company supporting development, and even has conferences and meetups. There's just one itty-bitty problem that gets overlooked by the people opting for it: _it's useless for JavaScript_. In this blog post we’ll dig into why Bazel shouldn’t touch ANY JavaScript, TypeScript, or Node.js at all.
+Bazel has a passionate fanbase. It has great reviews. It seems well-maintained, has a full-time company supporting development, and even has conferences and meetups. There's just one itty-bitty problem: _it's made for C++, not JavaScript_. In this blog post we’ll dig into how Bazel’s decisions are incompatible with JavaScript (and Node.js and TypeScript by extension).
 
 ![@BenLesh on x.com: “I loved Blaze (Bazel) at Google... But your company will never, ever be able to do Bazel like Google does Blaze. And while it probably helps the build  pipeline for your JVM-based whatever backend, it's an absolute hinderance for TypeScript/JavaScript development.”](/assets/posts/bazel-is-incompatible-with-javascript/ben-lesh.png)
 
@@ -23,73 +23,119 @@ The reviews are great. It has a passionate fanbase. It’s well-maintained, has 
 
 “What about Nx?” I've had a lot more papercuts with Nx because they try and follow Bazel philosophy more closely, but compromise on what parts don't fit into JS. So while you don’t have the full-on headaches, you have a _compromise_ of the headaches.
 
-## Inputs and outputs
+## The problem with Bazel
 
-Let’s back up a bit and lay some groundwork. The underlying principle of skipping work is **determinism.** Or more specifically, the idea that **if the inputs don’t change, the outputs shouldn’t,** therefore, no reason to rebuild (assuming it’s a [pure system](https://en.wikipedia.org/wiki/Pure_function)). Most build systems strive for determinism, and Bazel is no different.
+_Update (18 months later): the original arguments have been clarified to go a little more in-depth, and sound less like a rant (it’s still a bit of a rant). You can find the old version on [archive.org](https://web.archive.org/web/20250423012139/https://pow.rs/blog/bazel-is-incompatible-with-javascript/)._
 
-But where Bazel oversteps for JavaScript is it needs to know the _outputs_ ahead of time, too. That is very reasonable in most compiled languages which only output a handful of things. But in the JavaScript ecosystem, a build can produce anywhere from 1 to 1,000+ outputs, which is untenable. It’s almost like saying “before we run this mathematical equation, we first have to know what the answer is to run it.” It doesn’t make any sense. At this point why do we even have math? Needless to say, it’s at the “knowing the outputs ahead of time” part that JS has now jumped ship.
+The fundamental problem of using Bazel outside the original C++ ecosystem it was designed for is it exerts strong opinions over JavaScript that are not only dumb, they’re _incorrect_—the worst kind of dumb.
 
-## Problem 1: no boundaries
+## Problem 1: this is how you draw node_modules right?
 
-Much of the existing Bazel JS tooling has tunnel vision on a single TypeScript usecase: for every `.ts` file, build one `.js` file. While that is _one_ usecase, friend, if you think that's all JS build tools do, I've got really bad news.
+![Ralph Wiggum drawing on his face](/assets/posts/bazel-is-incompatible-with-javascript/ralph-drawing-face.jpg)
 
-Look into any medium-size npm package and you’ll find `.mjs`, `.js`, and `.cjs` to support ESM and CommonJS, corresponding `.d.mts` and `.d.cjs` declarations to satisfy TypeScript, as well as `*.map` files for all of the above so debugging is easy. Of course, all these outputs likely won’t be 1:1 with the source `.ts` files—sometimes CommonJS will be bundled or vice-versa. Sometimes there are “lite” builds for clients. There really is no association with the entry files because it’s hand-tailored to what the package does and the philosophy it embodies. In other words, the package’s contents are a product of both the **inputs _AND_ the build system**. Bazel oversteps its boundaries by trying to _be_ the build system, but without providing any possible way for that to even happen.
+From day one, Node.js has relied on `package.json` and `node_modules` to resolve modules. More specifically, it requires _precise locations_ of `package.json` and `node_modules` in relationship to the local source code. Though this is all by design and is still true today, the JS ecosystem has gotten palpable improvements through things like [Yarn](https://yarnpkg.com/) and [pnpm](https://pnpm.io/) that achieve the original design goals, while deduping `node_modules` and keeping disk usage minimal.
 
-For npm packages it’s _borderline_ unmaintainable.
+Then along comes [Electron](https://www.electronjs.org/), which powers many apps like VS Code and Cursor. These apps, built on Node.js architecture, also need local `node_modules` in that same, untouched location. Extensions like Prettier take this further, using `node_modules` as a local cache to save work. After all, it’s an established part of the ecosystem that’s been around for > 15 years, why not change it?
 
-For the bundled site, consider an Astro site (like this one!). It can handle any filetype the web can (because we’re building a website). But what’s more, we have things like PageFind, where based on the contents of other files, we will get about 50+ `.pf_meta`/`.pf_index`/`.pf_fragment` files, randomly-hashed, indexing the site for search. Bazel would want me to tell it ahead of time what all those random files will be named I have no control over that are critical to the functioning of my site.
+Bazel rejected the assignment, instead attempting to redraw `node_modules` onto its own face. Bazel does this in the name of “[hermeticity](https://blog.aspect.build/hermetic-c-toolchain),” a concept from C++ that yields all the following problems in JavaScript:
 
-For bundled sites, it’s _outright_ unmaintainable.
+- **Disk space.** All those memes of `node_modules` being [heavier than a black hole](https://medium.com/s/silicon-satire/i-peeked-into-my-node-modules-directory-and-you-wont-believe-what-happened-next-b89f63d21558) are way worse with Bazel. `node_modules` are copied **once per rule,** (a “rule” is sort of a package or macro for Bazel), since every rule is in its own hermetic sandbox. This means in an average Bazel setup, your `node_modules` take up 4× the disk space (or more) than they need to (Bazel users may be surprised to find there aren’t as many symlinks inside the sandbox as they thought there were).
+- **Network usage.** Bazel re-downloads all your local `node_modules` again, because [“it should be Bazel’s job.”](https://github.com/aspect-build/rules_js?tab=readme-ov-file#installing-third-party-libraries) This is not only unkind to your network, it’s unkind to registry hosts.
+- **Incorrectness from Bazel bugs.** This is where we really get into harmful architecture—Bazel rearranges `node_modules` and splits them up into hundreds and hundreds of locations. It then tries to symlink them together, but it doesn’t even symlink it correctly in the way Node.js programs expect. The end result is [unfixable bugs > 4 years old where JS programs don’t execute correctly](https://github.com/aspect-build/rules_js/issues/362).
+  - The most common result of this I’ve seen is teams patching npm packages. This is not only a maintenance nightmare, it also leads your whole team down a dark path where they’re now debugging issues they’ve introduced in multiple libraries beyond their own source code.
+- **Incorrectness from Bazel design.** It’s an encouraged pattern for Bazel configs to redeclare every `node_modules` package manually. Hope you didn’t miss a single package somewhere! Otherwise your Bazel build will be broken or incorrect from local Node.js execution, which always has all local `node_modules` packages available.
+  - The scary part is this doesn’t always fail loudly—sometimes it will silently build the wrong thing because TypeScript types were missing and what should have been a type error was ignored.
+- **Slowness.** Think about all the above points of duplicating `node_modules`, duplicating your local code (oh–it does that too, by the way), and symlinking everything—it can take minutes to do all this _pre-work_ before any actual building happens. This means that apples-to-apples, Bazel **always slows down every JS system it touches.** No exception.
+  - The counterargument is “the first run is slower, but subsequent runs cache!” However, **Bazel’s cache evaluation is painfully slow**, and often it takes Bazel longer to determine a build should be skipped than just building every time in Node.js. Further, expect that cache to be invalidated > 50% of the time, so run the numbers if it’s _actually_ saving time if every command is slower. Especially if you’re using Rust-powered JS tools like [Vite](https://vite.dev).
+- **No debug-ability.** It’s helpful for a JIT language to be able to inject breakpoints in `node_modules` packages, or even debug a package yourself by changing a line or two. Bazel prevents this from happening, which means using Bazel is asking all of your expert JS devs to throw away all their debugging tools they’ve relied on for over a decade.
 
-## Problem 2: anything you can do, I refuse to do in the first place
+<figure>
+  <img alt="classic meme node_modules, showing it’s so heavy it affects space–time curvature more than the Sun, a neutrino star, and a black hole. The original meme has been modified with an additional “sandbox rules_js node_modules,“ “sandbox rules_ts node_modules,” “NpmLifecycleHook node_modules,” and it cuts off suggesting even more are out-of-frame." src="/assets/posts/bazel-is-incompatible-with-javascript/node-modules.jpg" width="1149" height="497" />
+  <figcaption>“I wish more of my disk space belonged to node_modules” says every user of Bazel</figcaption>
+</figure>
 
-If generating hundreds of filenames doesn't sound that bad to you, I've got even worse news: _you can’t run npm executables._ That’s right. All your favorite npm CLIs? _Poof._ Gone.
+The end result is not only execution bugs and lack of Node.js safety, it’s also… *dumb*. It’s an utter waste of resources, duplicating `node_modules` _and_ putting them in the wrong places, causing incorrect program execution.
 
-Let's say you have an existing Rollup build you want to Bazelify. You describe all your inputs and outputs, but… how do you run `rollup -c`? You can’t!
+_But wait—there’s more!_
 
-After hours of research you‘ll find:
+---
 
-- `rules_js` kinda has a thing where you can point to a `bin` inside an npm package, but it doesn’t work half the time. Or if it does, you find that it escapes the sandbox half the time anyway unless you patch it or turn off half of the settings.
-- You find a `js_binary` macro, but that's for running JS scripts _you_ own, not npm CLIs (but you can spawn child processes to run npm CLIs except you might as well not use Bazel at that point).
-- You find `rules_rollup`, thinking you’re saved, except it only has a placeholder test that’s just a flimsy proof of concept.
+<details>
 
-You slowly come to the realization you’re going to have to make an entire [Starlark](https://bazel.build/rules/language) wrapper. taking a week or two to work on this. You run into dead end after dead end. You fear the reason you can’t find others have paved this path before you is because it’s a bad idea. In the end, you get it working, but out of tiredness you’ve skipped recreating all the features you didn’t use.
+<summary><em>Additional thoughts on hermeticity (skip if you’re not interested in Bazel inner workings)</em></summary>
+
+Bazel apologists may feel that Bazel’s approach to `node_modules` handling is actually correct, and Node.js itself is wrong. For those that don’t find this assertion ridiculous at face value, and need more convincing:
+
+- The original rules_nodejs was so bad [they had to deprecate it](https://github.com/aspect-build/rules_js?tab=readme-ov-file#relationship-to-rules_nodejs) and force everyone to move to rules_js.
+- The current version of rules_js still has design flaws, as [Aspect explains](https://github.com/aspect-build/rules_js?tab=readme-ov-file#running-nodejs-programs) (note the “Bazel rules/macro authors must re-path inputs and outputs” part—this is fundamentally broken!).
+- Bazel’s default settings are to [patch node:fs](https://registry.bazel.build/docs/aspect_rules_js/3.0.0-rc4). That’s right—Bazel’s implementation is so broken it has to patch Node.js internals for it to work _sometimes_ (it doesn’t work all the time, because the design is flawed).
+
+The recurring theme here is **Node.js was designed to NOT be hermetic by its design,** because it doesn’t need hermeticity. Unlike C++, it does not have to rely on installed binaries and external libraries, and it creates its own isolated build system with `node_modules` that is already portable and reproduceable out-of-the-box (with the few OS deviations [well-documented and with workarounds](https://nodejs.org/api/url.html#urlfileurltopathurl-options)). Node.js users have known this. But someone should tell the Bazel team.
+
+</details>
+
+---
+
+## Problem 2: not in my sandbox!
+
+<figure>
+  <img alt="Ralph Wiggum and Bart Simpson" src="/assets/posts/bazel-is-incompatible-with-javascript/my-sandbox.webp" width="942" height="524" />
+  <figcaption>“This is my sandbox. I’m not allowed to go in the deep end.”</figcaption>
+</figure>
+
+Bazel’s roots are in building for compiled languages, namely C++. It’s engineered to produce only one compiled binary, or at most a couple outputs. The Bazel mind can’t even begin to conceive what all of JavaScript’s modern bundlers and build tools are capable of.
+
+When Bazel builds files in its sandbox, it requires you to specify [build targets](https://bazel.build/run/build#specifying-build-targets) that are a list of every file that will be added to disk after a build run. If you’ve ever inspected the output from webpack, you know what a nightmare this is listing out _every. file. and hash. it spits out._ But Bazel needs thousands of filenames in order for any build to happen (and, yes, there are a few [prebuilt rules](https://github.com/aspect-build/rules_webpack) or helper functions like [glob](https://bazel.build/reference/be/functions#glob), but inevitably you have to deal with the [configuration drift](https://spacelift.io/blog/what-is-configuration-drift) of teaching Bazel about everything your JS build tool is already doing).
+
+But what’s more, Bazel won’t let you do common sense things, including:
+
+- ❌ You can’t add anything into `dist/` if another command has built anything there. This means no 2nd build job, no custom scripts. Pick a new folder.
+- ❌ You can’t generate any files into `src/` (like Next.js, Astro, and SvelteKit do updating types) because Bazel can’t treat `src/` as a build output
+- ❌ You can’t run a formatter, or otherwise autofix `src/` files in any way (for the same reason)
+
+And the real kicker is [**Bazel is single-threaded**](https://github.com/bazel-contrib/rules_foreign_cc/issues/329). One build job at a time. Even opening multiple terminal commands, you’ll see the error `Another Bazel command is running…` and it will wait for its single-job queue to complete before starting anything new. Even if the commands have no dependency relation at all, it will simply refuse to parallelize anything. So it not only executes individual tasks more slowly than Node.js does (Problem 1), it also takes potentially-parallelizable streams of work and shoves them into a single-file queue to ensure that everything slows to a crawl as much as possible.
+
+“But Bazel can only build the minimal dependency tree needed for any job!” Yes, but so can [pnpm run](https://pnpm.io/cli/run), a tool that most JS devs are using already (see [--filter ...](https://pnpm.io/filtering#--filter-package_name-4) and [--resume-from](https://pnpm.io/cli/run#--resume-from-package_name)). So we’re back to Bazel providing slower, buggier execution, with no functionality or advantages over simple Node.js tooling, in exchange for an occasional cache hit.
+
+## Problem 3: sunk cost fallacy
+
+![Ralph Wiggum: (chuckles) I’m in danger](/assets/posts/bazel-is-incompatible-with-javascript/ralph-wiggum-im-in-danger.jpg)
+
+The previous problems would be more forgivable if Bazel allowed for incremental adoption, or some way to lean into the existing Node.js ecosystem rather than fight against it at every turn. But all of the problems multiply exponentially because Bazel wants to be in control everything, and force its bad decisions onto every surface area of your codebase.
+
+Imagine you had a dependency chain of **Internal Package A → Internal Package B → Internal Package C** in a monorepo. Also say you wanted to cache Package C’s build with Bazel. Unfortunately you can’t, because Bazel doesn’t know about any builds in the local filesystem—it only cares about builds that happened in its special sandbox. So in order to even _evaluate_ if Bazel saves you time (unlikely), you have to spend weeks converting Package A, B, and C over to Bazel.
 
 ![2 weeks later](/assets/posts/bazel-is-incompatible-with-javascript/2-weeks-later.jpg)
 
-Now onto your 2nd npm executable. Oh God. Weeks have gone by, just trying to get a thing running that normally takes 15 minutes. You claw your way back to normalcy, with it barely running. Then you change your Rollup config and your `rules_gen` breaks. You break.
+Assuming you didn’t run into any serious issues, and all three packages were Bazelified successfully, you hit a huge problem with Internal Package D (or if not D, then E, F, G or somewhere along the line). At some point you have to make the commitment to walk away completely, or go all in, usually before you even got your evaluation.
 
-## Problem 3: Dante’s 9 circles of hermeticity
+When the cost of evaluation requires a full implementation, and full buy-in from the start, you’re not so much _evaluating_ as _taking a blind leap of faith_ that all the time invested will someday be worth it in the long run.
 
-Even assuming you are able to get a JS project running exactly as it did, the final boss is [_hermeticity_](https://bazel.build/basics/hermeticity) where it doesn't do anything in your local `node_modules` (of course not! That would be silly). It copies everything into a secret location on disk where it does work, which if you’ve worked with Node.js in any capacity you’d know is the single dumbest thing you can do.
+It won’t.
 
-“What’s that error?” you say. You forgot to copy your `node_modules` into the secret location. “It’s still blowing up.” No, _all_ of your `node_modules`. List them out. Every single one. Even the sub-dependencies. “OK it ran… where are my files?” Still in the super-secret location we can’t tell you about. What are their names? What are their contents? Who knows!
+At least, not for JavaScript.
 
-“Just tell me how to get my files back.” You have to create a _build target_ selecting those files. “Then what—they’ll appear locally?” No, silly! A target only gives Bazel a list of files; you have to import and run another `copy_to_directory` macro to write those files back to your local workspace. “OK that worked but the files are in the wrong locations?” Oh, right, right—it actually didn’t build them like Node.js would have so you’ll need to rename and remap all the files back to their correct locations (and maybe fix some broken JS imports too).
+## JS != C++
 
-“OK all that is done; now I want to run a followup command that generates my next set of files to the same location.” Nope! _Bzzzzzt_. You can only perform one task per output directory. Idiot.
+At the end of the day, JavaScript is not C++. JavaScript is not a compiled language, and when you remember that JavaScript runs on the server, on the frontend code, and even natively, not to mention JS and Node.js were designed from the ground-up to be portable and universal, a tool designed for C++ can’t scratch the surface in covering all the use cases. So all of the things Bazel rejects, are paramount to rejecting the JS ecosystem itself:
 
-## Problem 4: the times they are a-changin’
+1. Local `node_modules`
+2. Treatment of `package.json` (and the lockfile) as the source of truth for package management and versioning
+3. Treatment of the npm/pnpm workspace as the source of truth for the dependency graph
 
-Some of the afore-mentioned would be workable if investments in Bazel paid dividends down the line. But the biggest mistake I see Bazel users making is **underestimating how quickly the JS ecosystem evolves.**
+Sticking to all of these foundational pillars of JS means not using Bazel, because Bazel makes all these impossible.
 
-Smart technical decisions require less investment over time. Bazel requires _increasing_ amounts of time and energy to maintain your infrastructure of Starlark wrappers and shim code teaching Bazel about JS. Imagine having to redo this every month. Every time a major version of an npm package is released. Every time an OSS project fails out of maintenance and a new one takes its place. Every time a quantum leap forward happens in research. Every generation of JS tooling requires _more_ time plugging into Bazel because it’s evolutionarily more complex. But you’ll never benefit from all these new tools because you’re (still) trying to catch up to the previous generation.
+But in case you need further convincing from someone other than me, remember that [Vercel, back in 2021](https://github.com/vercel/next.js/issues/14778#issuecomment-971596723), evaluated Bazel, and came to these conclusions years ago:
 
-But the _real_ pointlessness is the fact that the JS ecosystem gets orders of magnitude faster every generation. All that work you spent building a wrapper for the slow JS tool that sped it up by 25% would have been better served upgrading to its successor that’s 1,000% faster. I’m not even talking hypothetically: webpack was replaced by [Vite](https://vite.dev), [esbuild](https://esbuild.github.io/), and soon [Turbopack](https://turbo.build/pack/docs), Rollup with [Rolldown](https://rolldown.rs/guide/), ESLint with [Biome](https://biomejs.dev/), PostCSS with [Lightning CSS](https://lightningcss.dev). If you’re using Bazel to **speed up CI,** then compare apples to apples. Focus on speeding up CI. And usually that fast track is leaning into the hundreds of thousands of smart JS devs that would absolutely love to help you with that.
+> After doing a proof of concept leveraging Bazel there were too many breaking changes / hacks required to make it work.
 
-## Summary
+What did they do? [They acquired Turborepo](https://turborepo.dev/), and invested in its development to actually deliver on Bazel’s failed promises, in a significantly-better way. Not that Vercel is perfect, but when one of the most prolific JavaScript/Node.js teams in history has already done this exact evaluation in public, posted their findings, and came up with a better solution, it’s at least worth paying attention to.
 
-<figure>
-  <img width="660" height="396" src="/assets/posts/bazel-is-incompatible-with-javascript/tacky.gif" alt="“You’re tacky, and I hate you.” (School of Rock)" />
-  <figcaption>In summary, Bazel, you’re tacky and I hate you.</figcaption>
-</figure>
+If I had to leave a parting thought, it’s just **be honest with yourself.** If you’re evaluating apples-to-apples, then really think through:
 
-At the end of the day, a build system just won’t work for all languages, and that’s OK. Bazel was designed for a completely different ecosystem than a JIT scriping language. And it’s natural that Bazel tried to solve a problem for everyone, especially with the growing popularity and maturation of JS. And I applaud all the lovely contributors and maintainers that are making an effort at making Bazel better! But that doesn’t mean I’d touch Bazel with a 10 foot pole for handling JS right now.
+- Is Bazel better at caching JS than Turborepo?
+- Is Bazel slower at evaluating its own cache than building in JS every time?
+- Are we prepared to take on the maintenance of patching half the npm packages we use, just to get them to work in Bazel?
+- Do we want to spend weeks of research and fighting against Bazel, every time we want to try a new JS tool?
 
-But rather than end on a sour note and be a downer, I can sum up what _would_ make Bazel compatible with JS with a more concrete answer than “make it like Turborepo” (OK, I lied—I did end up mentioning it again), only 3 changes would be required:
-
-1. **Bazel runs npm executables with zero config.** The most important tools in the ecosystem——build systems, linters, test runners—run via CLI and npm bins. Having to rewrite every CLI we want to use in Starlark is insane; we should just be able to use the damn thing.
-2. **Bazel treats local `node_modules` as the canonical source.** That’s right, no sandbox, no hermiticity. All Node.js tools rely on the nested `node_modules` all the way up the file tree to share caches and resolve packages. Node.js has never been sandboxed, and never will be. You’re only lighting compute on fire going against a decade of how Node.js has worked from day 1, and has millions of developers relying on this system.
-3. **No `rules_ts`.** Evidence of Bazel’s incompatibility has been right under your nose the whole time. If Bazel Just Worked™ with the npm ecosystem, `rules_ts` goes away. After all, TypeScript is a package just like any other. The fact that Bazel requires a heavyweight wrapper for every tool you use is not a sustainable development model. Bazel will always be playing catchup to JS’ ecosystem. But if Bazel truly integrated with JS, `rules_js` would have everything you needed.
-
-Will all these changes happen? I don’t know. And I’m not making ’em. But until these changes are made, I’ll personally be using anything _but_ Bazel for JS. And you should, too.
+And if I’m wrong, then please try and convince me (and Vercel, and [VoidZero](https://voidzero.dev/)) that Bazel is really better than the best the JS ecosystem has to offer! But until then, I’m sticking with Turborepo for JS (at least until [Vite+](https://viteplus.dev/) comes out!).

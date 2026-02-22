@@ -3,7 +3,7 @@ title: The great(er) divide in front-end
 pubDate: 2020-02-17
 description: |
   A year of reflecting on Chris Coyier’s “The Great Divide” post. I think it holds up, but requires a little more nuance.
-categories: ['dev']
+categories: ["dev"]
 updated: 2020-04-19
 ---
 
@@ -198,7 +198,7 @@ language (even if not JS), the “Beginner” section was omitted entirely here.
 | Architect               | _I can build front-end boilerplates for other people to use_                                                  |
 | AST understanding       | _I can create my own [Babel][babel-plugin] or ESLint plugins_                                                 |
 | Bundler understanding   | _I can create my own webpack plugins_                                                                         |
-| Code Generation         | _I can generate JS programatically_                                                                           |
+| Code Generation         | _I can generate JS programmatically_                                                                          |
 | CI²                     | _I create automated pipelines for deploying npm packages as well as shipping optimized bundles to production_ |
 | Ecosystem understanding | _I understand how to deploy npm packages for Node.js, web browsers, and CLI tools, and how to target each_    |
 
