@@ -154,13 +154,23 @@ abbr {
   text-decoration: none;
 }
 
+q:first-child {
+  margin-left: -0.375em;
+}
+
 blockquote {
   background-color: var(--gray-20);
+  box-sizing: border-box;
   font-size: 1em;
   font-style: italic;
   font-weight: 300;
-  margin: 0 -2rem;
-  padding: 1rem 2rem;
+  margin: 0 -1.5rem;
+  padding: 1rem 1.5rem;
+
+  @media (width > 600px) {
+    margin: 0 -2rem;
+    padding: 1rem 2rem;
+  }
 
   p {
     line-height: 1.25;
@@ -229,6 +239,11 @@ ol,
 ul {
   margin: 2em 0;
   padding: 0 1em;
+
+  ol,
+  ul {
+    margin: 1em 0;
+  }
 }
 
 ol {

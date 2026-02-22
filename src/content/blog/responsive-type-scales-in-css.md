@@ -3,7 +3,7 @@ title: How to handle responsive font sizes in css
 pubDate: 2020-08-02
 description: |
   Get perfect, easy-to-use font scaling with &lt; 1kB of CSS. Sound too good to be true? It’s not!
-categories: ['design']
+categories: ["design"]
 ---
 
 Are you making typography on the web harder on yourself than it needs to be? Probably. What if I
@@ -25,7 +25,7 @@ This blog post will cover:
 1. Responsive Type Scales: the theory
 1. tips / faqs
 
-“But is this for me?” You’ll ask. **Yes. Yes, this is for you.** If you type words and put them on
+<q>But is this for me?</q> You’ll ask. **Yes. Yes, this is for you.** If you type words and put them on
 the internet, you should use this. You can check the “FAQ” section at the end to learn how it works
 with special edge cases and such.
 
@@ -109,7 +109,10 @@ Then just sprinkle the utilities in whenever you need it:
 
 ```html
 <h1 class="font-u6">I’m an h1 so I’m 6 steps up from the base size</h1>
-<h2 class="font-u5">I’m an h2 so I’m slightly smaller than h1, but still 5 steps up from the base size</h2>
+<h2 class="font-u5">
+  I’m an h2 so I’m slightly smaller than h1, but still 5 steps up from the base
+  size
+</h2>
 
 <small class="font-d1">I’m 1 step down from the base size</small>
 ```

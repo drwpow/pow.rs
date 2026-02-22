@@ -2,7 +2,7 @@
 title: On Startups
 description: How to burn out your employees AND bridges all at the same time!
 pubDate: 2024-09-21
-categories: ['dev']
+categories: ["dev"]
 ---
 
 I recently grabbed lunch with a former coworker to catch up, and was sad to hear the unhealthy working environment I left hadn’t improved much. As we talked, I realized I had strong opinions about what NOT to do having run on the early-stage hamster wheel 4 times now. While I am but a mere grunt—a pawn in the grand game of venture capital chess—I still have experiences of what didn’t work well from the ground-level perspective. Follow this advice if you want to fail, and fail spectacularly:
@@ -34,9 +34,9 @@ It always ended up in 1 of 2 ways: if the Big Tech™ engineer had some integrit
 
 One startup I worked at had an unusably-slow dev environment running on mostly-custom tooling that was unlike anything I had ever worked with. Many weeks I struggled getting a single PR in because my local environment either wouldn’t run, or the thing I was working on had such a complex feedback loop it would take me multiple days to figure out how I could test it. But all that custom tooling served a purpose… _right_? After months of pain and frustration, and trudging along at 1/4 of my usual speed, I talked to the engineer responsible.
 
-“X, Y, and Z is all needed to deploy on our custom infrastructure. It’s all highly scalable.”<br>
-“…So we _need_ that scale, right?”<br>
-“Oh, not really. We barely even need 1 instance right now; I don’t even know when we’ll need a 2nd.”
+<q>X, Y, and Z is all needed to deploy on our custom infrastructure. It’s all highly scalable.</q><br>
+<q>…So we _need_ that scale, right?</q><br>
+<q>Oh, not really. We barely even need 1 instance right now; I don’t even know when we’ll need a 2nd.</q>
 
 It took everything within me to not reach through the Zoom call to strangle them. Why we were lighting money on fire, and burning out engineers, for a problem that didn’t even exist will haunt me for the rest of my days.
 

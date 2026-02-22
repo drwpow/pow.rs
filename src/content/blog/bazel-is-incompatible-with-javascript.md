@@ -19,9 +19,9 @@ Bazel has a passionate fanbase. It has great reviews. It seems well-maintained, 
 
 ## TL;DR
 
-“I don’t use Bazel and don’t care. I found this Googling and just want to know what I _should_ use.” Use [Turborepo + pnpm](https://turbo.build/repo). Turborepo is designed for how JS works from the ground-up, and does a lovely job at delivering on all of Bazel’s promises but tailored to the JS ecosystem. Though I won’t mention Turborepo again in this blog post, just know for every criticism levied against Bazel, I can’t say the same for Turborepo.
+<q>I don’t use Bazel and don’t care. I found this Googling and just want to know what I <em>should</em> use.</q> Use [Turborepo + pnpm](https://turbo.build/repo). Turborepo is designed for how JS works from the ground-up, and does a lovely job at delivering on all of Bazel’s promises but tailored to the JS ecosystem. Though I won’t mention Turborepo again in this blog post, just know for every criticism levied against Bazel, I can’t say the same for Turborepo.
 
-“What about Nx?” I've had a lot more papercuts with Nx because they try and follow Bazel philosophy more closely, but compromise on what parts don't fit into JS. So while you don’t have the full-on headaches, you have a _compromise_ of the headaches.
+<q>What about Nx?</q> I've had a lot more papercuts with Nx because they try and follow Bazel philosophy more closely, but compromise on what parts don't fit into JS. So while you don’t have the full-on headaches, you have a _compromise_ of the headaches.
 
 ## The problem with Bazel
 
@@ -51,7 +51,7 @@ Bazel rejected the assignment, instead attempting to redraw `node_modules` onto 
 
 <figure>
   <img alt="classic meme node_modules, showing it’s so heavy it affects space–time curvature more than the Sun, a neutrino star, and a black hole. The original meme has been modified with an additional “sandbox rules_js node_modules,“ “sandbox rules_ts node_modules,” “NpmLifecycleHook node_modules,” and it cuts off suggesting even more are out-of-frame." src="/assets/posts/bazel-is-incompatible-with-javascript/node-modules.jpg" width="1149" height="497" />
-  <figcaption>“I wish more of my disk space belonged to node_modules” says every user of Bazel</figcaption>
+  <figcaption><q>I wish more of my disk space belonged to node_modules</q> says every user of Bazel</figcaption>
 </figure>
 
 The end result is not only execution bugs and lack of Node.js safety, it’s also… *dumb*. It’s an utter waste of resources, duplicating `node_modules` _and_ putting them in the wrong places, causing incorrect program execution.
@@ -80,7 +80,7 @@ The recurring theme here is **Node.js was designed to NOT be hermetic by its des
 
 <figure>
   <img alt="Ralph Wiggum and Bart Simpson" src="/assets/posts/bazel-is-incompatible-with-javascript/my-sandbox.webp" width="942" height="524" />
-  <figcaption>“This is my sandbox. I’m not allowed to go in the deep end.”</figcaption>
+  <figcaption><q>This is my sandbox. I’m not allowed to go in the deep end.</q></figcaption>
 </figure>
 
 Bazel’s roots are in building for compiled languages, namely C++. It’s engineered to produce only one compiled binary, or at most a couple outputs. The Bazel mind can’t even begin to conceive what all of JavaScript’s modern bundlers and build tools are capable of.
@@ -95,7 +95,7 @@ But what’s more, Bazel won’t let you do common sense things, including:
 
 And the real kicker is [**Bazel is single-threaded**](https://github.com/bazel-contrib/rules_foreign_cc/issues/329). One build job at a time. Even opening multiple terminal commands, you’ll see the error `Another Bazel command is running…` and it will wait for its single-job queue to complete before starting anything new. Even if the commands have no dependency relation at all, it will simply refuse to parallelize anything. So it not only executes individual tasks more slowly than Node.js does (Problem 1), it also takes potentially-parallelizable streams of work and shoves them into a single-file queue to ensure that everything slows to a crawl as much as possible.
 
-“But Bazel can only build the minimal dependency tree needed for any job!” Yes, but so can [pnpm run](https://pnpm.io/cli/run), a tool that most JS devs are using already (see [--filter ...](https://pnpm.io/filtering#--filter-package_name-4) and [--resume-from](https://pnpm.io/cli/run#--resume-from-package_name)). So we’re back to Bazel providing slower, buggier execution, with no functionality or advantages over simple Node.js tooling, in exchange for an occasional cache hit.
+<q>But Bazel can only build the minimal dependency tree needed for any job!</q> Yes, but so can [pnpm run](https://pnpm.io/cli/run), a tool that most JS devs are using already (see [--filter ...](https://pnpm.io/filtering#--filter-package_name-4) and [--resume-from](https://pnpm.io/cli/run#--resume-from-package_name)). So we’re back to Bazel providing slower, buggier execution, with no functionality or advantages over simple Node.js tooling, in exchange for an occasional cache hit.
 
 ## Problem 3: sunk cost fallacy
 
