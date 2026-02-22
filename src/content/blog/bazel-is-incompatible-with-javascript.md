@@ -6,7 +6,7 @@ updated: 2026-02-21
 categories: ["dev"]
 ---
 
-[Bazel](https://bazel.build/) is an open source fork of Google’s internal tooling, Blaze, that I’ve had the misfortune of fighting with for the past year. It promises a mouthwatering smorgasboard of:
+[Bazel](https://bazel.build/) is an open source fork of Google’s internal tooling, Blaze, that I’ve had the misfortune of fighting with for over 2 years. It promises a mouthwatering smorgasboard of:
 
 - Incremental builds
 - Build caching
@@ -58,19 +58,17 @@ The end result is not only execution bugs and lack of Node.js safety, it’s als
 
 _But wait—there’s more!_
 
----
+### Sidenote: Additional thoughts on hermeticity
 
-<details>
-
-<summary><em>Additional thoughts on hermeticity (skip if you’re not interested in Bazel inner workings)</em></summary>
+![Principal Skinner: “No, it’s the official maintainers who are wrong about their own language”](/assets/posts/bazel-is-incompatible-with-javascript/skinner-children-are-wrong.jpg)
 
 Bazel apologists may feel that Bazel’s approach to `node_modules` handling is actually correct, and Node.js itself is wrong. For those that don’t find this assertion ridiculous at face value, and need more convincing:
 
 - The original rules_nodejs was so bad [they had to deprecate it](https://github.com/aspect-build/rules_js?tab=readme-ov-file#relationship-to-rules_nodejs) and force everyone to move to rules_js.
 - The current version of rules_js still has design flaws, as [Aspect explains](https://github.com/aspect-build/rules_js?tab=readme-ov-file#running-nodejs-programs) (note the “Bazel rules/macro authors must re-path inputs and outputs” part—this is fundamentally broken!).
-- Bazel’s default settings are to [patch node:fs](https://registry.bazel.build/docs/aspect_rules_js/3.0.0-rc4). That’s right—Bazel’s implementation is so broken it has to patch Node.js internals for it to work _sometimes_ (it doesn’t work all the time, because the design is flawed).
+- Bazel’s default settings are to [patch node:fs](https://registry.bazel.build/docs/aspect_rules_js/3.0.0-rc4). That’s right—Bazel’s implementation is so broken it has to patch Node.js internals for it to work _sometimes_ (it doesn’t work all the time, because the design is still flawed).
 
-The recurring theme here is **Node.js was designed to NOT be hermetic by its design,** because it doesn’t need hermeticity. Unlike C++, it does not have to rely on installed binaries and external libraries, and it creates its own isolated build system with `node_modules` that is already portable and reproduceable out-of-the-box (with the few OS deviations [well-documented and with workarounds](https://nodejs.org/api/url.html#urlfileurltopathurl-options)). Node.js users have known this. But someone should tell the Bazel team.
+The recurring theme here is **Node.js was designed to NOT be hermetic by its design,** because it doesn’t need hermeticity. This alternate approach would be taken more seriously if it hadn’t had such a horrible track record of being able to run _anything_. Node.js already creates its own isolated, portable build system with `node_modules` out-of-the-box (with the few OS deviations [well-documented and with workarounds](https://nodejs.org/api/url.html#urlfileurltopathurl-options)). Node.js users have always known this. But someone should tell the Bazel team.
 
 </details>
 
@@ -101,31 +99,30 @@ And the real kicker is [**Bazel is single-threaded**](https://github.com/bazel-c
 
 ![Ralph Wiggum: (chuckles) I’m in danger](/assets/posts/bazel-is-incompatible-with-javascript/ralph-wiggum-im-in-danger.jpg)
 
-The previous problems would be more forgivable if Bazel allowed for incremental adoption, or some way to lean into the existing Node.js ecosystem rather than fight against it at every turn. But all of the problems multiply exponentially because Bazel wants to be in control everything, and force its bad decisions onto every surface area of your codebase.
+The [Amazon decision framework](https://www.forbes.com/sites/bryancollinseurope/2019/03/07/jeff-bezos-says-successful-people-make-these-two-types-of-decisions/) outlines 2 types of decisions:
 
-Imagine you had a dependency chain of **Internal Package A → Internal Package B → Internal Package C** in a monorepo. Also say you wanted to cache Package C’s build with Bazel. Unfortunately you can’t, because Bazel doesn’t know about any builds in the local filesystem—it only cares about builds that happened in its special sandbox. So in order to even _evaluate_ if Bazel saves you time (unlikely), you have to spend weeks converting Package A, B, and C over to Bazel.
+- **Type 1**: “one-way doors,” permanent commitments or decisions that are so costly to reverse they are effectively permanent
+- **Type 2**: “two-way doors,” trivially-reversible and cheap experiments
 
-![2 weeks later](/assets/posts/bazel-is-incompatible-with-javascript/2-weeks-later.jpg)
+Bazel is far closer to a Type 1 decision, because it requires full buy-in from the start.
 
-Assuming you didn’t run into any serious issues, and all three packages were Bazelified successfully, you hit a huge problem with Internal Package D (or if not D, then E, F, G or somewhere along the line). At some point you have to make the commitment to walk away completely, or go all in, usually before you even got your evaluation.
+Imagine you had a dependency chain of **Internal Package A → Internal Package B → Internal Package C** in a monorepo. Also say you wanted to cache Package C’s build with Bazel. Because Bazel doesn’t know about any builds outside its special sandbox, it requires you to fully Bazelify all three modules before you can see the results of one (unlike alternatives like Turborepo, which can be adopted incrementally—even in Bazel monorepos!). Requiring 100% implementation to evaluate should be a deal breaker on its own.
 
 When the cost of evaluation requires a full implementation, and full buy-in from the start, you’re not so much _evaluating_ as _taking a blind leap of faith_ that all the time invested will someday be worth it in the long run.
 
-It won’t.
-
-At least, not for JavaScript.
+It won’t. _At least, not for JavaScript._
 
 ## JS != C++
 
-At the end of the day, JavaScript is not C++. JavaScript is not a compiled language, and when you remember that JavaScript runs on the server, on the frontend code, and even natively, not to mention JS and Node.js were designed from the ground-up to be portable and universal, a tool designed for C++ can’t scratch the surface in covering all the use cases. So all of the things Bazel rejects, are paramount to rejecting the JS ecosystem itself:
+At the end of the day, JavaScript is not C++. JavaScript is not a compiled language, rather, designed to run on the server, on frontend code, and even natively. JS and Node.js were designed from the ground-up to be portable and universal. A tool designed for C++ can’t even begin to scratch the surface in covering all the different use cases. So all of the things Bazel rejects, are equivalent to rejecting the JS ecosystem itself:
 
 1. Local `node_modules`
 2. Treatment of `package.json` (and the lockfile) as the source of truth for package management and versioning
 3. Treatment of the npm/pnpm workspace as the source of truth for the dependency graph
 
-Sticking to all of these foundational pillars of JS means not using Bazel, because Bazel makes all these impossible.
+Remove any one of these pillars, and you have a broken mess. Commit to all three, and you’re not using Bazel, because Bazel refuses to allow these rules.
 
-But in case you need further convincing from someone other than me, remember that [Vercel, back in 2021](https://github.com/vercel/next.js/issues/14778#issuecomment-971596723), evaluated Bazel, and came to these conclusions years ago:
+In case you need further convincing from someone other than me, remember that [Vercel, back in 2021](https://github.com/vercel/next.js/issues/14778#issuecomment-971596723), evaluated Bazel, and came to these conclusions years ago:
 
 > After doing a proof of concept leveraging Bazel there were too many breaking changes / hacks required to make it work.
 
