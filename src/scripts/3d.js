@@ -33,6 +33,7 @@ function init() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.querySelector("#canvas").appendChild(renderer.domElement);
   const scene = new THREE.Scene();
+  scene.background = new THREE.Color().setRGB(0.0, 0.0, 0.0)
   const loader = new STLLoader();
   const camera = new THREE.OrthographicCamera();
   updateCamera();

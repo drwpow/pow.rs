@@ -1,7 +1,7 @@
 import { defineCollection } from "astro:content";
 import { rssSchema } from "@astrojs/rss";
 import { glob } from "astro/loaders"; // Not available with legacy API
-import z from "zod/v3";
+import z from "astro/zod"
 
 const blog = defineCollection({
   schema: rssSchema.extend({
