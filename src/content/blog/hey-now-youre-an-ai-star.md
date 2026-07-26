@@ -2,6 +2,7 @@
 title: Hey now, you’re an AI Star
 description: My world’s on fire, how ’bout yours?
 pubDate: 2026-05-25
+updated: 2026-06-26
 categories: ["dev"]
 ---
 
@@ -11,7 +12,7 @@ categories: ["dev"]
 
 Shut up, no, fuck you.
 
-These tools are not only [complete](https://www.reddit.com/r/programming/comments/1r9xd58/aws_suffered_at_least_two_outages_caused_by_ai/) [ass](https://www.theguardian.com/technology/2026/apr/29/claude-ai-deletes-firm-database) [at](https://www.axios.com/2026/04/26/ai-cost-human-workers) [coding](https://fortune.com/article/does-ai-increase-workplace-productivity-experiment-software-developers-task-took-longer/) (yes, in 2026, with the fancy models), they are telling people [to end themselves](https://www.psychologytoday.com/us/blog/urban-survival/202507/the-emerging-problem-of-ai-psychosis). Call me crazy, but a tool that not only slows down developers, but makes them go insane, may be a bad deal. But execs are already one step ahead of that, and they’re [firing staff like crazy in the name of AI](https://tech.yahoo.com/general/article/tech-layoffs-2026-update-over-142000-people-have-been-laid-off-from-meta-linkedin-cisco-and-more-144545654.html) to lock in those headlines. Give it a few years, and nobody will remember that teeny little detail that all of these layoffs are fueled by greed, not because AI is actually replacing developers’ work.
+These tools are not only [complete](https://www.reddit.com/r/programming/comments/1r9xd58/aws_suffered_at_least_two_outages_caused_by_ai/) [ass](https://www.theguardian.com/technology/2026/apr/29/claude-ai-deletes-firm-database) [at](https://www.axios.com/2026/04/26/ai-cost-human-workers) [coding](https://fortune.com/article/does-ai-increase-workplace-productivity-experiment-software-developers-task-took-longer/) (yes, in 2026, with the fancy models), they are telling people [to end themselves](https://www.psychologytoday.com/us/blog/urban-survival/202507/the-emerging-problem-of-ai-psychosis). Call me crazy, but a tool that not only slows down developers, but makes them go insane, may be a bad deal. But execs are already one step ahead of that, and they’re [firing staff like crazy in the name of AI](https://tech.yahoo.com/general/article/tech-layoffs-2026-update-over-142000-people-have-been-laid-off-from-meta-linkedin-cisco-and-more-144545654.html) to lock in those headlines. Give it a few years, and nobody will remember that teeny little detail that all of these layoffs were [actually AI washing](https://en.wikipedia.org/wiki/AI_washing).
 
 ## No, this is weird, Ok?
 
@@ -41,7 +42,7 @@ My general process is:
 4. **Code.** Write the code that slots into my goal-oriented (i), researched (ii), strategic (iii) plan. Here’s where you can argue AI can do as good a job as any software engineer, and I don’t care. What I _do_ care about is people pretending like this one step is the bulk of the work. That’s some junior dev shit. This is the stuff that is frankly OK to delegate out to whatever makes most sense.
 5. **Present.** The thing that leaves the lasting impact is after we’ve hit our goals, answering “what does that mean for folks” and tying a ribbon on it and hand-delivering it to them. <q>There’s 20k more lines of software… *so what*?</q> <q>Those 20k lines are a new product and revenue stream.</q> <q>Those 20k lines mean your app is accessible to unsighted users.</q> <q>Those 20k lines just reduced your operating costs by 30%.</q> Really knocking the delivery out of the park is ultimately about relationships with the humans you’re delivering it to, and understanding what they care about. There is not a context window big enough to navigate this infinitely-deep human problem.
 
-Out of all these steps, AI is trash at all of these, except maybe #3. Which is 20% of the process, being generous.
+Out of all these steps, AI is trash at all of these, except maybe #4. Which is 20% of the process, being generous.
 
 <q><i>pRoMpT BeTtEr!</i></q>
 
