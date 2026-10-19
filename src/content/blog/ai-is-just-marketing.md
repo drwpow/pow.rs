@@ -27,7 +27,7 @@ Why, indeed.
 
 ## Power (tools) to the people
 
-I’m so excited for the snake oil salesman bubble to pop, and for us to all stop pretending [tokens aren’t monetary nonsense](https://www.youtube.com/watch?v=CudIfoRiVYQ). When the companies collapse and we can sell it for parts, we realize that ~we were the artificial intelligence all along~ the technology _is_ pretty good, when it’s commercially-affordable, and several companies are competing over price and quality so consumers can decide whether they want the [red, yellow, orange, lime green, or blue](https://www.protoolreviews.com/brand-loyalty-in-the-power-tool-industry/) power tools (_clearly_ the red is best).
+I’m so excited for the snake oil salesman bubble to pop, and for us to all stop pretending [tokens aren’t monetary nonsense](https://www.youtube.com/watch?v=CudIfoRiVYQ). When the companies collapse and we can sell it for parts, we realize that ~we were the artificial intelligence all along~ the technology _is_ pretty good, when it’s commercially-affordable, and several companies are competing over price and quality so consumers can decide whether they want the [red, orange, yellow, lime green, teal, or blue](https://www.protoolreviews.com/brand-loyalty-in-the-power-tool-industry/) power tools (_clearly_ teal is best).
 
 <figure>
   <img src="/assets/posts/ai-is-just-marketing/he-layeth-on-high.jpg" alt="Still of Fred Willard in a 2020 “I Think You Should Leave” sketch where by mistake he is hired to play a whimsical fotoplayer at a funeral"/>
