@@ -18,14 +18,14 @@
     "three": "^0.184.0"
   },
   "devDependencies": {
-    "@astrojs/mdx": "^5.0.6",
-    "@astrojs/rss": "^4.0.18",
-    "@astrojs/sitemap": "^3.7.2",
-    "@biomejs/biome": "^2.4.15",
-    "astro": "^6.3.7",
-    "colorjs.io": "^0.6.1",
-    "cspell": "^10.0.0",
-    "prettier": "^3.8.3",
-    "sass": "^1.100.0"
+    "@astrojs/mdx": "^8.1.0",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
+    "@biomejs/biome": "^2.5.15",
+    "astro": "^7.4.0",
+    "colorjs.io": "^0.7.1",
+    "cspell": "^10.4.0",
+    "prettier": "^3.9.10",
+    "sass": "^1.105.2"
   }
 }
