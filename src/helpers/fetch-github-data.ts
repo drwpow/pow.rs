@@ -1,5 +1,5 @@
 const OG_IMAGE_RE = /property\s*=\s*"og:image"\s*content\s*=\s*"([^"]+)"/;
-const STAR_COUNT_RE = /id\s*=\s*"repo-stars-counter-star"[^>]+>([^<]+)</;
+const STAR_COUNT_RE = /"stargazerCount":\s*(\d+)/;
 
 export async function fetchGitHubData(
   url: string,
@@ -11,14 +11,15 @@ export async function fetchGitHubData(
     },
   });
   const body = await res.text();
-  const unfurlImg = body.match(OG_IMAGE_RE);
-  const starCount = body.match(STAR_COUNT_RE);
-  if (!unfurlImg || !unfurlImg[1])
-    throw new Error(`${url}: Couldn’t find social image`);
-  if (!starCount || !starCount[1])
-    throw new Error(`${url}: Couldn’t find star count `);
+  if (!res.ok) throw new Error(`${res.status} ${body}`);
+  const unfurlImg = body.match(OG_IMAGE_RE)?.[1];
+  const starCount = body.match(STAR_COUNT_RE)?.[1];
+  if (!unfurlImg) throw new Error(`${url}: Couldn’t find social image`);
+  if (!starCount) throw new Error(`${url}: Couldn’t find star count `);
   return {
-    unfurlImg: unfurlImg[1],
-    starCount: starCount[1],
+    unfurlImg,
+    starCount: new Intl.NumberFormat("en-us", { notation: "compact" }).format(
+      starCount,
+    ),
   };
 }
